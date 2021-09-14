@@ -35,7 +35,7 @@
 - Sequelize
 - APIs
 
-### Tablero de trabajo: https://trello.com/b/HE9k0EAJ/
+### Tablero de trabajo:(https://trello.com/b/HE9k0EAJ/)
  
 
 
