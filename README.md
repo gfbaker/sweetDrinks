@@ -9,7 +9,7 @@
 
 - [Ignacio Ghibaudo](https://github.com/IgnacioGhibaudo): Soy Nacho, técnico en informática, amante de los videojuegos y el café.  Me gustan los idiomas y nadar.
 
-- [Mara Prado ]():
+- [Mara Prado](https://github.com/maracprado): Soy Marita, me gusta la tecnología y programar me divierte. Cuando no estoy nerdeando, se me encuentra entrenando para triatlón...
 
 - [Irina Palosz]():
 
