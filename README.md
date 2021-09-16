@@ -9,9 +9,9 @@
 
 - [Ignacio Ghibaudo](https://github.com/IgnacioGhibaudo): Soy Nacho, técnico en informática, amante de los videojuegos y el café.  Me gustan los idiomas y nadar.
 
-- [Mara Prado ]():
+- [Mara Prado](https://github.com/maracprado): Soy Marita, me gusta la tecnología y programar me divierte. Cuando no estoy nerdeando, se me encuentra entrenando para triatlón...
 
-- [Irina Palosz]():
+- [Irina Palosz](https://github.com/IrinaPalosz): Soy Iri, nueva en programacion :blush: pero con muchas ganas de aprender :muscle: Soy amante del mate y me gusta cocinar y bailar.
 
 ### Webs en las que nos inspiramos... :pencil:
 - [GO BAR](https://www.gobar.com.ar/): 
@@ -35,7 +35,7 @@
 - Sequelize
 - APIs
 
-### Tablero de trabajo:
+### [Tablero de trabajo](https://trello.com/b/HE9k0EAJ/)
  
 
 
