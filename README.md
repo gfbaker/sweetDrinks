@@ -1,7 +1,9 @@
 # Sweet Drinks - Grupo 2
-*Proyecto integrador del curso de desarrollo web Full Stack de digital house. Grupo 2*
+*Grupo 2 del Proyecto integrador. Curso de Desarrollo Web Full Stack de Digital House.*
 
-**Sweet Drinks** es un sitio de e-commerce enteramente dedicado a la venta de bebidas alcohólicas destiladas, entre ellas vinos, vodka, whisky, ron, ginebra, coñac y tequila.
+Enlace a nuestro tablero de trabajo en la plataforma [Trello](https://trello.com/b/HE9k0EAJ/tareas).
+
+**Sweet Drinks** es un sitio de e-commerce enteramente dedicado a la venta de bebidas alcohólicas destiladas, entre ellas se encuentra el vino, vodka, whisky, ron, ginebra, coñac y tequila.
 
 
 ### Integrantes
@@ -34,9 +36,5 @@
 - MySQL
 - Sequelize
 - APIs
-
-### [Tablero de trabajo](https://trello.com/b/HE9k0EAJ/)
- 
-
 
 ### Instrucciones:
