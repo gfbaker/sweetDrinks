@@ -3,7 +3,7 @@
 
 Enlace a nuestro tablero de trabajo en la plataforma [Trello](https://trello.com/b/HE9k0EAJ/tareas).
 
-**Sweet Drinks** es un sitio de e-commerce enteramente dedicado a la venta de bebidas alcohólicas destiladas, entre ellas se encuentra el vino, vodka, whisky, ron, ginebra, coñac y tequila.
+**Sweet Drinks** es un sitio de e-commerce enteramente dedicado a la venta de bebidas alcohólicas fermentadas y destiladas, entre ellas se encuentra el vino, vodka, whisky, ron, ginebra, coñac y tequila. Está dirigido a clientes mayores de 18 años, sin distinción generacional.
 
 
 ### Integrantes
