@@ -16,15 +16,15 @@ Enlace a nuestro tablero de trabajo en la plataforma [Trello](https://trello.com
 - [Irina Palosz](https://github.com/IrinaPalosz): Soy Iri, nueva en programacion :blush: pero con muchas ganas de aprender :muscle: Soy amante del mate y me gusta cocinar y bailar.
 
 ### Webs en las que nos inspiramos... :pencil:
-- [GO BAR](https://www.gobar.com.ar/): 
+- [GO BAR](https://www.gobar.com.ar/):  Tipografía e íconos, Detalle de producto (Web).
 
-- [OSLO BEBIDAS](https://oslobebidas.com.ar/): 
+- [OSLO BEBIDAS](https://oslobebidas.com.ar/): Detalle de producto (Mobile), Pie de página.
 
-- [ALMACEN DE BEBIDAS MDQ](https://www.almacendebebidasmdq.com.ar/): 
+- [ALMACEN DE BEBIDAS MDQ](https://www.almacendebebidasmdq.com.ar/): Detalle de producto (Web), Home.
 
-- [DOMAINE BOUSQUET](https://domainebousquet.com/en/): 
+- [DOMAINE BOUSQUET](https://domainebousquet.com/en/): Pie de página y Home.
 
-- [JAMESON WHISKEY](https://www.jamesonwhiskey.com/es-AR/): 
+- [JAMESON WHISKEY](https://www.jamesonwhiskey.com/es-AR/): Barra de navegación.
 
 ### Tecnologías que se van a utilizar :hammer_and_pick:
 - HTML
@@ -37,4 +37,4 @@ Enlace a nuestro tablero de trabajo en la plataforma [Trello](https://trello.com
 - Sequelize
 - APIs
 
-### Instrucciones:
+
