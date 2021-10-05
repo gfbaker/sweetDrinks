@@ -1,11 +1,49 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+ul {
+    list-style-type: none;
+}
+
 /* MOBILE */
 
+header {
+    display: block;
+    width: 100%;
+    background-color: green;
+}
 
+.contenedor-header {
+    background-color: hotpink;
+    width: 20px;
+}
 
+.margen-superior{
+    display: flex;
+    flex-flow: row;
+    background-color:gold;
+    width: 100vw;
+}
 
+.search-inicio {
+    display: flex;
+    background-color: mediumblue;
+    width: 100vw;
 
+}
 
+.paginas {
+    background-color: slategrey;
+    width: 20px;
+}
 
+.logo-sd {
+    width: 30px;
+    height: 30px;
+}
 
 
 /* TABLETS */
