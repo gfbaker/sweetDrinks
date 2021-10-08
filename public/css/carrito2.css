@@ -20,6 +20,7 @@ form.formulario{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding-bottom: 130px;
 
 }
 
@@ -60,7 +61,10 @@ div.elegirMetodoEnvio{
     flex-direction: column;
     justify-content: center;
     margin: 5px 10px;
-    left:50px;
+    max-width: 340px;
+    position: relative;
+    left:50%;
+    transform: translateX(-52%);
 }
 label.elegirMetodoEnvio{
     text-align: center;
@@ -73,7 +77,7 @@ label.elegirMetodoEnvio{
 div.elegirMetodoPago{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     margin: 5px 10px;
     left:50px;
 }
@@ -84,6 +88,10 @@ label.elegirMetodoPago{
 div.selectorMetodoPago{
     display: flex;
     justify-content: space-around;
+    max-width: 340px;
+    position: relative;
+    left:50%;
+    transform: translateX(-52%);
 }
 
 div.datosMetodoPago{
@@ -116,12 +124,12 @@ section.comprar{
     position: fixed;
     bottom: 0px;
     width: 100%;
-    max-height: 15vh;
+    max-height: 120px;
     display: flex;
     flex-direction: column;
     box-shadow: 0px 0px 4px #79787e;
     background-color: #79787e;
-    padding:3% 5%;
+    padding:5px 10px;
 
 }
 div.direccion{
@@ -131,6 +139,10 @@ div.total{
     display: flex;
     justify-content: space-between;
     margin-top: 3px;
+    max-width: 650px;
+    position: relative;
+    left:50%;
+    transform: translateX(-52%);
 }
 p.total{
     font-size: 1.2rem;
@@ -139,7 +151,11 @@ p.total{
 div.comprar{
     display: flex;
     justify-content: center;
-    padding: 3% 0px;
+    padding: 5px 0px;
+    max-width: 650px;
+    position: relative;
+    left:50%;
+    transform: translateX(-52%);
 }
 div.botonComprar{
     background-color: #f0f2f0;
@@ -150,11 +166,8 @@ div.botonComprar{
     width: 50%;
     border-radius: 4px;
     box-shadow: 0px 0px 4px #ebebeb;
-    color:  #1e202f;
     border: 1px solid rgba(30, 32, 47, .4);
-
 }
-
 
 /* ---------FOOTER--------- */
 .footer{
