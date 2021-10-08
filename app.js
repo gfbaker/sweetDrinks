@@ -16,3 +16,19 @@ app.listen(port, () => {
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'views/index.html'));
 });
+
+app.get('/carrito1', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views/carrito1.html'));
+});
+
+app.get('/carrito2', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views/carrito2.html'));
+});
+
+app.post('/carrito1', (req, res) => {
+    res.redirect('/');
+});
+
+app.post('/carrito2', (req, res) => {
+    res.redirect('/');
+});

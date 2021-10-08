@@ -1,0 +1,162 @@
+.body{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ---------HEADER--------- */
+.header{
+    height: 10vh;
+}
+
+
+/* ---------MAIN--------- */
+.main{
+    height: 80vh;
+    background-color: #ebebeb;
+}
+
+form.formulario{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+
+/* ---------MAIN-DIRECCION--------- */
+
+section.direccionEnvio{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 0px 10px;
+}
+section.direccionEnvio > *{
+    padding: 5px 0px;
+
+}
+input[type=text] {
+    font-style: italic;
+    box-sizing: border-box;
+    border: 1px solid #f0f2f0;
+    border-radius: 4px;
+    box-shadow: 0px 0px 5px #79787e;
+    padding: 5px;
+    background-color: rgba(121, 120, 126,.8);
+    color: #f0f2f0;
+}
+input[type=text]::placeholder{
+    color: #f0f2f0;
+    font-size: .8rem;
+}
+
+
+/* ---------MAIN-ENVIO--------- */
+
+div.elegirMetodoEnvio{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 5px 10px;
+    left:50px;
+}
+label.elegirMetodoEnvio{
+    text-align: center;
+    margin: 10px 0px;
+}
+
+
+/* ---------MAIN-PAGO--------- */
+
+div.elegirMetodoPago{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 5px 10px;
+    left:50px;
+}
+label.elegirMetodoPago{
+    text-align: center;
+    margin: 10px 0px;
+}
+div.selectorMetodoPago{
+    display: flex;
+    justify-content: space-around;
+}
+
+div.datosMetodoPago{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 0px 10px;
+}
+div.datosMetodoPago > *{
+    padding: 5px 0px;
+
+}
+div.separadorDatosTarjeta{
+    display: flex;
+    justify-content: center;
+}
+
+div.separadorDatosTarjeta{
+    text-align: center;
+}
+input[type=text].separadorDatosTarjeta {
+    width: 80%;
+}
+
+
+/* ---------MAIN-COMPRAR--------- */
+
+section.comprar{
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    max-height: 15vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 4px #79787e;
+    background-color: #79787e;
+    padding:3% 5%;
+
+}
+div.direccion{
+    font-size: 10px;
+}
+div.total{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3px;
+}
+p.total{
+    font-size: 1.2rem;
+}
+
+div.comprar{
+    display: flex;
+    justify-content: center;
+    padding: 3% 0px;
+}
+div.botonComprar{
+    background-color: #f0f2f0;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 5px;
+    width: 50%;
+    border-radius: 4px;
+    box-shadow: 0px 0px 4px #ebebeb;
+    color:  #1e202f;
+    border: 1px solid rgba(30, 32, 47, .4);
+
+}
+
+
+/* ---------FOOTER--------- */
+.footer{
+    height: 10vh;
+}

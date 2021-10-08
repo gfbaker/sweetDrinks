@@ -1,0 +1,166 @@
+.body{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+    background-color: #ebebeb;
+}
+
+/* ---------HEADER--------- */
+.header{
+    height: 10vh;
+}
+
+
+/* ---------MAIN--------- */
+.main{
+    height: 80vh;
+    background-color: #ebebeb;
+}
+
+/* ---------MAIN-ARTICULOS--------- */
+section.articulos{
+    box-sizing: border-box;
+    padding-bottom: 20vh;
+
+
+}
+article.articulo{
+    margin: 5%;
+    padding: 2%;
+    max-height: 30vh;
+    background-color: #f0f2f0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 10px rgb(100 100 100);
+    border-radius: 4px;
+}
+div.mainArticulo{
+    display: flex;
+    justify-content: space-around;
+    height: 95%;
+}
+div.bottomArticulo{
+    height: 5%;
+    align-self: flex-start;
+    margin-top: 2%;
+}
+div.datosArticulo{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding:7% 0px;
+}
+img.imgProducto{
+    max-height: 18vh;
+    margin-right: 5px;
+}
+div.nombreArticulo{
+    flex-grow: 1;
+}
+p.nombreArticulo{
+    font-size: 14px;
+    font-weight: bold;
+}
+div.descripcionArticulo{
+    flex-grow: 1;
+}
+p.descripcionArticulo{
+    font-size: 10px;
+    text-align: left;
+}
+div.qypArticulo{
+    display: flex;
+    align-items: flex-end;
+    flex-grow: 2;
+}
+div.cantidadArticulo{
+    width: 50%;
+    padding: 0px 5%;
+    display: flex;
+    justify-content: space-between;
+}
+p.cantidadArticulo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+p.cantidadArticulo{
+    font-size: 16px;
+    padding:5%;
+    border: 1.5px solid #79787e;
+    border-radius: 4px;
+    text-align: center;
+    background-color:#79787e;
+    color:#ebebeb;
+    box-sizing: border-box;
+    width: 20px;
+    height: 30px;
+    box-shadow: 0px 0px 4px #79787e;
+}
+div.precioArticulo{
+    width: 50%;
+    text-align: end;
+}
+div.cantidadArticulo i.fas{
+    align-self: center;
+    padding: 5%;
+    color:#1e202f;
+}
+i.fa-times-circle{
+    color:rgba(223, 1, 1, 0.746);
+}
+
+/* ---------MAIN-COMPRAR--------- */
+
+section.comprar{
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    max-height: 15vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 4px #79787e;
+    background-color: #79787e;
+    padding:3% 5%;
+
+}
+div.direccion{
+    font-size: 10px;
+}
+div.total{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3px;
+}
+p.total{
+    font-size: 1.2rem;
+}
+
+div.comprar{
+    display: flex;
+    justify-content: center;
+    padding: 3% 0px;
+}
+div.botonComprar{
+    background-color: #f0f2f0;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 5px;
+    width: 50%;
+    border-radius: 4px;
+    box-shadow: 0px 0px 4px #ebebeb;
+    border: 1px solid rgba(30, 32, 47, .4);
+}
+a.botonComprar{
+    text-decoration: none;
+    color:  #1e202f;
+}
+
+
+/* ---------FOOTER--------- */
+.footer{
+    height: 10vh;
+}
