@@ -32,3 +32,8 @@ app.post('/carrito1', (req, res) => {
 app.post('/carrito2', (req, res) => {
     res.redirect('/');
 });
+
+/*PRODUCTDETAIL.HTML */
+app.get('/detalleDeProduto', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views/productDetail.html'));
+});

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Detalle del Producto</title>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/productDetail.css">
+    <link rel="stylesheet" href="/css/normalize.css">
+
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    rel="stylesheet" />   
+    <script src="https://kit.fontawesome.com/1d73708eed.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-----HEADER----->
+    <header>
+        <div class="contenedor-header">
+            <div class="margen-superior">
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-facebook"></i>
+                <p>Envios a domicilio</p>
+            </div>
+            <div class="search-inicio">
+                <img class="logo-sd" src="./img/logo-slogan.png" alt="imagen-logo-sweetdrinks">
+                <ul>
+                    <li></li>
+                </ul>
+            </div>
+            <div class="paginas">
+            </div>
+        </div>
+    </header>
+    <!----- FIN-HEADER ----->
+
+        
+    <!----- MAIN ----->
+    <main class="mainProductDetail">
+        <section>
+            <article>
+                
+                <div class="imgDtProd">
+
+                        <img src="/img/laLindaVino.jpg" alt="La Linda Vino">
+
+                   <div class="imgDtProdMini">
+
+                    <img src="/img/laLindaVino2.jpg" alt="La Linda Vino segunda imagen">
+                    <img src="/img/laLindaVino3.jpg" alt="La Linda Vino tercera imagen">
+
+                   </div>  
+
+                </div>
+                <div class="dtProdInfo"> 
+                   <div class="tituloPrecioDtProd">
+                      <h1>Vino Finca La Linda Malbec Tinto</h1>
+                      <h3>$593</h3>
+                   </div>
+
+                    <p>
+                        Apto para guarda de unos 5 años. Decantar por espacio de una hora.
+                        La temperatura adecuada para disfrutar este vino es entre 16º y 18º C.
+                        Este vino acompaña muy bien platos a base de carnes rojas,
+                        carnes de caza mayor y quesos duros con carácter.
+                        En boca se perciben taninos equilibrados.
+                         Aterciopelado. De buena estructura, fino, moderno.
+                    </p>
+
+                    <ul class="infoAdicionalDtProd">
+                        <li>Graduación alcohólica: 13.9% </li>
+                        <li>Volumen de la unidad: 750 mL</li>
+                    </ul>
+                
+
+                 <div class="dtProductosFormulario">
+
+                    <form action="carritoDeCompras" method="POST">
+                       <div>
+                           <label for="cantidad"> </label>
+                           <input type="number" name="cantidad" id="cantidad" placeholder="Cantidad" min="0" max="100">
+                       </div>
+
+                       <div>
+                          <label for="carrito"></label>
+                          <input type="button" value="Agregar al carrito">
+                       </div>
+                    </form>
+                </div>
+                </div>
+            </article>
+        </section>
+        <section>
+            <article>
+                <div><h2>Productos Relacionados</h2></div>
+
+                <div class="dtProdRel">
+
+                   
+
+                    
+                            <div class="prodRelArt1">
+
+                               <div class="imgRelArt">
+
+                                 <img src="/img/elementoVino.jpg" alt="Elementos Vino Tinto">
+
+                               </div>
+
+                                <div class="pieRelArti">
+
+                                   <h3>Vino Tinto Elementos </h3>
+                                   <p>Malbec 750 Cc</p>
+
+                                </div>
+                            </div>
+
+                            <div class="prodRelArt2">
+
+                                <div class="imgRelArt2">
+
+                                <img src="/img/DanteRobinoVino.jpg" alt="Dante Robino Vino Tinto">
+   
+                                </div>
+   
+                                <div class="pieRelArti">
+   
+                                 <h3>Vino tinto Dante Robino</h3>
+                                 <p>Malbec 750 Cc</p>
+                                </div>
+
+                            </div>
+
+                            <div class="prodRelArt3">
+                                <div class="imgRelArt3">
+
+                                 <img src="/img/CafayateVino.jpg" alt="Cafayate Etchart Vino Tinto">
+   
+                                </div>
+   
+                                <div class="pieRelArti">
+   
+                                  <h3>Vino tinto Cafayate Reserve bodega Etchart</h3>
+                                  <p>Malbec 750 Cc</p>
+   
+                                </div>
+
+                            </div>    
+
+                            <div class="prodRelArt3">
+                                <div class="imgRelArt4">
+
+                                 <img src="/img/ArnaldoBVino.jpg" alt="Arnaldo B. Gran Reserva Vino Tinto">
+   
+                                </div>
+   
+                                <div class="pieRelArti">
+   
+                                  <h3>Vino Tinto Arnaldo B. Grand Reserve Bodega Etchart </h3>
+                                  <p>Malbec 750 Cc</p>
+   
+                                </div>
+
+                    </div>
+                </div>
+            </article>
+        </section>
+
+    </main>
+    <!----- FIN-MAIN ----->
+
+    <!----- FOOTER ----->
+    <footer>
+        <div class="contenedor-footer">
+            <div class="informacion-footer">
+
+            </div>
+            <div class="medios-pago">
+
+            </div>
+            <div class="leyenda-footer">
+
+            </div>
+        </div>
+    </footer>
+    <!----- FIN-FOOTER ----->
+</body>
+</html>
