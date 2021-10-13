@@ -66,50 +66,226 @@
     font-family: 'Poppins', sans-serif;
 }
 
-ul {
-    list-style-type: none;
-}
 
 /* MOBILE */
 
-header {
-    display: block;
-    width: 100%;
-    background-color: green;
-}
+/* HEADER */
 
-.contenedor-header {
-    background-color: hotpink;
-    width: 20px;
-}
 
-.margen-superior{
-    display: flex;
-    flex-flow: row;
-    background-color:gold;
-    width: 100vw;
-}
+    .contenedor-header {
+        background-color: hotpink;
+        width: 20px;
+    }
 
-.search-inicio {
-    display: flex;
-    background-color: mediumblue;
-    width: 100vw;
+    .margen-superior{
+        display: flex;
+        flex-flow: row;
+        background-color:gold;
+        width: 100vw;
+    }
 
-}
+    .search-inicio {
+        display: flex;
+        background-color: mediumblue;
+        width: 100vw;
 
-.paginas {
-    background-color: slategrey;
-    width: 20px;
-}
+    }
 
-.logo-sd {
-    width: 30px;
-    height: 30px;
-}
+    .paginas {
+        background-color: slategrey;
+        width: 20px;
+    }
+
+    .logo-sd {
+        width: 30px;
+        height: 30px;
+    }
+
+
+    .top-bar{
+        width: 100vw;
+        background-color: rgb(255, 200, 80);
+        height: 13px;
+    }
+
+
+    .top-bar h2 {
+        color: white;
+        font-size: 12px;
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+        font-size: 8px;
+        padding: 1px;
+    }
+
+
+
+    header {
+        display: block;
+        width: 100%;
+        background-color: black;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .search-input {
+        width: 45vw;
+        height: 4vh;
+        border-radius: 5px;
+    }
+
+    a {
+        text-decoration: none;
+        color: white;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .nav-central a {
+        font-family: 'Poppins', sans-serif;
+        margin: 5px;
+    }
+
+    .main-header-top {
+        display: flex;
+        justify-content: space-around;
+        margin: 20px;
+    }
+
+    .logo-sweetdrinks {
+        width: 30px;
+        height: 30px;
+        margin: 5px
+    }
+
+    .sign-bar {
+        display: flex;
+        margin: 7px;
+    }
+
+
+    .imagen-banner {
+        width: 100vw;
+        margin-top: -6px;
+    }
+
+    .barra-busqueda {
+        margin: 5px;
+
+    }
+
+    .search-button-header {
+        position: absolute;
+        margin: 7px 0px 0px -23px;
+        background-color: white;
+        border: none;
+    }
+
+    .icono {
+        color: white;
+        display: inline;
+        margin: 7px 7px 7px 7px;
+    }
+
+    .right-navbar p {
+        color: white;
+        display: inline;
+        margin: 1px 1px 1px 1px;
+    }
+
+    p {
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .nav-bar {
+        text-align: center;
+        border-top: solid 0.1px #ebebeb81;
+        padding-top: 15px;
+    }
+
+/* MAIN */
+
+    .main-space {
+        height: 2vh;
+    }
+
+    .ofertas-main {
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .ofertas-section{
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .ofertas-section ul {
+        margin: 5px;
+        text-align: center;
+    }
+
+    .img-article {
+        width: 120px;
+        height: 120px;
+    }
+
+    .articulos {
+        display: flex;
+        justify-content: center;
+        margin: 10px;
+
+    }
+
+    .article-main {
+        margin: 5px;
+    }
+
+    main h3 {
+        text-align: center;
+        margin: 6px;
+        font-size: 22px;
+        font-family: 'Poppins', sans-serif;
+    }
+
+/* FOOTER */
+
+    footer {
+        background-color: rgba(0, 0, 0, 0.1);
+        font-family: 'Poppins', sans-serif;
+    }    
+
+    .footer-section {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .footer-section ul {
+        text-align: left;
+        display: flex;
+        flex-flow: column;
+    }
+
+    .footer-section ul a {
+        text-align: left;
+        color: black;
+        margin: 5px;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .footer-section ul p {
+        margin: 5px;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .h4-footer {
+        margin: 5px;
+    }
+
+    .icono-footer {
+        margin: 5px;
+    }
 
 
 /* TABLETS */
 @media (min-width:481){
+
 
 }
 

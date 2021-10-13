@@ -5,16 +5,18 @@
     background-color: #ebebeb;
 }
 
-/* ---------HEADER--------- */
-.header{
-    height: 10vh;
-}
 
 
 /* ---------MAIN--------- */
 .main{
-    height: 80vh;
     background-color: #ebebeb;
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+}
+
+section {
+    margin: 5px;
 }
 
 /* ---------MAIN-ARTICULOS--------- */
@@ -122,7 +124,6 @@ i.fa-times-circle{
 /* ---------MAIN-COMPRAR--------- */
 
 section.comprar{
-    position: fixed;
     bottom: 0px;
     width: 100%;
     max-height: 120px;

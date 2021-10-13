@@ -36,7 +36,7 @@ app.post('/carrito2', (req, res) => {
 });
 
 /*PRODUCTDETAIL.HTML */
-app.get('/detalleDeProduto', (req, res) => {
+app.get('/productDetail', (req, res) => {
     res.sendFile(path.join(__dirname, 'views/productDetail.html'));
 });
 

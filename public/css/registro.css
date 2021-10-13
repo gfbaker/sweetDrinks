@@ -109,21 +109,21 @@ div.registrarse{
     left:50%;
     transform: translateX(-52%);*/
 } 
-div.botonRegistrarse{
+.botonRegistrarse{
     background-color: #576959;
     text-align: center;
     font-size: 1.5rem;
     font-weight: bold;
     padding: 5px;
     width: 50%;
+    max-width: 320px;
     border-radius: 4px;
     box-shadow: 0px 0px 4px #EB9C4B;
     border: 1px solid #EB9C4B;
-}
-a.botonRegistrarse{
-    text-decoration: none;
     color:  #EB9C4B;
+    margin-top: 10px;
 }
+
 
 
 /* ---------FOOTER--------- */
