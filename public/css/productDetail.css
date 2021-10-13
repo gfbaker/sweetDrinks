@@ -1,7 +1,7 @@
 /* <-----------------DETALLE DEL PRODUCTO Mobile-----------------> */
 
 .mainProductDetail{
-    background-color: #f0f2f0;
+    background-color: #e5e5e5;
     padding-bottom: 40px;
     color: #1e202f;
 }
@@ -88,7 +88,7 @@
 .dtProductosFormulario form input:hover{
     color: white;
     font-weight: bold;
-    background-color:#79787e ;
+    background-color: #EB9C4B ;
 }
 main section article h2{
     text-align: center;
@@ -231,7 +231,7 @@ section article .dtProdRel{
     }
     .dtProdInfo p{
         order: 1;
-        border-top: solid 2px #79787e;
+        border-top: solid 2px #EB9C4B;
         margin-bottom: 5%;
         margin-top: 5%;
     }
