@@ -120,17 +120,16 @@ input[type=text].separadorDatosTarjeta {
 
 /* ---------MAIN-COMPRAR--------- */
 
-section.comprar{
+section.comprar {
     position: fixed;
     bottom: 0px;
     width: 100%;
     max-height: 120px;
     display: flex;
     flex-direction: column;
-    box-shadow: 0px 0px 4px #79787e;
-    background-color: #79787e;
-    padding:5px 10px;
-
+    box-shadow: 0px 0px 4px #576959;
+    background-color: #eb9b4ba6;
+    padding: 5px 10px;
 }
 div.direccion{
     font-size: 10px;
@@ -158,15 +157,19 @@ div.comprar{
     transform: translateX(-52%);
 }
 div.botonComprar{
-    background-color: #f0f2f0;
+    background-color: #576959;
     text-align: center;
     font-size: 1.5rem;
     font-weight: bold;
     padding: 5px;
     width: 50%;
     border-radius: 4px;
-    box-shadow: 0px 0px 4px #ebebeb;
-    border: 1px solid rgba(30, 32, 47, .4);
+    box-shadow: 0px 0px 4px #EB9C4B;
+    border: 1px solid #EB9C4B;
+}
+a.botonComprar{
+    text-decoration: none;
+    color:  #EB9C4B;
 }
 
 /* ---------FOOTER--------- */
