@@ -17,25 +17,54 @@
     <script src="https://kit.fontawesome.com/1d73708eed.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <!-----HEADER----->
-    <header>
-        <div class="contenedor-header">
-            <div class="margen-superior">
-                <i class="fab fa-instagram"></i>
-                <i class="fab fa-facebook"></i>
-                <p>Envios a domicilio</p>
+        <!-- HEADER -->
+        <header>
+            <div class="top-bar">
+                <h2>Descarga nuestra aplicacion | Hace tu compra tranquilo</p>
             </div>
-            <div class="search-inicio">
-                <img class="logo-sd" src="./img/logo-slogan.png" alt="imagen-logo-sweetdrinks">
-                <ul>
-                    <li></li>
+            <div class="main-header-top">
+                <a href="/">
+                    <img class="logo-sweetdrinks" src="./img/logo-png.png" alt="logo sweet-drinks">
+                </a>
+                    <div class="barra-busqueda">
+                        <input class="search-input"  id="input-header" type="search" placeholder="¿Qué estás buscando?">
+                        <button class="search-button-header" type="submit"><i class="fa fa-search"></i></button>
+                    </div>
+                <div class="sign-bar">
+                    <div class="right-navbar">  
+                        <i class="far fa-comments icono"></i> 
+                        <p>Ayuda</p> 
+                    </div>
+                    <div class="right-navbar"> 
+                        <i class="far fa-user icono"></i>
+                        <p>Mi Cuenta</p>    
+                    </div>
+                    <div class="right-navbar">  
+                        <i class="fas fa-shopping-basket icono"></i>  
+                        <p>Carrito</p> 
+                    </div>
+                </div>
+            </div>
+
+            <nav class="nav-bar">
+                <ul class="nav-central">
+                    <a  href="">Vinos</a>
+                    <a  href="">Cervezas</a>
+                    <a  href="">Bebidas sin alcohol</a>
+                    <a  href="">Destilados</a>
+                    <a  href="">Combos</a>
                 </ul>
+            </nav>
+
+            <div class="burguer-padre">
+                <div class="burguer-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
             </div>
-            <div class="paginas">
-            </div>
-        </div>
-    </header>
-    <!----- FIN-HEADER ----->
+            <img class="imagen-banner" src="./img/sw-banner.jpeg" alt="banner">
+        </header> 
+
+        <!-- FIN DEL HEADER -->
 
         
     <!----- MAIN ----->
@@ -174,18 +203,28 @@
 
     <!----- FOOTER ----->
     <footer>
-        <div class="contenedor-footer">
-            <div class="informacion-footer">
-
-            </div>
-            <div class="medios-pago">
-
-            </div>
-            <div class="leyenda-footer">
-
-            </div>
-        </div>
-    </footer>
+        <section class="footer-section">
+                <ul>
+                    <h4 class="h4-footer">Categorias</h4>
+                    <a  href="">Vinos</a>
+                    <a  href="">Cervezas</a>
+                    <a  href="">Bebidas sin alcohol</a>
+                    <a  href="">Destilados</a>
+                    <a  href="">Combos</a>
+                </ul>
+                <ul>
+                    <h4 class="h4-footer">Contactános</h4>
+                    <p>261-5678906</p>
+                    <p>sweet-drinks@bebidas.com</p>
+                    <p>Ugarte 546, Ciudad</p>
+                </ul>
+                <ul>
+                    <h4 class="h4-footer">Sigamos conectados</h4>
+                    <i class="fab fa-facebook icono-footer"></i>
+                    <i class="fab fa-instagram icono-footer"></i>
+                </ul>
+        </section>            
+    </footer> 
     <!----- FIN-FOOTER ----->
 </body>
 </html>

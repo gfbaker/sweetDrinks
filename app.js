@@ -21,12 +21,12 @@ app.get('/carrito1', (req, res) => {
     res.sendFile(path.join(__dirname, 'views/carrito1.html'));
 });
 
-app.get('/carrito2', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views/carrito2.html'));
-});
-
 app.post('/carrito1', (req, res) => {
     res.redirect('/');
+});
+
+app.get('/carrito2', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views/carrito2.html'));
 });
 
 app.post('/carrito2', (req, res) => {
@@ -34,6 +34,6 @@ app.post('/carrito2', (req, res) => {
 });
 
 /*PRODUCTDETAIL.HTML */
-app.get('/detalleDeProduto', (req, res) => {
+app.get('/productDetail', (req, res) => {
     res.sendFile(path.join(__dirname, 'views/productDetail.html'));
 });
