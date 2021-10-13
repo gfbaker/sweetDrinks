@@ -48,3 +48,12 @@ app.get('/registro', (req, res) => {
 app.post('/registro', (req, res) => {
     res.redirect('/');
 });
+
+/* LOGIN */
+app.get('/login', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views/login.html'));
+});
+
+app.post('/login', (req, res) => {
+    res.redirect('/');
+});
