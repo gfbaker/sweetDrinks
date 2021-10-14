@@ -12,7 +12,6 @@
 
 /* ---------MAIN--------- */
 .main{
-    height: 80vh;
     background-color: #ebebeb;
 }
 
@@ -20,8 +19,6 @@ form.formulario{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-bottom: 130px;
-
 }
 
 
@@ -121,7 +118,7 @@ input[type=text].separadorDatosTarjeta {
 /* ---------MAIN-COMPRAR--------- */
 
 section.comprar {
-    position: fixed;
+    position: sticky;
     bottom: 0px;
     width: 100%;
     max-height: 120px;

@@ -59,6 +59,8 @@
 
 
 
+
+
 * {
     box-sizing: border-box;
     margin: 0px;
@@ -70,8 +72,6 @@
 /* MOBILE */
 
 /* HEADER */
-
-
     .contenedor-header {
         background-color: hotpink;
         width: 20px;
@@ -148,6 +148,7 @@
         display: flex;
         justify-content: space-around;
         margin: 20px;
+        flex-wrap: wrap;
     }
 
     .logo-sweetdrinks {
@@ -254,6 +255,7 @@
     .footer-section {
         display: flex;
         justify-content: space-evenly;
+        flex-wrap: wrap;
     }
 
     .footer-section ul {
