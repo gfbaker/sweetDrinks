@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Registro</title>
+    <title>Carrito</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/carrito1.css">
-    <link rel="stylesheet" href="/css/registro.css">
+    <link rel="stylesheet" href="/css/carrito2.css">
     <link rel="stylesheet" href="/css/normalize.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     rel="stylesheet" />   
@@ -16,10 +16,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
 <body class="body">
+
         <!-- HEADER -->
         <header>
             <div class="top-bar">
-                <h2>Descarga nuestra aplicacion | Hace tu compra tranquilo</p>
+                <p>Descarga nuestra aplicacion | Hace tu compra tranquilo</p>
             </div>
             <div class="main-header-top">
                 <a href="/">
@@ -63,30 +64,78 @@
         </header> 
 
         <!-- FIN DEL HEADER -->
-
         
     <!----- MAIN ----->
     <main class="main">
         <form class="formulario" action="/" method="POST">
-            <section class="registro">
-                <p class="registrp">REGISTRATE</p>
+            <section class="direccionEnvio">
+                <p class="direccionEnvio">DIRECCIÓN DE ENVÍO</p>
                 <div>
-                    <input type="text" id="usuario" name="usuario" placeholder="Nombre de usuario">
+                    <input type="text" id="nombre" name="nombre" placeholder="Nombre y Apellido">
                 </div>
                 <div>
-                    <input type="mail" id="mail" name="mail" placeholder="E-mail">
+                    <input type="text" id="calle" name="calle" placeholder="Calle Nro, piso depto">
                 </div>
                 <div>
-                    <input type="password" id="password" name="password" placeholder="Contraseña">
+                    <input type="text" id="ciudad" name="ciudad" placeholder="Ciudad">
                 </div>
                 <div>
-                    <input type="password" id="confPass" name="confPass" placeholder="Confirmar contraseña">
+                    <input type="text" id="cp" name="cp" placeholder="Código Postal">
                 </div>
                 <div>
                     <input type="text" id="telefono" name="telefono" placeholder="Teléfono">
-                </div> 
-                <button class="botonRegistrarse" type="submit">REGISTRATE</button>
+                </div>                
             </section>
+            <hr>
+            <section class="metodoEnvio">
+                <div class="elegirMetodoEnvio">
+                    <label for="metodoEnvio" class="elegirMetodoEnvio">MÉTODO DE ENVÍO:</label>
+                    <label><input class="multiple" type="radio" name="metodoEnvio" id="standard" value="estandar"> STANDARD</label><br>
+                    <label><input class="multiple" type="radio" name="metodoEnvio" id="express" value="express"> EXPRESS</label><br>
+                </div>    
+            </section>  
+            <hr>
+            <section class="metodoPago">
+                <div class="elegirMetodoPago">
+                    <label for="metodoPago" class="elegirMetodoPago">MÉTODO DE PAGO:</label>
+                    <div class="selectorMetodoPago">
+                        <label><input class="multiple" type="radio" name="metodoPago" id="tarjeta" value="tarjeta"> Tarjeta de crédito</label>
+                        <label><input class="multiple" type="radio" name="metodoPago" id="mercadoPago" value="mercadoPAgo"> Mercado Pago</label>
+                    </div>
+                    <div class="datosMetodoPago">
+                        <div>
+                            <input type="text" id="numeroTarjeta" name="numeroTarjeta" placeholder="Número de tarjeta">
+                        </div>
+                        <div class="separadorDatosTarjeta">
+                            <div>
+                                <input type="text" class="separadorDatosTarjeta" id="códigoTarjeta" name="códigoTarjeta" placeholder="CVV">
+                            </div>
+                            <div>
+                                <input type="text" class="separadorDatosTarjeta" id="vencimientoTarjeta" name="vencimientoTarjeta" placeholder="Vencimiento">
+                            </div>
+                        </div>
+                        <div>
+                            <input type="text" id="nombreTitular" name="nombreTitular" placeholder="Nombre del titular">
+                        </div>
+                        <div>
+                            <input type="text" id="cuotas" name="cuotas" placeholder="Cuotas">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="comprar">
+                <div class="total">
+                    <p class="total">Total</p>
+                    <p class="total$">$$$$$</p>
+                </div>
+                <div class="comprar">
+                    <div class="botonComprar">
+                        <a href="/" class="botonComprar">
+                            <p class="botonComprar">FINALIZAR COMPRA</p>    
+                        </a>
+                    </div>
+                </div>
+             </section>
         </form>
     </main>
     <!----- FIN-MAIN ----->
