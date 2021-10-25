@@ -12,57 +12,13 @@
 </head>
 <body>
         <!-- HEADER -->
-        <header>
-            <div class="top-bar">
-                <p>Descarga nuestra aplicacion | Hace tu compra tranquilo</p>
-            </div>
-            <div class="main-header-top">
-                <a href="/">
-                    <img class="logo-sweetdrinks" src="./img/logo.png" alt="logo sweet-drinks">
-                </a>
-                    <div class="barra-busqueda">
-                        <input class="search-input"  id="input-header" type="search" placeholder="¿Qué estás buscando?">
-                        <button class="search-button-header" type="submit"><i class="fa fa-search"></i></button>
-                    </div>
-                <div class="sign-bar">
-                    <div class="right-navbar">  
-                        <i class="far fa-comments icono"></i> 
-                        <a href="/registro">Registrarse</a> 
-                    </div>
-                    <div class="right-navbar"> 
-                        <i class="far fa-user icono"></i>
-                        <a href="">Mi Cuenta</a>    
-                    </div>
-                    <div class="right-navbar">  
-                        <i class="fas fa-shopping-basket icono"></i>  
-                        <a href="/carrito1">Carrito</a> 
-                    </div>
-                </div>
-            </div>
-
-            <nav class="nav-bar">
-                <ul class="nav-central">
-                    <a  href="">Vinos</a>
-                    <a  href="">Cervezas</a>
-                    <a  href="">Bebidas sin alcohol</a>
-                    <a  href="">Destilados</a>
-                    <a  href="">Combos</a>
-                </ul>
-            </nav>
-
-            <div class="burguer-padre">
-                <div class="burguer-menu">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </div>
-            <img class="imagen-banner" src="./img/sw-banner.jpeg" alt="banner">
-        </header> 
-
+        <%- include('./partials/header') %>
         <!-- FIN DEL HEADER -->
 
         
     <!-- MAIN -->
     <main>
+        <img class="imagen-banner" src="./img/sw-banner.jpeg" alt="banner">
         <div class="main-space">
 
         </div>
@@ -195,29 +151,7 @@
     <!----- FIN-MAIN ----->
 
     <!----- FOOTER ----->
-    <footer>
-        <section class="footer-section">
-                <ul>
-                    <h4 class="h4-footer">Categorias</h4>
-                    <a  href="">Vinos</a>
-                    <a  href="">Cervezas</a>
-                    <a  href="">Bebidas sin alcohol</a>
-                    <a  href="">Destilados</a>
-                    <a  href="">Combos</a>
-                </ul>
-                <ul>
-                    <h4 class="h4-footer">Contactános</h4>
-                    <p>261-5678906</p>
-                    <p>sweet-drinks@bebidas.com</p>
-                    <p>Ugarte 546, Ciudad</p>
-                </ul>
-                <ul>
-                    <h4 class="h4-footer">Sigamos conectados</h4>
-                    <i class="fab fa-facebook icono-footer"></i>
-                    <i class="fab fa-instagram icono-footer"></i>
-                </ul>
-        </section>            
-    </footer> 
+    <%- include('./partials/footer') %>
     <!----- FIN-FOOTER ----->
 </body>
 </html>

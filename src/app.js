@@ -15,7 +15,7 @@ app.set('views', './src/views');
 
 
 app.use("/", mainRoutes);
-app.use("/products", productRoutes);
+app.use("/", productRoutes);
 
 /* SERVIDOR LEVANTADO */
 app.listen(port, () => {
