@@ -6,3 +6,16 @@ Retrospectiva grupal:
 	
 Comenzar a hacer: reuniones mas planeadas
 
+25/10/2021
+
+Retrospectiva sobre el segundo sprint: 
+
+Dejar de hacer: 
+-Dejar de hacer las tareas a último momento.
+-Asignarse tareas al principio del sprint.
+
+Comenzar a hacer: 
+-Asignarse tareas al momento de realizarlas.  
+-Comenzar a verificar las tareas hechas.
+-Dar la prioridad correcta a las tareas.
+-Realizar más reuniones para actualizarnos sobre como vamos las tareas.
