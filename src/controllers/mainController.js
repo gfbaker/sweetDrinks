@@ -8,12 +8,14 @@ const mainController = {
     getCarrito2: (req,res) => {res.render (path.join(__dirname,"../views/carrito2"))},
     getLogin: (req,res) => {res.render (path.join(__dirname,"../views/login"))},
     getRegistro: (req,res) => {res.render (path.join(__dirname,"../views/registro"))},
+    getProductoNuevo: (req,res) => {res.render (path.join(__dirname,"../views/productoNuevo"))},
 
     postIndex: (req,res) => {res.redirect('/');},
     postCarrito1: (req,res) => {res.redirect('/');},
     postCarrito2: (req,res) => {res.redirect('/');},
     postLogin: (req,res) => {res.redirect('/');},
     postRegistro: (req,res) => {res.redirect('/');},
+    postProductoNuevo: (req,res) => {res.redirect('/')},
 
 
 }
