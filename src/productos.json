@@ -1,0 +1,27 @@
+productos = [
+    {
+        "id": "1",
+        "nombre": "Cynar",
+        "tamanio": "1L",
+        "descripcion": "Algo sobre Cynar",
+        "precio": 500,
+        "imagenes": ["Cynar.jpg"]
+    },
+    {
+        "id": "2",
+        "nombre": "Campari",
+        "tamanio": "1L",
+        "descripcion": "Algo sobre Campari",
+        "precio": 600,
+        "imagenes": ["Campari.jpg"]
+    },
+    {
+        "id": "3",
+        "nombre": "Gancia",
+        "tamanio": "1L",
+        "descripcion": "Algo sobre Gancia",
+        "precio": 400,
+        "imagenes": ["Gancia.jpg"]
+    }
+
+]
