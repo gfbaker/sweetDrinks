@@ -6,6 +6,18 @@
     color: #1e202f;
     position: relative;
 }
+.prodDetBotonEditar input{
+    margin:8px;
+    padding: 8px;
+    border: 1px solid #c9d4e8;
+    transition: all 1s;
+}
+.prodDetBotonEditar input:hover{
+    color: white;
+    font-weight: bold;
+    background-color: #EB9C4B ;
+}
+
 .imgDtProd{
     display: flex;
     flex-direction: column;
