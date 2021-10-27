@@ -246,6 +246,32 @@
         font-family: 'Poppins', sans-serif;
     }
 
+    /* formulario registro producto nuevo */
+
+    .form-ProductoNuevo {
+        margin: 15px
+    }
+
+    .div-ProductoNuevo {
+        margin: 5px;
+    }
+
+    .label-ProductoNuevo {
+        font-family: "Poppins";
+        font-size: 16px;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .boton-ProductoNuevo{
+        background-color:#bb6a0e;
+        border: none;
+        font-size: 18px;
+        color: white;
+        padding: 5px;
+        border-radius: 5px;
+    }
+
 /* FOOTER */
 
     footer {
