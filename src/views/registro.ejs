@@ -3,21 +3,19 @@
 
     <!-- HEAD -->
     <%- include('./partials/head',{title:"Registro"}) %>
-    <link rel="stylesheet" href="/css/registro.css">
-    <link rel="stylesheet" href="/css/carrito1.css">
     <!-- FIN-HEAD -->
     
-<body class="body">
+<body class="register-body">
         <!-- HEADER -->
         <%- include('./partials/header') %>
         <!-- FIN DEL HEADER -->
 
         
     <!----- MAIN ----->
-    <main class="main">
-        <form class="formulario" action="/" method="POST">
-            <section class="registro">
-                <p class="registrp">REGISTRATE</p>
+    <main class="register-main">
+        <form class="register-form" action="/" method="POST">
+            <section class="register-section">
+                <p>REGISTRATE</p>
                 <div>
                     <input type="text" id="usuario" name="usuario" placeholder="Nombre de usuario">
                 </div>
@@ -33,7 +31,7 @@
                 <div>
                     <input type="text" id="telefono" name="telefono" placeholder="Teléfono">
                 </div> 
-                <button class="botonRegistrarse" type="submit">REGISTRATE</button>
+                <button class="register-button" type="submit">REGISTRATE</button>
             </section>
         </form>
     </main>

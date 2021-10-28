@@ -1,4 +1,183 @@
-/* Login */
+/* Para buscar una sección: Ctrl + H */
+/* Formato para las clases: página.clase, por ejemplo [login.main] o [register.section] */
+
+/* SELECTOR UNIVERSAL */
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* HEADER */
+.margen-superior{
+    display: flex;
+    flex-flow: row;
+    background-color:gold;
+    width: 100vw;
+}
+
+.search-inicio {
+    display: flex;
+    background-color: mediumblue;
+    width: 100vw;
+
+}
+
+.paginas {
+    background-color: slategrey;
+    width: 20px;
+}
+
+.logo-sd {
+    width: 30px;
+    height: 30px;
+}
+
+
+.top-bar{
+    width: 100vw;
+    background-color:#EB9C4B;
+    height: 13px;
+}
+
+
+.top-bar h2 {
+    color: white;
+    font-size: 12px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 8px;
+    padding: 1px;
+}
+
+
+
+header {
+    display: block;
+    width: 100%;
+    background-color: black;
+    font-family: 'Poppins', sans-serif;
+}
+
+.search-input {
+    width: 45vw;
+    height: 4vh;
+    border-radius: 5px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+.nav-central a {
+    font-family: 'Poppins', sans-serif;
+    margin: 5px;
+}
+
+.main-header-top {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px;
+    flex-wrap: wrap;
+}
+
+.logo-sweetdrinks {
+    display: none;
+    width: 160px;
+    height: 75px;
+    margin: 5px
+}
+
+.sign-bar {
+    display: flex;
+    margin: 7px;
+}
+
+
+.imagen-banner {
+    width: 100vw;
+    margin-top: -6px;
+}
+
+.barra-busqueda {
+    margin: 5px;
+
+}
+
+.search-button-header {
+    position: absolute;
+    margin: 7px 0px 0px -23px;
+    background-color: white;
+    border: none;
+}
+
+.icono {
+    color: white;
+    display: inline;
+    margin: 7px 7px 7px 7px;
+}
+
+.right-navbar p {
+    color: white;
+    display: inline;
+    margin: 1px 1px 1px 1px;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+}
+
+.nav-bar {
+    text-align: center;
+    border-top: solid 0.1px #ebebeb81;
+    padding-top: 15px;
+}
+/* FIN HEADER */
+
+/* FOOTER */
+footer {
+    background-color: rgba(0, 0, 0, 0.1);
+    font-family: 'Poppins', sans-serif;
+}    
+
+.footer-section {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.footer-section ul {
+    text-align: left;
+    display: flex;
+    flex-flow: column;
+}
+
+.footer-section ul a {
+    text-align: left;
+    color: black;
+    margin: 5px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.footer-section ul p {
+    margin: 5px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.h4-footer {
+    margin: 5px;
+}
+
+.icono-footer {
+    margin: 5px;
+}
+/* FIN FOOTER */
+
+/* LOGIN */
 .login-body{
     height: 100vh;
     background-color:#e5e5e5;
@@ -51,279 +230,185 @@
 .login-boton:hover{
     box-shadow: 0px 0px 10px black;
 }
+/* FIN LOGIN */
 
+/* HOME */
+.main-space {
+height: 2vh;
+}
 
+.ofertas-main {
+    background-color: rgba(0, 0, 0, 0.1);
+}
 
+.ofertas-section{
+    display: flex;
+    justify-content: space-evenly;
+}
 
+.ofertas-section ul {
+    margin: 5px;
+    text-align: center;
+}
 
+.img-article {
+    width: 120px;
+    height: 120px;
+}
 
+.articulos {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
 
+}
 
+.article-main {
+    margin: 5px;
+}
 
-
-* {
-    box-sizing: border-box;
-    margin: 0px;
-    padding: 0px;
+.home-main h3 {
+    text-align: center;
+    margin: 6px;
+    font-size: 22px;
     font-family: 'Poppins', sans-serif;
 }
 
+/* Formulario registro producto nuevo */
 
-/* MOBILE */
+.form-ProductoNuevo {
+    margin: 15px
+}
 
-/* HEADER */
-    .contenedor-header {
-        background-color: hotpink;
-        width: 20px;
-    }
+.div-ProductoNuevo {
+    margin: 5px;
+}
 
-    .margen-superior{
-        display: flex;
-        flex-flow: row;
-        background-color:gold;
-        width: 100vw;
-    }
+.label-ProductoNuevo {
+    font-family: "Poppins";
+    font-size: 16px;
+    display: block;
+    margin-bottom: 5px;
+}
 
-    .search-inicio {
-        display: flex;
-        background-color: mediumblue;
-        width: 100vw;
+.boton-ProductoNuevo{
+    background-color:#bb6a0e;
+    border: none;
+    font-size: 18px;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+/* FIN HOME */
 
-    }
+/* REGISTRO */
+.register-body{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+}
 
-    .paginas {
-        background-color: slategrey;
-        width: 20px;
-    }
+.register-main{
+    height: 80vh;
+    background-color: #ebebeb;
+}
 
-    .logo-sd {
-        width: 30px;
-        height: 30px;
-    }
-
-
-    .top-bar{
-        width: 100vw;
-        background-color:#EB9C4B;
-        height: 13px;
-    }
-
-
-    .top-bar h2 {
-        color: white;
-        font-size: 12px;
-        text-align: center;
-        font-family: 'Poppins', sans-serif;
-        font-size: 8px;
-        padding: 1px;
-    }
-
-
-
-    header {
-        display: block;
-        width: 100%;
-        background-color: black;
-        font-family: 'Poppins', sans-serif;
-    }
-
-    .search-input {
-        width: 45vw;
-        height: 4vh;
-        border-radius: 5px;
-    }
-
-    a {
-        text-decoration: none;
-        color: white;
-        font-family: 'Poppins', sans-serif;
-    }
-
-    .nav-central a {
-        font-family: 'Poppins', sans-serif;
-        margin: 5px;
-    }
-
-    .main-header-top {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        margin: 20px;
-        flex-wrap: wrap;
-    }
-
-    .logo-sweetdrinks {
-        width: 160px;
-        height: 75px;
-        margin: 5px
-    }
-
-    .sign-bar {
-        display: flex;
-        margin: 7px;
-    }
-
-
-    .imagen-banner {
-        width: 100vw;
-        margin-top: -6px;
-    }
-
-    .barra-busqueda {
-        margin: 5px;
-
-    }
-
-    .search-button-header {
-        position: absolute;
-        margin: 7px 0px 0px -23px;
-        background-color: white;
-        border: none;
-    }
-
-    .icono {
-        color: white;
-        display: inline;
-        margin: 7px 7px 7px 7px;
-    }
-
-    .right-navbar p {
-        color: white;
-        display: inline;
-        margin: 1px 1px 1px 1px;
-    }
-
-    p {
-        font-family: 'Poppins', sans-serif;
-    }
-
-    .nav-bar {
-        text-align: center;
-        border-top: solid 0.1px #ebebeb81;
-        padding-top: 15px;
-    }
-
-/* MAIN */
-
-    .main-space {
-        height: 2vh;
-    }
-
-    .ofertas-main {
-        background-color: rgba(0, 0, 0, 0.1);
-    }
-
-    .ofertas-section{
-        display: flex;
-        justify-content: space-evenly;
-    }
-
-    .ofertas-section ul {
-        margin: 5px;
-        text-align: center;
-    }
-
-    .img-article {
-        width: 120px;
-        height: 120px;
-    }
-
-    .articulos {
-        display: flex;
-        justify-content: center;
-        margin: 10px;
-
-    }
-
-    .article-main {
-        margin: 5px;
-    }
-
-    main h3 {
-        text-align: center;
-        margin: 6px;
-        font-size: 22px;
-        font-family: 'Poppins', sans-serif;
-    }
-
-    /* formulario registro producto nuevo */
-
-    .form-ProductoNuevo {
-        margin: 15px
-    }
-
-    .div-ProductoNuevo {
-        margin: 5px;
-    }
-
-    .label-ProductoNuevo {
-        font-family: "Poppins";
-        font-size: 16px;
-        display: block;
-        margin-bottom: 5px;
-    }
-
-    .boton-ProductoNuevo{
-        background-color:#bb6a0e;
-        border: none;
-        font-size: 18px;
-        color: white;
-        padding: 5px;
-        border-radius: 5px;
-    }
-
-/* FOOTER */
-
-    footer {
-        background-color: rgba(0, 0, 0, 0.1);
-        font-family: 'Poppins', sans-serif;
-    }    
-
-    .footer-section {
-        display: flex;
-        justify-content: space-evenly;
-        flex-wrap: wrap;
-    }
-
-    .footer-section ul {
-        text-align: left;
-        display: flex;
-        flex-flow: column;
-    }
-
-    .footer-section ul a {
-        text-align: left;
-        color: black;
-        margin: 5px;
-        font-family: 'Poppins', sans-serif;
-    }
-
-    .footer-section ul p {
-        margin: 5px;
-        font-family: 'Poppins', sans-serif;
-    }
-
-    .h4-footer {
-        margin: 5px;
-    }
-
-    .icono-footer {
-        margin: 5px;
-    }
-
-
-/* TABLETS */
-@media (min-width:481){
-
+.register-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 130px;
 
 }
 
+.register-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 0px 10px;
+}
+
+.register-section > *{
+    padding: 5px 0px;
+
+}
+
+.register-form input[type=text] {
+    font-style: italic;
+    box-sizing: border-box;
+    border: 1px solid #f0f2f0;
+    border-radius: 4px;
+    box-shadow: 0px 0px 5px #79787e;
+    padding: 5px;
+    background-color: rgba(121, 120, 126,.8);
+    color: #f0f2f0;
+}
+
+.register-form input[type=text]::placeholder{
+    color: #f0f2f0;
+    font-size: .8rem;
+}
+
+.register-form input[type=mail] {
+    font-style: italic;
+    box-sizing: border-box;
+    border: 1px solid #f0f2f0;
+    border-radius: 4px;
+    box-shadow: 0px 0px 5px #79787e;
+    padding: 5px;
+    background-color: rgba(121, 120, 126,.8);
+    color: #f0f2f0;
+}
+.register-form input[type=mail]::placeholder{
+    color: #f0f2f0;
+    font-size: .8rem;
+}
+
+.register-form input[type=password] {
+    font-style: italic;
+    box-sizing: border-box;
+    border: 1px solid #f0f2f0;
+    border-radius: 4px;
+    box-shadow: 0px 0px 5px #79787e;
+    padding: 5px;
+    background-color: rgba(121, 120, 126,.8);
+    color: #f0f2f0;
+}
+.register-form input[type=password]::placeholder{
+    color: #f0f2f0;
+    font-size: .8rem;
+}
+.botonRegistrarse{
+    background-color: #576959;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 5px;
+    width: 50%;
+    max-width: 320px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 4px #EB9C4B;
+    border: 1px solid #EB9C4B;
+    color:  #EB9C4B;
+    margin-top: 10px;
+}
+
+/* FIN REGISTRO */
+
+/* TABLETS */
+@media (min-width:481px){
+    .logo-sweetdrinks {
+        display: initial;
+}
+}
+
 /* LAPTOP */
-@media (min-width:769){
+@media (min-width:769px){
 
 }
 
 /* ESCRITORIO */
-@media (min-width:1280){
+@media (min-width:1280px){
 
 }

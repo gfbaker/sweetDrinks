@@ -5,7 +5,8 @@ productos = [
         "tamanio": "1L",
         "descripcion": "Algo sobre Cynar",
         "precio": 500,
-        "imagenes": ["Cynar.jpg"]
+        "imagenes": ["Cynar.jpg"],
+        "stock": 0,
     },
     {
         "id": "2",
@@ -13,7 +14,8 @@ productos = [
         "tamanio": "1L",
         "descripcion": "Algo sobre Campari",
         "precio": 600,
-        "imagenes": ["Campari.jpg"]
+        "imagenes": ["Campari.jpg"],
+        "stock": 0,
     },
     {
         "id": "3",
@@ -21,7 +23,8 @@ productos = [
         "tamanio": "1L",
         "descripcion": "Algo sobre Gancia",
         "precio": 400,
-        "imagenes": ["Gancia.jpg"]
+        "imagenes": ["Gancia.jpg"],
+        "stock": 0,
     }
 
 ]
