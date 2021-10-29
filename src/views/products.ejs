@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <!-- HEAD -->
+    <%- include('./partials/head',{title:categoria}) %>
+    <link rel="stylesheet" href="/css/carrito1.css">
+     <!-- FIN-HEAD -->
+
+<body class="carrito-body">
+
+        <!-- HEADER -->
+        <%- include('./partials/header') %>
+        <!-- FIN DEL HEADER -->
+
+    <!-- MAIN -->
+    <main class="carrito-main">
+        <% for (let i = 0 ; i < productsToShow.length ; i ++){ %>
+            <section class="carrito-section">
+                <article class="carrito-articulo">
+                    <div class="mainArticulo">
+                        <div class="fotoArticulo">
+                            <img src="../img/<%= productsToShow[i].imagenes[0]%>" alt="Imagen del producto" class="imgProducto">
+                        </div>
+                        <div class="datosArticulo">
+                            <div class="nombreArticulo">
+                                <p class="nombreArticulo"><%= productsToShow[i].nombre%></p>
+                            </div>
+                            <div class="descripcionArticulo">
+                                <p class="descripcionArticulo"><%= productsToShow[i].descripcion%></p>
+                            </div>
+                            <div class="qypArticulo">
+                                <div class="precioArticulo">
+                                    <p>$ <%= productsToShow[i].precio%></p>
+                                </div>                  
+                            </div>                    
+                        </div>
+                    </div>
+                </article>
+            </section>
+        <% } %>
+       
+    </main>
+    <!-- FIN-MAIN -->
+
+
+    <!----- FOOTER ----->
+    <%- include('./partials/footer') %>
+    <!----- FIN-FOOTER ----->
+
+</body>
+
+</html>

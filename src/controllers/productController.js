@@ -8,6 +8,23 @@ const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 // Acá nos falta un objeto literal con las acciones para cada ruta
 const productController = {
+
+	getProducts: (req,res) => {
+		categoria = req.params.categoria;
+		if (categoria == undefined){
+			productsToShow = products;
+			categoria = "Todos los productos";
+		}else{
+			productsToShow = products.filter (function (product){
+				return product.categoria.toUpperCase() == categoria.toUpperCase();
+			})
+			categoria = categoria.toUpperCase();
+		}
+		//res.send (productsToShow)
+		res.render (path.join(__dirname,"../views/products"),{productsToShow, categoria});
+
+    },
+
     getProductDetail: (req,res) => {
         product = products[req.params.id-1];
         res.render (path.join(__dirname,"../views/productDetail"),{product});

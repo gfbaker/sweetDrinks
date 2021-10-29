@@ -11,7 +11,8 @@
     "descuento":0,
     "oferta": true,
     "importado": false,
-    "esPack": false
+    "esPack": false,
+    "categoria": "Aperitivos"
     },
     {
     "id": "2",
@@ -25,7 +26,8 @@
     "descuento":0,
     "oferta": true,
     "importado": false,
-    "esPack": false
+    "esPack": false,
+    "categoria": "Aperitivos"
     },
     {
     "id": "3",
@@ -39,7 +41,8 @@
     "descuento":0,
     "oferta": true,
     "importado": false,
-    "esPack": false
+    "esPack": false,
+    "categoria": "Aperitivos"
     },
     {
     "id": "4",
@@ -53,7 +56,8 @@
     "descuento":0,
     "oferta": false,
     "importado": true,
-    "esPack": false
+    "esPack": false,
+    "categoria": "Whiskies"
     },
     {
     "id": "5",
@@ -67,6 +71,7 @@
     "descuento":0,
     "oferta": false,
     "importado": false,
-    "esPack": true
+    "esPack": true,
+    "categoria": "Cervezas"
     }
 ]
