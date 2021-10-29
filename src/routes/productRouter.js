@@ -6,8 +6,11 @@ const router = express.Router();
 const productController = require('../controllers/productController');
 
 // Acá definimos las rutas
-router.get('/productDetail', productController.getProductDetail);
-router.post('/productDetail', productController.postProductDetail);
+router.get('/detail/:id', productController.getProductDetail);
+router.post('/', productController.postProductDetail);
+
+router.get('/:id/edit', productController.edit); 
+router.put('/', productController.update); 
 
 // Acá exportamos el resultado
 module.exports = router;

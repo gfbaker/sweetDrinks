@@ -2,7 +2,7 @@
 <html lang="en">
 
     <!-- HEAD -->
-    <%- include('./partials/head',{title:"Detalle de Producto"}) %>
+    <%- include('./partials/head',{title: product.nombre}) %>
     <link rel="stylesheet" href="/css/productDetail.css">
     <!-- FIN-HEAD -->
     
@@ -15,42 +15,35 @@
     <!----- MAIN ----->
     <main class="mainProductDetail">
         <div class="prodDetBotonEditar">
-            <label for="editarProducto"></label>
-            <input type="button" value="Editar">
+            <a href="/products/<%=product.id%>/edit" class="action-button edit">EDITAR PRODUCTO</a>
          </div>
         <section>
             <article>
                 
                 <div class="imgDtProd">
 
-                        <img src="/img/laLindaVino.jpg" alt="La Linda Vino">
+                    <img src="/img/<%=product.imagenes[0]%>" alt="<%=product.nombre%>">
 
                    <div class="imgDtProdMini">
+                    <% for (let i = 0 ; i < product.imagenes.length ; i++){ %>
+                        <img src="/img/<%=product.imagenes[i]%>" alt="<%=product.nombre%>">
 
-                    <img src="/img/laLindaVino2.jpg" alt="La Linda Vino segunda imagen">
-                    <img src="/img/laLindaVino3.jpg" alt="La Linda Vino tercera imagen">
+                    <% } %>
 
                    </div>  
 
                 </div>
                 <div class="dtProdInfo"> 
                    <div class="tituloPrecioDtProd">
-                      <h1>Vino Finca La Linda Malbec Tinto</h1>
-                      <h3>$593</h3>
+                      <h1><%=product.nombre %></h1>
+                      <h3>$<%=product.precio %></h3>
                    </div>
 
-                    <p>
-                        Apto para guarda de unos 5 años. Decantar por espacio de una hora.
-                        La temperatura adecuada para disfrutar este vino es entre 16º y 18º C.
-                        Este vino acompaña muy bien platos a base de carnes rojas,
-                        carnes de caza mayor y quesos duros con carácter.
-                        En boca se perciben taninos equilibrados.
-                         Aterciopelado. De buena estructura, fino, moderno.
-                    </p>
+                    <p><%=product.descripcion %></p>
 
                     <ul class="infoAdicionalDtProd">
-                        <li>Graduación alcohólica: 13.9% </li>
-                        <li>Volumen de la unidad: 750 mL</li>
+                        <li>Graduación alcohólica: <%=product.porcentajeAlcohol %>% </li>
+                        <li>Volumen de la unidad: <%=product.volumen %></li>
                     </ul>
                 
 

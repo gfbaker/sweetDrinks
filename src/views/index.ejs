@@ -51,97 +51,56 @@
         <h3>Ofertas</h3>
 
         <section class="articulos">
-            <article class="article-main">
-                <img class="img-article" src="./img/Cynar.jpg" alt="imagen">
+            <% for (let i = 0; i < ofertas.length; i++){ %>
+                <article class="article-main">
+                    <a href="/products/detail/<%=ofertas[i].id%>">
+                        <img class="img-article" src="./img/<%=ofertas[i].imagenes[0]%>" alt="imagen">
+                    </a>
                     <div class="pie-del-articulo">
                         <ul>
-                            <p>Cynar</p>
-                            <p class="">$430</p>
+                            <p><%=ofertas[i].nombre%></p>
+                            <p class="">$<%=ofertas[i].precio%></p>
                         </ul>
                     </div>
-            </article>
-            <article class="article-main">
-                <img class="img-article" src="./img/Cynar.jpg" alt="imagen">
-                    <div class="pie-del-articulo">
-                        <ul>
-                            <p>Cynar</p>
-                            <p class="">$430</p>
-                        </ul>
-                    </div>
-            </article>
-            <article class="article-main">
-                <img class="img-article" src="./img/Cynar.jpg" alt="imagen">
-                    <div class="pie-del-articulo">
-                        <ul>
-                            <p>Cynar</p>
-                            <p class="">$430</p>
-                        </ul>
-                    </div>
-            </article>
+                </article>
+                
+            <% } %>         
         </section>    
 
-            <h3>Productos Importados</h3>
+        <h3>Productos Importados</h3>
 
         <section class="articulos">
-            <article class="article-main">
-                <img class="img-article" src="./img/Cynar.jpg" alt="imagen">
+            <% for (let i = 0; i < importados.length; i++){ %>
+                <article class="article-main">
+                    <a href="/products/detail/<%=importados[i].id%>">
+                        <img class="img-article" src="./img/<%=importados[i].imagenes[0]%>" alt="imagen">
+                    </a>                    
                     <div class="pie-del-articulo">
                         <ul>
-                            <p>Cynar</p>
-                            <p class="">$430</p>
+                            <p><%=importados[i].nombre%></p>
+                            <p class="">$<%=importados[i].precio%></p>
                         </ul>
                     </div>
-            </article>
-            <article class="article-main">
-                <img class="img-article" src="./img/Cynar.jpg" alt="imagen">
-                    <div class="pie-del-articulo">
-                        <ul>
-                            <p>Cynar</p>
-                            <p class="">$430</p>
-                        </ul>
-                    </div>
-            </article>
-            <article class="article-main">
-                <img class="img-article" src="./img/Cynar.jpg" alt="imagen">
-                    <div class="pie-del-articulo">
-                        <ul>
-                            <p>Cynar</p>
-                            <p class="">$430</p>
-                        </ul>
-                    </div>
-            </article>
+                </article>
+            <% } %>   
         </section>
 
-            <h3>Packs para tu bar</h3>
+        <h3>Packs para tu bar</h3>
 
         <section class="articulos">
-            <article class="article-main">
-                <img class="img-article" src="./img/Cynar.jpg" alt="imagen">
+            <% for (let i = 0; i < packs.length; i++){ %>
+                <article class="article-main">
+                    <a href="/products/detail/<%=packs[i].id%>">
+                        <img class="img-article" src="./img/<%=packs[i].imagenes[0]%>" alt="imagen">
+                    </a>
                     <div class="pie-del-articulo">
                         <ul>
-                            <p>Cynar</p>
-                            <p class="">$430</p>
+                            <p><%=packs[i].nombre%></p>
+                            <p class="">$<%=packs[i].precio%></p>
                         </ul>
                     </div>
-            </article>
-            <article class="article-main">
-                <img class="img-article" src="./img/Cynar.jpg" alt="imagen">
-                    <div class="pie-del-articulo">
-                        <ul>
-                            <p>Cynar</p>
-                            <p class="">$430</p>
-                        </ul>
-                    </div>
-            </article>
-            <article class="article-main">
-                <img class="img-article" src="./img/Cynar.jpg" alt="imagen">
-                    <div class="pie-del-articulo">
-                        <ul>
-                            <p>Cynar</p>
-                            <p class="">$430</p>
-                        </ul>
-                    </div>
-            </article>
+                </article>
+            <% } %> 
         </section>
         
     </main>
