@@ -34,11 +34,22 @@
     height: 30px;
 }
 
+.burguer-padre{
+    color: white;
+    font-size: 20px;
+}
+
 
 .top-bar{
+    padding: 2px;
     width: 100vw;
-    background-color:#EB9C4B;
-    height: 13px;
+    background-color: black;
+    color: #EB9C4B;
+    opacity: 65%; 
+    height: 21px;
+    font-size: 13px;
+    text-align: center;
+    border-bottom: solid 1px #576959;
 }
 
 
@@ -64,6 +75,8 @@ header {
     width: 45vw;
     height: 4vh;
     border-radius: 5px;
+    font-size: 12px;
+
 }
 
 a {
@@ -75,44 +88,57 @@ a {
 .nav-central a {
     font-family: 'Poppins', sans-serif;
     margin: 5px;
+    display: none;
 }
 
 .main-header-top {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin: 20px;
-    flex-wrap: wrap;
+    padding: 15px;
 }
 
 .logo-sweetdrinks {
-    display: none;
-    width: 160px;
-    height: 75px;
-    margin: 5px
+    width: 120px;
+    height: 60px;
+    margin: 5px;
 }
 
 .sign-bar {
-    display: flex;
+    display: none;
     margin: 7px;
+}
+.sign-bar div a{
+    display: none;
+
 }
 
 
 .imagen-banner {
     width: 100vw;
-    margin-top: -6px;
+    margin-top: -11px;
 }
 
 .barra-busqueda {
+    display: none;
     margin: 5px;
-
+    position: relative;
 }
 
 .search-button-header {
     position: absolute;
-    margin: 7px 0px 0px -23px;
-    background-color: white;
+    bottom: 3px;
+    right: 3px;
+    background-color: transparent;
     border: none;
+}
+
+.search-button-header-mobile{
+    color: white;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+
 }
 
 .icono {
@@ -132,22 +158,47 @@ p {
 }
 
 .nav-bar {
-    text-align: center;
-    border-top: solid 0.1px #ebebeb81;
-    padding-top: 15px;
+    display: none;
 }
 /* FIN HEADER */
 
 /* FOOTER */
+
+.whatsapp{
+    position:fixed;
+    width:60px;
+    height:60px;
+    bottom:90px;
+    right:30px;
+    background-color:#25d366;
+    color:#FFF;
+    border-radius:50px;
+    text-align:center;
+    font-size:30px;
+    z-index:100;
+    transition: all 1s;
+}
+.whatsapp i{
+    margin-top: 15px;
+}
+.whatsapp:hover{
+    transform: scale(1.2);
+}
+
 footer {
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgb(39 39 39);
+    color: white;
     font-family: 'Poppins', sans-serif;
 }    
 
 .footer-section {
     display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 24px;
+}
+
+.footer-section h4{
+    color: #EB9C4B;
 }
 
 .footer-section ul {
@@ -158,7 +209,7 @@ footer {
 
 .footer-section ul a {
     text-align: left;
-    color: black;
+    color: white;
     margin: 5px;
     font-family: 'Poppins', sans-serif;
 }
@@ -180,7 +231,7 @@ footer {
 /* LOGIN */
 .login-body{
     height: 100vh;
-    background-color:#e5e5e5;
+    background-color:whitesmoke;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -206,6 +257,7 @@ footer {
     position: absolute;
     top: 10px;
     left: 10px;
+    color: #576959;
 }
 
 .fa-arrow-left {
@@ -225,6 +277,13 @@ footer {
     border-radius: 5px;
     background-color: #EB9C4B;
     color: white;
+}
+
+.olvido-contra a{
+    color:#576959
+}
+.registrarse a{
+    color:#576959
 }
 
 .login-boton:hover{
@@ -250,15 +309,25 @@ height: 2vh;
     margin: 5px;
     text-align: center;
 }
+.ofertas-section ul h4 {
+    font-size: 15px;
+}
+.ofertas-section ul i {
+    font-size: 20px;
+}
+.ofertas-section ul p{
+    display: none;
+}
 
 .img-article {
-    width: 120px;
-    height: 120px;
+    width: 220px;
+    height: 250px;
 }
 
 .articulos {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     margin: 10px;
 
 }
@@ -276,12 +345,22 @@ height: 2vh;
 
 /* Formulario registro producto nuevo */
 
+.mainProducto-nuevo{
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: center; 
+}
 .form-ProductoNuevo {
     margin: 15px
 }
 
 .div-ProductoNuevo {
     margin: 5px;
+}
+
+input.div-ProductoNuevo{
+    font-size: 12px;
+    width: 100%;
 }
 
 .label-ProductoNuevo {
@@ -320,7 +399,7 @@ height: 2vh;
 /* <-----------------DETALLE DEL PRODUCTO Mobile-----------------> */
 
 .mainProductDetail{
-    background-color:  #f0f2f0;
+    background-color:  whitesmoke;
     padding-bottom: 40px;
     color: #1e202f;
     position: relative;
@@ -449,6 +528,17 @@ main section article h2{
     max-height: 30px;
     
 }
+.prodDtBotonCarritoProdRel input{
+    background-color: transparent;
+    border: none;
+    font-size: 15px;
+    color: #EB9C4B;
+    transition: all 1s;
+}
+.prodDtBotonCarritoProdRel input:hover{
+    transform: scale(1.2);
+
+}
 .pieRelArti h3{
     padding: 1%;
 }
@@ -477,14 +567,14 @@ section article .dtProdRel{
 
 .register-main{
     height: 80vh;
-    background-color: #ebebeb;
+    background-color: whitesmoke;
 }
 
 .register-form{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-bottom: 130px;
+    padding-top: 50px;
 
 }
 
@@ -497,7 +587,7 @@ section article .dtProdRel{
 }
 
 .register-section > *{
-    padding: 5px 0px;
+    padding: 10px 0px;
 
 }
 
@@ -904,10 +994,38 @@ a.botonComprar{
 /* TABLETS */
 @media (min-width:481px){
     /* HEADER */
+    .nav-bar {
+        display: block;
+        text-align: center;
+        border-top: solid 1px #576959;
+        padding: 7px 7px 13px 7px;
+    }
+    .search-button-header-mobile{
+        display: none;
+    }
+    .burguer-padre{
+        display: none;
+    }
+    .barra-busqueda {
+        display: initial;
+    }
     .logo-sweetdrinks {
         display: initial;
 }
+    .sign-bar {
+    display: initial;
+    display: flex;
+}
+    .nav-central a {
+    display: initial;
+}
+.search-input {
+    height: 4vh;
+}
 
+     /* FIN-HEADER */
+
+     
     /* DETALLE DE PRODUCTO */
 
     .imgDtProd {
@@ -952,8 +1070,47 @@ a.botonComprar{
 
 /* LAPTOP */
 @media (min-width:769px){
+     /* HEADER */
+     .logo-sweetdrinks {
+
+        width: 160px;
+        height: 75px;
+        margin: 5px
+    }
+   
+    .sign-bar div a{
+        display: initial;
+        font-size: 12px;   
+        padding: 6px;      
+    }
+    
+    .sign-bar div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    
+    }
+    .search-input {
+       font-size: 14px;
+    }
+       
+    /* FIN-HEADER */
+    
+    /* HOME */
+    .articulos {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    
+    .ofertas-section ul p{
+        display: initial;
+    }
+  
+    /* FIN-HOME */
 
     /* DETALLE DE PRODUCTO */
+
     /* .imgDtProdMini img:hover{
         transform: scale(6);
         left: 34%;
@@ -1014,10 +1171,46 @@ a.botonComprar{
         display: initial;
         width: 23%;
     }
+    /* FOOTER */
+    .footer-section {
+        flex-direction: row;
+        justify-content: space-around;
+       
+    }
+    /* FIN-FOOTER */
 }
 
 /* ESCRITORIO */
 @media (min-width:1280px){
+
+    /* HEADER */
+    .top-bar{
+        font-size: 14px;
+    }
+       .logo-sweetdrinks {
+
+        width: 220px;
+        height: 100px;
+      
+    }
+    .sign-bar div{
+        font-size: 20px;
+    }
+    .sign-bar div a{
+        display: initial;
+        font-size: 15px;   
+        padding: 6px;      
+    }
+    /* FIN-HEADER */
+
+    /* HOME */
+    
+    .img-article {
+        width: 310px;
+        height: 355px;
+    }
+    /* FIN-HOME */
+
     /* DETALLE DE PRODUCTO */
     article > div.dtProdInfo > div.tituloPrecioDtProd{
         top: 0%;
