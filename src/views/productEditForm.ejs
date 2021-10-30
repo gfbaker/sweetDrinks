@@ -13,36 +13,74 @@
 
     <!-- MAIN -->
     <main class="mainProducto-nuevo">
-
-        <form class="form-ProductoNuevo">
-            <section>
-                <div class="div-ProductoNuevo">
-                    <label class="label-ProductoNuevo">Nombre del Producto:</label>
-                    <input type="text" value="<%= productToEdit.nombre %>" name="nombreProducto" class="div-ProductoNuevo" required="required" minlength="4">
+        <div class="wrapper-formulario">
+            <div class="formulario-titulo">
+                <div class="formulario-titulo">
+                    <h2 class="formulario-titulo">Estás editando: <i><%= productToEdit.nombre %> <%= productToEdit.volumen %></i></h2>
                 </div>
-                <div class="div-ProductoNuevo">
-                    <label class="label-ProductoNuevo">Precio:</label>
-                    <input type="text" value="<%= productToEdit.precio %>" name="nombreProducto" class="div-ProductoNuevo" required="required" minlength="4">
-                </div>
-                <div class="div-ProductoNuevo">
-                    <label class="label-ProductoNuevo">Cantidad disponible: </label>
-                    <input type="number" value="<%= productToEdit.stock %>" name="cantidad" class="div-ProductoNuevo" required="required">
-                </div> 
-                <div class="div-ProductoNuevo">
-                    <label class="label-ProductoNuevo">Descripcion: </label>
-                    <input type="text" value="<%= productToEdit.descripcion %>" name="descripcion" class="div-ProductoNuevo" required="required" minlength="4">
-                </div>
-                <div class="div-ProductoNuevo">
-                    <label class="label-ProductoNuevo">Imagen: </label>
-                    <input type="file" name="imagen" class="div-ProductoNuevo" required="required">
-                </div>
-                <div class="div-ProductoNuevo">
-                    <button type="submit" name="enviar" value="enviar" class="boton-ProductoNuevo">Enviar</button>
-                    <button type="reset" name="borrar" value="borrar" class="boton-ProductoNuevo">Borrar</button>               
-                </div>
-            </section>
-
-        </form>
+            </div>
+            <div class="formulario-cuerpo">
+                <form action="/products?_method=PUT" method="POST" class="form-ProductoNuevo">
+                    <div class="div-formulario">
+                        <label for="nombre" class="label-formulario">Nombre del Producto:</label>
+                        <input type="text" id="nombre" value="<%= productToEdit.nombre %>" name="nombreProducto" class="div-ProductoNuevo" required="required" minlength="4">
+                    </div>
+                    <div class="div-formulario">
+                        <label for="volumen" class="label-formulario">Volumen:</label>
+                        <input type="text"  id="volumen" value="<%= productToEdit.volumen %>" name="volumenProducto" class="div-ProductoNuevo" required="required" minlength="2">
+                    </div>
+                    <div class="div-formulario">
+                        <label for="precio" class="label-formulario">Precio:</label>
+                        <input type="text"  id="precio" value="<%= productToEdit.precio %>" name="precioProducto" class="div-ProductoNuevo" required="required" minlength="2">
+                    </div>
+                    <div class="div-formulario">
+                        <label for="porcentajeAlcohol" class="label-formulario">Porcentaje de Alcohol:</label>
+                        <input type="number" id="porcentajeAlcohol" value="<%= productToEdit.porcentajeAlcohol %>" name="porcentajeAlcoholProducto" class="div-ProductoNuevo" required="required" minlength="2">
+                    </div>
+                    <div class="div-formulario">
+                        <label for="stock" class="label-formulario">Cantidad disponible: </label>
+                        <input type="number" id="stock" value="<%= productToEdit.stock %>" name="stockProducto" class="div-ProductoNuevo" required="required">
+                    </div> 
+                    <div class="div-formulario">
+                        <label for="descripcion" class="label-formulario">Descripción: </label>
+                        <textarea name="descripcionProducto" id="descripcion" class="form-textarea"><%= productToEdit.descripcion %></textarea>
+                    </div>
+                    <div class="form-div-checkbox">
+                        <input type="checkbox"  id="oferta" name="ofertaProducto" class="form-checkbox" <% if (productToEdit.oferta == true){%>
+                            checked
+                            <% } %>
+                        >
+                        <label for="oferta" class="form-checkbox">En oferta</label>
+                    </div>
+                    <div class="div-formulario">
+                        <label for="descuento" class="label-formulario">Descuento: </label>
+                        <input type="number" id="descuento" value="<%= productToEdit.descuento %>" name="descuentoProducto" class="div-ProductoNuevo">
+                    </div> 
+                    <div class="form-div-checkbox">
+                        <input type="checkbox"  id="importado" name="importadoProducto" class="form-checkbox" <% if (productToEdit.importado == true){%>
+                            checked
+                            <% } %>
+                        >
+                        <label for="importado" class="form-checkbox">Importado</label>
+                    </div>
+                    <div class="form-div-checkbox">
+                        <input type="checkbox"  id="pack" name="packProducto" class="form-checkbox" <% if (productToEdit.esPack == true){%>
+                            checked
+                            <% } %>
+                        >
+                        <label for="pack" class="form-checkbox">Es un pack?</label>
+                    </div>
+                    <div class="div-formulario">
+                        <label for="imagenes" class="label-formulario">Imágenes: </label>
+                        <input type="file" id="imagenes"  name="imagenesProductos" class="div-ProductoNuevo" required="required">
+                    </div>
+                    <div class="div-form-botones">
+                        <button type="submit" class="boton-ProductoNuevo">Guardar</button>
+                    </div>
+                </form>
+            </div>
+            
+        </div>
 
     </main>
     <!-- FIN-MAIN -->
