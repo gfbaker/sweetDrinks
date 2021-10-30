@@ -1286,9 +1286,9 @@ div .formulario-titulo{
     font-size: 16px;
     display: block;
 }
-h2 .formulario-titulo{
+/* h2 .formulario-titulo{
 
-}
+} */
 .form-div-checkbox{
     display: flex;
     margin:5px 20px;

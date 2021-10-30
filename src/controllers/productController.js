@@ -40,8 +40,10 @@ const productController = {
 
 	},
 	// Update - Method to update
+
 	update: (req, res) => {
-		res.send ("Esta funcion recibe por PUT los datos del formulario de edicion. Tiene que poder guardar lo que recibe en la base de datos");
+		//res.send ("Esta funcion recibe por PUT los datos del formulario de edicion. Tiene que poder guardar lo que recibe en la base de datos");
+		res.send (req.body);
 	},
 
 
