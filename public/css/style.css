@@ -1265,7 +1265,16 @@ a.botonComprar{
     }
 }
 
+
 /* FORMULARIO EDICION */
+
+
+.mainProducto-editar{
+    background-color: whitesmoke;   
+    padding: 0 5%;
+    width: 100%;
+
+}
 
 .wrapper-formulario{
     margin-top: 20px;
@@ -1304,7 +1313,6 @@ div .formulario-titulo{
     background-color: #ffffff;
     border-radius: 8px;
     border: 1.5px solid #EB9C4B;
-
 }
 .div-form-botones{
     display: flex;
