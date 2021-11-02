@@ -3,7 +3,6 @@
 
     <!-- HEAD -->
     <%- include('./partials/head',{title: product.nombre}) %>
-    <link rel="stylesheet" href="/css/productDetail.css">
     <!-- FIN-HEAD -->
     
 <body>
@@ -14,9 +13,7 @@
         
     <!----- MAIN ----->
     <main class="mainProductDetail">
-        <div class="prodDetBotonEditar">
-            <a href="/products/<%=product.id%>/edit" class="action-button edit">EDITAR PRODUCTO</a>
-         </div>
+        
         <section>
             <article>
                 
@@ -60,7 +57,16 @@
                           <input type="button" value="Agregar al carrito">
                        </div>
                     </form>
-                </div>
+
+                          <div class="productBotonesElimEdit">
+                             <div class="prodDetBotonEditar">
+                                  <a href="/products/<%=product.id%>/edit" class="action-button edit">Editar Producto</a>
+                               </div>
+                               <div>
+                                  <a href="#" class="action-button edit"><i class="fas fa-trash-alt"></i></a>
+                               </div>
+                             </div>
+                          </div>
                 </div>
             </article>
         </section>

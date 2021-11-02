@@ -46,8 +46,8 @@
     background-color: black;
     color: #EB9C4B;
     opacity: 65%; 
-    height: 21px;
-    font-size: 13px;
+    height: 16px;
+    font-size: 10px;
     text-align: center;
     border-bottom: solid 1px #576959;
 }
@@ -84,8 +84,12 @@ a {
     color: white;
     font-family: 'Poppins', sans-serif;
 }
-
+.nav-central{
+    display: flex;
+    justify-content: center;
+}
 .nav-central a {
+    font-size: 12px;
     font-family: 'Poppins', sans-serif;
     margin: 5px;
     display: none;
@@ -95,7 +99,6 @@ a {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 15px;
 }
 
 .logo-sweetdrinks {
@@ -384,7 +387,7 @@ input.div-ProductoNuevo{
 .action-button {
     border: none;
     border-radius: 8px;
-    font-size: 1.2em;
+    font-size: 16px;
     color: #ffffff;
     display: inline-flex;
     align-items: center;
@@ -404,6 +407,7 @@ input.div-ProductoNuevo{
     color: #1e202f;
     position: relative;
 }
+
 .prodDetBotonEditar input{
     margin:8px;
     padding: 8px;
@@ -442,18 +446,10 @@ input.div-ProductoNuevo{
     
 
 }
-/* .imgDtProdMini img:hover{
-    transform: scale(5);
-    position: absolute;
-    width: 60px;
-    top: 13%;
-    left: 40%;
-    z-index: 10;
 
-} */
 .dtProdInfo{
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
 }
 .dtProdInfo h1{
@@ -471,14 +467,13 @@ input.div-ProductoNuevo{
 .dtProdInfo ul{
     list-style-type: disclosure-closed;
     line-height: 30px;
+    text-align: center;
 }
 
 .dtProductosFormulario{
     display: flex;
-    margin: 5%;
-    width: 100%;
-    justify-content: space-around;
-    
+    flex-direction: column;
+    align-items: center;
 }
 .dtProductosFormulario div{
     margin: 10px;
@@ -500,6 +495,13 @@ input.div-ProductoNuevo{
     color: white;
     font-weight: bold;
     background-color: #EB9C4B ;
+}
+
+div.dtProductosFormulario > div > div:nth-child(2) > a{
+    font-size: 34px;
+    color: chocolate;
+    background-color: transparent;
+
 }
 main section article h2{
     text-align: center;
@@ -658,11 +660,11 @@ section article .dtProdRel{
     display: flex;
     flex-direction: column;
     font-family: 'Poppins', sans-serif;
-    background-color: #ebebeb;
+    background-color: whitesmoke;
 }
 
 .main{
-    background-color: #ebebeb;
+    background-color: whitesmoke;
     display: flex;
     justify-content: center;
     flex-flow: column;
@@ -833,7 +835,7 @@ a.botonComprar{
 
 /* CARRITO 2 */
 .main{
-    background-color: #ebebeb;
+    background-color: whitesmoke;
 }
 
 form.formulario{
@@ -998,7 +1000,7 @@ a.botonComprar{
         display: block;
         text-align: center;
         border-top: solid 1px #576959;
-        padding: 7px 7px 13px 7px;
+        padding-bottom: 9px;
     }
     .search-button-header-mobile{
         display: none;
@@ -1018,6 +1020,7 @@ a.botonComprar{
 }
     .nav-central a {
     display: initial;
+    margin: 0px 15px;
 }
 .search-input {
     height: 4vh;
@@ -1073,8 +1076,8 @@ a.botonComprar{
      /* HEADER */
      .logo-sweetdrinks {
 
-        width: 160px;
-        height: 75px;
+        width: 120px;
+        height: 60px;
         margin: 5px
     }
    
@@ -1111,13 +1114,6 @@ a.botonComprar{
 
     /* DETALLE DE PRODUCTO */
 
-    /* .imgDtProdMini img:hover{
-        transform: scale(6);
-        left: 34%;
-        top: 19%
-        
-    } */
-
     .imgDtProd img{
         width: 35%;
     }
@@ -1136,10 +1132,17 @@ a.botonComprar{
         top: 17%;
         left: 55%;  
     }
+    .productBotonesElimEdit{
+        display: flex;
+        position: absolute;
+        align-items: center;
+        bottom: -115px;
+        left: -20px;
+    }
     .dtProductosFormulario{
         width: 20%;
         position: absolute;
-        top: 21%;
+        top: 25%;
         left: 55%;
     }
     .dtProdInfo h1{
@@ -1184,13 +1187,11 @@ a.botonComprar{
 @media (min-width:1280px){
 
     /* HEADER */
-    .top-bar{
-        font-size: 14px;
-    }
+    
        .logo-sweetdrinks {
 
-        width: 220px;
-        height: 100px;
+        width: 120px;
+        height: 60px;
       
     }
     .sign-bar div{
@@ -1217,12 +1218,6 @@ a.botonComprar{
        
     }
 
-    /* .imgDtProdMini img:hover{
-        transform: scale(8);
-        top: 17%;
-        left: 30%; 
-        
-    } */
     
     .dtProdInfo div h1{
         font-size: 62px;
@@ -1231,13 +1226,13 @@ a.botonComprar{
         font-size: 45px;
     }
      .dtProdInfo ul {
-        top: 20%;
+        top: 15%;
         left: 55%;
         font-size: 23px;  
     }
     
     .dtProductosFormulario{
-        top: 27%;
+        top: 20%;
         left: 60%;
         margin: 0%;
     }
@@ -1247,7 +1242,7 @@ a.botonComprar{
         padding: 4px;
         margin: 5px;
     }
-
+    
     .dtProdInfo p{
         font-size: 25px;
         line-height: 30px;
