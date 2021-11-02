@@ -15,7 +15,7 @@ router.get('/detail/:id', productController.getProductDetail);
 router.post('/', productController.postProductDetail);
 
 router.get('/:id/edit', productController.edit); 
-router.put('/', productController.update); 
+router.put('/:id', productController.update); 
 
 // Acá exportamos el resultado
 module.exports = router;

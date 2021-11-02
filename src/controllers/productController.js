@@ -43,6 +43,24 @@ const productController = {
 
 	update: (req, res) => {
 		//res.send ("Esta funcion recibe por PUT los datos del formulario de edicion. Tiene que poder guardar lo que recibe en la base de datos");
+		console.log(req.params.id)
+		// products.forEach(element => {
+		// 	if (element['id'] == req.params.id){
+		// 		element["nombre"] = req.body.nombre;
+		// 		element["precio"] = req.body.precio;
+		// 		element["porcentajeAlcohol"] = req.body.porcentajeAlcohol;
+		// 		element["volumen"] = req.body.volumen;
+		// 		element["descripcion"] = req.body.descripcion;
+		// 	// 	element["imagenes"] = req.body.imagenes;
+		// 		element["stock"] = req.body.stock;
+		// 		element["descuento"] = req.body.descuento;
+		// 		element["oferta"] = req.body.oferta;
+		// 		element["importado"] = req.body.importado;
+		// 		element["esPack"] = req.body.esPack;
+		// 		element["categoria"] = req.body.categoria;
+				
+		// 	}			
+		// });
 		res.send (req.body);
 	},
 
