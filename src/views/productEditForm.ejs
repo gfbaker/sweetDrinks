@@ -20,33 +20,33 @@
                 </div>
             </div>
             <div class="formulario-cuerpo">
-                <form action="/products?_method=PUT" method="POST" class="form-ProductoNuevo">
+                <form action="/products/<%= productToEdit.id %>?_method=PUT" method="POST" class="form-ProductoNuevo">
                     <div class="div-formulario">
                         <label for="nombre" class="label-formulario">Nombre del Producto:</label>
                         <input type="text" id="nombre" value="<%= productToEdit.nombre %>" name="nombre" class="div-ProductoNuevo">
                     </div>
                     <div class="div-formulario">
                         <label for="volumen" class="label-formulario">Volumen:</label>
-                        <input type="text"  id="volumen" value="<%= productToEdit.volumen %>" name="volumenProducto" class="div-ProductoNuevo">
+                        <input type="text"  id="volumen" value="<%= productToEdit.volumen %>" name="volumen" class="div-ProductoNuevo">
                     </div>
                     <div class="div-formulario">
                         <label for="precio" class="label-formulario">Precio:</label>
-                        <input type="text"  id="precio" value="<%= productToEdit.precio %>" name="precioProducto" class="div-ProductoNuevo">
+                        <input type="text"  id="precio" value="<%= productToEdit.precio %>" name="precio" class="div-ProductoNuevo">
                     </div>
                     <div class="div-formulario">
                         <label for="porcentajeAlcohol" class="label-formulario">Porcentaje de Alcohol:</label>
-                        <input type="number" id="porcentajeAlcohol" value="<%= productToEdit.porcentajeAlcohol %>" name="porcentajeAlcoholProducto" class="div-ProductoNuevo">
+                        <input type="number" id="porcentajeAlcohol" value="<%= productToEdit.porcentajeAlcohol %>" name="porcentajeAlcohol" class="div-ProductoNuevo">
                     </div>
                     <div class="div-formulario">
                         <label for="stock" class="label-formulario">Cantidad disponible: </label>
-                        <input type="number" id="stock" value="<%= productToEdit.stock %>" name="stockProducto" class="div-ProductoNuevo">
+                        <input type="number" id="stock" value="<%= productToEdit.stock %>" name="stock" class="div-ProductoNuevo">
                     </div> 
                     <div class="div-formulario">
                         <label for="descripcion" class="label-formulario">Descripción: </label>
-                        <textarea name="descripcionProducto" id="descripcion" class="form-textarea"><%= productToEdit.descripcion %></textarea>
+                        <textarea name="descripcion" id="descripcion" name="descripcion" class="form-textarea"><%= productToEdit.descripcion %></textarea>
                     </div>
                     <div class="form-div-checkbox">
-                        <input type="checkbox"  id="oferta" name="ofertaProducto" class="form-checkbox" <% if (productToEdit.oferta == true){%>
+                        <input type="checkbox"  id="oferta" name="oferta" class="form-checkbox" <% if (productToEdit.oferta == true){%>
                             checked
                             <% } %>
                         >
@@ -54,17 +54,17 @@
                     </div>
                     <div class="div-formulario">
                         <label for="descuento" class="label-formulario">Descuento: </label>
-                        <input type="number" id="descuento" value="<%= productToEdit.descuento %>" name="descuentoProducto" class="div-ProductoNuevo">
+                        <input type="number" id="descuento" value="<%= productToEdit.descuento %>" name="descuento" class="div-ProductoNuevo">
                     </div> 
                     <div class="form-div-checkbox">
-                        <input type="checkbox"  id="importado" name="importadoProducto" class="form-checkbox" <% if (productToEdit.importado == true){%>
+                        <input type="checkbox"  id="importado" name="importado" class="form-checkbox" <% if (productToEdit.importado == true){%>
                             checked
                             <% } %>
                         >
                         <label for="importado" class="form-checkbox">Importado</label>
                     </div>
                     <div class="form-div-checkbox">
-                        <input type="checkbox"  id="pack" name="packProducto" class="form-checkbox" <% if (productToEdit.esPack == true){%>
+                        <input type="checkbox"  id="pack" name="esPack" class="form-checkbox" <% if (productToEdit.esPack == true){%>
                             checked
                             <% } %>
                         >
