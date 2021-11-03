@@ -99,6 +99,7 @@ a {
 .nav-central{
     display: flex;
     justify-content: center;
+    margin: 3px 0px 0px 0px;
 }
 .nav-central a {
     font-size: 12px;
@@ -204,6 +205,7 @@ footer {
     background-color: rgb(39 39 39);
     color: white;
     font-family: 'Poppins', sans-serif;
+    width: 100%;
 }    
 
 .footer-section {
@@ -372,7 +374,7 @@ height: 2vh;
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
     display: block;
-    margin-bottom: 5px;
+    margin-left: 6px;
 }
 
 .boton-ProductoNuevo{
@@ -832,6 +834,23 @@ section.direccionEnvio > *{
     padding: 5px 0px;
 
 }
+input[type=text] {
+    font-style: italic;
+    box-sizing: border-box;
+    border: 1px solid #a1a1a1;
+    border-radius: 4px;
+    padding: 5px;
+    color: #f0f2f0;
+}
+
+input[type=number] {
+    font-style: italic;
+    box-sizing: border-box;
+    border: 1px solid #a1a1a1;
+    border-radius: 4px;
+    padding: 5px;
+    color: #f0f2f0;
+}
 
 input[type=text]::placeholder{
     color: #79787e;
@@ -965,7 +984,7 @@ a.botonComprar{
         display: block;
         text-align: center;
         border-top: solid 1px #576959;
-        padding-bottom: 9px;
+        margin: 10px;
     }
     .search-button-header-mobile{
         display: none;
@@ -1315,11 +1334,9 @@ div .formulario-titulo{
 input[type=number] {
     font-style: italic;
     box-sizing: border-box;
-    border: 1px solid #f0f2f0;
+    border: 1px solid #a1a1a1;
     border-radius: 4px;
-    box-shadow: 0px 0px 5px #79787e;
     padding: 5px;
-    background-color: rgba(121, 120, 126,.8);
     color: #f0f2f0;
 }
 input[type=number]::placeholder{

@@ -31,7 +31,7 @@ const mainController = {
     postCarrito2: (req,res) => {res.redirect('/');},
     postLogin: (req,res) => {res.redirect('/');},
     postRegistro: (req,res) => {res.redirect('/');},
-    postProductoNuevo: (req,res) => {res.redirect('/')},
+    postProductoNuevo: (req,res) => {res.send(req.body)},
 
 
 }
