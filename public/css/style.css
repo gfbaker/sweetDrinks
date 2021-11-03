@@ -9,6 +9,18 @@
     font-family: 'Poppins', sans-serif;
 }
 
+input[type=text], input[type=password], input[type=email]{
+    font-size: 12px;
+    width: 100%;
+    font-style: italic;
+    border: 1px solid #f0f2f0;
+    border-radius: 4px;
+    box-shadow: 0px 0px 5px #79787e;
+    padding: 5px;
+    color: #f0f2f0;
+    height: 30px;
+}
+
 /* HEADER */
 .margen-superior{
     display: flex;
@@ -232,25 +244,20 @@ footer {
 /* FIN FOOTER */
 
 /* LOGIN */
-.login-body{
+
+.login-main{
     height: 100vh;
-    background-color:whitesmoke;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-}
-
-.login-main{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around
+    background-color:whitesmoke;
 }
 
 .login-form{
-    height: 70vh;
-    width: 70vw;
+    height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -258,8 +265,8 @@ footer {
 
 .login-volver-inicio{
     position: absolute;
-    top: 10px;
-    left: 10px;
+    top:5px;
+    left:5px;
     color: #576959;
 }
 
@@ -268,14 +275,14 @@ footer {
 }
 
 .login-campo{
-    width: 100%;
-    height: 30px;
+    position: relative;
+    width: 70% !important;
     border-radius: 5px;
 }
 
 .login-boton{
     height: 30px;
-    width: 60%;
+    width: 40%;
     transition: all 450ms;
     border-radius: 5px;
     background-color: #EB9C4B;
@@ -359,11 +366,6 @@ height: 2vh;
 
 .div-ProductoNuevo {
     margin: 5px;
-}
-
-input.div-ProductoNuevo{
-    font-size: 12px;
-    width: 100%;
 }
 
 .label-ProductoNuevo {
@@ -593,47 +595,19 @@ section article .dtProdRel{
 
 }
 
-.register-form input[type=text] {
-    font-style: italic;
-    box-sizing: border-box;
-    border: 1px solid #f0f2f0;
-    border-radius: 4px;
-    box-shadow: 0px 0px 5px #79787e;
-    padding: 5px;
-    background-color: rgba(121, 120, 126,.8);
-    color: #f0f2f0;
-}
+
 
 .register-form input[type=text]::placeholder{
     color: #f0f2f0;
     font-size: .8rem;
 }
 
-.register-form input[type=mail] {
-    font-style: italic;
-    box-sizing: border-box;
-    border: 1px solid #f0f2f0;
-    border-radius: 4px;
-    box-shadow: 0px 0px 5px #79787e;
-    padding: 5px;
-    background-color: rgba(121, 120, 126,.8);
-    color: #f0f2f0;
-}
-.register-form input[type=mail]::placeholder{
+
+.register-form input[type=email]::placeholder{
     color: #f0f2f0;
     font-size: .8rem;
 }
 
-.register-form input[type=password] {
-    font-style: italic;
-    box-sizing: border-box;
-    border: 1px solid #f0f2f0;
-    border-radius: 4px;
-    box-shadow: 0px 0px 5px #79787e;
-    padding: 5px;
-    background-color: rgba(121, 120, 126,.8);
-    color: #f0f2f0;
-}
 .register-form input[type=password]::placeholder{
     color: #f0f2f0;
     font-size: .8rem;
@@ -858,18 +832,9 @@ section.direccionEnvio > *{
     padding: 5px 0px;
 
 }
-input[type=text] {
-    font-style: italic;
-    box-sizing: border-box;
-    border: 1px solid #f0f2f0;
-    border-radius: 4px;
-    box-shadow: 0px 0px 5px #79787e;
-    padding: 5px;
-    background-color: rgba(121, 120, 126,.8);
-    color: #f0f2f0;
-}
+
 input[type=text]::placeholder{
-    color: #f0f2f0;
+    color: #79787e;
     font-size: .8rem;
 }
 
@@ -1069,6 +1034,8 @@ a.botonComprar{
         display: initial;
         width: 40%;
     }
+
+
 }
 
 /* LAPTOP */
@@ -1111,6 +1078,26 @@ a.botonComprar{
     }
   
     /* FIN-HOME */
+
+    /* LOGIN */
+    .login-body{
+        background-image: url("../../img/barra.jpg");
+        background-position: center;
+        height: 85vh;
+    }
+
+    .login-main{
+        position: relative;
+        width:45%;
+        height:95%;
+        margin-top:5%;
+        margin-left:30%;
+        border-radius: 10px;
+        box-shadow: 10px 10px  black,
+                    0 0 0 1px black;
+    }
+
+    /* FIN LOGIN */
 
     /* DETALLE DE PRODUCTO */
 
@@ -1211,6 +1198,15 @@ a.botonComprar{
         height: 355px;
     }
     /* FIN-HOME */
+
+    /* LOGIN */
+    .login-main{
+        width:25%;
+        height:95%;
+        margin-top:5%;
+        margin-left:55%;
+    }
+    /* FIN LOGIN */
 
     /* DETALLE DE PRODUCTO */
     article > div.dtProdInfo > div.tituloPrecioDtProd{
