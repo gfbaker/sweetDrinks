@@ -9,7 +9,7 @@
     font-family: 'Poppins', sans-serif;
 }
 
-input[type=text], input[type=password], input[type=email]{
+/*input[type=text], input[type=password], input[type=email]{
     font-size: 12px;
     font-style: italic;
     border: 1px solid #f0f2f0;
@@ -142,8 +142,8 @@ a {
 
 .search-button-header {
     position: absolute;
-    bottom: 3px;
-    right: 3px;
+    bottom: 5px;
+    right: 8px;
     background-color: transparent;
     border: none;
 }
@@ -354,6 +354,26 @@ height: 2vh;
     font-family: 'Poppins', sans-serif;
 }
 
+/* ESTILOS PARA FORMULARIOS */
+
+
+.estilo-formulario {
+    margin: 5px;
+}
+
+.estilo-formulario label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    display: block;
+    margin-left: 6px;
+}
+
+.estilo-input {
+    width: 100%;
+    padding: 8px 8px;
+}
+
+
 /* Formulario registro producto nuevo */
 
 .mainProducto-nuevo{
@@ -376,7 +396,7 @@ height: 2vh;
     margin-left: 6px;
 }
 
-.boton-ProductoNuevo{
+.boton-formularios {
     background-color:#bb6a0e;
     border: none;
     font-size: 18px;
@@ -594,7 +614,7 @@ section article .dtProdRel{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-top: 50px;
+    padding: 25px 20px;
 
 }
 
@@ -613,7 +633,7 @@ section article .dtProdRel{
 
 
 
-.register-form input[type=text]::placeholder{
+/*.register-form input[type=text]::placeholder{
     color: #79787e;
     font-size: .8rem;
 }
@@ -628,6 +648,8 @@ section article .dtProdRel{
     color: #79787e;
     font-size: .8rem;
 }
+
+
 .botonRegistrarse{
     background-color: #576959;
     text-align: center;
@@ -643,6 +665,7 @@ section article .dtProdRel{
     margin-top: 10px;
 }
 
+*/
 /* FIN REGISTRO */
 
 /* CARRITO 1 */
@@ -1022,6 +1045,7 @@ a.botonComprar{
 }
 .search-input {
     height: 4vh;
+    padding-left: 6px;
 }
 
      /* FIN-HEADER */

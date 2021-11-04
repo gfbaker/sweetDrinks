@@ -21,29 +21,29 @@
             </div>
             <div class="formulario-cuerpo">
                 <form action="/products/<%= productToEdit.id %>?_method=PUT" method="POST" class="form-ProductoNuevo">
-                    <div class="div-formulario">
+                    <div class="estilo-formulario">
                         <label for="nombre" class="label-formulario">Nombre del Producto:</label>
-                        <input type="text" id="nombre" value="<%= productToEdit.nombre %>" name="nombre" class="div-ProductoNuevo">
+                        <input type="text" id="nombre" value="<%= productToEdit.nombre %>" name="nombre" class="estilo-input">
                     </div>
-                    <div class="div-formulario">
+                    <div class="estilo-formulario">
                         <label for="volumen" class="label-formulario">Volumen:</label>
-                        <input type="text"  id="volumen" value="<%= productToEdit.volumen %>" name="volumen" class="div-ProductoNuevo">
+                        <input type="text"  id="volumen" value="<%= productToEdit.volumen %>" name="volumen" class="estilo-input">
                     </div>
-                    <div class="div-formulario">
+                    <div class="estilo-formulario">
                         <label for="precio" class="label-formulario">Precio:</label>
-                        <input type="text"  id="precio" value="<%= productToEdit.precio %>" name="precio" class="div-ProductoNuevo">
+                        <input type="text"  id="precio" value="<%= productToEdit.precio %>" name="precio" class="estilo-input">
                     </div>
-                    <div class="div-formulario">
+                    <div class="estilo-formulario">
                         <label for="porcentajeAlcohol" class="label-formulario">Porcentaje de Alcohol:</label>
-                        <input type="number" id="porcentajeAlcohol" value="<%= productToEdit.porcentajeAlcohol %>" name="porcentajeAlcohol" class="div-ProductoNuevo">
+                        <input type="number" id="porcentajeAlcohol" value="<%= productToEdit.porcentajeAlcohol %>" name="porcentajeAlcohol" class="estilo-input">
                     </div>
-                    <div class="div-formulario">
+                    <div class="estilo-formulario">
                         <label for="stock" class="label-formulario">Cantidad disponible: </label>
-                        <input type="number" id="stock" value="<%= productToEdit.stock %>" name="stock" class="div-ProductoNuevo">
+                        <input type="number" id="stock" value="<%= productToEdit.stock %>" name="stock" class="estilo-input">
                     </div> 
-                    <div class="div-formulario">
+                    <div class="estilo-formulario">
                         <label for="descripcion" class="label-formulario">Descripción: </label>
-                        <textarea name="descripcion" id="descripcion" name="descripcion" class="form-textarea"><%= productToEdit.descripcion %></textarea>
+                        <textarea name="descripcion" id="descripcion" name="descripcion" class="estilo-input"><%= productToEdit.descripcion %></textarea>
                     </div>
                     <div class="form-div-checkbox">
                         <input type="checkbox"  id="oferta" name="oferta" class="form-checkbox" <% if (productToEdit.oferta == true){%>
@@ -52,30 +52,30 @@
                         >
                         <label for="oferta" class="form-checkbox">En oferta</label>
                     </div>
-                    <div class="div-formulario">
+                    <div class="estilo-formulario">
                         <label for="descuento" class="label-formulario">Descuento: </label>
-                        <input type="number" id="descuento" value="<%= productToEdit.descuento %>" name="descuento" class="div-ProductoNuevo">
+                        <input type="number" id="descuento" value="<%= productToEdit.descuento %>" name="descuento" class="estilo-input">
                     </div> 
-                    <div class="form-div-checkbox">
-                        <input type="checkbox"  id="importado" name="importado" class="form-checkbox" <% if (productToEdit.importado == true){%>
+                    <div class="estilo-formulario">
+                        <input type="checkbox"  id="importado" name="importado" class="" <% if (productToEdit.importado == true){%>
                             checked
                             <% } %>
                         >
                         <label for="importado" class="form-checkbox">Importado</label>
                     </div>
-                    <div class="form-div-checkbox">
-                        <input type="checkbox"  id="pack" name="esPack" class="form-checkbox" <% if (productToEdit.esPack == true){%>
+                    <div class="estilo-formulario">
+                        <input type="checkbox"  id="pack" name="esPack" class="" <% if (productToEdit.esPack == true){%>
                             checked
                             <% } %>
                         >
-                        <label for="pack" class="form-checkbox">Es un pack?</label>
+                        <label for="pack" class="estilo-input">Es un pack?</label>
                     </div>
-                    <div class="div-formulario">
+                    <div class="estilo-formulario">
                         <label for="imagenes" class="label-formulario">Imágenes: </label>
-                        <input type="file" id="imagenes"  name="imagenesProductos[]" class="div-ProductoNuevo" multiple>
+                        <input type="file" id="imagenes"  name="imagenesProductos[]" class="estilo-input" multiple>
                     </div>
-                    <div class="div-form-botones">
-                        <button type="submit" class="boton-ProductoNuevo">Guardar</button>
+                    <div class="estilo-formulario">
+                        <button type="submit" class="boton-formularios">Guardar</button>
                     </div>
                 </form>
             </div>
