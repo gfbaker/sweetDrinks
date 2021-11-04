@@ -11,7 +11,6 @@
 
 input[type=text], input[type=password], input[type=email]{
     font-size: 12px;
-    width: 100%;
     font-style: italic;
     border: 1px solid #f0f2f0;
     border-radius: 4px;
@@ -600,18 +599,18 @@ section article .dtProdRel{
 
 
 .register-form input[type=text]::placeholder{
-    color: #f0f2f0;
+    color: #79787e;
     font-size: .8rem;
 }
 
 
 .register-form input[type=email]::placeholder{
-    color: #f0f2f0;
+    color: #79787e;
     font-size: .8rem;
 }
 
 .register-form input[type=password]::placeholder{
-    color: #f0f2f0;
+    color: #79787e;
     font-size: .8rem;
 }
 .botonRegistrarse{
@@ -1340,7 +1339,7 @@ input[type=number] {
     color: #f0f2f0;
 }
 input[type=number]::placeholder{
-    color: #f0f2f0;
+    color: #79787e;
     font-size: .8rem;
 }
 
