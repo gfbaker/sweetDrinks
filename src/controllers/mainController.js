@@ -26,13 +26,53 @@ const mainController = {
     getRegistro: (req,res) => {res.render (path.join(__dirname,"../views/registro"))},
     getProductoNuevo: (req,res) => {res.render (path.join(__dirname,"../views/productoNuevo"))},
 
-    postIndex: (req,res) => {res.redirect('/');},
-    postCarrito1: (req,res) => {res.redirect('/');},
-    postCarrito2: (req,res) => {res.redirect('/');},
-    postLogin: (req,res) => {res.redirect('/');},
-    postRegistro: (req,res) => {res.redirect('/');},
-    postProductoNuevo: (req,res) => {res.send(req.body)},
+    postIndex: (req,res) => {
+        res.redirect('/');
+    },
+    
+    postCarrito1: (req,res) => {
+        res.redirect('/');
+    },
 
+    postCarrito2: (req,res) => {
+        res.redirect('/');
+    },
+
+    postLogin: (req,res) => {
+
+        let login = {
+            usuario: req.body.usuario,
+            contraseña: req.body.contraseña,
+        }
+
+        res.redirect('/');
+    },
+
+    postRegistro: (req,res) => {
+
+        let registro = {
+            usuario: req.body.usuario,
+            mail: req.body.mail,
+            password: req.body.password,
+            confPass: req.body.confPass,
+            telefono: req.body.telefono
+        }
+
+        res.redirect('/');
+    },
+
+    postProductoNuevo: (req,res) => {
+
+        let datosProductoNuevo = {
+            nombre: req.body.nombre,
+            precio: req.body.precio,
+            cantidad: req.body.cantidad,
+            descripcion: req.body.descripcion,
+            imagen: req.body.imagen
+        }
+
+        res.redirect('/');
+    },
 
 }
 // Acá exportamos el resultado
