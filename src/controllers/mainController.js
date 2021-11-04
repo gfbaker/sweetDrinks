@@ -24,7 +24,7 @@ const mainController = {
     getCarrito2: (req,res) => {res.render (path.join(__dirname,"../views/carrito2"))},
     getLogin: (req,res) => {res.render (path.join(__dirname,"../views/login"))},
     getRegistro: (req,res) => {res.render (path.join(__dirname,"../views/registro"))},
-    getProductoNuevo: (req,res) => {res.render (path.join(__dirname,"../views/productoNuevo"))},
+    
 
     postIndex: (req,res) => {
         res.redirect('/');
@@ -61,26 +61,16 @@ const mainController = {
         res.redirect('/');
     },
 
+<<<<<<< HEAD
     postProductoNuevo: (req,res) => {
 
-        let datosProductoNuevo = {
-            nombre: req.body.nombre,
-            precio: req.body.precio,
-            alcohol: req.body.alcohol,
-            volumen: req.body.volumen,
-            descripcion: req.body.descripcion,
-            imagen: req.body.imagen,
-            stock: req.body.stock,
-            descuento: req.body.descuento,
-            oferta: req.body.oferta,
-            importado: req.body.importado,
-            esPack: req.body.esPack,
-            categoria: req.body.categoria
-        }
 
         res.redirect('/');
     },
 
+=======
+   
+>>>>>>> e919cf02aeae120250471d2187b5ec4381be1833
 }
 // Acá exportamos el resultado
 module.exports = mainController;

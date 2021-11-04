@@ -11,7 +11,6 @@
 
 input[type=text], input[type=password], input[type=email]{
     font-size: 12px;
-    width: 100%;
     font-style: italic;
     border: 1px solid #f0f2f0;
     border-radius: 4px;
@@ -385,6 +384,20 @@ height: 2vh;
     padding: 5px;
     border-radius: 5px;
 }
+.prodDetBotonProductoNuevoFlex{
+    display: flex;
+    justify-content: center;
+}
+.prodDetBotonProductoNuevo{
+    background-color:#bb6a0e;
+    border: none;
+    font-size: 18px;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5% 0% 5% 0%;
+
+}
 /* FIN HOME */
 
 /* DETALLE DE PRODUCTO */
@@ -564,6 +577,7 @@ section article .dtProdRel{
 }
 
 /* FIN DEL DETALLE DE PRODUCTO */
+
 /* REGISTRO */
 .register-body{
     display: flex;
@@ -600,18 +614,18 @@ section article .dtProdRel{
 
 
 .register-form input[type=text]::placeholder{
-    color: #f0f2f0;
+    color: #79787e;
     font-size: .8rem;
 }
 
 
 .register-form input[type=email]::placeholder{
-    color: #f0f2f0;
+    color: #79787e;
     font-size: .8rem;
 }
 
 .register-form input[type=password]::placeholder{
-    color: #f0f2f0;
+    color: #79787e;
     font-size: .8rem;
 }
 .botonRegistrarse{
@@ -1340,7 +1354,7 @@ input[type=number] {
     color: #f0f2f0;
 }
 input[type=number]::placeholder{
-    color: #f0f2f0;
+    color: #79787e;
     font-size: .8rem;
 }
 

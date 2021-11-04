@@ -19,8 +19,7 @@ router.post('/login', mainController.postLogin);
 router.get('/registro', mainController.getRegistro);
 router.post('/registro', mainController.postRegistro);
 
-router.get('/productoNuevo', mainController.getProductoNuevo);
-router.post('/productoNuevo', mainController.postProductoNuevo);
+
 
 
 // Acá exportamos el resultado
