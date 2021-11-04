@@ -66,9 +66,16 @@ const mainController = {
         let datosProductoNuevo = {
             nombre: req.body.nombre,
             precio: req.body.precio,
-            cantidad: req.body.cantidad,
+            alcohol: req.body.alcohol,
+            volumen: req.body.volumen,
             descripcion: req.body.descripcion,
-            imagen: req.body.imagen
+            imagen: req.body.imagen,
+            stock: req.body.stock,
+            descuento: req.body.descuento,
+            oferta: req.body.oferta,
+            importado: req.body.importado,
+            esPack: req.body.esPack,
+            categoria: req.body.categoria
         }
 
         res.redirect('/');

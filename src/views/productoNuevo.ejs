@@ -13,7 +13,6 @@
 
     <!-- MAIN -->
     <main class="mainProducto-nuevo">
-
         <form class="form-ProductoNuevo" method="post" action="/productoNuevo">
             <section>
                 <div class="div-ProductoNuevo">
@@ -25,8 +24,12 @@
                     <input type="text" name="precio" class="div-ProductoNuevo" required="required" minlength="4">
                 </div>
                 <div class="div-ProductoNuevo">
-                    <label class="label-ProductoNuevo">Cantidad disponible: </label>
-                    <input type="number" name="cantidad" class="div-ProductoNuevo" required="required">
+                    <label class="label-ProductoNuevo">Porcentaje de Alcohol: </label>
+                    <input type="number" name="alcohol" class="div-ProductoNuevo" required="required">
+                </div> 
+                <div class="div-ProductoNuevo">
+                    <label class="label-ProductoNuevo">Volumen del envase: </label>
+                    <input type="number" name="volumen" class="div-ProductoNuevo" required="required">
                 </div> 
                 <div class="div-ProductoNuevo">
                     <label class="label-ProductoNuevo">Descripcion: </label>
@@ -37,21 +40,33 @@
                     <input type="file" name="imagen" class="div-ProductoNuevo" required="required">
                 </div>
                 <div class="div-ProductoNuevo">
+                    <label class="label-ProductoNuevo">Stock: </label>
+                    <input type="number" name="stock" class="div-ProductoNuevo" required="required">
+                </div> 
+                <div class="div-ProductoNuevo">
+                    <label class="label-ProductoNuevo">Descuento: </label>
+                    <input type="number" name="descuento" class="div-ProductoNuevo" required="required">
+                </div> 
+                <div class="div-ProductoNuevo">
+                    <label for="categoria">Oferta</label>
+                    <input type="radio" id="categoria" name="categoria" value="oferta">            
+                    <label for="categoria2">Importado</label>
+                    <input type="radio" id="categoria2" name="categoria" value="importado">
+                    <label for="categoria3">Pack</label>         
+                    <input type="radio" id="categoria3" name="categoria" value="esPack">
+                </div> 
+                <div class="div-ProductoNuevo">
                     <button type="submit" value="enviar" class="boton-ProductoNuevo">Enviar</button>
                     <button type="reset" value="borrar" class="boton-ProductoNuevo">Borrar</button>               
                 </div>
             </section>
 
         </form>
-
     </main>
     <!-- FIN-MAIN -->
-
-
     <!----- FOOTER ----->
     <%- include('./partials/footer') %>
     <!----- FIN-FOOTER ----->
 
-</body>
-
+    </body> 
 </html>
