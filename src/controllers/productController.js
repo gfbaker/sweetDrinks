@@ -63,6 +63,25 @@ const productController = {
 		// });
 		res.send (req.body);
 	},
+	getProductoNuevo: (req,res) => {
+		res.render (path.join(__dirname,"../views/productoNuevo"))
+
+
+		
+	},
+	postProductoNuevo: (req,res) => {
+
+        let datosProductoNuevo = {
+            nombre: req.body.nombre,
+            precio: req.body.precio,
+            cantidad: req.body.cantidad,
+            descripcion: req.body.descripcion,
+            imagen: req.body.imagen
+        }
+
+        res.redirect('/');
+    },
+
 	// eliminar producto
 	destroy: (req, res) => {
 		res.send('Producto eliminado');

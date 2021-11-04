@@ -384,6 +384,20 @@ height: 2vh;
     padding: 5px;
     border-radius: 5px;
 }
+.prodDetBotonProductoNuevoFlex{
+    display: flex;
+    justify-content: center;
+}
+.prodDetBotonProductoNuevo{
+    background-color:#bb6a0e;
+    border: none;
+    font-size: 18px;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5% 0% 5% 0%;
+
+}
 /* FIN HOME */
 
 /* DETALLE DE PRODUCTO */
@@ -563,6 +577,7 @@ section article .dtProdRel{
 }
 
 /* FIN DEL DETALLE DE PRODUCTO */
+
 /* REGISTRO */
 .register-body{
     display: flex;

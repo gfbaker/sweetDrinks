@@ -9,7 +9,7 @@ const productController = require('../controllers/productController');
 
 // Acá definimos las rutas
 
-router.get('/:categoria?', productController.getProducts);
+
 
 router.get('/detail/:id', productController.getProductDetail);
 router.post('/', productController.postProductDetail);
@@ -19,6 +19,12 @@ router.put('/:id', productController.update);
 
 // Eliminar Producto
 router.delete('/detail/:id', productController.destroy);
+
+// Producto Nuevo
+router.get('/productoNuevo', productController.getProductoNuevo);
+router.post('/productoNuevo', productController.postProductoNuevo);
+
+router.get('/:categoria?', productController.getProducts);
 
 // Acá exportamos el resultado
 module.exports = router;
