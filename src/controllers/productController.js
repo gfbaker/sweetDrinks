@@ -63,7 +63,10 @@ const productController = {
 		// });
 		res.send (req.body);
 	},
-
+	// eliminar producto
+	destroy: (req, res) => {
+		res.send('Producto eliminado');
+	  },
 
 }
 // Acá exportamos el resultado
