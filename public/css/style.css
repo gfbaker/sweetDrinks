@@ -9,16 +9,6 @@
     font-family: 'Poppins', sans-serif;
 }
 
-/*input[type=text], input[type=password], input[type=email]{
-    font-size: 12px;
-    font-style: italic;
-    border: 1px solid #f0f2f0;
-    border-radius: 4px;
-    box-shadow: 0px 0px 5px #79787e;
-    padding: 5px;
-    color: #f0f2f0;
-    height: 30px;
-}
 
 /* HEADER */
 .margen-superior{
@@ -632,39 +622,6 @@ section article .dtProdRel{
 }
 
 
-
-/*.register-form input[type=text]::placeholder{
-    color: #79787e;
-    font-size: .8rem;
-}
-
-
-.register-form input[type=email]::placeholder{
-    color: #79787e;
-    font-size: .8rem;
-}
-
-.register-form input[type=password]::placeholder{
-    color: #79787e;
-    font-size: .8rem;
-}
-
-
-.botonRegistrarse{
-    background-color: #576959;
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-    padding: 5px;
-    width: 50%;
-    max-width: 320px;
-    border-radius: 4px;
-    box-shadow: 0px 0px 4px #EB9C4B;
-    border: 1px solid #EB9C4B;
-    color:  #EB9C4B;
-    margin-top: 10px;
-}
-
 */
 /* FIN REGISTRO */
 
@@ -871,13 +828,13 @@ section.direccionEnvio > *{
     padding: 5px 0px;
 
 }
-input[type=text] {
+ input[type=text], input[type=password], input[type=email]{
     font-style: italic;
     box-sizing: border-box;
     border: 1px solid #a1a1a1;
     border-radius: 4px;
     padding: 5px;
-    color: #f0f2f0;
+    color: #79787e;
 }
 
 input[type=number] {
@@ -893,7 +850,15 @@ input[type=text]::placeholder{
     color: #79787e;
     font-size: .8rem;
 }
+input[type=email]::placeholder{
+    color: #79787e;
+    font-size: .8rem;
+}
 
+input[type=password]::placeholder{
+    color: #79787e;
+    font-size: .8rem;
+}
 
 /* ---------MAIN-ENVIO--------- */
 
@@ -1070,13 +1035,7 @@ a.botonComprar{
      margin-left: 0%;
      order: -1;
     }
-    
-   
-    /* .imgDtProdMini img:hover{
-        transform: scale(6);
-        left: 52%; 
-        
-    } */
+
 
     .dtProdRel{
         flex-direction: row;
@@ -1403,7 +1362,7 @@ input:focus {
 }
 
 .form-textarea:focus {
-outline: none !important;
-border:1px solid #EB9C4B;
-box-shadow: 0 0 10px rgba(235, 156, 75,.5);
+    outline: none !important;
+    border:1px solid #EB9C4B;
+    box-shadow: 0 0 10px rgba(235, 156, 75,.5);
 }
