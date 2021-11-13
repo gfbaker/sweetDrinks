@@ -13,7 +13,7 @@
 
     <!-- MAIN -->
     <main class="mainProducto-nuevo">
-        <form class="form-ProductoNuevo" method="post" action="/productoNuevo">
+        <form class="form-ProductoNuevo" method="POST" enctype="multipart/form-data">
             <section>
                 <div class="div-ProductoNuevo">
                     <label class="label-ProductoNuevo">Nombre del Producto:</label>
@@ -21,23 +21,23 @@
                 </div>
                 <div class="div-ProductoNuevo">
                     <label class="label-ProductoNuevo">Precio:</label>
-                    <input type="text" name="precio" class="div-ProductoNuevo" required="required" minlength="4">
+                    <input type="number" name="precio" class="div-ProductoNuevo" required="required" minlength="4">
                 </div>
                 <div class="div-ProductoNuevo">
                     <label class="label-ProductoNuevo">Porcentaje de Alcohol: </label>
-                    <input type="number" name="alcohol" class="div-ProductoNuevo" required="required">
+                    <input type="number" name="porcentajeAlcohol" class="div-ProductoNuevo" required="required">
                 </div> 
                 <div class="div-ProductoNuevo">
                     <label class="label-ProductoNuevo">Volumen del envase: </label>
-                    <input type="number" name="volumen" class="div-ProductoNuevo" required="required">
+                    <input type="text" name="volumen" class="div-ProductoNuevo" required="required">
                 </div> 
                 <div class="div-ProductoNuevo">
                     <label class="label-ProductoNuevo">Descripcion: </label>
                     <input type="text" name="descripcion" class="div-ProductoNuevo" required="required" minlength="4">
                 </div>
                 <div class="div-ProductoNuevo">
-                    <label class="label-ProductoNuevo">Imagen: </label>
-                    <input type="file" name="imagen" class="div-ProductoNuevo" required="required">
+                    <label for= "imagenes" class="label-ProductoNuevo">Imagenes: </label>
+                    <input type="file" name="imagenes" class="div-ProductoNuevo" required="required">
                 </div>
                 <div class="div-ProductoNuevo">
                     <label class="label-ProductoNuevo">Stock: </label>
@@ -48,12 +48,32 @@
                     <input type="number" name="descuento" class="div-ProductoNuevo" required="required">
                 </div> 
                 <div class="div-ProductoNuevo">
-                    <label for="categoria">Oferta</label>
-                    <input type="radio" id="categoria" name="categoria" value="oferta">            
-                    <label for="categoria2">Importado</label>
-                    <input type="radio" id="categoria2" name="categoria" value="importado">
-                    <label for="categoria3">Pack</label>         
-                    <input type="radio" id="categoria3" name="categoria" value="esPack">
+                    <div>
+                    <label for="seccion">Oferta</label>
+                    <input type="checkbox" id="oferta" name="oferta" >            
+                    </div>
+                    <div>
+                    <label for="seccion2">Importado</label>
+                    <input type="checkbox" id="importado" name="importado" >
+                    </div>
+                    <div>
+                    <label for="seccion3">Pack</label>         
+                    <input type="checkbox" id="pack" name="esPack" >
+                    </div>
+                </div> 
+                <div class="div-ProductoNuevo">
+                    <div>
+                    <label for="categoria">Cervezas</label>
+                    <input type="checkbox" id="categoria" name="categoria" value="Cervezas">            
+                    </div>
+                    <div>
+                    <label for="categoria2">Aperitivos</label>
+                    <input type="checkbox" id="categoria2" name="categoria" value="Aperitivos">
+                    </div>
+                    <div>
+                    <label for="categoria3">Whiskies</label>         
+                    <input type="checkbox" id="categoria3" name="categoria" value="Whiskies">
+                    </div>
                 </div> 
                 <br>
                 <div class="div-ProductoNuevo">

@@ -15,7 +15,7 @@ const productController = {
 		categoria = req.params.categoria;
 		if (categoria == undefined){
 			productsToShow = products;
-			categoria = "Todos los productos";
+			categoria = "Todos los productos"; 
 		}else{
 			productsToShow = products.filter (function (product){
 				return product.categoria.toUpperCase() == categoria.toUpperCase();
@@ -69,29 +69,58 @@ const productController = {
 		res.redirect('/');
 
 	},
+<<<<<<< HEAD
 
 	getProductoNuevo: (req,res) => {
 		res.render (path.join(__dirname,"../views/productoNuevo"))
+=======
+	getNewProduct: (req,res) => {
+		res.render (path.join(__dirname,"../views/newProduct"))
+>>>>>>> f6d7b2123691f305a18cca3e9c9e38a649b02e27
 
 
 		
 	},
-	postProductoNuevo: (req,res) => {
+	// EN PROCESO
+	postNewProduct: (req,res) => {
+		
+		console.log(req.body);
+		
+			let datosNewProduct = {
 
-        let datosProductoNuevo = {
-            nombre: req.body.nombre,
-            precio: req.body.precio,
-            cantidad: req.body.cantidad,
+			id : products[products.length - 1].id + 1,
+			nombre: req.body.nombre,
+            precio: Number(req.body.precio),
+            porcentajeAlcohol: Number(req.body.porcentajeAlcohol),
+            volumen: req.body.volumen,
             descripcion: req.body.descripcion,
-            imagen: req.body.imagen
-        }
+            stock: Number(req.body.stock),
+            descuento: Number(req.body.descuento),
+            oferta: req.body.oferta == "on" ? oferta = true : oferta = false ,
+            importado: req.body.importado == "on" ? importado = true : importado = false ,
+            esPack: req.body.esPack == "on" ? esPack = true : esPack = false,
+            categoria: req.body.categoria,
+			imagenes: req.file ? [req.file.filename] : ['']
 
-        res.redirect('/');
+			}
+			
+			
+			products.push(datosNewProduct); 
+
+			fs.writeFileSync(productsFilePath, JSON.stringify(products, null, " "));
+	
+			res.redirect('/products');
+		
     },
 
 	// eliminar producto
 	destroy: (req, res) => {
-		res.send('Producto eliminado');
+
+		let filterProducts = products.filter((prod) => prod.id != req.params.id);
+
+		fs.writeFileSync(productsFilePath, JSON.stringify(filterProducts, null, " "));
+
+		res.redirect('/products');
 	  },
 
 }
