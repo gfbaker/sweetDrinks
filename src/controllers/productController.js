@@ -69,14 +69,8 @@ const productController = {
 		res.redirect('/');
 
 	},
-<<<<<<< HEAD
-
-	getProductoNuevo: (req,res) => {
-		res.render (path.join(__dirname,"../views/productoNuevo"))
-=======
 	getNewProduct: (req,res) => {
 		res.render (path.join(__dirname,"../views/newProduct"))
->>>>>>> f6d7b2123691f305a18cca3e9c9e38a649b02e27
 
 
 		
