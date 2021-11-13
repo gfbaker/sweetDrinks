@@ -1,77 +1,88 @@
 [
-    {
-    "id": "1",
-    "nombre": "Cynar",
-    "precio": 500,
-    "porcentajeAlcohol": 16.5,
-    "volumen": "1L",
-    "descripcion": "Algo sobre Cynar",
-    "imagenes": ["Cynar.jpg","Cynar2.jpg"],
-    "stock": 20,
-    "descuento":0,
-    "oferta": true,
-    "importado": false,
-    "esPack": false,
-    "categoria": "Aperitivos"
-    },
-    {
-    "id": "2",
-    "nombre": "Campari",
-    "precio": 600,
-    "porcentajeAlcohol": 12.4,
-    "volumen": "1L",
-    "descripcion": "Algo sobre Campari",
-    "imagenes": ["Campari.jpg"],
-    "stock": 40,
-    "descuento":0,
-    "oferta": true,
-    "importado": false,
-    "esPack": false,
-    "categoria": "Aperitivos"
-    },
-    {
-    "id": "3",
-    "nombre": "Gancia",
-    "precio": 500,
-    "porcentajeAlcohol": 11.5,
-    "volumen": "1L",
-    "descripcion": "Algo sobre Gancia",
-    "imagenes": ["Gancia.jpg"],
-    "stock": 35,
-    "descuento":0,
-    "oferta": true,
-    "importado": false,
-    "esPack": false,
-    "categoria": "Aperitivos"
-    },
-    {
-    "id": "4",
-    "nombre": "Jack Daniels",
-    "precio": 4500,
-    "porcentajeAlcohol": 40,
-    "volumen": "750 ml",
-    "descripcion": "Algo sobre Jack Daniels",
-    "imagenes": ["JackDaniels 750.jpg"],
-    "stock": 3,
-    "descuento":0,
-    "oferta": false,
-    "importado": true,
-    "esPack": false,
-    "categoria": "Whiskies"
-    },
-    {
-    "id": "5",
-    "nombre": "Pack Heineken x6",
-    "precio": 1100,
-    "porcentajeAlcohol": 4,
-    "volumen": "473 ml",
-    "descripcion": "Algo sobre el pack",
-    "imagenes": ["heinekenPack.jpg"],
-    "stock": 200,
-    "descuento":0,
-    "oferta": false,
-    "importado": false,
-    "esPack": true,
-    "categoria": "Cervezas"
-    }
+ {
+  "id": 1,
+  "nombre": "Cynar",
+  "precio": 500,
+  "porcentajeAlcohol": 16.5,
+  "volumen": "1L",
+  "descripcion": "Algo sobre Cynar",
+  "imagenes": [
+   "Cynar.jpg",
+   "Cynar2.jpg"
+  ],
+  "stock": 20,
+  "descuento": 0,
+  "oferta": true,
+  "importado": false,
+  "esPack": false,
+  "categoria": "Aperitivos"
+ },
+ {
+  "id": 2,
+  "nombre": "Campari",
+  "precio": 600,
+  "porcentajeAlcohol": 12.4,
+  "volumen": "1L",
+  "descripcion": "Algo sobre Campari",
+  "imagenes": [
+   "Campari.jpg"
+  ],
+  "stock": 40,
+  "descuento": 0,
+  "oferta": true,
+  "importado": false,
+  "esPack": false,
+  "categoria": "Aperitivos"
+ },
+ {
+  "id": 3,
+  "nombre": "Gancia",
+  "precio": 500,
+  "porcentajeAlcohol": 11.5,
+  "volumen": "1L",
+  "descripcion": "Algo sobre Gancia",
+  "imagenes": [
+   "Gancia.jpg"
+  ],
+  "stock": 35,
+  "descuento": 0,
+  "oferta": true,
+  "importado": false,
+  "esPack": false,
+  "categoria": "Aperitivos"
+ },
+ {
+  "id": 4,
+  "nombre": "Jack Daniels",
+  "precio": 4500,
+  "porcentajeAlcohol": 40,
+  "volumen": "750 ml",
+  "descripcion": "Algo sobre Jack Daniels",
+  "imagenes": [
+   "JackDaniels 750.jpg"
+  ],
+  "stock": 3,
+  "descuento": 0,
+  "oferta": false,
+  "importado": true,
+  "esPack": false,
+  "categoria": "Whiskies"
+ },
+ {
+  "id": 5,
+  "nombre": "Pack Heineken x6",
+  "precio": 1100,
+  "porcentajeAlcohol": 4,
+  "volumen": "473 ml",
+  "descripcion": "Algo sobre el pack",
+  "imagenes": [
+   "heinekenPack.jpg"
+  ],
+  "stock": 200,
+  "descuento": 0,
+  "oferta": false,
+  "importado": false,
+  "esPack": true,
+  "categoria": "Cervezas"
+ }
 ]

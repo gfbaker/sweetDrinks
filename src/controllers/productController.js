@@ -69,22 +69,46 @@ const productController = {
 
 		
 	},
+	// EN PROCESO
 	postProductoNuevo: (req,res) => {
+		
+		console.log(req.body);
+		
+			let datosProductoNuevo = {
 
-        let datosProductoNuevo = {
-            nombre: req.body.nombre,
-            precio: req.body.precio,
-            cantidad: req.body.cantidad,
+			id : products[products.length - 1].id + 1,
+			nombre: req.body.nombre,
+            precio: Number(req.body.precio),
+            porcentajeAlcohol: Number(req.body.porcentajeAlcohol),
+            volumen: req.body.volumen,
             descripcion: req.body.descripcion,
-            imagen: req.body.imagen
-        }
+            stock: Number(req.body.stock),
+            descuento: Number(req.body.descuento),
+            oferta: req.body.oferta == "on" ? oferta = true : oferta = false ,
+            importado: req.body.importado == "on" ? importado = true : importado = false ,
+            esPack: req.body.esPack == "on" ? esPack = true : esPack = false,
+            categoria: req.body.categoria,
+			imagenes: req.file ? [req.file.filename] : ['']
 
-        res.redirect('/');
+			}
+			
+			
+			products.push(datosProductoNuevo); 
+
+			fs.writeFileSync(productsFilePath, JSON.stringify(products, null, " "));
+	
+			res.redirect('/products');
+		
     },
 
 	// eliminar producto
 	destroy: (req, res) => {
-		res.send('Producto eliminado');
+
+		let filterProducts = products.filter((prod) => prod.id != req.params.id);
+
+		fs.writeFileSync(productsFilePath, JSON.stringify(filterProducts, null, " "));
+
+		res.redirect('/products');
 	  },
 
 }

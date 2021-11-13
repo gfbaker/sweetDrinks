@@ -20,7 +20,7 @@
                 </div>
             </div>
             <div class="formulario-cuerpo">
-                <form action="/products/<%= productToEdit.id %>?_method=PUT" method="POST" class="form-ProductoNuevo">
+                <form action="/products/<%= productToEdit.id %>?_method=PUT" method="POST" class="form-ProductoNuevo" enctype="multipart/form-data">
                     <div class="estilo-formulario">
                         <label for="nombre" class="label-formulario">Nombre del Producto:</label>
                         <input type="text" id="nombre" value="<%= productToEdit.nombre %>" name="nombre" class="estilo-input">

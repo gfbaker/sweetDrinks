@@ -1334,7 +1334,7 @@ input[type=number] {
     border: 1px solid #a1a1a1;
     border-radius: 4px;
     padding: 5px;
-    color: #f0f2f0;
+    color: black;
 }
 input[type=number]::placeholder{
     color: #79787e;
