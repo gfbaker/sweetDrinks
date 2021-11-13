@@ -1,8 +1,10 @@
 // Acá nos falta nuestra fuente de datos
 const fs = require('fs');
 const path = require('path');
+const { stringify } = require('querystring');
+const { formatWithOptions } = require('util');
 const productsFilePath = path.join(__dirname, '../data/productos.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 
 
@@ -44,25 +46,30 @@ const productController = {
 	update: (req, res) => {
 		//res.send ("Esta funcion recibe por PUT los datos del formulario de edicion. Tiene que poder guardar lo que recibe en la base de datos");
 		console.log(req.params.id)
-		// products.forEach(element => {
-		// 	if (element['id'] == req.params.id){
-		// 		element["nombre"] = req.body.nombre;
-		// 		element["precio"] = req.body.precio;
-		// 		element["porcentajeAlcohol"] = req.body.porcentajeAlcohol;
-		// 		element["volumen"] = req.body.volumen;
-		// 		element["descripcion"] = req.body.descripcion;
-		// 	// 	element["imagenes"] = req.body.imagenes;
-		// 		element["stock"] = req.body.stock;
-		// 		element["descuento"] = req.body.descuento;
-		// 		element["oferta"] = req.body.oferta;
-		// 		element["importado"] = req.body.importado;
-		// 		element["esPack"] = req.body.esPack;
-		// 		element["categoria"] = req.body.categoria;
+		products.forEach(element => {
+			if (element['id'] == req.params.id){
+				element["nombre"] = req.body.nombre;
+				element["precio"] = Number(req.body.precio);
+				element["porcentajeAlcohol"] = Number(req.body.porcentajeAlcohol);
+				element["volumen"] = req.body.volumen;
+				element["descripcion"] = req.body.descripcion;
+				element["imagenes"] = [req.body.imagenes];
+				element["stock"] = Number(req.body.stock);
+				element["descuento"] = Number(req.body.descuento);
+				req.body.oferta == "on" ? element["oferta"] = true : element["oferta"] = false ;
+				req.body.importado == "on" ? element["importado"] = true : element["importado"] = false ;
+				req.body.esPack == "on" ? element["esPack"] = true : element["esPack"] = false ;
+				element["categoria"] = req.body.categoria;
 				
-		// 	}			
-		// });
-		res.send (req.body);
+			}			
+		});
+		
+		fs.writeFileSync(productsFilePath,JSON.stringify(products))
+
+		res.redirect('/');
+
 	},
+
 	getProductoNuevo: (req,res) => {
 		res.render (path.join(__dirname,"../views/productoNuevo"))
 
