@@ -18,10 +18,10 @@ router.put('/:id',upload.single("imagenesProductos[]"), productController.update
 router.delete('/detail/:id', productController.destroy);
 
 // Producto Nuevo
-router.get('/productoNuevo', productController.getProductoNuevo);
-router.post('/productoNuevo', upload.single('imagenes'), productController.postProductoNuevo);
+router.get('/newProduct', productController.getNewProduct);
+router.post('/newProduct', upload.single('imagenes'), productController.postNewProduct);
 
 router.get('/:categoria?', productController.getProducts);
 
 // Acá exportamos el resultado
-module.exports = router;
+module.exports = router; 

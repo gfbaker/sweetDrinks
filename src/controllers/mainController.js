@@ -20,21 +20,21 @@ const mainController = {
 		});
         res.render (path.join(__dirname,"../views/index"),{ofertas, importados, packs})
     },
-    getCarrito1: (req,res) => {res.render (path.join(__dirname,"../views/carrito1"))},
-    getCarrito2: (req,res) => {res.render (path.join(__dirname,"../views/carrito2"))},
+    getCart: (req,res) => {res.render (path.join(__dirname,"../views/cart"))},
+    getConfirmation: (req,res) => {res.render (path.join(__dirname,"../views/confirmation"))},
     getLogin: (req,res) => {res.render (path.join(__dirname,"../views/login"))},
-    getRegistro: (req,res) => {res.render (path.join(__dirname,"../views/registro"))},
+    getNewUser: (req,res) => {res.render (path.join(__dirname,"../views/newUser"))},
     
 
-    postIndex: (req,res) => {
+    postIndex: (req,res) => { 
         res.redirect('/');
     },
     
-    postCarrito1: (req,res) => {
+    postCart: (req,res) => {
         res.redirect('/');
     },
 
-    postCarrito2: (req,res) => {
+    postConfirmation: (req,res) => {
         res.redirect('/');
     },
 
@@ -48,9 +48,10 @@ const mainController = {
         res.redirect('/');
     },
 
-    postRegistro: (req,res) => {
+    postNewUser: (req,res) => {
 
-        let registro = {
+        let newUser
+ = {
             usuario: req.body.usuario,
             mail: req.body.mail,
             password: req.body.password,

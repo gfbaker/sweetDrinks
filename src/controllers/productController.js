@@ -13,7 +13,7 @@ const productController = {
 		categoria = req.params.categoria;
 		if (categoria == undefined){
 			productsToShow = products;
-			categoria = "Todos los productos";
+			categoria = "Todos los productos"; 
 		}else{
 			productsToShow = products.filter (function (product){
 				return product.categoria.toUpperCase() == categoria.toUpperCase();
@@ -63,18 +63,18 @@ const productController = {
 		// });
 		res.send (req.body);
 	},
-	getProductoNuevo: (req,res) => {
-		res.render (path.join(__dirname,"../views/productoNuevo"))
+	getNewProduct: (req,res) => {
+		res.render (path.join(__dirname,"../views/newProduct"))
 
 
 		
 	},
 	// EN PROCESO
-	postProductoNuevo: (req,res) => {
+	postNewProduct: (req,res) => {
 		
 		console.log(req.body);
 		
-			let datosProductoNuevo = {
+			let datosNewProduct = {
 
 			id : products[products.length - 1].id + 1,
 			nombre: req.body.nombre,
@@ -93,7 +93,7 @@ const productController = {
 			}
 			
 			
-			products.push(datosProductoNuevo); 
+			products.push(datosNewProduct); 
 
 			fs.writeFileSync(productsFilePath, JSON.stringify(products, null, " "));
 	

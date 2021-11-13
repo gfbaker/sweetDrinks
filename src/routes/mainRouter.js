@@ -7,20 +7,20 @@ const mainController = require('../controllers/mainController');
 
 // Acá definimos las rutas
 router.get('/', mainController.getIndex);
-router.get('/carrito1', mainController.getCarrito1);
-router.post('/carrito1', mainController.postCarrito1);
+router.get('/cart', mainController.getCart);
+router.post('/cart', mainController.postCart);
 
-router.get('/carrito2', mainController.getCarrito2);
-router.post('/carrito2', mainController.postCarrito2);
+router.get('/confirmation', mainController.getConfirmation);
+router.post('/confirmation', mainController.postConfirmation);
 
 router.get('/login', mainController.getLogin);
 router.post('/login', mainController.postLogin);
 
-router.get('/registro', mainController.getRegistro);
-router.post('/registro', mainController.postRegistro);
+router.get('/newUser', mainController.getNewUser);
+router.post('/newUser', mainController.getNewUser);
 
 
-
+ 
 
 // Acá exportamos el resultado
 module.exports = router;
