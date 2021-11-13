@@ -12,7 +12,7 @@ router.get('/detail/:id', productController.getProductDetail);
 router.post('/', productController.postProductDetail);
 
 router.get('/:id/edit', productController.edit); 
-router.put('/:id',upload.single("imagenesProductos[]"), productController.update); 
+router.put('/:id',upload.single("imagenes"), productController.update); 
 
 // Eliminar Producto
 router.delete('/detail/:id', productController.destroy);

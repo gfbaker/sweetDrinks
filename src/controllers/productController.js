@@ -53,7 +53,7 @@ const productController = {
 				element["porcentajeAlcohol"] = Number(req.body.porcentajeAlcohol);
 				element["volumen"] = req.body.volumen;
 				element["descripcion"] = req.body.descripcion;
-				element["imagenes"] = [req.body.imagenes];
+				element["imagenes"] = req.file ? [req.file.filename] : ['']
 				element["stock"] = Number(req.body.stock);
 				element["descuento"] = Number(req.body.descuento);
 				req.body.oferta == "on" ? element["oferta"] = true : element["oferta"] = false ;
