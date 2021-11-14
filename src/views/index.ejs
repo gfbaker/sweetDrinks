@@ -48,7 +48,7 @@
         </section>
         </div>
 
-        <h3>Ofertas</h3>
+        <h3>Productos en oferta</h3>
 
         <section class="articulos">
             <% for (let i = 0; i < ofertas.length; i++){ %>
@@ -58,8 +58,8 @@
                     </a>
                     <div class="pie-del-articulo">
                         <ul>
-                            <p><%=ofertas[i].nombre%></p>
-                            <p class="">$<%=ofertas[i].precio%></p>
+                            <p class="pie-del-articulo-nombre"><%=ofertas[i].nombre%> <%=ofertas[i].volumen%></p>
+                            <p class="pie-del-articulo-precio"><strike>$<%=ofertas[i].precio%></strike> $<%=ofertas[i].precio * (1- (ofertas[i].descuento / 100) )%></p>
                         </ul>
                     </div>
                 </article>
@@ -77,8 +77,8 @@
                     </a>                    
                     <div class="pie-del-articulo">
                         <ul>
-                            <p><%=importados[i].nombre%></p>
-                            <p class="">$<%=importados[i].precio%></p>
+                            <p class="pie-del-articulo-nombre"><%=importados[i].nombre%> <%=importados[i].volumen%></p>
+                            <p class="pie-del-articulo-precio">$<%=importados[i].precio%></p>
                         </ul>
                     </div>
                 </article>
@@ -95,8 +95,8 @@
                     </a>
                     <div class="pie-del-articulo">
                         <ul>
-                            <p><%=packs[i].nombre%></p>
-                            <p class="">$<%=packs[i].precio%></p>
+                            <p class="pie-del-articulo-nombre"><%=packs[i].nombre%> <%=packs[i].volumen%></p>
+                            <p class="pie-del-articulo-precio">$<%=packs[i].precio%></p>
                         </ul>
                     </div>
                 </article>

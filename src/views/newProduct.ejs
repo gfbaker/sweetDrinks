@@ -12,78 +12,74 @@
         <!-- FIN DEL HEADER -->
 
     <!-- MAIN -->
-    <main class="mainProducto-nuevo">
-        <form class="form-ProductoNuevo" method="POST" enctype="multipart/form-data">
-            <section>
-                <div class="div-ProductoNuevo">
-                    <label class="label-ProductoNuevo">Nombre del Producto:</label>
-                    <input type="text" name="nombre" class="div-ProductoNuevo" required="required" minlength="4">
-                </div>
-                <div class="div-ProductoNuevo">
-                    <label class="label-ProductoNuevo">Precio:</label>
-                    <input type="number" name="precio" class="div-ProductoNuevo" required="required" minlength="4">
-                </div>
-                <div class="div-ProductoNuevo">
-                    <label class="label-ProductoNuevo">Porcentaje de Alcohol: </label>
-                    <input type="number" name="porcentajeAlcohol" class="div-ProductoNuevo" required="required">
-                </div> 
-                <div class="div-ProductoNuevo">
-                    <label class="label-ProductoNuevo">Volumen del envase: </label>
-                    <input type="text" name="volumen" class="div-ProductoNuevo" required="required">
-                </div> 
-                <div class="div-ProductoNuevo">
-                    <label class="label-ProductoNuevo">Descripcion: </label>
-                    <input type="text" name="descripcion" class="div-ProductoNuevo" required="required" minlength="4">
-                </div>
-                <div class="div-ProductoNuevo">
-                    <label for= "imagenes" class="label-ProductoNuevo">Imagenes: </label>
-                    <input type="file" name="imagenes" class="div-ProductoNuevo" required="required">
-                </div>
-                <div class="div-ProductoNuevo">
-                    <label class="label-ProductoNuevo">Stock: </label>
-                    <input type="number" name="stock" class="div-ProductoNuevo" required="required">
-                </div> 
-                <div class="div-ProductoNuevo">
-                    <label class="label-ProductoNuevo">Descuento: </label>
-                    <input type="number" name="descuento" class="div-ProductoNuevo" required="required">
-                </div> 
-                <div class="div-ProductoNuevo">
-                    <div>
-                    <label for="oferta">Oferta</label>
-                    <input type="checkbox" id="oferta" name="oferta" >            
+    <main class="mainProduct-form">
+        <div class="wrapper-formulario">
+            <div class="formulario-titulo">
+                <h2 class="formulario-titulo">Estás agregando un nuevo producto</i></h2>
+            </div>
+            <div class="formulario-cuerpo">
+                <form action="/products/newProduct" method="POST" class="form-ProductoNuevo" enctype="multipart/form-data">
+                    <div class="estilo-formulario">
+                        <label for="nombre" class="label-formulario">Nombre del Producto:</label>
+                        <input type="text" id="nombre" name="nombre" class="estilo-input">
                     </div>
-                    <div>
-                    <label for="importado">Importado</label>
-                    <input type="checkbox" id="importado" name="importado" >
+                    <div class="estilo-formulario">
+                        <label for="volumen" class="label-formulario">Volumen:</label>
+                        <input type="text"  id="volumen" name="volumen" class="estilo-input">
                     </div>
-                    <div>
-                    <label for="esPack">Pack</label>         
-                    <input type="checkbox" id="esPack" name="esPack" >
+                    <div class="estilo-formulario">
+                        <label for="precio" class="label-formulario">Precio:</label>
+                        <input type="text"  id="precio" name="precio" class="estilo-input">
                     </div>
-                </div> 
-                <div class="div-ProductoNuevo">
-                    <div>
-                    <label for="categoria">Cervezas</label>
-                    <input type="checkbox" id="categoria" name="categoria" value="Cervezas">            
+                    <div class="estilo-formulario">
+                        <label for="porcentajeAlcohol" class="label-formulario">Porcentaje de Alcohol:</label>
+                        <input type="number" id="porcentajeAlcohol" name="porcentajeAlcohol" class="estilo-input">
                     </div>
-                    <div>
-                    <label for="categoria2">Aperitivos</label>
-                    <input type="checkbox" id="categoria2" name="categoria" value="Aperitivos">
+                    <div class="estilo-formulario">
+                        <label for="stock" class="label-formulario">Cantidad disponible: </label>
+                        <input type="number" id="stock" name="stock" class="estilo-input">
+                    </div> 
+                    <div class="estilo-formulario">
+                        <label for="descripcion" class="label-formulario">Descripción: </label>
+                        <textarea name="descripcion" id="descripcion" name="descripcion" class="form-textarea"></textarea>
                     </div>
-                    <div>
-                    <label for="categoria3">Whiskies</label>         
-                    <input type="checkbox" id="categoria3" name="categoria" value="Whiskies">
+                    <div class="form-div-checkbox">
+                        <input type="checkbox"  id="oferta" name="oferta" class="form-checkbox">
+                        <label for="oferta" class="form-checkbox">En oferta</label>
                     </div>
-                </div> 
-                <br>
-                <div class="div-ProductoNuevo">
-                    <button type="submit" value="enviar" class="boton-formularios">Enviar</button>
-                    <button type="reset" value="borrar" class="boton-formularios">Borrar</button>               
-                </div>
-            </section>
-
-        </form>
-    </main>
+                    <div class="estilo-formulario">
+                        <label for="descuento" class="label-formulario">Descuento: </label>
+                        <input type="number" id="descuento" name="descuento" class="estilo-input">
+                    </div> 
+                    <div class="estilo-formulario">
+                        <label for="categoria" class="label-formulario">Categoría: </label>
+                        <select id="categoria" name="categoria" class="estilo-select">
+                            <option disabled selected value> -- Elija una categoría -- </option>
+                            <option value="Aperitivos">Aperitivos</option>
+                            <option value="Cervezas">Cervezas</option>
+                            <option value="Vinos">Vinos</option>
+                            <option value="Whiskies">Whiskies</option>
+                        </select>                        
+                    </div> 
+                    <div class="estilo-formulario">
+                        <input type="checkbox"  id="importado" name="importado" class="">
+                        <label for="importado" class="form-checkbox">Importado</label>
+                    </div>
+                    <div class="estilo-formulario">
+                        <input type="checkbox"  id="esPack" name="esPack" class="">
+                        <label for="esPack" class="estilo-input">Es un pack?</label>
+                    </div>
+                    <div class="estilo-formulario">
+                        <label for="imagenes" class="label-formulario">Imágenes: </label>
+                        <input type="file" id="imagenes"  name="imagenes" class="estilo-input" multiple>
+                    </div>
+                    <div class="estilo-formulario">
+                        <button type="submit" class="boton-formularios">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        </main>
     <!-- FIN-MAIN -->
     <!----- FOOTER ----->
     <%- include('./partials/footer') %>

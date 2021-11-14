@@ -2,9 +2,42 @@
 const express = require('express');
 const router = express.Router();
 const upload = require('../../middlewares/upload')
+const { check } = require('express-validator');
 
 // Aća nos falta traer el controller
 const productController = require('../controllers/productController');
+
+const validateForm = [
+    check('nombre')
+    .notEmpty().withMessage('Debes completar el nombre'),
+    check('precio')
+    .notEmpty().withMessage('Debes completar el precio')
+    .bail()
+    .isNumeric(),
+    check('porcentajeAlcohol')
+    .notEmpty().withMessage('Debes indicar el porcentaje de alcohol')
+    .bail()
+    .isNumeric()
+    .isLength({ min: 0, max: 100 }),
+    check('volumen')
+    .notEmpty().withMessage('Debes indicar el volumen'),
+    check('descripcion')
+    .notEmpty().withMessage('Debes agregar una descripción'),
+    check('stock')
+    .notEmpty().withMessage('Debes indicar el stock')
+    .bail()
+    .isNumeric(),
+    check('descuento')
+    .notEmpty().withMessage('Debes indicar el porcentaje de descuento')
+    .bail()
+    .isNumeric()
+    .isLength({ min: 0, max: 100 }),
+    check('categoria')
+    .notEmpty().withMessage('Debes seleccionar una categoría')
+
+    ]
+
+
 
 // Acá definimos las rutas
 
@@ -12,14 +45,14 @@ router.get('/detail/:id', productController.getProductDetail);
 router.post('/', productController.postProductDetail);
 
 router.get('/:id/edit', productController.edit); 
-router.put('/:id',upload.single("imagenes"), productController.update); 
+router.put('/:id',upload.single("imagenes"), validateForm, productController.update); 
 
 // Eliminar Producto
 router.delete('/detail/:id', productController.destroy);
 
 // Producto Nuevo
 router.get('/newProduct', productController.getNewProduct);
-router.post('/newProduct', upload.single('imagenes'), productController.postNewProduct);
+router.post('/newProduct', upload.single('imagenes'), validateForm, productController.postNewProduct);
 
 router.get('/:categoria?', productController.getProducts);
 

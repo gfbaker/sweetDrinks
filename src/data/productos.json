@@ -1,19 +1,20 @@
 [
     {
         "id": 1,
-        "nombre": "Cynar",
+        "nombre": "CYNAR",
         "precio": 500,
         "porcentajeAlcohol": 17.5,
         "volumen": "1L",
-        "descripcion": "Algo sobre Cynar + otra info",
+        "descripcion": "Algo sobre Cynar",
         "imagenes": [
-            "imagenes-1636842439202-.jpg"
+            "Cynar.jpg"
         ],
         "stock": 200,
-        "descuento": 1500,
+        "descuento": 15,
         "oferta": true,
         "importado": false,
-        "esPack": false
+        "esPack": false,
+        "categoria": "Aperitivos"
     },
     {
         "id": 2,
@@ -26,7 +27,7 @@
             "Campari.jpg"
         ],
         "stock": 400,
-        "descuento": 0,
+        "descuento": 20,
         "oferta": true,
         "importado": false,
         "esPack": false
@@ -59,7 +60,7 @@
             "JackDaniels 750.jpg"
         ],
         "stock": 3,
-        "descuento": 0,
+        "descuento": 50,
         "oferta": false,
         "importado": true,
         "esPack": false,

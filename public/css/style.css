@@ -335,6 +335,11 @@ height: 2vh;
 
 .article-main {
     margin: 5px;
+    box-sizing: border-box;
+    /* box-shadow: 0px 0px 10px #4A594F; */
+    border: 1px solid #35453C;
+    padding: 5px
+;
 }
 
 .home-main h3 {
@@ -344,11 +349,23 @@ height: 2vh;
     font-family: 'Poppins', sans-serif;
 }
 
+.pie-del-articulo-nombre{
+    font-weight: bold;
+    text-align: center;
+    color: #35453C
+
+}
+
+.pie-del-articulo-precio{
+    text-align: center;
+    color: #35453C;
+}
+
 /* ESTILOS PARA FORMULARIOS */
 
 
 .estilo-formulario {
-    margin: 5px;
+    margin: 15px 10px;
 }
 
 .estilo-formulario label {
@@ -366,11 +383,6 @@ height: 2vh;
 
 /* Formulario registro producto nuevo */
 
-.mainProducto-nuevo{
-    background-color: whitesmoke;
-    display: flex;
-    justify-content: center; 
-}
 .form-ProductoNuevo {
     margin: 15px
 }
@@ -652,7 +664,7 @@ section.articulos{
     position: relative;
     left:50%;
     transform: translateX(-52%);
-    max-width: 340px;
+    max-width: 700px;
     margin: 5px;
     padding: 2%;
     height: fit-content;
@@ -681,7 +693,8 @@ div.datosArticulo{
 
 }
 img.imgProducto{
-    max-height: 18vh;
+    max-height: 35vh;
+    max-width: 90%;
     margin-right: 5px;
 }
 div.nombreArticulo{
@@ -827,7 +840,7 @@ section.direccionEnvio > *{
     padding: 5px 0px;
 
 }
- input[type=text], input[type=password], input[type=email]{
+ input[type=text], input[type=password], input[type=email], input[type=number]{
     font-style: italic;
     box-sizing: border-box;
     border: 1px solid #a1a1a1;
@@ -836,14 +849,6 @@ section.direccionEnvio > *{
     color: #79787e;
 }
 
-input[type=number] {
-    font-style: italic;
-    box-sizing: border-box;
-    border: 1px solid #a1a1a1;
-    border-radius: 4px;
-    padding: 5px;
-    color: #f0f2f0;
-}
 
 input[type=text]::placeholder{
     color: #79787e;
@@ -855,6 +860,11 @@ input[type=email]::placeholder{
 }
 
 input[type=password]::placeholder{
+    color: #79787e;
+    font-size: .8rem;
+}
+
+input[type=number]::placeholder{
     color: #79787e;
     font-size: .8rem;
 }
@@ -1275,17 +1285,19 @@ a.botonComprar{
 /* FORMULARIO EDICION */
 
 
-.mainProducto-editar{
+.mainProduct-form{
     background-color: whitesmoke;   
     padding: 0 5%;
-    width: 100%;
-
 }
 
 .wrapper-formulario{
     margin-top: 20px;
     margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
+
 .div-formulario{
     margin:15px;
 }
@@ -1327,7 +1339,9 @@ div .formulario-titulo{
     margin-bottom: 15px;
 }
 
-input[type=number] {
+
+
+select .estilo-select {
     font-style: italic;
     box-sizing: border-box;
     border: 1px solid #a1a1a1;
@@ -1335,23 +1349,16 @@ input[type=number] {
     padding: 5px;
     color: black;
 }
-input[type=number]::placeholder{
-    color: #79787e;
-    font-size: .8rem;
-}
-
 .form-textarea{
     width: 100%;
     font-style: italic;
-    font-size: .8rem;
     box-sizing: border-box;
-    border: 1px solid #f0f2f0;
-    border-radius: 4px;
-    box-shadow: 0px 0px 5px #79787e;
     padding: 5px;
-    background-color: rgba(121, 120, 126,.8);
-    color: #f0f2f0;
     margin: 5px;
+    border: 1px solid #a1a1a1;
+    border-radius: 4px;
+    padding: 5px;
+    color: #79787e;
 }
 
 input:focus {

@@ -48,12 +48,12 @@ const productController = {
 		console.log(req.params.id)
 		products.forEach(element => {
 			if (element['id'] == req.params.id){
-				element["nombre"] = req.body.nombre;
+				element["nombre"] = req.body.nombre.toUpperCase();
 				element["precio"] = Number(req.body.precio);
 				element["porcentajeAlcohol"] = Number(req.body.porcentajeAlcohol);
 				element["volumen"] = req.body.volumen;
 				element["descripcion"] = req.body.descripcion;
-				element["imagenes"] = req.file ? [req.file.filename] : ['']
+				req.file != undefined ? element["imagenes"] = [req.file.filename] :
 				element["stock"] = Number(req.body.stock);
 				element["descuento"] = Number(req.body.descuento);
 				req.body.oferta == "on" ? element["oferta"] = true : element["oferta"] = false ;
@@ -63,7 +63,7 @@ const productController = {
 				
 			}			
 		});
-		
+
 		fs.writeFileSync(productsFilePath,JSON.stringify(products))
 
 		res.redirect('/');
@@ -83,7 +83,7 @@ const productController = {
 			let datosNewProduct = {
 
 			id : products[products.length - 1].id + 1,
-			nombre: req.body.nombre,
+			nombre: req.body.nombre.toUpperCase(),
             precio: Number(req.body.precio),
             porcentajeAlcohol: Number(req.body.porcentajeAlcohol),
             volumen: req.body.volumen,

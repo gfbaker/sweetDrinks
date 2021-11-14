@@ -12,12 +12,10 @@
         <!-- FIN DEL HEADER -->
 
     <!-- MAIN -->
-    <main class="mainProducto-editar">
+    <main class="mainProduct-form">
         <div class="wrapper-formulario">
             <div class="formulario-titulo">
-                <div class="formulario-titulo">
-                    <h2 class="formulario-titulo">Estás editando: <i><%= productToEdit.nombre %> <%= productToEdit.volumen %></i></h2>
-                </div>
+                <h2 class="formulario-titulo">Estás editando: <i>( <%= productToEdit.id %> ) <%= productToEdit.nombre %> <%= productToEdit.volumen %></i></h2>
             </div>
             <div class="formulario-cuerpo">
                 <form action="/products/<%= productToEdit.id %>?_method=PUT" method="POST" class="form-ProductoNuevo" enctype="multipart/form-data">
@@ -43,7 +41,7 @@
                     </div> 
                     <div class="estilo-formulario">
                         <label for="descripcion" class="label-formulario">Descripción: </label>
-                        <textarea name="descripcion" id="descripcion" name="descripcion" class="estilo-input"><%= productToEdit.descripcion %></textarea>
+                        <textarea name="descripcion" id="descripcion" name="descripcion" class="form-textarea"><%= productToEdit.descripcion %></textarea>
                     </div>
                     <div class="form-div-checkbox">
                         <input type="checkbox"  id="oferta" name="oferta" class="form-checkbox" <% if (productToEdit.oferta == true){%>
@@ -57,22 +55,43 @@
                         <input type="number" id="descuento" value="<%= productToEdit.descuento %>" name="descuento" class="estilo-input">
                     </div> 
                     <div class="estilo-formulario">
-                        <input type="checkbox"  id="importado" name="importado" class="" <% if (productToEdit.importado == true){%>
+                        <label for="categoria" class="label-formulario">Categoría: </label>
+                        <select id="categoria" name="categoria" class="estilo-select">
+                            <option value="Aperitivos" <% if (productToEdit.categoria == "Aperitivos"){%>
+                                selected
+                                <% } %>
+                            >Aperitivos</option>
+                            <option value="Cervezas"<% if (productToEdit.categoria == "Cervezas"){%>
+                                selected
+                                <% } %>
+                            >Cervezas</option>
+                            <option value="Vinos"<% if (productToEdit.categoria == "Vinos"){%>
+                                selected
+                                <% } %>
+                            >Vinos</option>
+                            <option value="Whiskies"<% if (productToEdit.categoria == "Whiskies"){%>
+                                selected
+                                <% } %>
+                            >Whiskies</option>
+                        </select>                        
+                    </div> 
+                    <div class="form-div-checkbox">
+                        <input type="checkbox"  id="importado" name="importado" class="form-checkbox" <% if (productToEdit.importado == true){%>
                             checked
                             <% } %>
                         >
                         <label for="importado" class="form-checkbox">Importado</label>
                     </div>
-                    <div class="estilo-formulario">
-                        <input type="checkbox"  id="esPack" name="esPack" class="" <% if (productToEdit.esPack == true){%>
+                    <div class="form-div-checkbox">
+                        <input type="checkbox"  id="esPack" name="esPack" class="form-checkbox" <% if (productToEdit.esPack == true){%>
                             checked
                             <% } %>
                         >
-                        <label for="esPack" class="estilo-input">Es un pack?</label>
+                        <label for="esPack" class="form-checkbox">Es un pack?</label>
                     </div>
                     <div class="estilo-formulario">
                         <label for="imagenes" class="label-formulario">Imágenes: </label>
-                        <input type="file" id="imagenes"  name="imagenes" class="estilo-input" multiple>
+                        <input type="file" id="imagenes"  name="imagenes" class="estilo-input" value="<%= productToEdit.imagenes[0] %>" multiple>
                     </div>
                     <div class="estilo-formulario">
                         <button type="submit" class="boton-formularios">Guardar</button>
