@@ -703,6 +703,7 @@ div.nombreArticulo{
 p.nombreArticulo{
     font-size: 1rem;
     font-weight: bold;
+    color:#35453C
 }
 div.descripcionArticulo{
     flex-grow: 1;
@@ -710,6 +711,7 @@ div.descripcionArticulo{
 p.descripcionArticulo{
     font-size: .7rem;
     text-align: left;
+    color:#35453C
 }
 div.qypArticulo{
     display: flex;
@@ -726,6 +728,7 @@ p.cantidadArticulo{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    color:#35453C
 }
 p.cantidadArticulo{
     font-size: 16px;
@@ -739,10 +742,12 @@ p.cantidadArticulo{
     width: 20px;
     height: 30px;
     box-shadow: 0px 0px 4px #79787e;
+    color:#35453C
 }
 div.precioArticulo{
     width: 50%;
     text-align: end;
+    color:black
 }
 div.cantidadArticulo button.fas{
     align-self: center;

@@ -16,26 +16,26 @@
         <% for (let i = 0 ; i < productsToShow.length ; i ++){ %>
             <section class="carrito-section">
                 <article class="carrito-articulo">
-                    <!-- <a href="/products/detail/<%=productsToShow[i].id%>"> -->
+                    <a href="/products/detail/<%=productsToShow[i].id%>">
                         <div class="mainArticulo">
                             <div class="fotoArticulo">
                                 <img src="../img/imgProduct/<%= productsToShow[i].imagenes[0]%>" alt="Imagen de  <%= productsToShow[i].nombre%>" class="imgProducto">
                             </div>
                             <div class="datosArticulo">
                                 <div class="nombreArticulo">
-                                    <p class="nombreArticulo"><%= productsToShow[i].nombre%></p>
+                                    <p class="nombreArticulo"><%= productsToShow[i].nombre%> <%= productsToShow[i].volumen%></p>
                                 </div>
                                 <div class="descripcionArticulo">
                                     <p class="descripcionArticulo"><%= productsToShow[i].descripcion%></p>
                                 </div>
                                 <div class="qypArticulo">
                                     <div class="precioArticulo">
-                                        <p>$ <%= productsToShow[i].precio%></p>
+                                        <p class="precioArticulo">$ <%= productsToShow[i].precio%></p>
                                     </div>                  
                                 </div>                    
                             </div>
                         </div>
-                    <!-- </a>                     -->
+                    </a>                    
                 </article>
                
             </section>
