@@ -1,0 +1,112 @@
+[
+ {
+  "id": 1,
+  "nombre": "Lutero",
+  "apellido": "Peasey",
+  "usuario": "Topicstorm",
+  "contraseña": "UJ6vUOmXv",
+  "imagen": "Lutero.png",
+  "genero": "Masculino",
+  "email": "lpeasey0@hugedomains.com",
+  "telefono": "8411442047"
+ },
+ {
+  "id": 2,
+  "nombre": "Adams",
+  "apellido": "Kellaway",
+  "usuario": "Brainlounge",
+  "contraseña": "EDniRZi",
+  "imagen": "Adams.jpg",
+  "genero": "Masculino",
+  "email": "akellaway1@fema.gov",
+  "telefono": "8436600593"
+ },
+ {
+  "id": 3,
+  "nombre": "Catherine",
+  "apellido": "Plaunch",
+  "usuario": "Brainverse",
+  "contraseña": "WW1zPHL5",
+  "imagen": "Catherine.png",
+  "genero": "Femenino",
+  "email": "cplaunch2@amazon.co.uk",
+  "telefono": "3433536181"
+ },
+ {
+  "id": 4,
+  "nombre": "Vany",
+  "apellido": "Junkin",
+  "usuario": "Tagopia",
+  "contraseña": "TWrBUz0jQiEN",
+  "imagen": "Vany.png",
+  "genero": "Femenino",
+  "email": "vjunkin3@newsvine.com",
+  "telefono": "9733600028"
+ },
+ {
+  "id": 5,
+  "nombre": "Kassie",
+  "apellido": "Dabner",
+  "usuario": "Geba",
+  "contraseña": "DLApkH",
+  "imagen": "kassie.png",
+  "genero": "Femenino",
+  "email": "kdabner4@vimeo.com",
+  "telefono": "9831459885"
+ },
+ {
+  "id": 6,
+  "nombre": "Hinda",
+  "apellido": "Lippett",
+  "usuario": "Roombo",
+  "contraseña": "2SbwRTj",
+  "imagen": "Hinda.jpg",
+  "genero": "Femenino",
+  "email": "hlippett5@deviantart.com",
+  "telefono": "5347773708"
+ },
+ {
+  "id": 7,
+  "nombre": "Alma",
+  "apellido": "Macauley",
+  "usuario": "Thoughtstorm",
+  "contraseña": "0S8tcPb",
+  "imagen": "alma.jpg",
+  "genero": "Femenino",
+  "email": "amacauley6@foxnews.com",
+  "telefono": "1275161222"
+ },
+ {
+  "id": 8,
+  "nombre": "Walton",
+  "apellido": "MacGeffen",
+  "usuario": "Riffpedia",
+  "contraseña": "nHO4Fy",
+  "imagen": "walton.jpg",
+  "genero": "Masculino",
+  "email": "wmacgeffen7@wufoo.com",
+  "telefono": "9662675778"
+ },
+ {
+  "id": 9,
+  "nombre": "Ezri",
+  "apellido": "Aireton",
+  "usuario": "Demivee",
+  "contraseña": "Rxdxw3be0rE",
+  "imagen": "ezri.jpg",
+  "genero": "Masculino",
+  "email": "eaireton8@domainmarket.com",
+  "telefono": "8656992650"
+ },
+ {
+  "id": 10,
+  "nombre": "Stephan",
+  "apellido": "Ellis",
+  "usuario": "Vinte",
+  "contraseña": "I9VWnWJZ8",
+  "imagen": "stephan.jpg",
+  "genero": "Masculino",
+  "email": "sellis9@liveinternet.ru",
+  "telefono": "2378601608"
+ }
+]

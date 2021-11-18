@@ -75,7 +75,7 @@ const productController = {
 
 		
 	},
-	// EN PROCESO
+	// Method Post
 	postNewProduct: (req,res) => {
 		
 		console.log(req.body);

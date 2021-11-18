@@ -9,6 +9,10 @@
     font-family: 'Poppins', sans-serif;
 }
 
+body{
+    background-color: whitesmoke;
+    margin-top: -8px;
+}
 
 /* HEADER */
 .margen-superior{
@@ -329,17 +333,17 @@ height: 2vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 10px;
     flex-wrap:wrap ;
 }
 
 .article-main {
     margin: 5px;
     box-sizing: border-box;
-    /* box-shadow: 0px 0px 10px #4A594F; */
-    border: 1px solid #35453C;
-    padding: 5px
-;
+    padding: 5px;
+    position: relative;   
+    max-height: 65vh;
+    background-color: white;
+
 }
 
 .home-main h3 {
@@ -348,20 +352,36 @@ height: 2vh;
     font-size: 22px;
     font-family: 'Poppins', sans-serif;
 }
-
+.pie-del-articulo{
+    background-color: transparent;
+   
+   
+}
 .pie-del-articulo-nombre{
     font-weight: bold;
     text-align: center;
-    color: #35453C
+    color: #35453C;
+    max-width: fit-content;
+    font-size: 14px;
 
 }
 
 .pie-del-articulo-precio{
-    text-align: center;
+  
     color: #35453C;
+    font-size: 3vh;
+}
+.pie-del-articulo strike{
+    color:rgb(168, 166, 166)
 }
 
 /* ESTILOS PARA FORMULARIOS */
+
+body main form section div .label-formulario{
+    font-style: italic;
+    color: #79787e;
+}
+
 
 
 .estilo-formulario {
@@ -379,7 +399,21 @@ height: 2vh;
     width: 100%;
     padding: 8px 8px;
 }
-
+.botonGenero{   
+    font-style: italic;
+    box-sizing: border-box;
+    border: 1 px solid #a1a1a1;
+    border-radius: 4 px;
+    padding: 5 px;
+    color: #79787e;
+    border-radius: 4px;
+    border: 1px solid #a1a1a1;
+    padding: 5px;
+    font-size: 12px;
+}
+.botonGenero option{
+    border: none
+}
 
 /* Formulario registro producto nuevo */
 
@@ -440,11 +474,11 @@ height: 2vh;
 /* <-----------------DETALLE DEL PRODUCTO Mobile-----------------> */
 
 .mainProductDetail{
-    background-color:  whitesmoke;
+    
     padding-bottom: 40px;
     color: #1e202f;
     position: relative;
-    margin-top: -8px;
+   
 }
 
 .prodDetBotonEditar input{
@@ -608,7 +642,6 @@ section article .dtProdRel{
 }
 
 .register-main{
-    height: 80vh;
     background-color: whitesmoke;
 }
 
@@ -626,11 +659,6 @@ section article .dtProdRel{
     justify-content: center;
     align-items: center;
     margin: 5px 0px 10px;
-}
-
-.register-section > *{
-    padding: 10px 0px;
-
 }
 
 
@@ -668,19 +696,17 @@ section.articulos{
     max-width: 700px;
     margin: 5px;
     padding: 2%;
-    height: fit-content;
-    background-color: #f0f2f0;
+    max-height: 160px;
+    background-color: white;
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    box-shadow: 0px 0px 10px rgb(100 100 100);
     border-radius: 4px;
 }
 div.mainArticulo{
     display: flex;
     box-sizing: border-box;
-    justify-content: space-around;
-    margin: 10px 0px;
+     margin: 10px 0px;
 }
 div.bottomArticulo{
     box-sizing: border-box;
@@ -688,14 +714,16 @@ div.bottomArticulo{
     margin-top: 2%;
 }
 div.datosArticulo{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    width: 80%;
 
 }
+body  main  section article  div .fotoArticulo{
+    max-height: 90%;
+    min-width: 15vh;
+    max-width: 15vh;
+}
 img.imgProducto{
-    max-height: 35vh;
-    max-width: 90%;
+    max-height: 10vh;
     margin-right: 5px;
 }
 div.nombreArticulo{
@@ -709,52 +737,72 @@ p.nombreArticulo{
 div.descripcionArticulo{
     flex-grow: 1;
 }
+.descuentoArticulo{
+    font-size: 16px;
+    text-align: left;
+    color:rgb(32, 201, 32)
+
+}
 p.descripcionArticulo{
     font-size: .7rem;
     text-align: left;
     color:#35453C
 }
 div.qypArticulo{
+    position: relative;
+    position: absolute;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     flex-grow: 2;
+    right: 60px;
+    bottom: 30px;
 }
 div.cantidadArticulo{
-    width: 50%;
+    position: absolute;
+    right: 20vh;
     padding: 0px 5%;
     display: flex;
     justify-content: space-between;
 }
-p.cantidadArticulo{
+/* p.cantidadArticulo{
     display: flex;
     justify-content: space-between;
     align-items: center;
     color:#35453C
-}
+} */
 p.cantidadArticulo{
     font-size: 16px;
-    padding:5%;
     border: 1.5px solid #79787e;
     border-radius: 4px;
     text-align: center;
-    background-color:#79787e;
-    color:#ebebeb;
+    background-color:transparent;   
     box-sizing: border-box;
-    width: 20px;
-    height: 30px;
+    width: 60px;
+    height: 23px;
     box-shadow: 0px 0px 4px #79787e;
-    color:#35453C
+    color:#adadad
 }
-div.precioArticulo{
+div.precioArticulo {
+    position: absolute;
     width: 50%;
     text-align: end;
-    color:black
+    color: black;   
+    right: 10%;
+}
+.precioArticuloDto{
+     color:  rgb(168, 166, 166);
+     text-decoration: line-through;
+     font-size: 12px;
+}
+.precioConDto{
+    color: black;
 }
 div.cantidadArticulo button.fas{
     align-self: center;
     padding: 5%;
     color:#1e202f;
     border:none;
+    background-color: transparent;
 }
 i.fa-times-circle{
     position: absolute;
@@ -993,6 +1041,28 @@ a.botonComprar{
     color:  #EB9C4B;
 }
 /* FIN CARRITO 2 */
+/* Inicio Perfil de usuario */
+
+    .mainProfUser{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+       
+    }
+    .mainProfUser ul li{
+        list-style-type: none;
+
+    }
+    body  main .imgProfUser  img{
+        max-width: 20%;
+        min-width: 20%;
+        flex-grow: 1;
+    }
+   .profUserButton{
+       padding-bottom: 16px;
+   }
+
+/* Final Perfil de usuarui */
 
 /* TABLETS */
 @media (min-width:481px){
@@ -1097,6 +1167,14 @@ a.botonComprar{
     }
        
     /* FIN-HEADER */
+    /* CARRITO */
+    div.datosArticulo{
+
+    position: relative;
+    
+    }
+/* FIN CARRITO */
+
     
     /* HOME */
     .articulos {
@@ -1129,6 +1207,25 @@ a.botonComprar{
     }
 
     /* FIN LOGIN */
+    /* REGISTRO */
+
+    .register-main{
+        background-image: url(../../img/barra.jpg);
+        background-position: center;
+        
+    }
+    .register-form{
+       
+        position: relative;
+        width: 50%;
+        margin-bottom: 5%;
+        margin-top: 5%;
+        margin-left: 25%;
+        border-radius: 10px;
+        box-shadow: 10px 10px black, 0 0 0 1px black;
+        background-color: whitesmoke;
+    }
+    /* FIN REGISTRO */
 
     /* DETALLE DE PRODUCTO */
 
@@ -1240,6 +1337,13 @@ a.botonComprar{
         margin-left:55%;
     }
     /* FIN LOGIN */
+    /* REGISTRO */
+
+    .register-form{
+        width: 25%;
+        margin-left: 55%;
+    }
+    /* REGISTRO */
 
     /* DETALLE DE PRODUCTO */
     

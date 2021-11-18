@@ -13,23 +13,51 @@
         
     <!----- MAIN ----->
     <main class="register-main">
-        <form class="register-form" action="/" method="POST">
+        <form class="register-form" action="/newUser" method="POST" enctype="multipart/form-data">
             <section class="register-section">
                 <h3>Creá tu cuenta</h3>
                 <div class="estilo-formulario"> 
-                    <input type="text" name="usuario" placeholder="Nombre de usuario" class="estilo-input">
+                    <label for="nombre"></label>
+                    <input type="text" name="nombre" id="nombre"  placeholder="Nombre" class="estilo-input">
+                </div>
+                <div class="estilo-formulario"> 
+                    <label for="apellido"></label>
+                    <input type="text" name="apellido" id="apellido" placeholder="Apellido" class="estilo-input">
+                </div>
+                <div class="estilo-formulario"> 
+                    <label for="usuario"></label>
+                    <input type="text" name="usuario" id="usuario" placeholder="Nombre de usuario" class="estilo-input">
+                </div>
+                <div class="estilo-formulario"> 
+                    <label for="genero"></label>
+                    <select name="genero" id="genero" class="botonGenero">
+                        <option value="" hidden>Género</option>
+                        <option value="Femenino">Femenino</option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                    
                 </div>
                 <div class="estilo-formulario">
-                    <input type="email"name="email" placeholder="E-mail" class="estilo-input">
+                    <label for="email"></label>
+                    <input type="email"name="email" id="email" placeholder="E-mail" class="estilo-input">
                 </div>
                 <div class="estilo-formulario">
-                    <input type="password" name="password" placeholder="Contraseña" class="estilo-input">
+                    <label for="contrasenia"></label>
+                    <input type="password" name="contrasenia" id="contrasenia" placeholder="Contraseña" class="estilo-input">
                 </div>
                 <div class="estilo-formulario">
-                    <input type="password" name="confPass" placeholder="Confirmar contraseña" class="estilo-input">
+                    <label for="confContr"></label>
+                    <input type="password" name="confContr" id="confContr" placeholder="Confirmar contraseña" class="estilo-input">
                 </div>
                 <div class="estilo-formulario">
-                    <input type="text" name="telefono" placeholder="Teléfono" class="estilo-input">
+                    <label for="telefono"></label>
+                    <input type="text" name="telefono"  id="telefono" placeholder="Teléfono" class="estilo-input">
+                </div>
+                <div class="estilo-formulario">
+                    <label for="imagen" class="label-formulario">Imágen de Perfil: </label>
+                    <input type="file" id="imagen"  name="imagen" class="estilo-input">
+                </div>
                 </div class="estilo-formulario"> 
                 <button class="boton-formularios" type="submit">Registrarse</button>
             </section>

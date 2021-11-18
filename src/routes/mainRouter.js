@@ -13,11 +13,7 @@ router.post('/cart', mainController.postCart);
 router.get('/confirmation', mainController.getConfirmation);
 router.post('/confirmation', mainController.postConfirmation);
 
-router.get('/login', mainController.getLogin);
-router.post('/login', mainController.postLogin);
 
-router.get('/newUser', mainController.getNewUser);
-router.post('/newUser', mainController.getNewUser);
 
 
  

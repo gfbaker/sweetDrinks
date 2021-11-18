@@ -25,12 +25,30 @@
                                 <div class="nombreArticulo">
                                     <p class="nombreArticulo"><%= productsToShow[i].nombre%> <%= productsToShow[i].volumen%></p>
                                 </div>
-                                <div class="descripcionArticulo">
-                                    <p class="descripcionArticulo"><%= productsToShow[i].descripcion%></p>
+                                <div class="descuentoArticulo">
+                                    <% if(productsToShow[i].descuento > 0){%>
+                                    <p class="descuentoArticulo"><%= productsToShow[i].descuento%>% OFF</p>
+                                    <%}%>
                                 </div>
                                 <div class="qypArticulo">
                                     <div class="precioArticulo">
-                                        <p class="precioArticulo">$ <%= productsToShow[i].precio%></p>
+                                       
+                                             
+                                             <% if(productsToShow[i].descuento > 0){%>
+                                                <p class="precioArticuloDto">
+                                                    $<%= productsToShow[i].precio%>
+                                                </p>
+                                                <p class="precioDtoArticulo">
+                                             <span class="precioConDto">$<%=productsToShow[i].precio * (1- (productsToShow[i].descuento / 100) )%></span>
+                                            </p>
+                                             <%} else{%>
+                                                <p class="precioArticulo">
+                                                $<%= productsToShow[i].precio%>
+                                                </p>
+                                                <%}%>
+
+                                        
+                                        
                                     </div>                  
                                 </div>                    
                             </div>

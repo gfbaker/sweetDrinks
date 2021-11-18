@@ -22,8 +22,7 @@ const mainController = {
     },
     getCart: (req,res) => {res.render (path.join(__dirname,"../views/cart"))},
     getConfirmation: (req,res) => {res.render (path.join(__dirname,"../views/confirmation"))},
-    getLogin: (req,res) => {res.render (path.join(__dirname,"../views/login"))},
-    getNewUser: (req,res) => {res.render (path.join(__dirname,"../views/newUser"))},
+  
     
 
     postIndex: (req,res) => { 
@@ -38,29 +37,7 @@ const mainController = {
         res.redirect('/');
     },
 
-    postLogin: (req,res) => {
-
-        let login = {
-            usuario: req.body.usuario,
-            contraseña: req.body.contraseña,
-        }
-
-        res.redirect('/');
-    },
-
-    postNewUser: (req,res) => {
-
-        let newUser
- = {
-            usuario: req.body.usuario,
-            mail: req.body.mail,
-            password: req.body.password,
-            confPass: req.body.confPass,
-            telefono: req.body.telefono
-        }
-
-        res.redirect('/');
-    }
+   
 
    
 }
