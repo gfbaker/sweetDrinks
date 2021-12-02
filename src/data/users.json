@@ -108,5 +108,33 @@
   "genero": "Masculino",
   "email": "sellis9@liveinternet.ru",
   "telefono": "2378601608"
+ },
+ {
+  "id": 11,
+  "nombre": "Juan",
+  "apellido": "Perez",
+  "usuario": "JPerez",
+  "genero": "Masculino",
+  "email": "juanperez@juanperez.com",
+  "contrasenia": "$2a$10$C/Igtp0PYH90oHoc3cMfqu/rKy6NoK6oY.lAhkVAwcFJ9WfB78gEK",
+  "confContr": "12345678",
+  "telefono": "12345467879",
+  "imagen": [
+   "imagen-1638482406602-.jpg"
+  ]
+ },
+ {
+  "id": 12,
+  "nombre": "Juan",
+  "apellido": "Perez",
+  "usuario": "JPerez",
+  "genero": "Masculino",
+  "email": "juanperez@juanperez.com",
+  "contrasenia": "$2a$10$r2vuk6Uoz8RHRrtwU.y8J.yDfXk6mSNnnPcqHQMu4hnQGTvB57ehO",
+  "confContr": "12345678",
+  "telefono": "12345467879",
+  "imagen": [
+   "imagen-1638482832050-.jpg"
+  ]
  }
 ]

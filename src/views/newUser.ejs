@@ -13,6 +13,18 @@
         
     <!----- MAIN ----->
     <main class="register-main">
+        <div class="errorsAlert">
+        <% if (typeof errors != 'undefined') { %>
+            <p>Atención</p>
+            <ul>
+                <% for (let i = 0; i < errors.length; i++) { %>
+                    <li>
+                        <%=errors[i].msg %>
+                    </li>
+                    <% } %>
+            </ul>
+            <% } %>
+        </div>
         <form class="register-form" action="/newUser" method="POST" enctype="multipart/form-data">
             <section class="register-section">
                 <h3>Creá tu cuenta</h3>

@@ -18,6 +18,18 @@
                 <h2 class="formulario-titulo">Estás agregando un nuevo producto</i></h2>
             </div>
             <div class="formulario-cuerpo">
+                <div class="errorsAlert">
+                    <% if (typeof errors != 'undefined') { %>
+                        <p>Atención</p>
+                        <ul>
+                            <% for (let i = 0; i < errors.length; i++) { %>
+                                <li>
+                                    <%=errors[i].msg %>
+                                </li>
+                                <% } %>
+                        </ul>
+                        <% } %>
+                    </div>
                 <form action="/products/newProduct" method="POST" class="form-ProductoNuevo" enctype="multipart/form-data">
                     <div class="estilo-formulario">
                         <label for="nombre" class="label-formulario">Nombre del Producto:</label>

@@ -18,50 +18,58 @@ const usersController = {
 
     postLogin: (req,res) => {
 
-        res.send('☺☻Login en proceso☻☺')
-        
-    // TODAVIA TRABAJANDO EN EL LOGIN
-
-
-    //     let errors = validationResult(req)
+      
+        let errors = validationResult(req)
        
-    //     if(errors.isEmpty()){
+        if(errors.isEmpty()){
+ 
+            let usersRegistrados = users;
+
+            
+
+            for(let i=0 ; i < usersRegistrados.length; i++){
+
+                if(usersRegistrados[i].email== req.body.email){
+
+                    if (bcrypt.compareSync(req.body.contrasenia, usersRegistrados[i].contrasenia)){
+                    
+                  var usuarioLogueado = usersRegistrados[i];
+
+                    break;
+                    }
+                
+                }
+
+            }
+
 
            
-    //     for(let i=0 ; i < users.length; i++){
-    //         if(users[i].usuario == req.body.usuario){
-    //             if (bcrypt.compareSync(req.body.contrasenia, users[i].contrasenia)){
-    //                var usuarioLogueado = users[i];
-    //                break;
-    //             }
             
-    //     }if(usuarioLogueado == undefined){
-    //         return res.render('login', {errors:[
-    //             {msg: 'Por favor vuelve a ingresar usuario y contraseña'}
-    //         ]})
-         
+            if(usuarioLogueado == undefined){
+                res.render('login', {errors:[
+                    {msg: 'Por favor vuelve a ingresar E-mail y contraseña'}
+                ]})
+            
+            } else {
 
-    //     req.session.usuarioLogueado = usuarioLogueado;
-        
-    //     res.redirect('users')
-       
-    //     }
-    // }
+                req.session.usuarioLogueado = usuarioLogueado;
 
-
-    // }else{
-    //        return res.redirect('/login',{errors:errors.errors});
-    //     }
-
+                res.redirect('/')
+            }
+            
+            
+        }  
+    
       
         
     },
-// Creacion de usuario, falta redireccionar a su perfil 
+// Creacion de usuario, falta buscar que el email no se repita
     postNewUser: (req,res) => {
 
-        console.log(req.body);
-
+        let errors = validationResult(req)
        
+        if(errors.isEmpty()){
+
 
         let newUser = {
             id : users[users.length - 1].id + 1,
@@ -69,8 +77,8 @@ const usersController = {
             apellido: req.body.apellido,
             usuario: req.body.usuario,
             genero: req.body.genero,
-            mail: req.body.mail,
-            contrasenia: bcrypt.hashSync(req.body.contrasenia),
+            email: req.body.email,
+            contrasenia: bcrypt.hashSync(req.body.contrasenia, 10),
             confContr: req.body.confContr,
             telefono: req.body.telefono,
             imagen: req.file ? [req.file.filename] : ['']
@@ -82,7 +90,13 @@ const usersController = {
 			fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "));
 	
             userId = users[req.params.id];
-			res.redirect('/');
+
+			return res.redirect('user/' + users[users.length - 1].id);
+            
+        }else{
+            return res.render('newUser',{errors:errors.array()});
+        }
+       
     },
 
     // Falta opcion de editar perfil de usuario

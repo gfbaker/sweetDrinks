@@ -5,7 +5,7 @@ const { stringify } = require('querystring');
 const { formatWithOptions } = require('util');
 const productsFilePath = path.join(__dirname, '../data/productos.json');
 let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
+const { validationResult } = require('express-validator');
 
 
 // Acá nos falta un objeto literal con las acciones para cada ruta
@@ -45,7 +45,10 @@ const productController = {
 
 	update: (req, res) => {
 		//res.send ("Esta funcion recibe por PUT los datos del formulario de edicion. Tiene que poder guardar lo que recibe en la base de datos");
-		console.log(req.params.id)
+		let errors = validationResult(req)
+       
+        if(errors.isEmpty()){
+
 		products.forEach(element => {
 			if (element['id'] == req.params.id){
 				element["nombre"] = req.body.nombre.toUpperCase();
@@ -67,6 +70,9 @@ const productController = {
 		fs.writeFileSync(productsFilePath,JSON.stringify(products))
 
 		res.redirect('/');
+	}else{
+		res.render('productEditForm',{errors:errors.array()});
+	  }
 
 	},
 	getNewProduct: (req,res) => {
@@ -78,7 +84,9 @@ const productController = {
 	// Method Post
 	postNewProduct: (req,res) => {
 		
-		console.log(req.body);
+		let errors = validationResult(req)
+       
+        if(errors.isEmpty()){
 		
 			let datosNewProduct = {
 
@@ -104,6 +112,10 @@ const productController = {
 			fs.writeFileSync(productsFilePath, JSON.stringify(products, null, " "));
 	
 			res.redirect('/products');
+
+		}else{
+			res.render('newProduct',{errors:errors.array()});
+		  }
 		
     },
 

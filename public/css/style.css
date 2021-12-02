@@ -13,7 +13,28 @@ body{
     background-color: whitesmoke;
     margin-top: -8px;
 }
-
+.errorsAlert p {
+    color: red;
+    font-size: 20px;
+    font-weight: bold;
+}
+.errorsAlert{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 5px;
+    
+}
+.errorsAlert li{
+    list-style-type: none;
+    padding: 3px;
+    font-weight: bold;
+    background-color: whitesmoke;
+    opacity: 80%;
+    border-radius: 5px;
+    margin: 5px;
+}
 /* HEADER */
 .margen-superior{
     display: flex;
@@ -55,6 +76,7 @@ body{
     font-size: 10px;
     text-align: center;
     border-bottom: solid 1px #576959;
+    margin-top: 8px;
 }
 
 
@@ -1341,7 +1363,7 @@ a.botonComprar{
 
     .register-form{
         width: 25%;
-        margin-left: 55%;
+        margin-left: 37%;
     }
     /* REGISTRO */
 
