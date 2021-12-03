@@ -2,6 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const upload = require('../../middlewares/uploadProfileImg')
+const isUserLoggedIn = require('../../middlewares/isUserLoggedIn')
 const { check } = require('express-validator');
 
 // Requer el controller
@@ -41,7 +42,7 @@ router.post('/login',validateUserFormLogin, usersController.postLogin);
 router.get('/newUser', usersController.getNewUser);
 router.post('/newUser', upload.single('imagen'),validateUserForm, usersController.postNewUser);
 
-router.get('/user/:id', usersController.getUserProfile);
+router.get('/user/:id', isUserLoggedIn, usersController.getUserProfile);
 
 // Faltaria ruta para editar usuario
 router.delete('/user/:id', usersController.destroyUser);
