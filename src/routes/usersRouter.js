@@ -46,7 +46,7 @@ router.get('/user/:id', usersController.getUserProfile);
 // Faltaria ruta para editar usuario
 router.delete('/user/:id', usersController.destroyUser);
 
-
+router.get('/endSession', usersController.endSession);
 
 // Exportar router
 module.exports = router;

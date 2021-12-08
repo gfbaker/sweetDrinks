@@ -5,9 +5,11 @@ const usersFilePath = path.join(__dirname, '../data/users.json');
 let users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 const bcrypt = require('bcryptjs');
 const { validationResult } = require('express-validator');
+const session = require('express-session');
 
 // Objeto literal con acciones de cada ruta
 const usersController = {
+
     getLogin: (req,res) => {res.render (path.join(__dirname,"../views/login"))},
     getNewUser: (req,res) => {res.render (path.join(__dirname,"../views/newUser"))},
 
@@ -18,33 +20,24 @@ const usersController = {
 
     postLogin: (req,res) => {
 
-      
         let errors = validationResult(req)
        
         if(errors.isEmpty()){
  
             let usersRegistrados = users;
-
-            
-
             for(let i=0 ; i < usersRegistrados.length; i++){
 
-                if(usersRegistrados[i].email== req.body.email){
+                if(usersRegistrados[i].email == req.body.email){
 
-                    if (bcrypt.compareSync(req.body.contrasenia, usersRegistrados[i].contrasenia)){
+                    if (bcrypt.compareSync(req.body.contrasenia, usersRegistrados[i].contrasenia)){    
                     
-                  var usuarioLogueado = usersRegistrados[i];
-
+                        var usuarioLogueado = usersRegistrados[i];
+ 
                     break;
                     }
-                
                 }
-
             }
-
-
-           
-            
+  
             if(usuarioLogueado == undefined){
                 res.render('login', {errors:[
                     {msg: 'Por favor vuelve a ingresar E-mail y contraseña'}
@@ -54,15 +47,11 @@ const usersController = {
 
                 req.session.usuarioLogueado = usuarioLogueado;
 
-                res.redirect('/')
+                res.redirect('/');
             }
-            
-            
-        }  
-    
-      
-        
+        }    
     },
+
 // Creacion de usuario, falta buscar que el email no se repita
     postNewUser: (req,res) => {
 
@@ -109,8 +98,17 @@ const usersController = {
 		fs.writeFileSync(usersFilePath, JSON.stringify(filterUser, null, " "));
 
 		res.redirect('/');
-	  }
+	  },
+
+    // Cerrar session
+    endSession: (req, res) => {
+
+        req.session.destroy();
+        res.redirect('/');
+    }
 };
+
+
 
 // Exportar Controller
 module.exports = usersController;

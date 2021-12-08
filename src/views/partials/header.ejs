@@ -33,6 +33,12 @@
                 <a href="/cart">Carrito</a> 
             </div>
         </div>
+        <% if (user != undefined) { %>
+            <form class="usuario-logged" action="" method="get">
+                <p>Bienvenido/a, <%= user.nombre + ' ' + user.apellido  %> </p>
+                <a href="/endSession" onclick="alert('Su sesión a terminado')" class="usuario-logged">Desloguear?</a>
+            </form>
+        <% } %>
     </div>
 
     <nav class="nav-bar">

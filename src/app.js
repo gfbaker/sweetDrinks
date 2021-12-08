@@ -17,6 +17,12 @@ app.use(express.json());
 app.use(methodOverride('_method'));
 app.use(session({secret:'Sweet Drinks Secret'})); 
 
+//middleware para usar atributos de session
+app.use(function(req, res, next) {
+    res.locals.user = req.session.usuarioLogueado;
+    next();
+  });
+
 app.set('view engine', 'ejs');
 app.set('views', './src/views');
 
