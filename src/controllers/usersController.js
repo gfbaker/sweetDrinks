@@ -58,30 +58,42 @@ const usersController = {
         let errors = validationResult(req)
        
         if(errors.isEmpty()){
+            let usuarioExistente = users.filter( function (user){
+                return user.email == req.body.email;
+            })
+            if( usuarioExistente.length != 0){
+                res.render('newUser',{errors:[
+                    {msg: 'Usuario existente'}
+                ]});
+                res.send(usuarioExistente)
+            }else if (req.body.contrasenia != req.body.confContr ){
+                res.render('newUser',{errors:[
+                    {msg: 'Las constraseñas no coinciden'}
+                ]});
+            }else{
+                let newUser = {
+                    id : users[users.length - 1].id + 1,
+                    nombre: req.body.nombre,
+                    apellido: req.body.apellido,
+                    usuario: req.body.usuario,
+                    genero: req.body.genero,
+                    email: req.body.email,
+                    contrasenia: bcrypt.hashSync(req.body.contrasenia, 10),
+                    confContr: req.body.confContr,
+                    telefono: req.body.telefono,
+                    imagen: req.file ? [req.file.filename] : ['']
+                }
 
+        
+                users.push(newUser); 
 
-        let newUser = {
-            id : users[users.length - 1].id + 1,
-            nombre: req.body.nombre,
-            apellido: req.body.apellido,
-            usuario: req.body.usuario,
-            genero: req.body.genero,
-            email: req.body.email,
-            contrasenia: bcrypt.hashSync(req.body.contrasenia, 10),
-            confContr: req.body.confContr,
-            telefono: req.body.telefono,
-            imagen: req.file ? [req.file.filename] : ['']
-        }
+                fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "));
+        
+                userId = users[req.params.id];
 
-       
-    users.push(newUser); 
-
-			fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "));
-	
-            userId = users[req.params.id];
-
-			return res.redirect('user/' + users[users.length - 1].id);
-            
+                return res.redirect('user/' + users[users.length - 1].id);
+            }
+                
         }else{
             return res.render('newUser',{errors:errors.array()});
         }

@@ -1,6 +1,7 @@
 // Acá nos falta express y el router
 const express = require('express');
 const router = express.Router();
+const isUserLoggedIn = require('../../middlewares/isUserLoggedIn')
 
 // Aća nos falta traer el controller
 const mainController = require('../controllers/mainController');
@@ -10,7 +11,7 @@ router.get('/', mainController.getIndex);
 router.get('/cart', mainController.getCart);
 router.post('/cart', mainController.postCart);
 
-router.get('/confirmation', mainController.getConfirmation);
+router.get('/confirmation', isUserLoggedIn, mainController.getConfirmation);
 router.post('/confirmation', mainController.postConfirmation);
 
 

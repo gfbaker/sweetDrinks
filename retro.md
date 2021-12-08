@@ -33,3 +33,14 @@ Comenzar a hacer:
 
 Continuar haciendo: 
 -Reuniones para trabajar entre nosotros sobre el proyecto. 
+
+2/12/2021
+
+Retrospectiva sobre el cuarto sprint: 
+
+Comenzar a hacer: 
+-Aplicar detalles al sitio no implícitos en los requisitos del sprint. 
+
+Continuar haciendo: 
+-Reuniones de trabajo en conjunto. 
+-Tener el trabajo finalizado días antes del cierre del sprint para tener espacio de pequeñas correcciones. 

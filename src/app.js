@@ -31,9 +31,9 @@ app.use("/", mainRoutes);
 app.use("/products", productRoutes);
 app.use("/", usersRoutes);
 
-/*app.use((req,res, next) => {
+app.use((req,res, next) => {
     res.status(404).render('not-found')
-});*/
+});
 
 /* SERVIDOR LEVANTADO */
 app.listen(port, () => {
