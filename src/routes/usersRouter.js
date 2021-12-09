@@ -15,15 +15,19 @@ const validateUserForm =[
     .notEmpty().withMessage('Debes completar con tu apellido'),
     check('usuario')
     .notEmpty().withMessage('No olvides completar tu usuario')
+    .bail()
     .isLength({ min: 0, max: 8 }).withMessage('El nombre de Usuario debe tener como máximo 8 carácteres'),
     check('email')
     .notEmpty().withMessage('Ingresa tu E-mail')
+    .bail()
     .isEmail().withMessage('Debe ser un E-mail válido'),
     check('contrasenia')
     .notEmpty().withMessage('Debes completar tu contraseña')
+    .bail()
     .isLength({ min: 8}).withMessage('Tu contraseña debe tener mínimo 8 carácteres'),
     check('telefono')
     .notEmpty().withMessage('No olvides ingresar tu número de teléfono')
+    .bail()
     .isNumeric().withMessage('Ingresa un número de teléfono válido'),
    
 

@@ -15,7 +15,7 @@ body{
 }
 .errorsAlert p {
     color: red;
-    font-size: 20px;
+    font-size: 10px;
     font-weight: bold;
 }
 .errorsAlert{
