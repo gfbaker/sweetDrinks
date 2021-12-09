@@ -21,22 +21,24 @@
             </div>
         <div class="sign-bar">
             <div class="right-navbar">  
-                <i class="far fa-comments icono"></i> 
-                <a href="/newUser">Registrarse</a> 
-            </div>
-            <div class="right-navbar"> 
-                <i class="far fa-user icono"></i>
-                <a href="/login">Mi Cuenta</a>    
-            </div>
-            <div class="right-navbar">  
-                <i class="fas fa-shopping-basket icono"></i>  
+                <i class="fas fa-shopping-cart"></i>  
                 <a href="/cart">Carrito</a> 
             </div>
+
+            <div class="right-navbar"> 
+                <i class="far fa-user icono"></i>
+                <% if (user == undefined) { %>
+                    <a href="/login">Mi Cuenta</a>    
+                <%}else{ %>
+                    <a href="/user/<%=user.id%>">Mi Cuenta</a>   
+                <% } %>
+            </div>
+           
         </div>
         <% if (user != undefined) { %>
             <form class="usuario-logged" action="" method="get">
                 <p>Bienvenido/a, <%= user.nombre + ' ' + user.apellido  %> </p>
-                <a href="/endSession" onclick="alert('Su sesión a terminado')" class="usuario-logged">Desloguear?</a>
+                <a href="/endSession" onclick="alert('Su sesión a terminado')" class="usuario-logged">Cerrar Sesión</a>
             </form>
         <% } %>
     </div>

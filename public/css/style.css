@@ -36,6 +36,10 @@ body{
     margin: 5px;
 }
 /* HEADER */
+body > header > div.main-header-top > div.sign-bar > div:nth-child(1) > i{
+    color: white;
+    padding: 7px;
+}
 .margen-superior{
     display: flex;
     flex-flow: row;
