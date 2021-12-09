@@ -3,6 +3,9 @@ const express = require('express');
 const router = express.Router();
 const upload = require('../../middlewares/upload')
 const { check } = require('express-validator');
+const isUserLoggedIn = require('../../middlewares/isUserLoggedIn')
+const guestMiddleware = require('../../middlewares/guestMiddleware')
+const isAdminMiddleware = require('../../middlewares/isAdminMiddleware')
 
 // Aća nos falta traer el controller
 const productController = require('../controllers/productController');
@@ -44,14 +47,14 @@ const validateForm = [
 router.get('/detail/:id', productController.getProductDetail);
 router.post('/', productController.postProductDetail);
 
-router.get('/:id/edit', productController.edit); 
+router.get('/:id/edit', isUserLoggedIn, isAdminMiddleware, productController.edit); 
 router.put('/:id',upload.single("imagenes"), validateForm, productController.update); 
 
 // Eliminar Producto
-router.delete('/detail/:id', productController.destroy);
+router.delete('/detail/:id', isUserLoggedIn, isAdminMiddleware, productController.destroy);
 
 // Producto Nuevo
-router.get('/newProduct', productController.getNewProduct);
+router.get('/newProduct', isUserLoggedIn, isAdminMiddleware, productController.getNewProduct);
 router.post('/newProduct', upload.single('imagenes'), validateForm, productController.postNewProduct);
 
 router.get('/:categoria?', productController.getProducts);

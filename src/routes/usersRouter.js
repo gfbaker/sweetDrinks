@@ -3,8 +3,9 @@ const express = require('express');
 const router = express.Router();
 const upload = require('../../middlewares/uploadProfileImg')
 const isUserLoggedIn = require('../../middlewares/isUserLoggedIn')
+const guestMiddleware = require('../../middlewares/guestMiddleware')
 const { check } = require('express-validator');
-
+guestMiddleware
 // Requer el controller
 const usersController = require('../controllers/usersController');
 
@@ -40,10 +41,10 @@ const validateUserFormLogin =[
 ]
 
 // Rutas 
-router.get('/login', usersController.getLogin);
+router.get('/login', guestMiddleware, usersController.getLogin);
 router.post('/login',validateUserFormLogin, usersController.postLogin);
 
-router.get('/newUser', usersController.getNewUser);
+router.get('/newUser', guestMiddleware, usersController.getNewUser);
 router.post('/newUser', upload.single('imagen'),validateUserForm, usersController.postNewUser);
 
 router.get('/user/:id', isUserLoggedIn, usersController.getUserProfile);

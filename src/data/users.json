@@ -8,7 +8,8 @@
   "imagen": "Lutero.png",
   "genero": "Masculino",
   "email": "lpeasey0@hugedomains.com",
-  "telefono": "8411442047"
+  "telefono": "8411442047",
+  "privilegios": "admin"
  },
  {
   "id": 2,
@@ -19,7 +20,8 @@
   "imagen": "Adams.jpg",
   "genero": "Masculino",
   "email": "akellaway1@fema.gov",
-  "telefono": "8436600593"
+  "telefono": "8436600593",
+  "privilegios": "cliente"
  },
  {
   "id": 3,
@@ -30,7 +32,8 @@
   "imagen": "Catherine.png",
   "genero": "Femenino",
   "email": "cplaunch2@amazon.co.uk",
-  "telefono": "3433536181"
+  "telefono": "3433536181",
+  "privilegios": "cliente"
  },
  {
   "id": 4,
@@ -41,7 +44,8 @@
   "imagen": "Vany.png",
   "genero": "Femenino",
   "email": "vjunkin3@newsvine.com",
-  "telefono": "9733600028"
+  "telefono": "9733600028",
+  "privilegios": "cliente"
  },
  {
   "id": 5,
@@ -52,7 +56,8 @@
   "imagen": "kassie.png",
   "genero": "Femenino",
   "email": "kdabner4@vimeo.com",
-  "telefono": "9831459885"
+  "telefono": "9831459885",
+  "privilegios": "cliente"
  },
  {
   "id": 6,
@@ -63,7 +68,8 @@
   "imagen": "Hinda.jpg",
   "genero": "Femenino",
   "email": "hlippett5@deviantart.com",
-  "telefono": "5347773708"
+  "telefono": "5347773708",
+  "privilegios": "cliente"
  },
  {
   "id": 7,
@@ -74,7 +80,8 @@
   "imagen": "alma.jpg",
   "genero": "Femenino",
   "email": "amacauley6@foxnews.com",
-  "telefono": "1275161222"
+  "telefono": "1275161222",
+  "privilegios": "cliente"
  },
  {
   "id": 8,
@@ -85,7 +92,8 @@
   "imagen": "walton.jpg",
   "genero": "Masculino",
   "email": "wmacgeffen7@wufoo.com",
-  "telefono": "9662675778"
+  "telefono": "9662675778",
+  "privilegios": "cliente"
  },
  {
   "id": 9,
@@ -96,7 +104,8 @@
   "imagen": "ezri.jpg",
   "genero": "Masculino",
   "email": "eaireton8@domainmarket.com",
-  "telefono": "8656992650"
+  "telefono": "8656992650",
+  "privilegios": "cliente"
  },
  {
   "id": 10,
@@ -107,7 +116,8 @@
   "imagen": "stephan.jpg",
   "genero": "Masculino",
   "email": "sellis9@liveinternet.ru",
-  "telefono": "2378601608"
+  "telefono": "2378601608",
+  "privilegios": "cliente"
  },
  {
   "id": 11,
@@ -121,6 +131,22 @@
   "telefono": "12345467879",
   "imagen": [
    "imagen-1638482406602-.jpg"
-  ]
+  ],
+  "privilegios": "admin"
+ },
+ {
+  "id": 12,
+  "nombre": "Cynar1234",
+  "apellido": "Prado",
+  "usuario": "3245",
+  "genero": "Masculino",
+  "email": "mail@algo.com",
+  "contrasenia": "$2a$10$NoClNWqbzXpy4slrDknkm.S5VMUJGsfL.MOWFFeVHwNJhGeUNIkFW",
+  "confContr": "12345678",
+  "telefono": "01124270044",
+  "imagen": [
+   ""
+  ],
+  "privilegios": "cliente"
  }
 ]
