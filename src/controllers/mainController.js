@@ -4,6 +4,8 @@ const path = require('path');
 const productsFilePath = path.join(__dirname, '../data/productos.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
+const db = require('../database/models');
+
 // Acá nos falta un objeto literal con las acciones para cada ruta
 const mainController = {
     getIndex: (req,res) => {

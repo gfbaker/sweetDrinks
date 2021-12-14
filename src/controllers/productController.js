@@ -7,6 +7,9 @@ const productsFilePath = path.join(__dirname, '../data/productos.json');
 let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 const { validationResult } = require('express-validator');
 
+// al hacer el requiere asignado a db no hace falta aclararle el nombre del archivo (index.js) dado que éste es el archivo default.
+const db = require('../database/models');
+//No hace falta traer el modelo, con solo traer DB alcanza, Sequelize se encarga de hacer la relación.
 
 // Acá nos falta un objeto literal con las acciones para cada ruta
 const productController = {
@@ -22,9 +25,15 @@ const productController = {
 			})
 			categoria = categoria.toUpperCase();
 		}
-		//res.send (productsToShow)
 		res.render (path.join(__dirname,"../views/products"),{productsToShow, categoria});
-
+		// db.Products
+		// .findAll()
+		// .then(function(resultado){
+		// 	res.send(resultado)
+		// })
+		// .catch(function(error){
+		// 	console.log(error)
+		// })
     },
 
     getProductDetail: (req,res) => {

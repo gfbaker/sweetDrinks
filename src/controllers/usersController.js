@@ -7,6 +7,8 @@ const bcrypt = require('bcryptjs');
 const { validationResult } = require('express-validator');
 const session = require('express-session');
 
+const db = require('../database/models');
+
 // Objeto literal con acciones de cada ruta
 const usersController = {
 
