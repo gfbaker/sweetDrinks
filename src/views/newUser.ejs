@@ -19,42 +19,44 @@
                 <div class="estilo-formulario"> 
                     <label for="nombre"></label>
                     <input type="text" name="nombre" id="nombre"  placeholder="Nombre" class="estilo-input">
-                </div>
-                <% if (typeof errors != 'undefined') { %>
-                    <% for (let i = 0; i < errors.length; i++) { %>
-                        <% if (errors[i].param == 'nombre') { %>
-                        <div class="errorsAlert"> 
-                            <p><%=errors[i].msg %></p>                        
-                        </div>
+                    <% if (typeof errors != 'undefined') { %>
+                        <% for (let i = 0; i < errors.length; i++) { %>
+                            <% if (errors[i].param == 'nombre') { %>
+                    <div class="errorsAlert"> 
+                        <p><%=errors[i].msg %></p>                        
+                    </div>
+                            <% } %>
                         <% } %>
                     <% } %>
-                <% } %>
+                </div>  
                 <div class="estilo-formulario"> 
                     <label for="apellido"></label>
                     <input type="text" name="apellido" id="apellido" placeholder="Apellido" class="estilo-input">
-                </div>
-                <% if (typeof errors != 'undefined') { %>
-                    <% for (let i = 0; i < errors.length; i++) { %>
-                        <% if (errors[i].param == 'apellido') { %>
-                        <div class="errorsAlert"> 
-                            <p><%=errors[i].msg %></p>                        
-                        </div>
+                    <% if (typeof errors != 'undefined') { %>
+                        <% for (let i = 0; i < errors.length; i++) { %>
+                            <% if (errors[i].param == 'apellido') { %>
+                    <div class="errorsAlert"> 
+                        <p><%=errors[i].msg %></p>                        
+                    </div>
+                            <% } %>
                         <% } %>
                     <% } %>
-                <% } %>
+                </div>
+
                 <div class="estilo-formulario"> 
                     <label for="usuario"></label>
                     <input type="text" name="usuario" id="usuario" placeholder="Nombre de usuario" class="estilo-input">
-                </div>
-                <% if (typeof errors != 'undefined') { %>
-                    <% for (let i = 0; i < errors.length; i++) { %>
-                        <% if (errors[i].param == 'usuario') { %>
-                        <div class="errorsAlert"> 
-                            <p><%=errors[i].msg %></p>                        
-                        </div>
+                    <% if (typeof errors != 'undefined') { %>
+                        <% for (let i = 0; i < errors.length; i++) { %>
+                            <% if (errors[i].param == 'usuario') { %>
+                    <div class="errorsAlert"> 
+                        <p><%=errors[i].msg %></p>                        
+                    </div>
+                            <% } %>
                         <% } %>
                     <% } %>
-                <% } %>
+                </div>
+
                 <div class="estilo-formulario"> 
                     <label for="genero"></label>
                     <select name="genero" id="genero" class="botonGenero">
@@ -68,55 +70,59 @@
                 <div class="estilo-formulario">
                     <label for="email"></label>
                     <input type="email"name="email" id="email" placeholder="E-mail" class="estilo-input">
-                </div>
-                <% if (typeof errors != 'undefined') { %>
-                    <% for (let i = 0; i < errors.length; i++) { %>
-                        <% if (errors[i].param == 'email') { %>
-                        <div class="errorsAlert"> 
-                            <p><%=errors[i].msg %></p>                        
-                        </div>
+                    <% if (typeof errors != 'undefined') { %>
+                        <% for (let i = 0; i < errors.length; i++) { %>
+                            <% if (errors[i].param == 'email') { %>
+                    <div class="errorsAlert"> 
+                        <p><%=errors[i].msg %></p>                        
+                    </div>
+                            <% } %>
                         <% } %>
                     <% } %>
-                <% } %>
+                </div>
+
                 <div class="estilo-formulario">
                     <label for="contrasenia"></label>
                     <input type="password" name="contrasenia" id="contrasenia" placeholder="Contraseña" class="estilo-input">
-                </div>
-                <% if (typeof errors != 'undefined') { %>
-                    <% for (let i = 0; i < errors.length; i++) { %>
-                        <% if (errors[i].param == 'contrasenia') { %>
-                        <div class="errorsAlert"> 
-                            <p><%=errors[i].msg %></p>                        
-                        </div>
+                    <% if (typeof errors != 'undefined') { %>
+                        <% for (let i = 0; i < errors.length; i++) { %>
+                            <% if (errors[i].param == 'contrasenia') { %>
+                    <div class="errorsAlert"> 
+                        <p><%=errors[i].msg %></p>                        
+                    </div>
+                            <% } %>
                         <% } %>
                     <% } %>
-                <% } %>
+                </div>
+
                 <div class="estilo-formulario">
                     <label for="confContr"></label>
                     <input type="password" name="confContr" id="confContr" placeholder="Confirmar contraseña" class="estilo-input">
-                </div>
-                <% if (typeof errors != 'undefined') { %>
-                    <% for (let i = 0; i < errors.length; i++) { %>
-                        <% if (errors[i].param == 'confContr') { %>
-                        <div class="errorsAlert"> 
-                            <p><%=errors[i].msg %></p>                        
-                        </div>
+                    <% if (typeof errors != 'undefined') { %>
+                        <% for (let i = 0; i < errors.length; i++) { %>
+                            <% if (errors[i].param == 'confContr') { %>
+                    <div class="errorsAlert"> 
+                        <p><%=errors[i].msg %></p>                        
+                    </div>
+                            <% } %>
                         <% } %>
                     <% } %>
-                <% } %>
+                </div>
+
                 <div class="estilo-formulario">
                     <label for="telefono"></label>
                     <input type="text" name="telefono"  id="telefono" placeholder="Teléfono" class="estilo-input">
-                </div>
-                <% if (typeof errors != 'undefined') { %>
-                    <% for (let i = 0; i < errors.length; i++) { %>
-                        <% if (errors[i].param == 'telefono') { %>
-                        <div class="errorsAlert"> 
-                            <p><%=errors[i].msg %></p>                        
-                        </div>
+                    <% if (typeof errors != 'undefined') { %>
+                        <% for (let i = 0; i < errors.length; i++) { %>
+                            <% if (errors[i].param == 'telefono') { %>
+                    <div class="errorsAlert"> 
+                        <p><%=errors[i].msg %></p>                        
+                    </div>
+                            <% } %>
                         <% } %>
                     <% } %>
-                <% } %>
+                </div>
+
                 <div class="estilo-formulario">
                     <label for="imagen" class="label-formulario">Imágen de Perfil: </label>
                     <input type="file" id="imagen"  name="imagen" class="estilo-input">

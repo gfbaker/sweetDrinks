@@ -27,7 +27,7 @@ const validateUserForm =[
     .bail()
     .isLength({ min: 8}).withMessage('Tu contraseña debe tener mínimo 8 carácteres'),
     check('telefono')
-    .notEmpty().withMessage('No olvides ingresar tu número de teléfono')
+    .notEmpty().withMessage('Debes completar tu teléfono')
     .bail()
     .isNumeric().withMessage('Ingresa un número de teléfono válido'),
    

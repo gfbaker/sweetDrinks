@@ -42,7 +42,11 @@ const usersController = {
   
             if(usuarioLogueado == undefined){
                 res.render('login', {errors:[
-                    {msg: 'Por favor vuelve a ingresar E-mail y contraseña'}
+                    {
+                        "location": "body",
+                        "msg": "Credenciales inválidas",
+                        "param": "credenciales"
+                    }
                 ]})
             
             } else {

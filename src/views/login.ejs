@@ -14,27 +14,24 @@
     </div></a>
     <h1>Bienvenido</h1>
 
-    <div class="errorsAlert">
-        <% if (typeof errors != 'undefined') { %>
-            <p>Atención</p>
-            <ul>
-                <% for (let i = 0; i < errors.length; i++) { %>
-                    <li>
-                        <%=errors[i].msg %>
-                    </li>
-                    <% } %>
-            </ul>
-            <% } %>
-        </div>
-        <form action="" class="formulario" method="post">
+        <form action="" class="estilo-formulario" method="post">
             <div class="estilo-formulario">
                 <input class="estilo-input" type="email" name="email" placeholder="Email">
             </div> 
             <div class="estilo-formulario">
                 <input class="estilo-input" type="password" name="contrasenia" placeholder="Contraseña">
+                <% if (typeof errors != 'undefined') { %>
+                    <% for (let i = 0; i < errors.length; i++) { %>
+                        <% if (errors[i].param == 'credenciales') { %>
+                <div class="errorsAlert"> 
+                    <p><%=errors[i].msg %></p>                        
+                </div>
+                        <% } %>
+                    <% } %>
+                <% } %>
             </div>
-        </br>
-            <div>
+
+            <div class="recordar">
                 <label for="recordar"><input type="checkbox" id="recordar" value="recordar"> Recordarme</label>
             </div>
         </br>
