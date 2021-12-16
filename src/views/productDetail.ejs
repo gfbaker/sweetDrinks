@@ -58,19 +58,22 @@
                           <input type="button" value="Agregar al carrito">
                        </div>
                     </form>
+                    <% if (user != undefined) { 
+                        if (user.privilegios == "admin") {%>
+                    <div class="productBotonesElimEdit">
+                        <div class="prodDetBotonEditar">
+                            <a href="/products/<%=product.id%>/edit" class="action-button edit">Editar Producto</a>
+                        </div>
 
-                          <div class="productBotonesElimEdit">
-                             <div class="prodDetBotonEditar">
-                                  <a href="/products/<%=product.id%>/edit" class="action-button edit">Editar Producto</a>
-                               </div>
-
-                               <!-- Botón Eliminar -->
-                               <form action="/products/detail/<%= product.id%>?_method=DELETE" method="POST" >
-                                <button type="submit" class="action-button edit"><i class="fas fa-trash-alt"></i></button>
-                               
-                                </form>
-                             </div>
-                          </div>
+                        <!-- Botón Eliminar -->
+                        <form action="/products/detail/<%= product.id%>?_method=DELETE" method="POST" >
+                        <button type="submit" class="action-button edit"><i class="fas fa-trash-alt"></i></button>
+                        
+                        </form>
+                        </div>
+                    </div>
+                        <%} 
+                    } %>
                 </div>
             </article>
         </section>

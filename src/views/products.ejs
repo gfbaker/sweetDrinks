@@ -58,11 +58,15 @@
                
             </section>
         <% } %>
+        <% if (user != undefined) { 
+            if (user.privilegios == "admin") {%>
         <div class="prodDetBotonProductoNuevoFlex">
             <div class="prodDetBotonProductoNuevo">
                 <a href='/products/newProduct' class="prodDetBotonProductoNuevo">Nuevo Producto</a>
              </div>
         </div>
+            <%} 
+        } %>
     </main>
     <!-- FIN-MAIN -->
 
