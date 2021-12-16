@@ -16,7 +16,7 @@ const usersController = {
     getNewUser: (req,res) => {res.render (path.join(__dirname,"../views/newUser"))},
 
     getUserProfile: (req,res) => {
-        user = users[req.params.id-1];
+        user = users[req.params.id_user-1];
         res.render (path.join(__dirname,"../views/users"),{user});
     },
 
@@ -30,7 +30,6 @@ const usersController = {
             for(let i=0 ; i < usersRegistrados.length; i++){
 
                 if(usersRegistrados[i].email == req.body.email){
-
                     if (bcrypt.compareSync(req.body.contrasenia, usersRegistrados[i].contrasenia)){    
                     
                         var usuarioLogueado = usersRegistrados[i];
@@ -95,7 +94,7 @@ const usersController = {
 
                 fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "));
         
-                userId = users[req.params.id];
+                userId = users[req.params.id_user];
 
                 return res.redirect('user/' + users[users.length - 1].id);
             }
@@ -111,7 +110,7 @@ const usersController = {
     // Eliminar Cuenta
     destroyUser: (req, res) => {
 
-		let filterUser = users.filter((user) => user.id != req.params.id);
+		let filterUser = users.filter((user) => user.id != req.params.id_user);
 
 		fs.writeFileSync(usersFilePath, JSON.stringify(filterUser, null, " "));
 

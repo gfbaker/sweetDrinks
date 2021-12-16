@@ -47,10 +47,10 @@ router.post('/login',validateUserFormLogin, usersController.postLogin);
 router.get('/newUser', guestMiddleware, usersController.getNewUser);
 router.post('/newUser', upload.single('imagen'),validateUserForm, usersController.postNewUser);
 
-router.get('/user/:id', isUserLoggedIn, usersController.getUserProfile);
+router.get('/user/:id_user', isUserLoggedIn, usersController.getUserProfile);
 
 // Faltaria ruta para editar usuario
-router.delete('/user/:id', usersController.destroyUser);
+router.delete('/user/:id_user', usersController.destroyUser);
 
 router.get('/endSession', usersController.endSession);
 

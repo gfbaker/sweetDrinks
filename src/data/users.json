@@ -4,19 +4,19 @@
   "nombre": "Lutero",
   "apellido": "Peasey",
   "usuario": "Topicstorm",
-  "contraseña": "UJ6vUOmXv",
+  "contrasenia": "$2a$10$NoClNWqbzXpy4slrDknkm.S5VMUJGsfL.MOWFFeVHwNJhGeUNIkFW",
   "imagen": "Lutero.png",
   "genero": "Masculino",
   "email": "lpeasey0@hugedomains.com",
   "telefono": "8411442047",
-  "privilegios": "admin"
+  "privilegios": "cliente"
  },
  {
   "id": 2,
   "nombre": "Adams",
   "apellido": "Kellaway",
   "usuario": "Brainlounge",
-  "contraseña": "EDniRZi",
+  "contraseña": "$2a$10$NoClNWqbzXpy4slrDknkm.S5VMUJGsfL.MOWFFeVHwNJhGeUNIkFW",
   "imagen": "Adams.jpg",
   "genero": "Masculino",
   "email": "akellaway1@fema.gov",
