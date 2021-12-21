@@ -23,6 +23,9 @@ module.exports = (sequelize, dataTypes)=>{
         },
         imagen_id: {
             type: DataTypes.STRING(100),
+        },
+        userAuthData_id: {
+            type: DataTypes.INTEGER,
         }
 
     };
@@ -35,6 +38,18 @@ module.exports = (sequelize, dataTypes)=>{
 
     const User = sequelize.define(alias, columns, config);
 
+    User.associate = function (models){
+        User.belongsTo (
+            models.UsersAuthData, 
+            {
+            as: 'usersAuthData',
+            foreingKey: "userAuthData_id"
+            }
+        )
+    }
+    
+    
     return User;
+
 
 }

@@ -15,26 +15,35 @@ const db = require('../database/models');
 const productController = {
 
 	getProducts: (req,res) => {
-		categoria = req.params.categoria;
-		if (categoria == undefined){
-			productsToShow = products;
-			categoria = "Todos los productos"; 
-		}else{
-			productsToShow = products.filter (function (product){
-				return product.categoria.toUpperCase() == categoria.toUpperCase();
-			})
-			categoria = categoria.toUpperCase();
-		}
-		res.render (path.join(__dirname,"../views/products"),{productsToShow, categoria});
-		// db.Products
-		// .findAll()
-		// .then(function(resultado){
-		// 	res.send(resultado)
-		// })
-		// .catch(function(error){
-		// 	console.log(error)
-		// })
+		// categoria = req.params.categoria;
+		// if (categoria == undefined){
+		// 	productsToShow = products;
+		// 	categoria = "Todos los productos"; 
+		// }else{
+		// 	productsToShow = products.filter (function (product){
+		// 		return product.categoria.toUpperCase() == categoria.toUpperCase();
+		// 	})
+		// 	categoria = categoria.toUpperCase();
+		// }
+		// res.render (path.join(__dirname,"../views/products"),{productsToShow, categoria});
+		db.Users
+		.findAll({
+			include:[{association: "usersAuthData"}]
+		})
+		.then(function(resultado){
+			res.send(resultado)
+		})
+		.catch(function(error){
+			console.log(error)
+		})
     },
+
+
+
+
+
+
+	
 
     getProductDetail: (req,res) => {
         product = products[req.params.id-1];

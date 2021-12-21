@@ -31,7 +31,16 @@ module.exports = (sequelize, dataTypes)=>{
 
 
     const UserAuthData = sequelize.define(alias, columns, config);
-
+    
+    UserAuthData.associate = function (models){
+        UserAuthData.hasOne (
+            models.Users, 
+            {
+            as: 'users',
+            foreingKey: "userAuthData_id"
+            }
+        )
+    }
     return UserAuthData;
 
 }
