@@ -65,7 +65,7 @@ module.exports = (sequelize, dataTypes)=>{
             foreignKey: "categoria_id"
             }
         )
-    }
+    };
 
     Product.associate = function (models){
         Product.hasMany (
@@ -75,7 +75,7 @@ module.exports = (sequelize, dataTypes)=>{
             foreignKey: "product_id"
             }
         )
-    }
+    };
 
     Product.associate = function (models){
         Product.hasMany (
@@ -85,7 +85,7 @@ module.exports = (sequelize, dataTypes)=>{
             foreignKey: "product_id"
             }
         )
-    }
+    };
 
     return Product;
 
