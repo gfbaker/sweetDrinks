@@ -28,9 +28,21 @@ const productController = {
 		// res.render (path.join(__dirname,"../views/products"),{productsToShow, categoria});
 
 
+		// db.Products
+		// .findAll({
+		// 	include:[{association: "categories"}]
+		// })
+		// .then(function(resultado){
+		// 	res.send(resultado)
+		// })
+		// .catch(function(error){
+		// 	console.log(error)
+		// })
+
+
 		db.Products
 		.findAll({
-			include:[{association: "categories"}]
+			include:[{association: "images"}]
 		})
 		.then(function(resultado){
 			res.send(resultado)
@@ -38,18 +50,6 @@ const productController = {
 		.catch(function(error){
 			console.log(error)
 		})
-
-		db.Categories
-		.findAll({
-			include:[{association: "products"}]
-		})
-		.then(function(resultado){
-			res.send(resultado)
-		})
-		.catch(function(error){
-			console.log(error)
-		})
-
 
     },
 

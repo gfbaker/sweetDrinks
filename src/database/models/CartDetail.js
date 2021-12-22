@@ -27,10 +27,7 @@ module.exports = (sequelize, dataTypes)=>{
             as: 'products',
             foreignKey: "product_id"
             }
-        )
-    }
-
-    CartDetail.associate = function (models){
+        ),
         CartDetail.belongsTo (
             models.Carts, 
             {
