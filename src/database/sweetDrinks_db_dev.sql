@@ -16,7 +16,6 @@ CREATE TABLE `products` (
    `importado` TINYINT NOT NULL,
    `esPack` TINYINT NOT NULL,
    `categoria_id`  INT(10),
-   `imagen_id` INT,
    PRIMARY KEY (`id`)
 );
 
@@ -42,6 +41,7 @@ DROP TABLE IF EXISTS `images`;
 CREATE TABLE `images` (
    `id` INT AUTO_INCREMENT,
    `nombre` VARCHAR(100) NOT NULL,
+   `product_id` INT,
    PRIMARY KEY (`id`)
 );
 
@@ -51,7 +51,6 @@ CREATE TABLE `usersauthdata` (
    `email` VARCHAR(100) NOT NULL,
    `contraseña` VARCHAR(100) NOT NULL,
    `admin` TINYINT NOT NULL,
-   `user_id` INT,
    PRIMARY KEY (`id`)
 );
 
@@ -60,7 +59,7 @@ CREATE TABLE `carts` (
    `id` INT AUTO_INCREMENT,
    `user_id` INT NOT NULL,
    `cantidad` INT NOT NULL,
-   `total` INT NOT NULL,
+   `total` INT,
    PRIMARY KEY (`id`)
 );
 
@@ -73,7 +72,7 @@ CREATE TABLE `cartDetails` (
 );
 
 LOCK TABLES `usersauthdata` WRITE;
-INSERT INTO `usersauthdata` (id,contraseña,email,admin,user_id) VALUES (1,'$2a$10$C/Igtp0PYH90oHoc3cMfqu/rKy6NoK6oY.lAhkVAwcFJ9WfB78gEK','lpeasey0@hugedomains.com',0,1),(2,'$2a$10$C/Igtp0PYH90oHoc3cMfqu/rKy6NoK6oY.lAhkVAwcFJ9WfB78gEK','akellaway1@fema.gov',0,2),(3,'$2a$10$C/Igtp0PYH90oHoc3cMfqu/rKy6NoK6oY.lAhkVAwcFJ9WfB78gEK','cplaunch2@amazon.co.uk',0,3),(4,'$2a$10$C/Igtp0PYH90oHoc3cMfqu/rKy6NoK6oY.lAhkVAwcFJ9WfB78gEK','vjunkin3@newsvine.com',0,4),(5,'$2a$10$C/Igtp0PYH90oHoc3cMfqu/rKy6NoK6oY.lAhkVAwcFJ9WfB78gEK','kdabner4@vimeo.com',0,5),(6,'$2a$10$C/Igtp0PYH90oHoc3cMfqu/rKy6NoK6oY.lAhkVAwcFJ9WfB78gEK','hlippett5@deviantart.com',0,6),(7,'$2a$10$C/Igtp0PYH90oHoc3cMfqu/rKy6NoK6oY.lAhkVAwcFJ9WfB78gEK','amacauley6@foxnews.com',0,7),(8,'$2a$10$C/Igtp0PYH90oHoc3cMfqu/rKy6NoK6oY.lAhkVAwcFJ9WfB78gEK','wmacgeffen7@wufoo.com',0,8),(9,'$2a$10$C/Igtp0PYH90oHoc3cMfqu/rKy6NoK6oY.lAhkVAwcFJ9WfB78gEK','eaireton8@domainmarket.com',0,9),(10,'$2a$10$C/Igtp0PYH90oHoc3cMfqu/rKy6NoK6oY.lAhkVAwcFJ9WfB78gEK','sellis9@liveinternet.ru',0,10),(11,'$2a$10$C/Igtp0PYH90oHoc3cMfqu/rKy6NoK6oY.lAhkVAwcFJ9WfB78gEK','juanperez@juanperez.com',1,11);
+INSERT INTO `usersauthdata` (id,contraseña,email,admin) VALUES (1,'$2a$10$C/Igtp0PYH90oHoc3cMfqu/rKy6NoK6oY.lAhkVAwcFJ9WfB78gEK','lpeasey0@hugedomains.com',0),(2,'$2a$10$C/Igtp0PYH90oHoc3cMfqu/rKy6NoK6oY.lAhkVAwcFJ9WfB78gEK','akellaway1@fema.gov',0),(3,'$2a$10$C/Igtp0PYH90oHoc3cMfqu/rKy6NoK6oY.lAhkVAwcFJ9WfB78gEK','cplaunch2@amazon.co.uk',0),(4,'$2a$10$C/Igtp0PYH90oHoc3cMfqu/rKy6NoK6oY.lAhkVAwcFJ9WfB78gEK','vjunkin3@newsvine.com',0),(5,'$2a$10$C/Igtp0PYH90oHoc3cMfqu/rKy6NoK6oY.lAhkVAwcFJ9WfB78gEK','kdabner4@vimeo.com',0),(6,'$2a$10$C/Igtp0PYH90oHoc3cMfqu/rKy6NoK6oY.lAhkVAwcFJ9WfB78gEK','hlippett5@deviantart.com',0),(7,'$2a$10$C/Igtp0PYH90oHoc3cMfqu/rKy6NoK6oY.lAhkVAwcFJ9WfB78gEK','amacauley6@foxnews.com',0),(8,'$2a$10$C/Igtp0PYH90oHoc3cMfqu/rKy6NoK6oY.lAhkVAwcFJ9WfB78gEK','wmacgeffen7@wufoo.com',0),(9,'$2a$10$C/Igtp0PYH90oHoc3cMfqu/rKy6NoK6oY.lAhkVAwcFJ9WfB78gEK','eaireton8@domainmarket.com',0),(10,'$2a$10$C/Igtp0PYH90oHoc3cMfqu/rKy6NoK6oY.lAhkVAwcFJ9WfB78gEK','sellis9@liveinternet.ru',0),(11,'$2a$10$C/Igtp0PYH90oHoc3cMfqu/rKy6NoK6oY.lAhkVAwcFJ9WfB78gEK','juanperez@juanperez.com',1);
 UNLOCK TABLES;
 
 LOCK TABLES `categories` WRITE;
@@ -88,13 +87,20 @@ LOCK TABLES `users` WRITE;
 INSERT INTO `users` (id,nombre,apellido,telefono,userAuthData_id) VALUES (1,'Lutero','Peasey','8411442047',1),(2,'Adams','Kellaway','8436600593',2),(3,'Catherine','Plaunch','3433536181',3),(4,'Vany','Junkin','9733600028',4),(5,'Kassie','Dabner','9831459885',5),(6,'Hinda','Lippett','5347773708',6),(7,'Alma','Macauley','1275161222',7),(8,'Walton','MacGeffen','9662675778',8),(9,'Ezri','Aireton','8656992650',9),(10,'Stephan','Ellis','2378601608',10),(11,'Juan','Perez','12345467879',11);
 UNLOCK TABLES;
 
+LOCK TABLES `carts` WRITE;
+INSERT INTO `carts` (id,user_id,cantidad) VALUES (1,1,4),(2,1,4),(3,2,4),(4,2,4),(5,2,4),(6,3,4),(7,4,4),(8,5,4),(9,5,4),(10,5,4),(11,5,4),(12,5,4);
+UNLOCK TABLES;
+
+LOCK TABLES `cartDetails` WRITE;
+INSERT INTO `cartDetails` (id,cart_id,product_id) VALUES (1,1,4),(2,1,4),(3,2,4),(4,2,4),(5,2,4),(6,3,4),(7,4,4),(8,5,4),(9,5,4),(10,5,4),(11,5,4),(12,5,4);
+UNLOCK TABLES;
+
+
 ALTER TABLE `products` ADD CONSTRAINT `FK_26dd350a-d2ad-40a5-9b0c-c3ca6323ab12` FOREIGN KEY (`categoria_id`) REFERENCES `categories`(`id`)  ;
 
-ALTER TABLE `products` ADD CONSTRAINT `FK_c76cd1ec-c0b1-4c08-bad4-075212d43d3b` FOREIGN KEY (`imagen_id`) REFERENCES `images`(`id`)  ;
+ALTER TABLE `images` ADD CONSTRAINT `FK_c76cd1ec-c0b1-4c08-bad4-075212d43d3b` FOREIGN KEY (`product_id`) REFERENCES `products`(`id`)  ;
 
 ALTER TABLE `users` ADD CONSTRAINT `FK_326e543f-2fff-449c-82d8-3d7acabbe72e` FOREIGN KEY (`userAuthData_id`) REFERENCES `usersauthdata`(`id`)  ;
-
-ALTER TABLE `usersauthdata` ADD CONSTRAINT `FK_36a088c8-7170-4b87-af52-902e5137e9ab` FOREIGN KEY (`user_id`) REFERENCES `users`(`id`)  ;
 
 ALTER TABLE `carts` ADD CONSTRAINT `FK_36a088c8-7170-4b87-af52-902e5137e9a7` FOREIGN KEY (`user_id`) REFERENCES `users`(`id`)  ;
 

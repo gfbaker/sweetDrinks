@@ -37,7 +37,7 @@ module.exports = (sequelize, dataTypes)=>{
             models.Users, 
             {
             as: 'users',
-            foreingKey: "userAuthData_id"
+            foreignKey: "userAuthData_id"
             }
         )
     }

@@ -43,11 +43,21 @@ module.exports = (sequelize, dataTypes)=>{
             models.UsersAuthData, 
             {
             as: 'usersAuthData',
-            foreingKey: "userAuthData_id"
+            foreignKey: "userAuthData_id"
             }
         )
     }
     
+
+    User.associate = function (models){
+        User.hasMany (
+            models.Carts, 
+            {
+            as: 'carts',
+            foreignKey: "user_id"
+            }
+        )
+    }
     
     return User;
 

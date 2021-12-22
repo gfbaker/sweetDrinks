@@ -15,35 +15,84 @@ const db = require('../database/models');
 const productController = {
 
 	getProducts: (req,res) => {
-		// categoria = req.params.categoria;
-		// if (categoria == undefined){
-		// 	productsToShow = products;
-		// 	categoria = "Todos los productos"; 
-		// }else{
-		// 	productsToShow = products.filter (function (product){
-		// 		return product.categoria.toUpperCase() == categoria.toUpperCase();
-		// 	})
-		// 	categoria = categoria.toUpperCase();
-		// }
-		// res.render (path.join(__dirname,"../views/products"),{productsToShow, categoria});
-		db.Users
-		.findAll({
-			include:[{association: "usersAuthData"}]
-		})
-		.then(function(resultado){
-			res.send(resultado)
-		})
-		.catch(function(error){
-			console.log(error)
-		})
+		categoria = req.params.categoria;
+		if (categoria == undefined){
+			productsToShow = products;
+			categoria = "Todos los productos"; 
+		}else{
+			productsToShow = products.filter (function (product){
+				return product.categoria.toUpperCase() == categoria.toUpperCase();
+			})
+			categoria = categoria.toUpperCase();
+		}
+		res.render (path.join(__dirname,"../views/products"),{productsToShow, categoria});
+		// db.Users
+		// .findAll({
+		// 	include:[{association: "usersAuthData"}]
+		// })
+		// .then(function(resultado){
+		// 	res.send(resultado)
+		// })
+		// .catch(function(error){
+		// 	console.log(error)
+		// })
+
+		// db.Products
+		// .findAll({
+		// 	include:[{association: "categories"}]
+		// })
+		// .then(function(resultado){
+		// 	res.send(resultado)
+		// })
+		// .catch(function(error){
+		// 	console.log(error)
+		// })
+		// db.Products
+		// .findAll({
+		// 	include:[{association: "images"}]
+		// })
+		// .then(function(resultado){
+		// 	res.send(resultado)
+		// })
+		// .catch(function(error){
+		// 	console.log(error)
+		// })
+
+		// db.Users
+		// .findAll({
+		// 	include:[{association: "carts"}]
+		// })
+		// .then(function(resultado){
+		// 	res.send(resultado)
+		// })
+		// .catch(function(error){
+		// 	console.log(error)
+		// })
+
+		// db.CartDetails
+		// .findAll({
+		// 	include:[{association: "carts"}]
+		// })
+		// .then(function(resultado){
+		// 	res.send(resultado)
+		// })
+		// .catch(function(error){
+		// 	console.log(error)
+		// })
+
+		// db.Products
+		// .findAll({
+		// 	include:[{association: "cartDetails"}]
+		// })
+		// .then(function(resultado){
+		// 	res.send(resultado)
+		// })
+		// .catch(function(error){
+		// 	console.log(error)
+		// })
+
     },
 
-
-
-
-
-
-	
 
     getProductDetail: (req,res) => {
         product = products[req.params.id-1];
