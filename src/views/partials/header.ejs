@@ -45,11 +45,18 @@
 
     <nav class="nav-bar">
         <ul class="nav-central">
-            <a  href="">Vinos</a>
-            <a  href="">Cervezas</a>
-            <a  href="">Sin alcohol</a>
-            <a  href="">Destilados</a>
-            <a  href="">Combos</a>
+
+            <% if (locals.categoriasMenu == undefined){ %>
+                <a  href="/products/1">Aperitivo</a>
+                <a  href="/products/2">Whiskies</a>
+                <a  href="/products/3">Cervezas</a>
+                <a  href="/products/4">Vinos</a>
+                <a  href="/products/5">Champagne y espumantes</a>
+                <a  href="/products/6">Bebidas Blancas</a>
+                <a  href="/products/7">Licores</a>   
+            <%}else{ %>
+                <a href="/"> CATEGORIAS MENU</a>
+            <% } %>
         </ul>
     </nav>
 

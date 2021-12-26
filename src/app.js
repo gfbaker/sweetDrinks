@@ -7,6 +7,7 @@ const session = require('express-session') //Requiriendo Session
 const mainRoutes = require('./routes/mainRouter');
 const productRoutes = require('./routes/productRouter');
 const usersRoutes = require('./routes/usersRouter');
+const db = require('./database/models');
 
 const port = 3080; 
 
@@ -20,6 +21,16 @@ app.use(session({secret:'Sweet Drinks Secret'}));
 //middleware para usar atributos de session
 app.use(function(req, res, next) {
     res.locals.user = req.session.usuarioLogueado;
+    db.Categories
+        .findAll()
+        .then(function(resultado){
+            res.locals.categoriasMenu = resultado	
+            console.log (res.locals.categoriasMenu)
+        })
+        .catch(function(error){
+            console.log(error)
+        })
+
     next();
   });
 

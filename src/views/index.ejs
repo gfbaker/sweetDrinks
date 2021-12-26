@@ -54,7 +54,7 @@
             <% for (let i = 0; i < ofertas.length; i++){ %>
                 <article class="article-main">
                     <a href="/products/detail/<%=ofertas[i].id%>">
-                        <img class="img-article" src="./img/imgProduct/<%=ofertas[i].imagenes[0]%>" alt="imagen">
+                        <img class="img-article" src="./img/imgProduct/<%=ofertas[i].images[0].nombre%>" alt="imagen">
                     </a>
                     <div class="pie-del-articulo">
                         <ul>
@@ -73,7 +73,7 @@
             <% for (let i = 0; i < importados.length; i++){ %>
                 <article class="article-main">
                     <a href="/products/detail/<%=importados[i].id%>">
-                        <img class="img-article" src="./img/imgProduct/<%=importados[i].imagenes[0]%>" alt="imagen">
+                        <img class="img-article" src="./img/imgProduct/<%=importados[i].images[0].nombre%>" alt="imagen">
                     </a>                    
                     <div class="pie-del-articulo">
                         <ul>
@@ -91,7 +91,7 @@
             <% for (let i = 0; i < packs.length; i++){ %>
                 <article class="article-main">
                     <a href="/products/detail/<%=packs[i].id%>">
-                        <img class="img-article" src="./img/imgProduct/<%=packs[i].imagenes[0]%>" alt="imagen">
+                        <img class="img-article" src="./img/imgProduct/<%=packs[i].images[0].nombre%>" alt="imagen">
                     </a>
                     <div class="pie-del-articulo">
                         <ul>

@@ -9,20 +9,37 @@ const db = require('../database/models');
 // Acá nos falta un objeto literal con las acciones para cada ruta
 const mainController = {
     getIndex: (req,res) => {
-        ofertas = products.filter(function(producto){
-			return producto.oferta == true;
-		});
-
-        importados = products.filter(function(producto){
-			return producto.importado == true;
-		});
-
-        packs = products.filter(function(producto){
-			return producto.esPack == true;
-		});
-        res.render (path.join(__dirname,"../views/index"),{ofertas, importados, packs})
+        	
+        Promise.all([        
+            db.Products
+            .findAll({
+                include:[{association: "images"},{association: "categories"}],
+                where: {
+                    oferta: true
+                }
+            }),
+            db.Products
+            .findAll({
+                include:[{association: "images"},{association: "categories"}],
+                where: {
+                    importado: true
+                }
+            }),
+            db.Products
+            .findAll({
+                include:[{association: "images"},{association: "categories"}],
+                where: {
+                    esPacK: true
+                }
+            })
+        ])
+        .then(function([ofertas,importados,packs]){
+            res.render (path.join(__dirname,"../views/index"),{ofertas, importados, packs})
+        })
     },
+
     getCart: (req,res) => {res.render (path.join(__dirname,"../views/cart"))},
+    
     getConfirmation: (req,res) => {res.render (path.join(__dirname,"../views/confirmation"))},
   
     

@@ -95,6 +95,9 @@ LOCK TABLES `cartDetails` WRITE;
 INSERT INTO `cartDetails` (id,cart_id,product_id) VALUES (1,1,4),(2,1,4),(3,2,4),(4,2,4),(5,2,4),(6,3,4),(7,4,4),(8,5,4),(9,5,4),(10,5,4),(11,5,4),(12,5,4);
 UNLOCK TABLES;
 
+LOCK TABLES `images` WRITE;
+INSERT INTO `images` (id,nombre,product_id) VALUES (1,'Cynar.jpg',1),(2,'Campari.jpg',2),(3,'Gancia.jpg',3),(4,'JackDaniels 750.jpg',4),(5,'heinekenPack.jpg',5),(6,'imagenes-1636936491296-.jpg',6),(7,'imagenes-1636936559461-.jpg',7),(8,'imagenes-1636936632436-.jpg',8),(9,'imagenes-1636936848903-.jpg',9),(10,'imagenes-1636937089242-.jpg',10),(11,'imagenes-1636937203256-.jpg',11),(12,'imagenes-1636937347888-.jpg',12),(13,'imagenes-1636937659489-.jpg',13),(14,'imagenes-1636937869028-.jpg',14),(15,'imagenes-1636937990732-.jpg',15),(16,'imagenes-1636938326949-.jpg',16),(17,'imagenes-1636938434139-.jpg',17),(18,'imagenes-1636938591987-.jpg',18),(19,'imagenes-1636938682426-.jpg',19),(20,'imagenes-1636938842228-.jpg',20),(21,'imagenes-1636938933707-.jpg',21),(22,'imagenes-1636939084902-.jpg',22),(23,'imagenes-1636939243819-.jpg',23);
+UNLOCK TABLES;
 
 ALTER TABLE `products` ADD CONSTRAINT `FK_26dd350a-d2ad-40a5-9b0c-c3ca6323ab12` FOREIGN KEY (`categoria_id`) REFERENCES `categories`(`id`)  ;
 

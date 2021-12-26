@@ -56,7 +56,7 @@
                         <textarea name="descripcion" id="descripcion" name="descripcion" class="form-textarea"><%= productToEdit.descripcion %></textarea>
                     </div>
                     <div class="form-div-checkbox">
-                        <input type="checkbox"  id="oferta" name="oferta" class="form-checkbox" <% if (productToEdit.oferta == true){%>
+                        <input type="checkbox"  id="oferta" name="oferta" class="form-checkbox" value='true' <% if (productToEdit.oferta == true){%>
                             checked
                             <% } %>
                         >
@@ -100,14 +100,14 @@
                         </select>                        
                     </div> 
                     <div class="form-div-checkbox">
-                        <input type="checkbox"  id="importado" name="importado" class="form-checkbox" <% if (productToEdit.importado == true){%>
+                        <input type="checkbox"  id="importado" name="importado" class="form-checkbox" value='true' <% if (productToEdit.importado == true){%>
                             checked
                             <% } %>
                         >
                         <label for="importado" class="form-checkbox">Importado</label>
                     </div>
                     <div class="form-div-checkbox">
-                        <input type="checkbox"  id="esPack" name="esPack" class="form-checkbox" <% if (productToEdit.esPack == true){%>
+                        <input type="checkbox"  id="esPack" name="esPack" class="form-checkbox" value='true'<% if (productToEdit.esPack == true){%>
                             checked
                             <% } %>
                         >
@@ -116,7 +116,7 @@
 
                     <div class="estilo-formulario">
                         <label for="imagenes" class="label-formulario">Imágenes: </label>
-                        <input type="file" id="imagenes"  name="imagenes" class="estilo-input" value="<%= productToEdit.imagenes[0] %>" multiple>
+                        <input type="file" id="imagenes"  name="imagenes" class="estilo-input" value="<%= productToEdit.images[0].nombre %>" multiple>
                     </div>
                     <div class="estilo-formulario">
                         <button type="submit" class="boton-formularios">Guardar</button>

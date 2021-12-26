@@ -15,91 +15,173 @@ const db = require('../database/models');
 const productController = {
 
 	getProducts: (req,res) => {
-		// categoria = req.params.categoria;
-		// if (categoria == undefined){
-		// 	productsToShow = products;
-		// 	categoria = "Todos los productos"; 
-		// }else{
-		// 	productsToShow = products.filter (function (product){
-		// 		return product.categoria.toUpperCase() == categoria.toUpperCase();
-		// 	})
-		// 	categoria = categoria.toUpperCase();
-		// }
-		// res.render (path.join(__dirname,"../views/products"),{productsToShow, categoria});
+		categoria = req.params.categoria;
+		console.log(categoria)
+		if (categoria == undefined){
+			categoria = "Todos los productos"; 
 
+			db.Products
+				.findAll({
+					include:[{association: "images"},{association: "categories"}]
+				})
+				.then(function(resultado){
+					// res.send (resultado)
+					res.render (path.join(__dirname,"../views/products"),{productsToShow: resultado, categoria});
+				})
+				.catch(function(error){
+					console.log(error)
+				});			
+		}
+	else{
+			// db.Categories
+			// .findAll({
+			// 	include:[{association: "products", nested: true }],
+			// 	// where: {id: categoria}
+			// 	// right: true
+			// })
+			// .then(function(resultado){
+			// 	res.send (resultado)
+			// 	// res.send (resultado[0].products)
+			// 	// res.render (path.join(__dirname,"../views/products"),{productsToShow: resultado[0].products, categoria});
+			// })
+			// .catch(function(error){
+			// 	console.log(error)
+			// });	
+			db.Products
+			.findAll({
+				include:[{association: "images"},{association: "categories"}],
+				where: {
+					'$categories.id$': categoria
+				}
+			})
+			.then(function(resultado){
+				// res.send (resultado)
+				res.render (path.join(__dirname,"../views/products"),{productsToShow: resultado, categoria});
+			})
+			.catch(function(error){
+				console.log(error)
+			});
+		}
 
-		// db.Products
-		// .findAll({
-		// 	include:[{association: "categories"}]
-		// })
-		// .then(function(resultado){
-		// 	res.send(resultado)
-		// })
-		// .catch(function(error){
-		// 	console.log(error)
-		// })
-
-
-		db.Products
-		.findAll({
-			include:[{association: "images"}]
-		})
-		.then(function(resultado){
-			res.send(resultado)
-		})
-		.catch(function(error){
-			console.log(error)
-		})
 
     },
 
 
     getProductDetail: (req,res) => {
-        product = products[req.params.id-1];
-        res.render (path.join(__dirname,"../views/productDetail"),{product});
+		db.Products
+		.findOne({
+			include:[{association: "images"},{association: "categories"}],
+			where: {
+				id: req.params.id
+			}
+		})
+		.then(function(resultado){
+			// res.send (resultado)
+			res.render (path.join(__dirname,"../views/productDetail"),{product: resultado});
+		})
+		.catch(function(error){
+			console.log(error)
+		});
+
     },
 
     postProductDetail: (req,res) => {res.redirect('/');},
 
     // Update - Form to edit
 	edit: (req, res) => {
-		productToEdit = products[req.params.id-1];
-        //res.send ("Esta es una prueba");
-		res.render (path.join(__dirname,"../views/productEditForm"),{ productToEdit});
+
+		db.Products
+		.findOne({
+			include:[{association: "images"},{association: "categories"}],
+			where: {
+				id: req.params.id
+			}
+		})
+		.then(function(resultado){
+			// res.send (resultado)
+			res.render (path.join(__dirname,"../views/productEditForm"),{ productToEdit: resultado});
+		})
+		.catch(function(error){
+			console.log(error)
+		});
+
+
 
 	},
 	// Update - Method to update
 
 	update: (req, res) => {
-		//res.send ("Esta funcion recibe por PUT los datos del formulario de edicion. Tiene que poder guardar lo que recibe en la base de datos");
 		let errors = validationResult(req)
-       
+
         if(errors.isEmpty()){
+			// let imagenes = req.file != undefined ? [req.file.filename] : []
+			db.Categories
+			.findAll({
+				where: {tipo: req.body.categoria}
+			})
+			.then(function(resultado){
+				let productoEditado = {
+					nombre: req.body.nombre.toUpperCase(),
+					precio:  Number(req.body.precio),
+					porcentajeAlcohol: Number(req.body.porcentajeAlcohol),
+					volumen: req.body.volumen,
+					descripcion: req.body.descripcion,
+					// images: req.file != undefined ? [req.file.filename] : [],
+					stock: Number(req.body.stock),
+					descuento: Number(req.body.descuento),
+					oferta: (req.body.oferta === "true"),
+					importado: (req.body.importado === "true"),
+					esPack: (req.body.esPack === "true"),
+					categoria_id: resultado
+				}
 
-		products.forEach(element => {
-			if (element['id'] == req.params.id){
-				element["nombre"] = req.body.nombre.toUpperCase();
-				element["precio"] = Number(req.body.precio);
-				element["porcentajeAlcohol"] = Number(req.body.porcentajeAlcohol);
-				element["volumen"] = req.body.volumen;
-				element["descripcion"] = req.body.descripcion;
-				req.file != undefined ? element["imagenes"] = [req.file.filename] :
-				element["stock"] = Number(req.body.stock);
-				element["descuento"] = Number(req.body.descuento);
-				req.body.oferta == "on" ? element["oferta"] = true : element["oferta"] = false ;
-				req.body.importado == "on" ? element["importado"] = true : element["importado"] = false ;
-				req.body.esPack == "on" ? element["esPack"] = true : element["esPack"] = false ;
-				element["categoria"] = req.body.categoria;
+				// res.send (productoEditado)
+
+				db.Products
+				.update(
+					productoEditado,
+					{
+					where: 
+						{
+						id: req.params.id	
+						}
+					}
+				)
 				
-			}			
-		});
+			
+			})
+			.then(function(resultado){
+				// res.send (resultado)
+				res.render (path.join(__dirname,"../views/productEditForm"),{ productToEdit: resultado});
+			})
+			.catch(function(error){
+				console.log(error)
+			});	
 
-		fs.writeFileSync(productsFilePath,JSON.stringify(products))
 
-		res.redirect('/');
-	}else{
-		res.render('productEditForm',{errors:errors.array()});
-	  }
+			
+			// db.Products
+			// .update(
+			// 	productoEditado,
+			// 	{
+			// 	where: 
+			// 		{
+			// 		id: req.params.id	
+			// 		}
+			// 	}
+			// )
+			// .then(function(resultado){
+			// 	// res.send (resultado)
+			// 	res.render (path.join(__dirname,"../views/productEditForm"),{ productToEdit: resultado});
+			// })
+			// .catch(function(error){
+			// 	console.log(error)
+			// });
+
+			// res.redirect('/');
+		}else{
+			res.render('productEditForm',{errors:errors.array()});
+		}
 
 	},
 	getNewProduct: (req,res) => {

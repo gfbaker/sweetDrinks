@@ -105,7 +105,9 @@ const usersController = {
        
     },
 
+    editUser: (req, res) => {
     // Falta opcion de editar perfil de usuario
+    },
 
     // Eliminar Cuenta
     destroyUser: (req, res) => {
