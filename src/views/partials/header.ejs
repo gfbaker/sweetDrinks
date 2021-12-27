@@ -55,7 +55,10 @@
                 <a  href="/products/6">Bebidas Blancas</a>
                 <a  href="/products/7">Licores</a>   
             <%}else{ %>
-                <a href="/"> CATEGORIAS MENU</a>
+                <% locals.categoriasMenu.forEach(elemento => { %>
+                    <a href="/products/<%= elemento.id %>"> <%= elemento.tipo %></a>
+                <% }) %>
+                
             <% } %>
         </ul>
     </nav>
