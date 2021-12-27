@@ -80,7 +80,7 @@ body > header > div.main-header-top > div.sign-bar > div:nth-child(1) > i{
 
 .top-bar{
     padding: 2px;
-    width: 100vw;
+    width: 100%;
     background-color: black;
     color: #EB9C4B;
     opacity: 65%; 
@@ -715,6 +715,24 @@ section article .dtProdRel{
     background-color: whitesmoke;
 }
 
+.carrito-main{
+    display: flex;
+    flex-direction: flex-start;
+    font-family: 'Poppins', sans-serif;
+}
+
+.sidebar-filtros{
+    display:none
+}
+
+.main-productos{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+}
+
 .main{
     background-color: whitesmoke;
     display: flex;
@@ -1209,6 +1227,15 @@ a.botonComprar{
     }
        
     /* FIN-HEADER */
+
+    /* PRODUCTS */
+    .sidebar-filtros{
+        max-width: 30%;
+        background-color: #576959;
+        display:block
+    }    
+    /* FIN PRODUCTS */
+
     /* CARRITO */
     div.datosArticulo{
 

@@ -13,60 +13,67 @@
 
     <!-- MAIN -->
     <main class="carrito-main">
-        <% for (let i = 0 ; i < productsToShow.length ; i ++){ %>
-            <section class="carrito-section">
-                <article class="carrito-articulo">
-                    <a href="/products/detail/<%=productsToShow[i].id%>">
-                        <div class="mainArticulo">
-                            <div class="fotoArticulo">
-                                <img src="../img/imgProduct/<%= productsToShow[i].images[0].nombre%>" alt="Imagen de  <%= productsToShow[i].nombre%>" class="imgProducto">
-                            </div>
-                            <div class="datosArticulo">
-                                <div class="nombreArticulo">
-                                    <p class="nombreArticulo"><%= productsToShow[i].nombre%> <%= productsToShow[i].volumen%></p>
+        <sidebar class="sidebar-filtros">
+            <div>
+                <p>ESTA ES UNA SECCION PARA FILTROS</p>
+            </div>
+        </sidebar>
+        <div class="main-productos">
+            <% for (let i = 0 ; i < productsToShow.length ; i ++){ %>
+                <section class="carrito-section">
+                    <article class="carrito-articulo">
+                        <a href="/products/detail/<%=productsToShow[i].id%>">
+                            <div class="mainArticulo">
+                                <div class="fotoArticulo">
+                                    <img src="../img/imgProduct/<%= productsToShow[i].images[0].nombre%>" alt="Imagen de  <%= productsToShow[i].nombre%>" class="imgProducto">
                                 </div>
-                                <div class="descuentoArticulo">
-                                    <% if(productsToShow[i].descuento > 0){%>
-                                    <p class="descuentoArticulo"><%= productsToShow[i].descuento%>% OFF</p>
-                                    <%}%>
-                                </div>
-                                <div class="qypArticulo">
-                                    <div class="precioArticulo">
-                                       
-                                             
-                                             <% if(productsToShow[i].descuento > 0){%>
-                                                <p class="precioArticuloDto">
+                                <div class="datosArticulo">
+                                    <div class="nombreArticulo">
+                                        <p class="nombreArticulo"><%= productsToShow[i].nombre%> <%= productsToShow[i].volumen%></p>
+                                    </div>
+                                    <div class="descuentoArticulo">
+                                        <% if(productsToShow[i].descuento > 0){%>
+                                        <p class="descuentoArticulo"><%= productsToShow[i].descuento%>% OFF</p>
+                                        <%}%>
+                                    </div>
+                                    <div class="qypArticulo">
+                                        <div class="precioArticulo">
+                                        
+                                                
+                                                <% if(productsToShow[i].descuento > 0){%>
+                                                    <p class="precioArticuloDto">
+                                                        $<%= productsToShow[i].precio%>
+                                                    </p>
+                                                    <p class="precioDtoArticulo">
+                                                <span class="precioConDto">$<%=productsToShow[i].precio * (1- (productsToShow[i].descuento / 100) )%></span>
+                                                </p>
+                                                <%} else{%>
+                                                    <p class="precioArticulo">
                                                     $<%= productsToShow[i].precio%>
-                                                </p>
-                                                <p class="precioDtoArticulo">
-                                             <span class="precioConDto">$<%=productsToShow[i].precio * (1- (productsToShow[i].descuento / 100) )%></span>
-                                            </p>
-                                             <%} else{%>
-                                                <p class="precioArticulo">
-                                                $<%= productsToShow[i].precio%>
-                                                </p>
-                                                <%}%>
+                                                    </p>
+                                                    <%}%>
 
-                                        
-                                        
-                                    </div>                  
-                                </div>                    
+                                            
+                                            
+                                        </div>                  
+                                    </div>                    
+                                </div>
                             </div>
-                        </div>
-                    </a>                    
-                </article>
-               
-            </section>
-        <% } %>
-        <% if (user != undefined) { 
-            if (user.privilegios == "admin") {%>
-        <div class="prodDetBotonProductoNuevoFlex">
-            <div class="prodDetBotonProductoNuevo">
-                <a href='/products/newProduct' class="prodDetBotonProductoNuevo">Nuevo Producto</a>
-             </div>
+                        </a>                    
+                    </article>
+                
+                </section>
+            <% } %>
+            <% if (user != undefined) { 
+                if (user.privilegios == "admin") {%>
+            <div class="prodDetBotonProductoNuevoFlex">
+                <div class="prodDetBotonProductoNuevo">
+                    <a href='/products/newProduct' class="prodDetBotonProductoNuevo">Nuevo Producto</a>
+                </div>
+            </div>
+                <%} 
+            } %>
         </div>
-            <%} 
-        } %>
     </main>
     <!-- FIN-MAIN -->
 
