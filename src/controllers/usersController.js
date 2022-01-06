@@ -8,7 +8,6 @@ const { validationResult } = require('express-validator');
 const session = require('express-session');
 
 const db = require('../database/models');
-
 // Objeto literal con acciones de cada ruta
 const usersController = {
 
@@ -16,8 +15,19 @@ const usersController = {
     getNewUser: (req,res) => {res.render (path.join(__dirname,"../views/newUser"))},
 
     getUserProfile: (req,res) => {
-        user = users[req.params.id_user-1];
-        res.render (path.join(__dirname,"../views/users"),{user});
+        // Falta :
+        //incluir AUthData para que tome los datos de email y los muestre en la vista
+
+        db.Users
+        .findByPk(req.params.id_user)
+        .then((resultado) => {
+            res.render (path.join(__dirname,"../views/users"),{user : resultado})
+        })
+        .catch(err => {
+          res.send(err)
+        })
+        
+        
     },
 
     postLogin: (req,res) => {
@@ -57,47 +67,127 @@ const usersController = {
         }    
     },
 
-// Creacion de usuario, falta buscar que el email no se repita
+// Creacion de usuario
     postNewUser: (req,res) => {
+        // Falta :
+        //incluir AUthData para que tome los datos de email y contraseña y los guarde
+        //Que busque en la base de datos que ese email no se repite
 
         let errors = validationResult(req)
        
         if(errors.isEmpty()){
-            let usuarioExistente = users.filter( function (user){
-                return user.email == req.body.email;
-            })
-            if( usuarioExistente.length != 0){
-                res.render('newUser',{errors:[
-                    {msg: 'Usuario existente'}
-                ]});
-                res.send(usuarioExistente)
-            }else if (req.body.contrasenia != req.body.confContr ){
-                res.render('newUser',{errors:[
-                    {msg: 'Las constraseñas no coinciden'}
-                ]});
-            }else{
-                let newUser = {
-                    id : users[users.length - 1].id + 1,
-                    nombre: req.body.nombre,
-                    apellido: req.body.apellido,
-                    usuario: req.body.usuario,
-                    genero: req.body.genero,
-                    email: req.body.email,
-                    contrasenia: bcrypt.hashSync(req.body.contrasenia, 10),
-                    confContr: req.body.confContr,
-                    telefono: req.body.telefono,
-                    imagen: req.file ? [req.file.filename] : ['']
+
+            db.UsersAuthData.findOne({
+                where: {
+                    email: req.body.email
                 }
+            
+            })
+            .then(resultado => {
+                if (resultado){
+                    //si el usuario existe entra acá
+                //  res.send(resultado)
+                    res.render('newUser',{errors:[
+                                    {"msg": 'Usuario existente',
+                                    "param": "email"}
+                                ]})
+                }else{
+                    //si el usuario no existe entra acá
+                    // res.send("Aca en el else");
+                    db.UsersAuthData.create({
+                        
+                        email : req.body.email,
+                        contraseña: bcrypt.hashSync(req.body.contrasenia, 10),
+                        admin : false
+
+                    })
+                    console.log("dentro del create");
+                }                
+            })  
+            .then(()=>{
+                db.UsersAuthData.findOne({
+                    where: {
+                        email: req.body.email
+                    }
+                })
+                console.log('Aca estoy');
+            }) 
+            .then(resultado =>{
+                console.log('Ultimo log');
+                // res.send(resultado)
+            })  
+            .catch(function(error){
+                console.log(error)
+            });
+
+        //     db.Users.create({
+        //         include:[{association: "usersAuthData"}],
+
+         
+        //         nombre: req.body.nombre,
+        //         apellido: req.body.apellido,
+        //         usuario: req.body.usuario,
+        //         genero: req.body.genero,
+        //         email: req.body.email,
+        //         contraseña: bcrypt.hashSync(req.body.contrasenia, 10),
+        //         confContr: req.body.confContr,
+        //         telefono: req.body.telefono,
+        //         imagen_id: req.file ? [req.file.filename] : ['generic-profile-picture.jpg']
+
+        //     })
+        //     userId = users[req.params.id_user];
+
+        //  return res.redirect('user/' + users[users.length - 1].id);
+
+        //    let usuarioExistente
+
+        //     db.Users.findOne({
+        //         include:[{association: "usersAuthData"}],
+        //         where: {
+        //             email: req.body.email
+        //           }
+        //         }).then(resultado =>{
+        //            usuarioExistente = resultado
+        //         })
+        //         .catch(function(error){
+        //             res.send(error)
+        //         });
+             
+            
+           
+        //     if( usuarioExistente.length != 0){
+        //         res.render('newUser',{errors:[
+        //             {msg: 'Usuario existente'}
+        //         ]});
+        //         res.send(usuarioExistente)
+        //     }else if (req.body.contrasenia != req.body.confContr ){
+        //         res.render('newUser',{errors:[
+        //             {msg: 'Las constraseñas no coinciden'}
+        //         ]});
+        //     }else{
+
+            //     let newUser = {
+            //         id : users[users.length - 1].id + 1,
+            //         nombre: req.body.nombre,
+            //         apellido: req.body.apellido,
+            //         usuario: req.body.usuario,
+            //         genero: req.body.genero,
+            //         email: req.body.email,
+            //         contrasenia: bcrypt.hashSync(req.body.contrasenia, 10),
+            //         confContr: req.body.confContr,
+            //         telefono: req.body.telefono,
+            //         imagen: req.file ? [req.file.filename] : ['generic-profile-picture.jpg']
+            //     }
 
         
-                users.push(newUser); 
+            //     users.push(newUser); 
 
-                fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "));
+            //     fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "));
         
-                userId = users[req.params.id_user];
+            //     userId = users[req.params.id_user];
 
-                return res.redirect('user/' + users[users.length - 1].id);
-            }
+            //     return res.redirect('user/' + users[users.length - 1].id);
+            // }
                 
         }else{
             return res.render('newUser',{errors:errors.array()});
@@ -107,14 +197,67 @@ const usersController = {
 
     editUser: (req, res) => {
     // Falta opcion de editar perfil de usuario
+            db.Users
+            .findByPk(req.params.id_user)
+            .then(function(resultado){
+                
+                res.render (path.join(__dirname,"../views/userEditForm"),{ userToEdit: resultado});
+            })
+            .catch(function(error){
+                console.log(error)
+            });
+            
+
+    },
+            
+    updateUser: (req, res) => {
+
+		let errors = validationResult(req)
+
+        if(errors.isEmpty()){
+			
+                 db.Users
+                 .update({
+                    nombre: req.body.nombre,
+                    apellido: req.body.apellido,
+                    usuario: req.body.usuario,
+                    genero: req.body.genero,
+                    email: req.body.email,
+                    contrasenia: bcrypt.hashSync(req.body.contrasenia, 10),
+                    confContr: req.body.confContr,
+                    telefono: req.body.telefono,
+                    imagen: req.file ? [req.file.filename] : ['generic-profile-picture.jpg']
+                 }, {
+                     where:{
+                         id: req.params.id
+                     }})
+                    
+
+                .then(function(resultado){
+
+                    res.render (path.join(__dirname,"../views/userEditForm"),{ userToEdit: resultado});
+
+                })
+                .catch(function(error){
+                    console.log(error)
+                });	
+                res.redirect('user/' + req.params.id_user)
+	    }else{
+			res.render('userEditForm',{errors:errors.array()});
+		}
     },
 
     // Eliminar Cuenta
     destroyUser: (req, res) => {
 
-		let filterUser = users.filter((user) => user.id != req.params.id_user);
+        db.Users.destroy({
+            where: {id: req.params.id_user}
+         });
+         
 
-		fs.writeFileSync(usersFilePath, JSON.stringify(filterUser, null, " "));
+		// let filterUser = users.filter((user) => user.id != req.params.id_user);
+
+		// fs.writeFileSync(usersFilePath, JSON.stringify(filterUser, null, " "));
 
 		res.redirect('/');
 	  },

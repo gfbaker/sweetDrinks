@@ -231,9 +231,13 @@ const productController = {
 	// eliminar producto
 	destroy: (req, res) => {
 
-		let filterProducts = products.filter((prod) => prod.id != req.params.id);
+		db.Products.destroy({
+            where: {id: req.params.id}
+         });
 
-		fs.writeFileSync(productsFilePath, JSON.stringify(filterProducts, null, " "));
+		// let filterProducts = products.filter((prod) => prod.id != req.params.id);
+
+		// fs.writeFileSync(productsFilePath, JSON.stringify(filterProducts, null, " "));
 
 		res.redirect('/products');
 	  },
