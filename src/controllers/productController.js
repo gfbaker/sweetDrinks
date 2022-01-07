@@ -113,75 +113,48 @@ const productController = {
 	update: (req, res) => {
 		let errors = validationResult(req)
 
-        if(errors.isEmpty()){
-			// let imagenes = req.file != undefined ? [req.file.filename] : []
-			db.Categories
-			.findAll({
-				where: {tipo: req.body.categoria}
-			})
-			.then(function(resultado){
-				let productoEditado = {
-					nombre: req.body.nombre.toUpperCase(),
-					precio:  Number(req.body.precio),
-					porcentajeAlcohol: Number(req.body.porcentajeAlcohol),
-					volumen: req.body.volumen,
-					descripcion: req.body.descripcion,
-					// images: req.file != undefined ? [req.file.filename] : [],
-					stock: Number(req.body.stock),
-					descuento: Number(req.body.descuento),
-					oferta: (req.body.oferta === "true"),
-					importado: (req.body.importado === "true"),
-					esPack: (req.body.esPack === "true"),
-					categoria_id: resultado
-				}
+		res.send (req.body)
 
-				// res.send (productoEditado)
+        // if(errors.isEmpty()){
+		// 	let productoEditado = {
+		// 		nombre: req.body.nombre.toUpperCase(),
+		// 		precio:  Number(req.body.precio),
+		// 		porcentajeAlcohol: Number(req.body.porcentajeAlcohol),
+		// 		volumen: req.body.volumen,
+		// 		descripcion: req.body.descripcion,
+		// 		// images: req.file != undefined ? [req.file.filename] : [],
+		// 		stock: Number(req.body.stock),
+		// 		descuento: Number(req.body.descuento),
+		// 		oferta: (req.body.oferta === "true"),
+		// 		importado: (req.body.importado === "true"),
+		// 		esPack: (req.body.esPack === "true"),
+		// 		categoria_id: resultado.id
+		// 	}
 
-				db.Products
-				.update(
-					productoEditado,
-					{
-					where: 
-						{
-						id: req.params.id	
-						}
-					}
-				)
-				
-			
-			})
-			.then(function(resultado){
-				// res.send (resultado)
-				res.render (path.join(__dirname,"../views/productEditForm"),{ productToEdit: resultado});
-			})
-			.catch(function(error){
-				console.log(error)
-			});	
+		// 		// res.send (productoEditado)
 
+		// 		db.Products
+		// 		.update(
+		// 			productoEditado,
+		// 			{
+		// 			where: 
+		// 				{
+		// 				id: req.params.id	
+		// 				}
+		// 			}
+		// 		)
+		// 		.then(function(resultado){
+		// 			// res.send (resultado)
+		// 			res.render (path.join(__dirname,"../views/productEditForm"),{ productToEdit: resultado});
+		// 		})
+		// 		.catch(function(error){
+		// 			console.log(error)
+		// 		});	
 
-			
-			// db.Products
-			// .update(
-			// 	productoEditado,
-			// 	{
-			// 	where: 
-			// 		{
-			// 		id: req.params.id	
-			// 		}
-			// 	}
-			// )
-			// .then(function(resultado){
-			// 	// res.send (resultado)
-			// 	res.render (path.join(__dirname,"../views/productEditForm"),{ productToEdit: resultado});
-			// })
-			// .catch(function(error){
-			// 	console.log(error)
-			// });
-
-			// res.redirect('/');
-		}else{
-			res.render('productEditForm',{errors:errors.array()});
-		}
+		// 	// res.redirect('/');
+		// }else{
+		// 	res.render('productEditForm',{errors:errors.array()});
+		// }
 
 	},
 	getNewProduct: (req,res) => {

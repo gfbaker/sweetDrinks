@@ -14,10 +14,6 @@ const validateUserForm =[
     .notEmpty().withMessage('Debes completar con tu nombre'),
     check('apellido')
     .notEmpty().withMessage('Debes completar con tu apellido'),
-    check('usuario')
-    .notEmpty().withMessage('No olvides completar tu usuario')
-    .bail()
-    .isLength({ min: 0, max: 8 }).withMessage('El nombre de Usuario debe tener como máximo 8 carácteres'),
     check('email')
     .notEmpty().withMessage('Ingresa tu E-mail')
     .bail()

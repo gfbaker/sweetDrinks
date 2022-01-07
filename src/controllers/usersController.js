@@ -63,12 +63,36 @@ const usersController = {
         let errors = validationResult(req)
        
         if(errors.isEmpty()){
+            // res.send(req.body)
+                // db.UsersAuthData.findOne({
+                //     where: {
+                //         email: req.body.email
+                //     }
+                
+                // })
+                // .then(resultado => {
+                //     if (resultado){
+                //         //si el usuario existe entra acá
+                //         console.log (typeof(resultado))
+                //         res.send("ENTRO EN EL IF")
+                //     }else{
+                //         //si el usuario no existe entra acá
+                //         res.send("ENTRO EN EL ELSE")
+                //     }
+                    
+                // })
+                // .catch(function(error){
+                //     console.log(error)
+                // });
+
             let usuarioExistente = users.filter( function (user){
                 return user.email == req.body.email;
             })
             if( usuarioExistente.length != 0){
                 res.render('newUser',{errors:[
-                    {msg: 'Usuario existente'}
+                    {msg: 'Usuario existente',
+                    param: "email"
+                }
                 ]});
                 res.send(usuarioExistente)
             }else if (req.body.contrasenia != req.body.confContr ){
