@@ -17,10 +17,17 @@ const usersController = {
     getUserProfile: (req,res) => {
         // Falta :
         //incluir AUthData para que tome los datos de email y los muestre en la vista
-
+        // res.send (req.params.id_user)
         db.Users
-        .findByPk(req.params.id_user)
-        .then((resultado) => {
+        .findOne({
+            include:[{association: "usersAuthData"}],
+            where: {
+              id: req.params.id_user
+            }
+          })
+        .then( resultado => {
+            resultado.imagen_id = JSON.parse(resultado.imagen_id)
+            // res.send(resultado)
             res.render (path.join(__dirname,"../views/users"),{user : resultado})
         })
         .catch(err => {
@@ -30,165 +37,108 @@ const usersController = {
         
     },
 
-    postLogin: (req,res) => {
+    postLogin: async (req,res) => {
 
         let errors = validationResult(req)
        
         if(errors.isEmpty()){
- 
-            let usersRegistrados = users;
-            for(let i=0 ; i < usersRegistrados.length; i++){
 
-                if(usersRegistrados[i].email == req.body.email){
-                    if (bcrypt.compareSync(req.body.contrasenia, usersRegistrados[i].contrasenia)){    
-                    
-                        var usuarioLogueado = usersRegistrados[i];
- 
-                    break;
-                    }
+            credenciales = await db.UsersAuthData.findOne({
+                where: {
+                    email: req.body.email
+                }            
+            })
+
+            if (credenciales){
+                //si el mail existe, entra acá
+
+                if (bcrypt.compareSync(req.body.contrasenia, credenciales['contraseña'])){
+                    usuario = await db.Users.findOne({
+                        where: {
+                            userAuthData_id: credenciales['id']
+                        }            
+                    })
+                    req.session.usuarioLogueado = usuario;
+                    res.redirect('/');
+                }else{
+                    res.render('login', {errors:[
+                        {
+                            "location": "body",
+                            "msg": "Credenciales inválidas",
+                            "param": "credenciales"
+                        }
+                    ]}) 
                 }
-            }
-  
-            if(usuarioLogueado == undefined){
-                res.render('login', {errors:[
-                    {
-                        "location": "body",
-                        "msg": "Credenciales inválidas",
-                        "param": "credenciales"
-                    }
+
+                
+            }else{
+                //si el mail no existe, entra acá
+                res.render('login',{errors:[
+                    {"msg": 'El mail indicado no está registrado',
+                    "param": "credenciales"}
                 ]})
-            
-            } else {
-
-                req.session.usuarioLogueado = usuarioLogueado;
-
-                res.redirect('/');
-            }
+            }          
+          
         }    
     },
 
 // Creacion de usuario
-    postNewUser: (req,res) => {
+    postNewUser: async (req,res) => {
         // Falta :
         //incluir AUthData para que tome los datos de email y contraseña y los guarde
         //Que busque en la base de datos que ese email no se repite
 
         let errors = validationResult(req)
-       
-        if(errors.isEmpty()){
+        // req.file ? res.send (JSON.stringify([req.file.filename])) : res.send (JSON.stringify(['generic-profile-picture.jpg']))
 
-            db.UsersAuthData.findOne({
+        // res.send ([req.file.filename])
+
+        if(errors.isEmpty()){
+            //Busca si el mail ya existe o no
+            usuarioExistente = await db.UsersAuthData.findOne({
                 where: {
                     email: req.body.email
-                }
-            
+                }            
             })
-            .then(resultado => {
-                if (resultado){
-                    //si el usuario existe entra acá
-                //  res.send(resultado)
-                    res.render('newUser',{errors:[
-                                    {"msg": 'Usuario existente',
-                                    "param": "email"}
-                                ]})
-                }else{
-                    //si el usuario no existe entra acá
-                    // res.send("Aca en el else");
-                    db.UsersAuthData.create({
-                        
-                        email : req.body.email,
-                        contraseña: bcrypt.hashSync(req.body.contrasenia, 10),
-                        admin : false
 
-                    })
-                    console.log("dentro del create");
-                }                
-            })  
-            .then(()=>{
-                db.UsersAuthData.findOne({
-                    where: {
-                        email: req.body.email
-                    }
+            if (usuarioExistente){
+                //si el usuario existe, entra acá
+                res.render('newUser',{errors:[
+                                {"msg": 'Usuario existente',
+                                "param": "email"}
+                            ]})
+            }else{
+                //si el usuario no existe, entra acá y crea el registro en la tabla UsersAuthData
+                credencialesCreadas = await db.UsersAuthData.create({
+                    email : req.body.email,
+                    contraseña: bcrypt.hashSync(req.body.contrasenia, 10),
+                    admin : false
+
                 })
-                console.log('Aca estoy');
-            }) 
-            .then(resultado =>{
-                console.log('Ultimo log');
-                // res.send(resultado)
-            })  
-            .catch(function(error){
-                console.log(error)
-            });
-
-        //     db.Users.create({
-        //         include:[{association: "usersAuthData"}],
-
-         
-        //         nombre: req.body.nombre,
-        //         apellido: req.body.apellido,
-        //         usuario: req.body.usuario,
-        //         genero: req.body.genero,
-        //         email: req.body.email,
-        //         contraseña: bcrypt.hashSync(req.body.contrasenia, 10),
-        //         confContr: req.body.confContr,
-        //         telefono: req.body.telefono,
-        //         imagen_id: req.file ? [req.file.filename] : ['generic-profile-picture.jpg']
-
-        //     })
-        //     userId = users[req.params.id_user];
-
-        //  return res.redirect('user/' + users[users.length - 1].id);
-
-        //    let usuarioExistente
-
-        //     db.Users.findOne({
-        //         include:[{association: "usersAuthData"}],
-        //         where: {
-        //             email: req.body.email
-        //           }
-        //         }).then(resultado =>{
-        //            usuarioExistente = resultado
-        //         })
-        //         .catch(function(error){
-        //             res.send(error)
-        //         });
-             
-            
-           
-        //     if( usuarioExistente.length != 0){
-        //         res.render('newUser',{errors:[
-        //             {msg: 'Usuario existente'}
-        //         ]});
-        //         res.send(usuarioExistente)
-        //     }else if (req.body.contrasenia != req.body.confContr ){
-        //         res.render('newUser',{errors:[
-        //             {msg: 'Las constraseñas no coinciden'}
-        //         ]});
-        //     }else{
-
-            //     let newUser = {
-            //         id : users[users.length - 1].id + 1,
-            //         nombre: req.body.nombre,
-            //         apellido: req.body.apellido,
-            //         usuario: req.body.usuario,
-            //         genero: req.body.genero,
-            //         email: req.body.email,
-            //         contrasenia: bcrypt.hashSync(req.body.contrasenia, 10),
-            //         confContr: req.body.confContr,
-            //         telefono: req.body.telefono,
-            //         imagen: req.file ? [req.file.filename] : ['generic-profile-picture.jpg']
-            //     }
-
-        
-            //     users.push(newUser); 
-
-            //     fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "));
-        
-            //     userId = users[req.params.id_user];
-
-            //     return res.redirect('user/' + users[users.length - 1].id);
-            // }
                 
+                usuarioCreado = await db.Users.create({            
+                    nombre: req.body.nombre,
+                    apellido: req.body.apellido,
+                    telefono: req.body.telefono,
+                    imagen_id: req.file ? JSON.stringify([req.file.filename]) : JSON.stringify(['generic-profile-picture.jpg']),
+                    userAuthData_id: credencialesCreadas['id']
+
+                })
+
+                // usuarioCreado = {            
+                //     nombre: req.body.nombre,
+                //     apellido: req.body.apellido,
+                //     telefono: req.body.telefono,
+                //     imagen_id: req.file ? JSON.stringify([req.file.filename]) : JSON.stringify(['generic-profile-picture.jpg']),
+                //     userAuthData_id: credencialesCreadas['id']
+
+                // }
+                req.session.usuarioLogueado = usuarioCreado;
+                res.redirect('user/' + usuarioCreado['id'])
+                    
+
+
+            }              
         }else{
             return res.render('newUser',{errors:errors.array()});
         }
