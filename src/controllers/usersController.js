@@ -54,6 +54,7 @@ const usersController = {
 
                 if (bcrypt.compareSync(req.body.contrasenia, credenciales['contraseña'])){
                     usuario = await db.Users.findOne({
+                        include:[{association: "usersAuthData"}],
                         where: {
                             userAuthData_id: credenciales['id']
                         }            

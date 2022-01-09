@@ -65,7 +65,8 @@
                 </section>
             <% } %>
             <% if (user != undefined) { 
-                if (user.privilegios == "admin") {%>
+                console.log(user)
+                if (user.usersAuthData.admin == true) {%>
             <div class="prodDetBotonProductoNuevoFlex">
                 <div class="prodDetBotonProductoNuevo">
                     <a href='/products/newProduct' class="prodDetBotonProductoNuevo">Nuevo Producto</a>

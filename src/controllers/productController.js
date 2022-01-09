@@ -165,39 +165,39 @@ const productController = {
 	},
 	// Method Post
 	postNewProduct: (req,res) => {
-		
-		let errors = validationResult(req)
+		res.send(req.body)
+		// let errors = validationResult(req)
        
-        if(errors.isEmpty()){
+        // if(errors.isEmpty()){
 		
-			let datosNewProduct = {
+		// 	let datosNewProduct = {
 
-			id : products[products.length - 1].id + 1,
-			nombre: req.body.nombre.toUpperCase(),
-            precio: Number(req.body.precio),
-            porcentajeAlcohol: Number(req.body.porcentajeAlcohol),
-            volumen: req.body.volumen,
-            descripcion: req.body.descripcion,
-            stock: Number(req.body.stock),
-            descuento: Number(req.body.descuento),
-            oferta: req.body.oferta == "on" ? oferta = true : oferta = false ,
-            importado: req.body.importado == "on" ? importado = true : importado = false ,
-            esPack: req.body.esPack == "on" ? esPack = true : esPack = false,
-            categoria: req.body.categoria,
-			imagenes: req.file ? [req.file.filename] : ['']
+		// 	id : products[products.length - 1].id + 1,
+		// 	nombre: req.body.nombre.toUpperCase(),
+        //     precio: Number(req.body.precio),
+        //     porcentajeAlcohol: Number(req.body.porcentajeAlcohol),
+        //     volumen: req.body.volumen,
+        //     descripcion: req.body.descripcion,
+        //     stock: Number(req.body.stock),
+        //     descuento: Number(req.body.descuento),
+        //     oferta: req.body.oferta == "on" ? oferta = true : oferta = false ,
+        //     importado: req.body.importado == "on" ? importado = true : importado = false ,
+        //     esPack: req.body.esPack == "on" ? esPack = true : esPack = false,
+        //     categoria: req.body.categoria,
+		// 	imagenes: req.file ? [req.file.filename] : ['']
 
-			}
+		// 	}
 			
 			
-			products.push(datosNewProduct); 
+		// 	products.push(datosNewProduct); 
 
-			fs.writeFileSync(productsFilePath, JSON.stringify(products, null, " "));
+		// 	fs.writeFileSync(productsFilePath, JSON.stringify(products, null, " "));
 	
-			res.redirect('/products');
+		// 	res.redirect('/products');
 
-		}else{
-			res.render('newProduct',{errors:errors.array()});
-		  }
+		// }else{
+		// 	res.render('newProduct',{errors:errors.array()});
+		// }
 		
     },
 

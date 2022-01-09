@@ -84,7 +84,7 @@ INSERT INTO `products` (id,nombre,precio,porcentajeAlcohol,volumen,descripcion,s
 UNLOCK TABLES;
 
 LOCK TABLES `users` WRITE;
-INSERT INTO `users` (id,nombre,apellido,telefono,userAuthData_id) VALUES (1,'Lutero','Peasey','8411442047',1),(2,'Adams','Kellaway','8436600593',2),(3,'Catherine','Plaunch','3433536181',3),(4,'Vany','Junkin','9733600028',4),(5,'Kassie','Dabner','9831459885',5),(6,'Hinda','Lippett','5347773708',6),(7,'Alma','Macauley','1275161222',7),(8,'Walton','MacGeffen','9662675778',8),(9,'Ezri','Aireton','8656992650',9),(10,'Stephan','Ellis','2378601608',10),(11,'Juan','Perez','12345467879',11);
+INSERT INTO `users` (id,nombre,apellido,telefono,userAuthData_id,imagen_id) VALUES (1,'Lutero','Peasey','8411442047',1,'["generic-profile-picture.jpg"]'),(2,'Adams','Kellaway','8436600593',2,'["generic-profile-picture.jpg"]'),(3,'Catherine','Plaunch','3433536181',3,'["generic-profile-picture.jpg"]'),(4,'Vany','Junkin','9733600028',4,'["generic-profile-picture.jpg"]'),(5,'Kassie','Dabner','9831459885',5,'["generic-profile-picture.jpg"]'),(6,'Hinda','Lippett','5347773708',6,'["generic-profile-picture.jpg"]'),(7,'Alma','Macauley','1275161222',7,'["generic-profile-picture.jpg"]'),(8,'Walton','MacGeffen','9662675778',8,'["generic-profile-picture.jpg"]'),(9,'Ezri','Aireton','8656992650',9,'["generic-profile-picture.jpg"]'),(10,'Stephan','Ellis','2378601608',10,'["generic-profile-picture.jpg"]'),(11,'Juan','Perez','12345467879',11,'["generic-profile-picture.jpg"]');
 UNLOCK TABLES;
 
 LOCK TABLES `carts` WRITE;
