@@ -4,7 +4,7 @@ USE sweetDrinks_db_dev;
 
 DROP TABLE IF EXISTS `products`;
 CREATE TABLE `products` (
-   `id` INT,
+   `id` INT AUTO_INCREMENT,
    `nombre` VARCHAR(100) NOT NULL,
    `precio` FLOAT NOT NULL,
    `porcentajeAlcohol` FLOAT,

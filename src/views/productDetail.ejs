@@ -59,7 +59,7 @@
                        </div>
                     </form>
                     <% if (user != undefined) { 
-                        if (user.privilegios == "admin") {%>
+                        if (user.usersAuthData.admin == true) {%>
                     <div class="productBotonesElimEdit">
                         <div class="prodDetBotonEditar">
                             <a href="/products/<%=product.id%>/edit" class="action-button edit">Editar Producto</a>

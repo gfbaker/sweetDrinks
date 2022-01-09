@@ -556,12 +556,9 @@ body main form section div .label-formulario{
     display: flex;
     width: 15%;
     margin-left: 10%;
-
 }
 .imgDtProdMini img{
     margin:5px;
-    
-
 }
 
 .dtProdInfo{
@@ -1469,7 +1466,7 @@ a.botonComprar{
 }
 
 
-/* FORMULARIO EDICION */
+/* FORMULARIO EDITAR PRODUCTO */
 
 
 .mainProduct-form{
@@ -1500,6 +1497,16 @@ div .formulario-titulo{
     font-size: 16px;
     display: block;
 }
+
+.divEditarProducto{
+    display: flex;
+
+}
+.imageEditarProducto{
+    max-width: 120px;
+    margin-left: 20px;
+}
+
 /* h2 .formulario-titulo{
 
 } */

@@ -9,6 +9,7 @@ const { validationResult } = require('express-validator');
 
 // al hacer el requiere asignado a db no hace falta aclararle el nombre del archivo (index.js) dado que éste es el archivo default.
 const db = require('../database/models');
+const { send } = require('process');
 //No hace falta traer el modelo, con solo traer DB alcanza, Sequelize se encarga de hacer la relación.
 
 // Acá nos falta un objeto literal con las acciones para cada ruta
@@ -110,94 +111,145 @@ const productController = {
 	},
 	// Update - Method to update
 
-	update: (req, res) => {
+	update: async (req, res) => {
 		let errors = validationResult(req)
 
-		res.send (req.body)
 
-        // if(errors.isEmpty()){
-		// 	let productoEditado = {
-		// 		nombre: req.body.nombre.toUpperCase(),
-		// 		precio:  Number(req.body.precio),
-		// 		porcentajeAlcohol: Number(req.body.porcentajeAlcohol),
-		// 		volumen: req.body.volumen,
-		// 		descripcion: req.body.descripcion,
-		// 		// images: req.file != undefined ? [req.file.filename] : [],
-		// 		stock: Number(req.body.stock),
-		// 		descuento: Number(req.body.descuento),
-		// 		oferta: (req.body.oferta === "true"),
-		// 		importado: (req.body.importado === "true"),
-		// 		esPack: (req.body.esPack === "true"),
-		// 		categoria_id: resultado.id
-		// 	}
+        if(errors.isEmpty()){
 
-		// 		// res.send (productoEditado)
+			categoria = await db.Categories
+			.findOne({
+				where: {tipo: req.body.categoria}
+			})
 
-		// 		db.Products
-		// 		.update(
-		// 			productoEditado,
-		// 			{
-		// 			where: 
-		// 				{
-		// 				id: req.params.id	
-		// 				}
-		// 			}
-		// 		)
-		// 		.then(function(resultado){
-		// 			// res.send (resultado)
-		// 			res.render (path.join(__dirname,"../views/productEditForm"),{ productToEdit: resultado});
-		// 		})
-		// 		.catch(function(error){
-		// 			console.log(error)
-		// 		});	
 
-		// 	// res.redirect('/');
-		// }else{
-		// 	res.render('productEditForm',{errors:errors.array()});
-		// }
+			let nuevosDatos = {
+				nombre: req.body.nombre.toUpperCase(),
+				precio:  Number(req.body.precio),
+				porcentajeAlcohol: Number(req.body.porcentajeAlcohol),
+				volumen: req.body.volumen,
+				descripcion: req.body.descripcion,
+				stock: Number(req.body.stock),
+				descuento: Number(req.body.descuento),
+				oferta: (req.body.oferta === "true"),
+				importado: (req.body.importado === "true"),
+				esPack: (req.body.esPack === "true"),
+				categoria_id: categoria.id
+			}
+
+
+			db.Products
+			.update(
+				nuevosDatos,
+				{
+				where: 
+					{
+					id: req.params.id	
+					}
+				}
+			)
+			.then( () =>{
+				if(req.files.length == 0){
+					//Si no se cambiaron las imagenes, ya no hay nada más para hacer
+					res.redirect('/products/detail/'+req.params.id);
+
+				}else{
+					//si se cambiaron las imagenes
+					//Borrar imagenes anteriores
+					db.Images.destroy({
+						where: {product_id: req.params.id}
+					 });
+					//agregar nuevas imagenes
+					
+					req.files.forEach(async file =>{
+						// console.log(file['filename'])
+						await db.Images.create({
+							nombre: file['filename'],
+							product_id: req.params.id
+						})
+					})
+					//redireccionar
+					res.redirect('/products/detail/'+req.params.id);
+				}
+				
+
+
+			})
+			.catch( e=>{
+				console.log(e)
+			})
+
+
+			
+
+			// 	.then(function(resultado){
+			// 		// res.send (resultado)
+					
+			// 	})
+			// 	.catch(function(error){
+			// 		console.log(error)
+			// 	});	
+			// // res.render (path.join(__dirname,"../views/productEditForm"),{ productToEdit: resultado});
+			// // res.redirect('/');
+		}else{
+			res.render('productEditForm',{errors:errors.array()});
+		}
 
 	},
 	getNewProduct: (req,res) => {
 		res.render (path.join(__dirname,"../views/newProduct"))
 
-
-		
 	},
+
 	// Method Post
-	postNewProduct: (req,res) => {
-		res.send(req.body)
-		// let errors = validationResult(req)
-       
-        // if(errors.isEmpty()){
+	postNewProduct: async (req,res) => {
 		
-		// 	let datosNewProduct = {
+		let errors = validationResult(req)
 
-		// 	id : products[products.length - 1].id + 1,
-		// 	nombre: req.body.nombre.toUpperCase(),
-        //     precio: Number(req.body.precio),
-        //     porcentajeAlcohol: Number(req.body.porcentajeAlcohol),
-        //     volumen: req.body.volumen,
-        //     descripcion: req.body.descripcion,
-        //     stock: Number(req.body.stock),
-        //     descuento: Number(req.body.descuento),
-        //     oferta: req.body.oferta == "on" ? oferta = true : oferta = false ,
-        //     importado: req.body.importado == "on" ? importado = true : importado = false ,
-        //     esPack: req.body.esPack == "on" ? esPack = true : esPack = false,
-        //     categoria: req.body.categoria,
-		// 	imagenes: req.file ? [req.file.filename] : ['']
 
-		// 	}
-			
-			
-		// 	products.push(datosNewProduct); 
+		if(errors.isEmpty()){
 
-		// 	fs.writeFileSync(productsFilePath, JSON.stringify(products, null, " "));
-	
-		// 	res.redirect('/products');
+			categoria = await db.Categories
+			.findOne({
+				where: {tipo: req.body.categoria}
+			})
 
-		// }else{
-		// 	res.render('newProduct',{errors:errors.array()});
-		// }
+
+			productoCreado = await db.Products.create({
+				nombre: req.body.nombre.toUpperCase(),
+				precio: Number(req.body.precio),
+				porcentajeAlcohol: Number(req.body.porcentajeAlcohol),
+				volumen: req.body.volumen,
+				descripcion: req.body.descripcion,
+				stock: Number(req.body.stock),
+				descuento: Number(req.body.descuento),
+				oferta: (req.body.oferta === "true"),
+				importado: (req.body.importado === "true"),
+				esPack: (req.body.esPack === "true"),
+				categoria_id: categoria.id
+			})
+
+
+			if (req.files != []){
+
+				for (i = 0 ; i < req.files.length; i++){
+					db.Images.create({
+						nombre: req.files[i]['filename'],
+						product_id: productoCreado.id
+					})
+					.then (resultado =>{
+						console.log (resultado)
+					})
+					.catch (error => {
+						console.log(error)
+					})
+				}
+			}
+			res.redirect('/products');
+
+		}else{
+			res.render('newProduct',{errors:errors.array()});
+		}
 		
     },
 
