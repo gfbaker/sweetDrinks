@@ -139,6 +139,7 @@ a {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    margin: 0% 10% 0% 5%;
 }
 
 .logo-sweetdrinks {
@@ -517,6 +518,7 @@ body main form section div .label-formulario{
 
 .mainProductDetail{
     
+    margin: 0% 15% 0% 15%;
     padding-bottom: 40px;
     color: #1e202f;
     position: relative;
@@ -718,6 +720,11 @@ section article .dtProdRel{
 .carrito-main{
     display: flex;
     flex-direction: flex-start;
+    font-family: 'Poppins', sans-serif;
+}
+.carrito-mainOk{
+    display: flex;
+    flex-direction: column;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -1121,6 +1128,13 @@ a.botonComprar{
    .profUserButton{
        padding-bottom: 16px;
    }
+   .userBotonesElimEdit{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    bottom: -115px;
+    left: -20px;
+   }
 
 /* Final Perfil de usuarui */
 
@@ -1299,11 +1313,11 @@ a.botonComprar{
     /* DETALLE DE PRODUCTO */
 
     .imgDtProd img{
-        width: 35%;
+        width: 30%;
     }
     .imgDtProdMini{
-        width: 30%;
-        margin-left: -17%;
+        width: 20%;
+        margin-left: -5%;
     }
     article > div.dtProdInfo > div.tituloPrecioDtProd{
         width: 45%;
@@ -1315,7 +1329,7 @@ a.botonComprar{
     .dtProdInfo ul {
         position: absolute;
         top: 17%;
-        left: 55%;  
+        left: 63%;  
         font-size: 12px;
     }
     .productBotonesElimEdit{
@@ -1329,20 +1343,15 @@ a.botonComprar{
         width: 20%;
         position: absolute;
         top: 25%;
-        left: 55%;
+        left: 65%;
     }
-    .dtProdInfo h1{
-        text-align: left;
-    }
-    .dtProdInfo h3{
-        text-align: left;
-
-    }
+   
+   
     .dtProdInfo p{
         order: 1;
         border-top: solid 2px #EB9C4B;
         margin-bottom: 5%;
-        margin-top: 5%;
+        margin-top: 30%;
     }
 
     .prodRelArt1{

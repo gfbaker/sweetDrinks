@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <!-- HEAD -->
+    <%- include('./partials/head',{title:"Editando Perfil"}) %>
+    <!-- FIN-HEAD -->
+    
+<body class="register-body">
+        <!-- HEADER -->
+        <%- include('./partials/header') %>
+        <!-- FIN DEL HEADER -->
+
+        
+    <!----- MAIN ----->
+    <main class="register-main">
+        <form class="register-form" action="/user/<%=:id_user%>/edit" method="POST" enctype="multipart/form-data">
+            <section class="register-section">
+                <div class="formulario-titulo">
+                    <h2 class="formulario-titulo"> <%= userToEdit.nombre %> estás editando tu perfil</i></h2>
+                </div>
+                <div class="estilo-formulario"> 
+                    <label for="nombre"></label>
+                    <input type="text" value="<%= userToEdit.nombre %>"name="nombre" id="nombre"  placeholder="Nombre" class="estilo-input">
+                    <% if (typeof errors != 'undefined') { %>
+                        <% for (let i = 0; i < errors.length; i++) { %>
+                            <% if (errors[i].param == 'nombre') { %>
+                    <div class="errorsAlert"> 
+                        <p><%=errors[i].msg %></p>                        
+                    </div>
+                            <% } %>
+                        <% } %>
+                    <% } %>
+                </div>  
+                <div class="estilo-formulario"> 
+                    <label for="apellido"></label>
+                    <input type="text" value="<%= userToEdit.apellido %>" name="apellido" id="apellido" placeholder="Apellido" class="estilo-input">
+                    <% if (typeof errors != 'undefined') { %>
+                        <% for (let i = 0; i < errors.length; i++) { %>
+                            <% if (errors[i].param == 'apellido') { %>
+                    <div class="errorsAlert"> 
+                        <p><%=errors[i].msg %></p>                        
+                    </div>
+                            <% } %>
+                        <% } %>
+                    <% } %>
+                </div>
+
+                <div class="estilo-formulario"> 
+                    <label for="usuario"></label>
+                    <input type="text" value="<%= userToEdit.usuario %>" name="usuario" id="usuario" placeholder="Nombre de usuario" class="estilo-input">
+                    <% if (typeof errors != 'undefined') { %>
+                        <% for (let i = 0; i < errors.length; i++) { %>
+                            <% if (errors[i].param == 'usuario') { %>
+                    <div class="errorsAlert"> 
+                        <p><%=errors[i].msg %></p>                        
+                    </div>
+                            <% } %>
+                        <% } %>
+                    <% } %>
+                </div>
+
+                <div class="estilo-formulario"> 
+                    <label for="genero"></label>
+                    <select name="genero" id="genero" class="botonGenero">
+                        <option value="<%= userToEdit.genero %>"</option>
+                        <option value="Femenino">Femenino</option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                    
+                </div>
+                <div class="estilo-formulario">
+                    <label for="email"></label>
+                    <input type="email" value="<%= userToEdit.email %>"name="email" id="email" placeholder="E-mail" class="estilo-input">
+                    <% if (typeof errors != 'undefined') { %>
+                        <% for (let i = 0; i < errors.length; i++) { %>
+                            <% if (errors[i].param == 'email') { %>
+                    <div class="errorsAlert"> 
+                        <p><%=errors[i].msg %></p>                        
+                    </div>
+                            <% } %>
+                        <% } %>
+                    <% } %>
+                </div>
+
+                <div class="estilo-formulario">
+                    <label for="contrasenia"></label>
+                    <input type="password" name="contrasenia" id="contrasenia" placeholder="Contraseña" class="estilo-input">
+                    <% if (typeof errors != 'undefined') { %>
+                        <% for (let i = 0; i < errors.length; i++) { %>
+                            <% if (errors[i].param == 'contrasenia') { %>
+                    <div class="errorsAlert"> 
+                        <p><%=errors[i].msg %></p>                        
+                    </div>
+                            <% } %>
+                        <% } %>
+                    <% } %>
+                </div>
+
+                <div class="estilo-formulario">
+                    <label for="confContr"></label>
+                    <input type="password" name="confContr" id="confContr" placeholder="Confirmar contraseña" class="estilo-input">
+                    <% if (typeof errors != 'undefined') { %>
+                        <% for (let i = 0; i < errors.length; i++) { %>
+                            <% if (errors[i].param == 'confContr') { %>
+                    <div class="errorsAlert"> 
+                        <p><%=errors[i].msg %></p>                        
+                    </div>
+                            <% } %>
+                        <% } %>
+                    <% } %>
+                </div>
+
+                <div class="estilo-formulario">
+                    <label for="telefono"></label>
+                    <input type="text" value="<%= userToEdit.telefono %>"name="telefono"  id="telefono" placeholder="Teléfono" class="estilo-input">
+                    <% if (typeof errors != 'undefined') { %>
+                        <% for (let i = 0; i < errors.length; i++) { %>
+                            <% if (errors[i].param == 'telefono') { %>
+                    <div class="errorsAlert"> 
+                        <p><%=errors[i].msg %></p>                        
+                    </div>
+                            <% } %>
+                        <% } %>
+                    <% } %>
+                </div>
+                <div class="imgProfUser">
+
+                    <img src="/img/imgUsers/<%=userToEdit.imagen%>" alt="Imagen de perfil de: <%=userToEdit.nombre%>">
+       
+                </div>
+
+                <div class="estilo-formulario">
+                    <label for="imagen" class="label-formulario">Imágen de Perfil: </label>
+                    <input type="file" id="imagen"  name="imagen" class="estilo-input">
+                </div>
+                </div class="estilo-formulario"> 
+                <button class="boton-formularios" type="submit">Finalizar Edición</button>
+            </section>
+        </form>
+    </main>
+    <!----- FIN-MAIN ----->
+
+    <!----- FOOTER ----->
+    <%- include('./partials/footer') %>
+    <!----- FIN-FOOTER ----->
+</body>
+</html>

@@ -33,7 +33,7 @@ CREATE TABLE `users` (
    `apellido` VARCHAR(100) NOT NULL,
    `telefono` VARCHAR(20),
    `userAuthData_id` INT(10),
-   `imagen_id` INT,
+   `imagen_id` VARCHAR(100),
    PRIMARY KEY (`id`)
 );
 

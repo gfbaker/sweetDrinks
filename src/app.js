@@ -25,7 +25,7 @@ app.use(function(req, res, next) {
         .findAll()
         .then(function(resultado){
             res.locals.categoriasMenu = resultado	
-            console.log (res.locals.categoriasMenu)
+            // console.log (res.locals.categoriasMenu)
         })
         .catch(function(error){
             console.log(error)

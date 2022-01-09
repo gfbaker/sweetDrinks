@@ -26,26 +26,29 @@
 
                 <div class="imgProfUser">
 
-                    <img src="/img/imgUsers/<%=user.imagen%>" alt="Imagen de perfil de: <%=user.nombre%>">
+                    <img src="/img/imgUsers/<%=user.imagen_id[0]%>" alt="Imagen de perfil de: <%=user.nombre%>">
        
                 </div>
     <div class="datosProfUser">
         <h3>Datos de cuenta</h3>
 
         <ul>
-            <li>Usuario: <%=user.usuario%></li>
-            <li>E-mail: <%=user.email%></li>
+            <li>E-mail: <%=user.usersAuthData.email%></li>
         </ul>
 
         <h3>Datos Personales</h3>
         <ul>
-            <li>Nombre y apellido: <%=user.nombre + user.apellido%></li>
+            <li>Nombre y apellido: <%=user.nombre + " " + user.apellido%></li>
             <li>Teléfono: <%=user.telefono%></li>
-            <li>Género: <%=user.genero%></li>
         </ul>
            
 
         <div class="profUserButton">
+
+            <div class="userBotonesElimEdit">
+                <div class="userDetBotonEditar">
+                    <a href="/user/<%=user.id_user%>/edit" class="action-button edit">Editar mi Perfil</a>
+                </div>
            
               <form action="/user/<%= user.id%>?_method=DELETE" method="POST" >
                <button type="submit" class="action-button edit">Eliminar Cuenta</i></button>

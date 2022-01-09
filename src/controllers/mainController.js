@@ -38,7 +38,19 @@ const mainController = {
         })
     },
 
-    getCart: (req,res) => {res.render (path.join(__dirname,"../views/cart"))},
+    getCart: (req,res) => {
+        db.Carts
+		    .findAll({
+		    	include:[{association: "cartDetails"},{association: "users"}]
+		    })
+		    .then(function(resultado){
+            
+		    	res.render (path.join(__dirname,"../views/cart"));
+		    })
+		    .catch(function(error){
+		    	console.log(error)
+		    });		
+     },
     
     getConfirmation: (req,res) => {res.render (path.join(__dirname,"../views/confirmation"))},
   
