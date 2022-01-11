@@ -13,13 +13,13 @@
         
     <!----- MAIN ----->
     <main class="register-main">
-        <form class="register-form" action="/user/<%=:id_user%>/edit" method="POST" enctype="multipart/form-data">
+        <form class="register-form" action="/user/<%=userToEdit.id%>/edit?_method=PUT" method="POST" enctype="multipart/form-data">
             <section class="register-section">
                 <div class="formulario-titulo">
                     <h2 class="formulario-titulo"> <%= userToEdit.nombre %> estás editando tu perfil</i></h2>
                 </div>
                 <div class="estilo-formulario"> 
-                    <label for="nombre"></label>
+                    <label for="nombre">Nombre:</label>
                     <input type="text" value="<%= userToEdit.nombre %>"name="nombre" id="nombre"  placeholder="Nombre" class="estilo-input">
                     <% if (typeof errors != 'undefined') { %>
                         <% for (let i = 0; i < errors.length; i++) { %>
@@ -32,7 +32,7 @@
                     <% } %>
                 </div>  
                 <div class="estilo-formulario"> 
-                    <label for="apellido"></label>
+                    <label for="apellido">Apellido:</label>
                     <input type="text" value="<%= userToEdit.apellido %>" name="apellido" id="apellido" placeholder="Apellido" class="estilo-input">
                     <% if (typeof errors != 'undefined') { %>
                         <% for (let i = 0; i < errors.length; i++) { %>
@@ -45,32 +45,8 @@
                     <% } %>
                 </div>
 
-                <div class="estilo-formulario"> 
-                    <label for="usuario"></label>
-                    <input type="text" value="<%= userToEdit.usuario %>" name="usuario" id="usuario" placeholder="Nombre de usuario" class="estilo-input">
-                    <% if (typeof errors != 'undefined') { %>
-                        <% for (let i = 0; i < errors.length; i++) { %>
-                            <% if (errors[i].param == 'usuario') { %>
-                    <div class="errorsAlert"> 
-                        <p><%=errors[i].msg %></p>                        
-                    </div>
-                            <% } %>
-                        <% } %>
-                    <% } %>
-                </div>
-
-                <div class="estilo-formulario"> 
-                    <label for="genero"></label>
-                    <select name="genero" id="genero" class="botonGenero">
-                        <option value="<%= userToEdit.genero %>"</option>
-                        <option value="Femenino">Femenino</option>
-                        <option value="Masculino">Masculino</option>
-                        <option value="Otro">Otro</option>
-                    </select>
-                    
-                </div>
                 <div class="estilo-formulario">
-                    <label for="email"></label>
+                    <label for="email">Email:</label>
                     <input type="email" value="<%= userToEdit.email %>"name="email" id="email" placeholder="E-mail" class="estilo-input">
                     <% if (typeof errors != 'undefined') { %>
                         <% for (let i = 0; i < errors.length; i++) { %>
@@ -84,7 +60,7 @@
                 </div>
 
                 <div class="estilo-formulario">
-                    <label for="contrasenia"></label>
+                    <label for="contrasenia">Nueva Contraseña:</label>
                     <input type="password" name="contrasenia" id="contrasenia" placeholder="Contraseña" class="estilo-input">
                     <% if (typeof errors != 'undefined') { %>
                         <% for (let i = 0; i < errors.length; i++) { %>
@@ -98,7 +74,7 @@
                 </div>
 
                 <div class="estilo-formulario">
-                    <label for="confContr"></label>
+                    <label for="confContr">Confirmar Contraseña</label>
                     <input type="password" name="confContr" id="confContr" placeholder="Confirmar contraseña" class="estilo-input">
                     <% if (typeof errors != 'undefined') { %>
                         <% for (let i = 0; i < errors.length; i++) { %>
@@ -112,7 +88,7 @@
                 </div>
 
                 <div class="estilo-formulario">
-                    <label for="telefono"></label>
+                    <label for="telefono">Teléfono:</label>
                     <input type="text" value="<%= userToEdit.telefono %>"name="telefono"  id="telefono" placeholder="Teléfono" class="estilo-input">
                     <% if (typeof errors != 'undefined') { %>
                         <% for (let i = 0; i < errors.length; i++) { %>
@@ -126,12 +102,12 @@
                 </div>
                 <div class="imgProfUser">
 
-                    <img src="/img/imgUsers/<%=userToEdit.imagen%>" alt="Imagen de perfil de: <%=userToEdit.nombre%>">
+                    <img src="/img/imgUsers/<%=userToEdit.imagen_id%>" alt="Imagen de perfil de: <%=userToEdit.nombre%>">
        
                 </div>
 
                 <div class="estilo-formulario">
-                    <label for="imagen" class="label-formulario">Imágen de Perfil: </label>
+                    <label for="imagen" class="label-formulario">Nueva Imágen de Perfil: </label>
                     <input type="file" id="imagen"  name="imagen" class="estilo-input">
                 </div>
                 </div class="estilo-formulario"> 

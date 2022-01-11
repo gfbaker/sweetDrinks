@@ -40,15 +40,16 @@ const usersController = {
     postLogin: async (req,res) => {
 
         let errors = validationResult(req)
-       
-        if(errors.isEmpty()){
+        let credenciales = [];
 
+        if(errors.isEmpty()){
+           
             credenciales = await db.UsersAuthData.findOne({
                 where: {
                     email: req.body.email
                 }            
             })
-
+            
             if (credenciales){
                 //si el mail existe, entra acá
 
@@ -61,7 +62,7 @@ const usersController = {
                     })
                     req.session.usuarioLogueado = usuario;
                     res.redirect('/');
-                }else{
+                    }else{
                     res.render('login', {errors:[
                         {
                             "location": "body",
@@ -70,17 +71,21 @@ const usersController = {
                         }
                     ]}) 
                 }
+            
 
                 
             }else{
-                //si el mail no existe, entra acá
+            //si el mail no existe, entra acá
                 res.render('login',{errors:[
                     {"msg": 'El mail indicado no está registrado',
                     "param": "credenciales"}
                 ]})
-            }          
+            }
+     
           
-        }    
+        }else{
+            res.render('login',{errors:errors.array()});
+        }  
     },
 
 // Creacion de usuario
@@ -149,10 +154,16 @@ const usersController = {
     editUser: (req, res) => {
     // Falta opcion de editar perfil de usuario
             db.Users
-            .findByPk(req.params.id_user)
+            .findOne({
+                include:[{association: 'usersAuthData'}],
+                where: {
+                    id: req.params.id_user
+                }
+            })
             .then(function(resultado){
-                
-                res.render (path.join(__dirname,"../views/userEditForm"),{ userToEdit: resultado});
+                resultado.imagen_id = JSON.parse(resultado.imagen_id)
+                let userToEdit = resultado
+                res.render(path.join(__dirname,"../views/userEditForm"),{userToEdit});
             })
             .catch(function(error){
                 console.log(error)
@@ -161,38 +172,36 @@ const usersController = {
 
     },
             
-    updateUser: (req, res) => {
-
+    updateUser: async(req, res) => {
+        
 		let errors = validationResult(req)
 
         if(errors.isEmpty()){
-			
+                        
+            
+                let credencialesActualizadas = await db.UsersAuthData.update({
+                    email : req.body.email,
+                    contraseña: bcrypt.hashSync(req.body.contrasenia, 10)
+                },{
+                    where : {id:req.params.id_user}
+                })
+                
+                
                  db.Users
                  .update({
                     nombre: req.body.nombre,
                     apellido: req.body.apellido,
-                    usuario: req.body.usuario,
-                    genero: req.body.genero,
-                    email: req.body.email,
-                    contrasenia: bcrypt.hashSync(req.body.contrasenia, 10),
-                    confContr: req.body.confContr,
                     telefono: req.body.telefono,
-                    imagen: req.file ? [req.file.filename] : ['generic-profile-picture.jpg']
-                 }, {
-                     where:{
-                         id: req.params.id
-                     }})
-                    
+                    imagen_id: req.file ? JSON.stringify([req.file.filename]) : JSON.stringify(['generic-profile-picture.jpg']),
+                    userAuthData_id: credencialesActualizadas['id_user']
+                 },{
+                     where :{id: req.params.id_user}
+                 })
+                
 
-                .then(function(resultado){
+                    res.redirect('/user/' + req.params.id_user)
 
-                    res.render (path.join(__dirname,"../views/userEditForm"),{ userToEdit: resultado});
-
-                })
-                .catch(function(error){
-                    console.log(error)
-                });	
-                res.redirect('user/' + req.params.id_user)
+                
 	    }else{
 			res.render('userEditForm',{errors:errors.array()});
 		}
