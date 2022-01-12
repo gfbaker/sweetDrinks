@@ -301,15 +301,15 @@ const productController = {
     },
 
 	// eliminar producto
-	destroy: (req, res) => {
+	destroy: async (req, res) => {
+		let id = Number(req.params.id)
+		await db.Images.destroy({
+            where: {product_id: id}
+         })
 
-		db.Products.destroy({
-            where: {id: req.params.id}
+		await db.Products.destroy({
+            where: {id: id}	
          });
-
-		// let filterProducts = products.filter((prod) => prod.id != req.params.id);
-
-		// fs.writeFileSync(productsFilePath, JSON.stringify(filterProducts, null, " "));
 
 		res.redirect('/products');
 	  },
