@@ -46,7 +46,7 @@ router.post('/newUser', upload.single('imagen'),validateUserForm, usersControlle
 router.get('/user/:id_user', isUserLoggedIn, usersController.getUserProfile);
 
 router.get('/user/:id_user/edit',  isUserLoggedIn, usersController.editUser);
-router.get('/user/:id_user/edit', upload.single("imagen"), validateUserForm, usersController.updateUser);
+router.put('/user/:id_user/edit', upload.single("imagen"), validateUserForm, usersController.updateUser);
 
 // Faltaria ruta para editar usuario
 router.delete('/user/:id_user', usersController.destroyUser);

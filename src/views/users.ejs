@@ -15,18 +15,12 @@
     <main class="mainProfUser">
 
         <div class="profUserTitulo"></div>
-        <%if(user.genero == "Masculino"){%>
-        <h1>Bienvenido: <%=user.nombre%></h1>
-        <%}else if(user.genero == "Femenino"){%>
-            <h1>Bienvenida: <%=user.nombre%></h1>
-            <%}else{%>
-                <h1>Bienvenidx: <%=user.nombre%></h1>
-                <%}%>
-
-
+       
+                <h1>Bienvenido/a: <%=user.nombre%></h1>
+               
                 <div class="imgProfUser">
 
-                    <img src="/img/imgUsers/<%=user.imagen_id[0]%>" alt="Imagen de perfil de: <%=user.nombre%>">
+                    <img src="/img/imgUsers/<%=user.imagen_id%>" alt="Imagen de perfil de: <%=user.nombre%>">
        
                 </div>
     <div class="datosProfUser">
@@ -47,7 +41,7 @@
 
             <div class="userBotonesElimEdit">
                 <div class="userDetBotonEditar">
-                    <a href="/user/<%=user.id_user%>/edit" class="action-button edit">Editar mi Perfil</a>
+                    <a href="/user/<%=user.id%>/edit" class="action-button edit">Editar mi Perfil</a>
                 </div>
            
               <form action="/user/<%= user.id%>?_method=DELETE" method="POST" >
