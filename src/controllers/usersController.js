@@ -70,6 +70,7 @@ const usersController = {
                         }
                     ]}) 
                 }
+            }
 
                 
             }else{
@@ -78,11 +79,10 @@ const usersController = {
                     {"msg": 'El mail indicado no está registrado',
                     "param": "credenciales"}
                 ]})
-            }          
-          
-        }    
+        
+            
+            }    
     },
-
 // Creacion de usuario
     postNewUser: async (req,res) => {
         // Falta :

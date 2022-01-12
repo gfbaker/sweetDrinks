@@ -117,80 +117,127 @@ const productController = {
 
         if(errors.isEmpty()){
 
-			categoria = await db.Categories
-			.findOne({
-				where: {tipo: req.body.categoria}
-			})
+			try{ 
+                productToEdit = await db.Products.findByPk(req.params.id);
+				
+				oldCategory = await productToEdit.getCategories()
 
-
-			let nuevosDatos = {
-				nombre: req.body.nombre.toUpperCase(),
-				precio:  Number(req.body.precio),
-				porcentajeAlcohol: Number(req.body.porcentajeAlcohol),
-				volumen: req.body.volumen,
-				descripcion: req.body.descripcion,
-				stock: Number(req.body.stock),
-				descuento: Number(req.body.descuento),
-				oferta: (req.body.oferta === "true"),
-				importado: (req.body.importado === "true"),
-				esPack: (req.body.esPack === "true"),
-				categoria_id: categoria.id
-			}
-
-
-			db.Products
-			.update(
-				nuevosDatos,
-				{
-				where: 
-					{
-					id: req.params.id	
-					}
-				}
-			)
-			.then( () =>{
-				if(req.files.length == 0){
-					//Si no se cambiaron las imagenes, ya no hay nada más para hacer
-					res.redirect('/products/detail/'+req.params.id);
-
-				}else{
-					//si se cambiaron las imagenes
-					//Borrar imagenes anteriores
-					db.Images.destroy({
-						where: {product_id: req.params.id}
-					 });
-					//agregar nuevas imagenes
-					
-					req.files.forEach(async file =>{
-						// console.log(file['filename'])
-						await db.Images.create({
-							nombre: file['filename'],
-							product_id: req.params.id
-						})
+				if (oldCategory.tipo != req.body.categoria ){
+					categoria = await db.Categories
+					.findOne({
+						where: {tipo: req.body.categoria}
 					})
-					//redireccionar
-					res.redirect('/products/detail/'+req.params.id);
+					// console.log(categoria)
+					productToEdit.categoria_id = categoria.id	
+
 				}
+
+					productToEdit.nombre =  req.body.nombre.toUpperCase()
+					productToEdit.precio =   Number(req.body.precio)
+					productToEdit.porcentajeAlcohol =  Number(req.body.porcentajeAlcohol)
+					productToEdit.volumen = req.body.volumen
+					productToEdit.descripcion = req.body.descripcion
+					productToEdit.stock = Number(req.body.stock)
+					productToEdit.descuento = Number(req.body.descuento)
+					productToEdit.oferta = (req.body.oferta === "true")
+					productToEdit.importado = (req.body.importado === "true")
+					productToEdit.esPack = (req.body.esPack === "true")
+
+					if(req.files.length != 0){
+						let filesname = req.files.map(function(image){
+							return {nombre: image.filename};
+						})
+
+						let savedImages = await db.Images.bulkCreate(filesname)
+						// console.log (savedImages)
+
+						await productToEdit.setImages(savedImages);
+					}
+
+					productToEdit.save()
+					res.redirect('/products/detail/'+req.params.id)
+
+
+
+			
+			} catch(error){
+                console.log(error);
+            }
+
+			// categoria = await db.Categories
+			// .findOne({
+			// 	where: {tipo: req.body.categoria}
+			// })
+
+
+			// let nuevosDatos = {
+			// 	nombre: req.body.nombre.toUpperCase(),
+			// 	precio:  Number(req.body.precio),
+			// 	porcentajeAlcohol: Number(req.body.porcentajeAlcohol),
+			// 	volumen: req.body.volumen,
+			// 	descripcion: req.body.descripcion,
+			// 	stock: Number(req.body.stock),
+			// 	descuento: Number(req.body.descuento),
+			// 	oferta: (req.body.oferta === "true"),
+			// 	importado: (req.body.importado === "true"),
+			// 	esPack: (req.body.esPack === "true"),
+			// 	categoria_id: categoria.id
+			// }
+
+
+			// db.Products
+			// .update(
+			// 	nuevosDatos,
+			// 	{
+			// 	where: 
+			// 		{
+			// 		id: req.params.id	
+			// 		}
+			// 	}
+			// )
+			// .then( () =>{
+			// 	if(req.files.length == 0){
+			// 		//Si no se cambiaron las imagenes, ya no hay nada más para hacer
+			// 		res.redirect('/products/detail/'+req.params.id);
+
+			// 	}else{
+			// 		//si se cambiaron las imagenes
+			// 		//Borrar imagenes anteriores
+			// 		db.Images.destroy({
+			// 			where: {product_id: req.params.id}
+			// 		 });
+			// 		//agregar nuevas imagenes
+					
+			// 		req.files.forEach(async file =>{
+			// 			// console.log(file['filename'])
+			// 			await db.Images.create({
+			// 				nombre: file['filename'],
+			// 				product_id: req.params.id
+			// 			})
+			// 		})
+			// 		//redireccionar
+			// 		res.redirect('/products/detail/'+req.params.id);
+			// 	}
 				
 
 
-			})
-			.catch( e=>{
-				console.log(e)
-			})
+			// })
+			// .catch( e=>{
+			// 	console.log(e)
+			// })
 
 
 			
 
-			// 	.then(function(resultado){
-			// 		// res.send (resultado)
+			// // 	.then(function(resultado){
+			// // 		// res.send (resultado)
 					
-			// 	})
-			// 	.catch(function(error){
-			// 		console.log(error)
-			// 	});	
-			// // res.render (path.join(__dirname,"../views/productEditForm"),{ productToEdit: resultado});
-			// // res.redirect('/');
+			// // 	})
+			// // 	.catch(function(error){
+			// // 		console.log(error)
+			// // 	});	
+			// // // res.render (path.join(__dirname,"../views/productEditForm"),{ productToEdit: resultado});
+			// // // res.redirect('/');
 		}else{
 			res.render('productEditForm',{errors:errors.array()});
 		}
