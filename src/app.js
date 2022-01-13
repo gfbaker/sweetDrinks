@@ -8,6 +8,8 @@ const mainRoutes = require('./routes/mainRouter');
 const productRoutes = require('./routes/productRouter');
 const usersRoutes = require('./routes/usersRouter');
 const db = require('./database/models');
+const { cookie } = require('express/lib/response');
+const cookieParser = require('cookie-parser');
 
 const port = 3080; 
 
@@ -17,6 +19,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(methodOverride('_method'));
 app.use(session({secret:'Sweet Drinks Secret'})); 
+app.use(cookieParser());
 
 //middleware para usar atributos de session
 app.use(function(req, res, next) {

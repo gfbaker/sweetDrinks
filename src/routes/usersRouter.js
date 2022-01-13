@@ -41,7 +41,7 @@ const validateUserFormLogin =[
 router.get('/login', guestMiddleware, usersController.getLogin);
 router.post('/login',validateUserFormLogin, usersController.postLogin);
 
-router.get('/usersList', usersController.getUsersList);
+router.get('/usersList', isUserLoggedIn, isAdminMiddleware, usersController.getUsersList);
 
 router.get('/newUser', guestMiddleware, usersController.getNewUser);
 router.post('/newUser', upload.single('imagen'),validateUserForm, usersController.postNewUser);

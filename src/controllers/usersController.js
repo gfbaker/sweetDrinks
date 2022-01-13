@@ -78,6 +78,11 @@ const usersController = {
                         }            
                     })
                     req.session.usuarioLogueado = usuario;
+                    if (req.body.recordar == true){
+                        res.cookie.recordarUsuario = req.body.email
+                        res.cookie.recordarUsuario = req.body.contrasenia
+                    }
+
                     res.redirect('/');
                     }else{
                     res.render('login', {errors:[
@@ -113,8 +118,7 @@ const usersController = {
         let errors = validationResult(req)
         // req.file ? res.send (JSON.stringify([req.file.filename])) : res.send (JSON.stringify(['generic-profile-picture.jpg']))
 
-        // res.send ([req.file.filename])
-
+     
         if(errors.isEmpty()){
             //Busca si el mail ya existe o no
             usuarioExistente = await db.UsersAuthData.findOne({
@@ -147,18 +151,17 @@ const usersController = {
 
                 })
 
-                // usuarioCreado = {            
-                //     nombre: req.body.nombre,
-                //     apellido: req.body.apellido,
-                //     telefono: req.body.telefono,
-                //     imagen_id: req.file ? JSON.stringify([req.file.filename]) : JSON.stringify(['generic-profile-picture.jpg']),
-                //     userAuthData_id: credencialesCreadas['id']
+                
 
-                // }
-                req.session.usuarioLogueado = usuarioCreado;
-                res.redirect('user/' + usuarioCreado['id'])
-                    
-
+                usuario = await db.Users.findOne({
+                    include:[{association: "usersAuthData"}],
+                    where: {
+                        userAuthData_id: credencialesCreadas['id']
+                    }            
+                })
+                req.session.usuarioLogueado = usuario;
+                              
+                res.redirect('user/' + usuarioCreado['id'])                  
 
             }              
         }else{
