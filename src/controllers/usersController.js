@@ -5,10 +5,9 @@ const usersFilePath = path.join(__dirname, '../data/users.json');
 let users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 const bcrypt = require('bcryptjs');
 const { validationResult } = require('express-validator');
-const session = require('express-session');
-
 const db = require('../database/models');
 // Objeto literal con acciones de cada ruta
+
 const usersController = {
 
     getLogin: (req,res) => {res.render (path.join(__dirname,"../views/login"))},
@@ -78,9 +77,10 @@ const usersController = {
                         }            
                     })
                     req.session.usuarioLogueado = usuario;
-                    if (req.body.recordar == true){
-                        res.cookie.recordarUsuario = req.body.email
-                        res.cookie.recordarUsuario = req.body.contrasenia
+
+                    if (req.body.recordar != undefined){
+                        //si un checkbox no está tildado, se recibe undefined. Cuando está tildado 
+                        res.cookie('recordarUsuario', req.body.email,{maxAge: 3600000})
                     }
 
                     res.redirect('/');
@@ -249,6 +249,7 @@ const usersController = {
     endSession: (req, res) => {
 
         req.session.destroy();
+        res.clearCookie('recordarUsuario')
         res.redirect('/');
     }
 };

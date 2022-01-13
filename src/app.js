@@ -8,8 +8,9 @@ const mainRoutes = require('./routes/mainRouter');
 const productRoutes = require('./routes/productRouter');
 const usersRoutes = require('./routes/usersRouter');
 const db = require('./database/models');
-const { cookie } = require('express/lib/response');
+// const { cookie } = require('express/lib/response');
 const cookieParser = require('cookie-parser');
+const recordarMiddleware = require('../middlewares/recordarMiddleware')
 
 const port = 3080; 
 
@@ -21,7 +22,9 @@ app.use(methodOverride('_method'));
 app.use(session({secret:'Sweet Drinks Secret'})); 
 app.use(cookieParser());
 
-//middleware para usar atributos de session
+//middleware para usar atributos de session y cookie
+app.use(recordarMiddleware)
+
 app.use(function(req, res, next) {
     res.locals.user = req.session.usuarioLogueado;
     db.Categories
@@ -36,6 +39,7 @@ app.use(function(req, res, next) {
 
     next();
   });
+
 
 
 app.set('view engine', 'ejs');
