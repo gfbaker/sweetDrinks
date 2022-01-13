@@ -43,12 +43,14 @@
                                             <a href='' class="prodDetBotonUsers">Eliminar de Admin</a>
                                             <%}%>
                                     </div> -->
-                                    <div class="prodDetBotonUsers">
-                                        <form action="/user/<%= usersToShow[i].id%>?_method=DELETE" method="POST" >
-                                            <button type="submit" class="botonUserDestroy">Elimar Usuario</button>
-                                            
-                                            </form>
-                                    </div> 
+                                    <% if (user.usersAuthData.email != usersToShow[i].usersAuthData.email ) {%>
+                                        <div class="prodDetBotonUsers">
+                                            <form action="/user/<%= usersToShow[i].id%>?_method=DELETE" method="POST" >
+                                                <button type="submit" class="botonUserDestroy">Eliminar Usuario</button>
+                                                
+                                                </form>
+                                        </div> 
+                                    <%}%>
                                 </div>
                                             
                         </article>
