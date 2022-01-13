@@ -496,6 +496,28 @@ body main form section div .label-formulario{
     margin: 5% 0% 5% 0%;
 
 }
+.prodDetBotonUsers{
+    max-width: 10%;
+    min-width: 10%;
+    background-color: #bb6a0e;
+    font-size: 12px;
+    text-align: center;
+    margin: 3px;
+    border-radius: 5px;
+    max-height: 33px;
+  
+}
+.botonUserDestroy{
+    min-width: 10%;
+    background-color: #bb6a0e;
+    border: none;
+    color :white;
+    font-size: 12px;
+    text-align: center;
+    margin: 3px;
+    border-radius: 5px;
+}
+
 /* FIN HOME */
 
 /* DETALLE DE PRODUCTO */
@@ -781,6 +803,11 @@ div.datosArticulo{
     width: 80%;
 
 }
+div.datosArticulo .usuarioAdmin{
+    padding-bottom: 2%;
+    color: orangered;
+
+}
 body  main  section article  div .fotoArticulo{
     max-height: 90%;
     min-width: 15vh;
@@ -798,6 +825,7 @@ p.nombreArticulo{
     font-weight: bold;
     color:#35453C
 }
+
 div.descripcionArticulo{
     flex-grow: 1;
 }
@@ -930,6 +958,12 @@ a.botonComprar{
     text-decoration: none;
     color:  #EB9C4B;
 }
+.carrito-main-listaUsuarios{
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+
 
 /* FIN CARRITO 1 */
 

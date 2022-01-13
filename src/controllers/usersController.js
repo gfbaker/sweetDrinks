@@ -14,6 +14,23 @@ const usersController = {
     getLogin: (req,res) => {res.render (path.join(__dirname,"../views/login"))},
     getNewUser: (req,res) => {res.render (path.join(__dirname,"../views/newUser"))},
 
+    getUsersList: (req,res)=> {
+        db.Users
+        .findAll({
+            include:[{association: "usersAuthData"}]
+        })
+        .then(resultado =>{
+
+            let usersToShow = resultado           
+            res.render(path.join(__dirname,"../views/usersList"),{usersToShow});
+
+        })
+        .catch(e =>{
+            res.send(e)
+        })
+          
+},
+
     getUserProfile: (req,res) => {
         // Falta :
         //incluir AUthData para que tome los datos de email y los muestre en la vista
@@ -207,18 +224,22 @@ const usersController = {
     },
 
     // Eliminar Cuenta
-    destroyUser: (req, res) => {
-
-        db.Users.destroy({
-            where: {id: req.params.id_user}
-         });
+    destroyUser: async (req, res) => {
+        let id = Number(req.params.id_user)
+        await db.Users.destroy({            
+            where: {id: id}
+         })
+         await db.UsersAuthData.destroy({
+             where : {id:id}
+         })
+        
          
 
 		// let filterUser = users.filter((user) => user.id != req.params.id_user);
 
 		// fs.writeFileSync(usersFilePath, JSON.stringify(filterUser, null, " "));
 
-		res.redirect('/');
+		res.redirect('/usersList');
 	  },
 
     // Cerrar session

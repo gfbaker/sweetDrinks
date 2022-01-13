@@ -4,6 +4,7 @@ const router = express.Router();
 const upload = require('../../middlewares/uploadProfileImg')
 const isUserLoggedIn = require('../../middlewares/isUserLoggedIn')
 const guestMiddleware = require('../../middlewares/guestMiddleware')
+const isAdminMiddleware= require('../../middlewares/isAdminMiddleware')
 const { check } = require('express-validator');
 guestMiddleware
 // Requer el controller
@@ -40,6 +41,8 @@ const validateUserFormLogin =[
 router.get('/login', guestMiddleware, usersController.getLogin);
 router.post('/login',validateUserFormLogin, usersController.postLogin);
 
+router.get('/usersList', usersController.getUsersList);
+
 router.get('/newUser', guestMiddleware, usersController.getNewUser);
 router.post('/newUser', upload.single('imagen'),validateUserForm, usersController.postNewUser);
 
@@ -48,7 +51,6 @@ router.get('/user/:id_user', isUserLoggedIn, usersController.getUserProfile);
 router.get('/user/:id_user/edit',  isUserLoggedIn, usersController.editUser);
 router.put('/user/:id_user/edit', upload.single("imagen"), validateUserForm, usersController.updateUser);
 
-// Faltaria ruta para editar usuario
 router.delete('/user/:id_user', usersController.destroyUser);
 
 router.get('/endSession', usersController.endSession);

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <!-- HEAD -->
+    <%- include('./partials/head',{title:'Lista de Usuarios'}) %>
+    <!-- FIN-HEAD -->
+
+<body class="carrito-body">
+
+        <!-- HEADER -->
+        <%- include('./partials/header') %>
+        <!-- FIN DEL HEADER -->
+
+    <!-- MAIN -->
+    <main class="carrito-main-listaUsuarios">
+        <section class="carrito-section">
+                        <div class="main-productos">                                                        
+
+                            <% for (let i = 0 ; i < usersToShow.length ; i ++){ %>              
+                   
+                        <article class="carrito-articulo">
+                                <div class="mainArticulo">
+                                    
+                                    <div class="datosArticulo">
+                                        <% if (usersToShow[i].usersAuthData.admin == true) {%>
+                                            <p class="usuarioAdmin">Usuario Administrador</p>
+                                        <%}%>
+                                        <div class="nombreArticulo">
+                                            <p class="nombreArticulo"><%= usersToShow[i].nombre%> <%= usersToShow[i].apellido%></p>
+                                        
+                                        </div>    
+                                        <div class="nombreArticulo">
+                                            <p class="nombreArticulo"><%= usersToShow[i].usersAuthData.email%></p>
+                                        
+                                        </div>                                
+                                                        
+                                    </div>
+                                    <!-- <div class="prodDetBotonUsers">
+                                        
+                                        <% if (usersToShow[i].usersAuthData.admin == false) {%>
+                                        <a href='' class="prodDetBotonUsers">Hacer Admin</a>
+                                        <%}else{%>
+                                            <a href='' class="prodDetBotonUsers">Eliminar de Admin</a>
+                                            <%}%>
+                                    </div> -->
+                                    <div class="prodDetBotonUsers">
+                                        <form action="/user/<%= usersToShow[i].id%>?_method=DELETE" method="POST" >
+                                            <button type="submit" class="botonUserDestroy">Elimar Usuario</button>
+                                            
+                                            </form>
+                                    </div> 
+                                </div>
+                                            
+                        </article>
+                
+                </section>
+            <% } %>
+           
+    </main>
+    <!-- FIN-MAIN -->
+
+
+    <!----- FOOTER ----->
+    <%- include('./partials/footer') %>
+    <!----- FIN-FOOTER ----->
+
+</body>
+
+</html>
