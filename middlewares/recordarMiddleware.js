@@ -1,9 +1,7 @@
 const db = require('../src/database/models');
 
 const recordarMiddleware = async (req,res,next) => {
-    console.log ("ENTRO AL MIDDLEWARE")
-    console.log (req.session.usuarioLogueado)
-    console.log(req.cookies.recordarUsuario);
+
     if (req.session.usuarioLogueado == undefined && req.cookies.recordarUsuario != undefined ){
 
         credenciales = await db.UsersAuthData.findOne({

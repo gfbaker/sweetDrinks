@@ -47,7 +47,7 @@
 
                 <div class="estilo-formulario">
                     <label for="email">Email:</label>
-                    <input type="email" value="<%= userToEdit.email %>"name="email" id="email" placeholder="E-mail" class="estilo-input">
+                    <input type="email" value="<%= userToEdit.usersAuthData.email %>" name="email" id="email" placeholder="E-mail" class="estilo-input" readonly>
                     <% if (typeof errors != 'undefined') { %>
                         <% for (let i = 0; i < errors.length; i++) { %>
                             <% if (errors[i].param == 'email') { %>
@@ -61,7 +61,7 @@
 
                 <div class="estilo-formulario">
                     <label for="contrasenia">Nueva Contraseña:</label>
-                    <input type="password" name="contrasenia" id="contrasenia" placeholder="Contraseña" class="estilo-input">
+                    <input type="password" value="<%= userToEdit.usersAuthData.contraseña %>" name="contrasenia" id="contrasenia" placeholder="Contraseña" class="estilo-input">
                     <% if (typeof errors != 'undefined') { %>
                         <% for (let i = 0; i < errors.length; i++) { %>
                             <% if (errors[i].param == 'contrasenia') { %>
@@ -75,7 +75,7 @@
 
                 <div class="estilo-formulario">
                     <label for="confContr">Confirmar Contraseña</label>
-                    <input type="password" name="confContr" id="confContr" placeholder="Confirmar contraseña" class="estilo-input">
+                    <input type="password" value="<%= userToEdit.usersAuthData.contraseña %>" name="confContr" id="confContr" placeholder="Confirmar contraseña" class="estilo-input">
                     <% if (typeof errors != 'undefined') { %>
                         <% for (let i = 0; i < errors.length; i++) { %>
                             <% if (errors[i].param == 'confContr') { %>

@@ -165,7 +165,16 @@ const usersController = {
 
             }              
         }else{
-            return res.render('newUser',{errors:errors.array()});
+            datosUsuario = {
+                email: req.body.email,
+                contraseña: req.body.contrasenia,
+                nombre: req.body.nombre,
+                apellido: req.body.apellido,
+                telefono: req.body.telefono,
+                imagen_id: req.file ? JSON.stringify([req.file.filename]) : JSON.stringify(['generic-profile-picture.jpg']),
+               
+            }
+            res.render('newUser',{errors:errors.array(), datosUsuario});
         }
        
     },
@@ -197,7 +206,7 @@ const usersController = {
 
         if(errors.isEmpty()){
                         
-            
+            try{
                 let credencialesActualizadas = await db.UsersAuthData.update({
                     email : req.body.email,
                     contraseña: bcrypt.hashSync(req.body.contrasenia, 10)
@@ -205,24 +214,52 @@ const usersController = {
                     where : {id:req.params.id_user}
                 })
                 
-                
-                 db.Users
-                 .update({
-                    nombre: req.body.nombre,
-                    apellido: req.body.apellido,
-                    telefono: req.body.telefono,
-                    imagen_id: req.file ? JSON.stringify([req.file.filename]) : JSON.stringify(['generic-profile-picture.jpg']),
-                    userAuthData_id: credencialesActualizadas['id_user']
-                 },{
-                     where :{id: req.params.id_user}
-                 })
+                userToEdit = await db.Users.findByPk(req.params.id_user);
+
+                userToEdit.nombre = req.body.nombre
+                userToEdit.apellido= req.body.apellido
+                userToEdit.telefono= req.body.telefono
+                userToEdit.imagen_id= req.file ? JSON.stringify([req.file.filename]):
+                userToEdit.userAuthData_id= credencialesActualizadas['id_user']
+
+                userToEdit.save()
+
+                //  db.Users
+                //  .update({
+                //     nombre: req.body.nombre,
+                //     apellido: req.body.apellido,
+                //     telefono: req.body.telefono,
+                //     imagen_id: req.file ? JSON.stringify([req.file.filename]) : JSON.stringify(['generic-profile-picture.jpg']),
+                //     userAuthData_id: credencialesActualizadas['id_user']
+                //  },{
+                //      where :{id: req.params.id_user}
+                //  })
                 
 
                     res.redirect('/user/' + req.params.id_user)
+            }catch(e){
+                console.log(e)
+            }
 
                 
 	    }else{
-			res.render('userEditForm',{errors:errors.array()});
+            db.Users
+            .findOne({
+                include:[{association: 'usersAuthData'}],
+                where: {
+                    id: req.params.id_user
+                }
+            })
+            .then(function(resultado){
+                resultado.imagen_id = JSON.parse(resultado.imagen_id)
+                let userToEdit = resultado
+                res.render('userEditForm',{errors:errors.array(), userToEdit});
+                // res.render(path.join(__dirname,"../views/userEditForm"),{userToEdit});
+            })
+            .catch(function(error){
+                console.log(error)
+            });
+
 		}
     },
 

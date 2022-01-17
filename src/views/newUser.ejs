@@ -18,7 +18,10 @@
                 <h3>Creá tu cuenta</h3>
                 <div class="estilo-formulario"> 
                     <label for="nombre"></label>
-                    <input type="text" name="nombre" id="nombre"  placeholder="Nombre" class="estilo-input">
+                    <input type="text" <% if (locals.datosUsuario != undefined) { %>
+                        value=<%=locals.datosUsuario.nombre%>
+                    <% } %>
+                     name="nombre" id="nombre"  placeholder="Nombre" class="estilo-input">
                     <% if (typeof errors != 'undefined') { %>
                         <% for (let i = 0; i < errors.length; i++) { %>
                             <% if (errors[i].param == 'nombre') { %>
@@ -31,7 +34,10 @@
                 </div>  
                 <div class="estilo-formulario"> 
                     <label for="apellido"></label>
-                    <input type="text" name="apellido" id="apellido" placeholder="Apellido" class="estilo-input">
+                    <input type="text" <% if (locals.datosUsuario != undefined) { %>
+                        value=<%=locals.datosUsuario.apellido%>
+                    <% } %>
+                    name="apellido" id="apellido" placeholder="Apellido" class="estilo-input">
                     <% if (typeof errors != 'undefined') { %>
                         <% for (let i = 0; i < errors.length; i++) { %>
                             <% if (errors[i].param == 'apellido') { %>
@@ -45,7 +51,10 @@
 
                 <div class="estilo-formulario">
                     <label for="email"></label>
-                    <input type="email"name="email" id="email" placeholder="E-mail" class="estilo-input">
+                    <input type="email" <% if (locals.datosUsuario != undefined) { %>
+                        value=<%=locals.datosUsuario.email%>
+                    <% } %>
+                    name="email" id="email" placeholder="E-mail" class="estilo-input">
                     <% if (typeof errors != 'undefined') { %>
                         <% for (let i = 0; i < errors.length; i++) { %>
                             <% if (errors[i].param == 'email') { %>
@@ -59,7 +68,10 @@
 
                 <div class="estilo-formulario">
                     <label for="contrasenia"></label>
-                    <input type="password" name="contrasenia" id="contrasenia" placeholder="Contraseña" class="estilo-input">
+                    <input type="password" <% if (locals.datosUsuario != undefined) { %>
+                        value=<%=locals.datosUsuario.contraseña%>
+                    <% } %>
+                    name="contrasenia" id="contrasenia" placeholder="Contraseña" class="estilo-input">
                     <% if (typeof errors != 'undefined') { %>
                         <% for (let i = 0; i < errors.length; i++) { %>
                             <% if (errors[i].param == 'contrasenia') { %>
@@ -87,7 +99,10 @@
 
                 <div class="estilo-formulario">
                     <label for="telefono"></label>
-                    <input type="text" name="telefono"  id="telefono" placeholder="Teléfono" class="estilo-input">
+                    <input type="text" <% if (locals.datosUsuario != undefined) { %>
+                        value=<%=locals.datosUsuario.telefono%>
+                    <% } %>
+                     name="telefono"  id="telefono" placeholder="Teléfono" class="estilo-input">
                     <% if (typeof errors != 'undefined') { %>
                         <% for (let i = 0; i < errors.length; i++) { %>
                             <% if (errors[i].param == 'telefono') { %>
