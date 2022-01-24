@@ -13,48 +13,57 @@
 
     <!-- MAIN -->
     <main class="mainProduct-form">
+
+       
+
         <div class="wrapper-formulario">
             <div class="formulario-titulo">
                 <h2 class="formulario-titulo">Estás editando: <i>( <%= productToEdit.id %> ) <%= productToEdit.nombre %> <%= productToEdit.volumen %></i></h2>
             </div>
-            <div class="formulario-cuerpo">
-                <div class="errorsAlert">
-                    <% if (typeof errors != 'undefined') { %>
-                        <p>Atención</p>
-                        <ul>
-                            <% for (let i = 0; i < errors.length; i++) { %>
-                                <li>
-                                    <%=errors[i].msg %>
-                                </li>
-                                <% } %>
-                        </ul>
-                        <% } %>
-                    </div>
+            <div class="formulario-cuerpo">                
                 <form action="/products/<%= productToEdit.id %>?_method=PUT" method="POST" class="form-ProductoNuevo" enctype="multipart/form-data">
                     <div class="estilo-formulario">
                         <label for="nombre" class="label-formulario">Nombre del Producto:</label>
                         <input type="text" id="nombre" value="<%= productToEdit.nombre %>" name="nombre" class="estilo-input">
                     </div>
+
+                    <div class="mensajeNombre"> <p></p> </div>
+
                     <div class="estilo-formulario">
                         <label for="volumen" class="label-formulario">Volumen:</label>
                         <input type="text"  id="volumen" value="<%= productToEdit.volumen %>" name="volumen" class="estilo-input">
                     </div>
+
+                    <div class="mensajeVolumen"> <p></p> </div>
+
                     <div class="estilo-formulario">
                         <label for="precio" class="label-formulario">Precio:</label>
                         <input type="text"  id="precio" value="<%= productToEdit.precio %>" name="precio" class="estilo-input">
                     </div>
+
+                    <div class="mensajePrecio"> <p></p> </div>
+
                     <div class="estilo-formulario">
                         <label for="porcentajeAlcohol" class="label-formulario">Porcentaje de Alcohol:</label>
                         <input type="number" id="porcentajeAlcohol" value="<%= productToEdit.porcentajeAlcohol %>" name="porcentajeAlcohol" class="estilo-input">
                     </div>
+
+                    <div class="mensajeAlcohol"> <p></p> </div>
+
                     <div class="estilo-formulario">
                         <label for="stock" class="label-formulario">Cantidad disponible: </label>
                         <input type="number" id="stock" value="<%= productToEdit.stock %>" name="stock" class="estilo-input">
                     </div> 
+
+                    <div class="mensajeStock"> <p></p> </div>
+
                     <div class="estilo-formulario">
                         <label for="descripcion" class="label-formulario">Descripción: </label>
                         <textarea name="descripcion" id="descripcion" name="descripcion" class="form-textarea"><%= productToEdit.descripcion %></textarea>
                     </div>
+
+                    <div class="mensajeDescripcion"> <p></p> </div>
+
                     <div class="form-div-checkbox">
                         <input type="checkbox"  id="oferta" name="oferta" class="form-checkbox" value='true' <% if (productToEdit.oferta == true){%>
                             checked
@@ -99,6 +108,9 @@
                             >Licores</option>
                         </select>                        
                     </div> 
+
+                    <div class="mensajeCategoria"> <p></p> </div>
+
                     <div class="form-div-checkbox">
                         <input type="checkbox"  id="importado" name="importado" class="form-checkbox" value='true' <% if (productToEdit.importado == true){%>
                             checked
@@ -121,7 +133,7 @@
                                 <img class="imageEditarProducto" src="/img/imgProduct/<%= productToEdit.images[i].nombre %>" alt="Imagen bebida">
                             </figure>
                         <% } %>
-                        </div>
+                        </div>                    
 
                         <!--De esta forma logro conservar y que viaje la imagen anterior de esta forma evito que el usuario seleccione una imagen nuevamente, ( si no lo desea) -->
                     
@@ -130,6 +142,9 @@
                         <label for="imagenes" class="label-formulario">Imágenes: </label>
                         <input type="file" id="imagenes"  name="imagenes" class="estilo-input" value="/img/imgProduct/<%= productToEdit.images[0].nombre %>" multiple>
                     </div>
+
+                    <div class="mensajeImagen"> <p></p> </div>
+                    
                     <div class="estilo-formulario">
                         <button type="submit" class="boton-formularios">Guardar</button>
                     </div>
@@ -146,7 +161,7 @@
     <!----- FOOTER ----->
     <%- include('./partials/footer') %>
     <!----- FIN-FOOTER ----->
-
+    <script src="/js/productsFrontEnd.js"></script>
 </body>
 
 </html>

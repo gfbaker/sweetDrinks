@@ -6,63 +6,71 @@
     <!-- FIN-HEAD -->
 
 <body class="body">
-
+    
         <!-- HEADER -->
         <%- include('./partials/header') %>
         <!-- FIN DEL HEADER -->
 
     <!-- MAIN -->
     <main class="mainProduct-form">
+          
         <div class="wrapper-formulario">
             <div class="formulario-titulo">
                 <h2 class="formulario-titulo">Estás agregando un nuevo producto</i></h2>
             </div>
-            <div class="formulario-cuerpo">
-                <div class="errorsAlert">
-                    <% if (typeof errors != 'undefined') { %>
-                        <p>Atención</p>
-                        <ul>
-                            <% for (let i = 0; i < errors.length; i++) { %>
-                                <li>
-                                    <%=errors[i].msg %>
-                                </li>
-                                <% } %>
-                        </ul>
-                        <% } %>
-                    </div>
+            <div class="formulario-cuerpo">                
                 <form action="/products/newProduct" method="POST" class="form-ProductoNuevo" enctype="multipart/form-data">
                     <div class="estilo-formulario">
                         <label for="nombre" class="label-formulario">Nombre del Producto:</label>
                         <input type="text" id="nombre" name="nombre" class="estilo-input">
                     </div>
+
+                    <div class="mensajeNombre"> <p></p> </div>
+
                     <div class="estilo-formulario">
                         <label for="volumen" class="label-formulario">Volumen:</label>
                         <input type="text"  id="volumen" name="volumen" class="estilo-input">
                     </div>
+
+                    <div class="mensajeVolumen"> <p></p> </div>
+
                     <div class="estilo-formulario">
                         <label for="precio" class="label-formulario">Precio:</label>
                         <input type="text"  id="precio" name="precio" class="estilo-input">
                     </div>
+
+                    <div class="mensajePrecio"> <p></p> </div>
+
                     <div class="estilo-formulario">
                         <label for="porcentajeAlcohol" class="label-formulario">Porcentaje de Alcohol:</label>
                         <input type="number" id="porcentajeAlcohol" name="porcentajeAlcohol" class="estilo-input">
                     </div>
+
+                    <div class="mensajeAlcohol"> <p></p> </div>
+
                     <div class="estilo-formulario">
                         <label for="stock" class="label-formulario">Cantidad disponible: </label>
                         <input type="number" id="stock" name="stock" class="estilo-input">
                     </div> 
+
+                    <div class="mensajeStock"> <p></p> </div>
+
                     <div class="estilo-formulario">
                         <label for="descripcion" class="label-formulario">Descripción: </label>
                         <textarea name="descripcion" id="descripcion" name="descripcion" class="form-textarea"></textarea>
                     </div>
+
+                    <div class="mensajeDescripcion"> <p></p> </div>
+
                     <div class="form-div-checkbox">
                         <input type="checkbox"  id="oferta" name="oferta" value='true' class="form-checkbox">
                         <label for="oferta" class="form-checkbox">En oferta</label>
-                    </div>
+                    </div>                    
                     <div class="estilo-formulario">
                         <label for="descuento" class="label-formulario">Descuento: </label>
                         <input type="number" id="descuento" name="descuento" class="estilo-input">
-                    </div> 
+                    </div>     
+
                     <div class="estilo-formulario">
                         <label for="categoria" class="label-formulario">Categoría: </label>
                         <select id="categoria" name="categoria" class="estilo-select">
@@ -76,6 +84,9 @@
                             <option value="Licores">Licores</option>
                         </select>                        
                     </div> 
+
+                    <div class="mensajeCategoria"> <p></p> </div>
+
                     <div class="estilo-formulario">
                         <input type="checkbox"  id="importado" name="importado" value='true' class="">
                         <label for="importado" class="form-checkbox">Importado</label>
@@ -83,11 +94,15 @@
                     <div class="estilo-formulario">
                         <input type="checkbox"  id="esPack" name="esPack"  value='true' class="">
                         <label for="esPack" class="estilo-input">Es un pack?</label>
-                    </div>
+                    </div>            
+
                     <div class="estilo-formulario">
                         <label for="imagenes" class="label-formulario">Imágenes: </label>
-                        <input type="file" id="imagenes"  name="imagenes" class="estilo-input" multiple>
+                        <input type="file" id="imagenes"  name="imagenes" class="estilo-input imagenes" multiple>
                     </div>
+
+                    <div class="mensajeImagen"> <p></p> </div>
+
                     <div class="estilo-formulario">
                         <button type="submit" class="boton-formularios">Guardar</button>
                     </div>
@@ -99,6 +114,6 @@
     <!----- FOOTER ----->
     <%- include('./partials/footer') %>
     <!----- FIN-FOOTER ----->
-
+    <script  src="/js/productsFrontEnd.js"> </script>
     </body> 
 </html>
