@@ -7,6 +7,7 @@ const bcrypt = require('bcryptjs');
 const { validationResult } = require('express-validator');
 const db = require('../database/models');
 // Objeto literal con acciones de cada ruta
+const fetch = require('node-fetch')
 
 const usersController = {
 
@@ -106,6 +107,7 @@ const usersController = {
      
           
         }else{
+            // console.log (errors)
             res.render('login',{errors:errors.array()});
         }  
     },
@@ -174,6 +176,7 @@ const usersController = {
                 imagen_id: req.file ? JSON.stringify([req.file.filename]) : JSON.stringify(['generic-profile-picture.jpg']),
                
             }
+ 
             res.render('newUser',{errors:errors.array(), datosUsuario});
         }
        
@@ -288,6 +291,64 @@ const usersController = {
         req.session.destroy();
         res.clearCookie('recordarUsuario')
         res.redirect('/');
+    },
+
+    userExists: async (req, res) => {
+
+        console.log(req.body.email)
+        credenciales = await db.UsersAuthData.findOne({
+            where: {
+                email: req.body.email
+            }            
+        })
+        console.log(credenciales)
+        if (credenciales){
+            return res.json ("true")
+        }else{
+            return res.json ("false")
+        }
+    },
+    passwordMatch: async (req, res) => {
+        
+        credenciales = await db.UsersAuthData.findOne({
+            where: {
+                email: req.body.email
+            }            
+        })
+       
+        if (bcrypt.compareSync(req.body.contrasenia, credenciales['contraseña'])){
+            return res.json ("true")
+        }else{
+            return res.json ("false")
+        }
+    },
+
+    prueba: ( req, res) =>{
+        
+        try{
+            let data = {
+                "email": "juanperez@juanper2ez.com"
+            }
+            console.log(JSON.stringify(data))
+
+            fetch("http://localhost:3080/userExists", {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers:{
+                  'Content-Type': 'application/json'
+                }
+              })
+              .then(res => res.json())
+              .catch(error => console.error('Error:', error))
+              .then(isUserinDB => {
+                  console.log(isUserinDB === "true")
+                  // return (isUserinDB === "true")
+                });
+            
+        }catch(e){
+            console.log(e)
+        }
+      
     }
 };
 
