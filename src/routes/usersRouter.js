@@ -53,7 +53,6 @@ const validateUserFormLogin =[
         .notEmpty().withMessage('Ingresa tu E-mail').bail()
         .isEmail().withMessage('Debe ser un E-mail válido')
         .custom( email => {
-            let value=false;
             let data = {
                 "email": email
             }

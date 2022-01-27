@@ -303,9 +303,9 @@ const usersController = {
         })
         console.log(credenciales)
         if (credenciales){
-            return res.json ("true")
+            return res.json ({exists: 'true'})
         }else{
-            return res.json ("false")
+            return res.json ({exists: 'false'})
         }
     },
     passwordMatch: async (req, res) => {
