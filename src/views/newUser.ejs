@@ -18,7 +18,7 @@
                 <h3>Creá tu cuenta</h3>
                 <div class="estilo-formulario"> 
                     <label for="nombre"></label>
-                    <input type="text" <% if (locals.datosUsuario != undefined) { %>
+                    <input type="text" id="nombre" <% if (locals.datosUsuario != undefined) { %>
                         value=<%=locals.datosUsuario.nombre%>
                     <% } %>
                      name="nombre" id="nombre"  placeholder="Nombre" class="estilo-input">
@@ -32,9 +32,15 @@
                         <% } %>
                     <% } %>
                 </div>  
+
+                    <!-- Mensaje de error -->
+                    <div class="errorNombre">
+                        <p></p>
+                    </div>                
+
                 <div class="estilo-formulario"> 
                     <label for="apellido"></label>
-                    <input type="text" <% if (locals.datosUsuario != undefined) { %>
+                    <input type="text" id="apellido" <% if (locals.datosUsuario != undefined) { %>
                         value=<%=locals.datosUsuario.apellido%>
                     <% } %>
                     name="apellido" id="apellido" placeholder="Apellido" class="estilo-input">
@@ -49,9 +55,14 @@
                     <% } %>
                 </div>
 
+                    <!-- Mensaje de error -->
+                    <div class="errorApellido">
+                        <p></p>
+                    </div>                
+
                 <div class="estilo-formulario">
                     <label for="email"></label>
-                    <input type="email" <% if (locals.datosUsuario != undefined) { %>
+                    <input type="email" id="email" <% if (locals.datosUsuario != undefined) { %>
                         value=<%=locals.datosUsuario.email%>
                     <% } %>
                     name="email" id="email" placeholder="E-mail" class="estilo-input">
@@ -66,9 +77,14 @@
                     <% } %>
                 </div>
 
+                    <!-- Mensaje de error -->
+                    <div class="errorEmail">
+                        <p></p>
+                    </div>                
+
                 <div class="estilo-formulario">
                     <label for="contrasenia"></label>
-                    <input type="password" <% if (locals.datosUsuario != undefined) { %>
+                    <input type="password" id="password" <% if (locals.datosUsuario != undefined) { %>
                         value=<%=locals.datosUsuario.contraseña%>
                     <% } %>
                     name="contrasenia" id="contrasenia" placeholder="Contraseña" class="estilo-input">
@@ -82,10 +98,15 @@
                         <% } %>
                     <% } %>
                 </div>
+            
+                    <!-- Mensaje de error -->
+                    <div class="errorPassword">
+                        <p></p>
+                    </div>                
 
                 <div class="estilo-formulario">
                     <label for="confContr"></label>
-                    <input type="password" name="confContr" id="confContr" placeholder="Confirmar contraseña" class="estilo-input">
+                    <input type="password" name="confContr" id="confPassword" placeholder="Confirmar contraseña" class="estilo-input">
                     <% if (typeof errors != 'undefined') { %>
                         <% for (let i = 0; i < errors.length; i++) { %>
                             <% if (errors[i].param == 'confContr') { %>
@@ -97,9 +118,14 @@
                     <% } %>
                 </div>
 
+                    <!-- Mensaje de error -->
+                    <div class="errorConfPassword">
+                        <p></p>
+                    </div>                
+
                 <div class="estilo-formulario">
                     <label for="telefono"></label>
-                    <input type="text" <% if (locals.datosUsuario != undefined) { %>
+                    <input type="text" id="telefono" <% if (locals.datosUsuario != undefined) { %>
                         value=<%=locals.datosUsuario.telefono%>
                     <% } %>
                      name="telefono"  id="telefono" placeholder="Teléfono" class="estilo-input">
@@ -114,10 +140,22 @@
                     <% } %>
                 </div>
 
+                <!-- Mensaje de error -->
+                <div class="errorTelefono">
+                    <p></p>
+                </div>                
+
                 <div class="estilo-formulario">
                     <label for="imagen" class="label-formulario">Imágen de Perfil: </label>
                     <input type="file" id="imagen"  name="imagen" class="estilo-input">
                 </div>
+
+                    <!-- Mensaje de error -->
+                    <div class="errorImagen">
+                        <p></p>
+                    </div>
+                </br>
+
                 </div class="estilo-formulario"> 
                 <button class="boton-formularios" type="submit">Registrarse</button>
             </section>
@@ -128,5 +166,6 @@
     <!----- FOOTER ----->
     <%- include('./partials/footer') %>
     <!----- FIN-FOOTER ----->
+    <script src="/js/newUserValidation.js"></script>
 </body>
 </html>
