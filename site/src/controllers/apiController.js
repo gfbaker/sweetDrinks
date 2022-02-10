@@ -50,7 +50,7 @@ const apiController = {
                     nombre: user.nombre,
                     apellido: user.apellido,
                     telefono: user.telefono,
-                    imagen_id: req.protocol + "://" + req.hostname + ":3080/img/imgUsers/" + JSON.parse(user.imagen_id)[0]
+                    imagen_id: req.protocol + "://" + req.get('host') + "/img/imgUsers/" + JSON.parse(user.imagen_id)[0]
                     
                 }           
             }
@@ -108,8 +108,8 @@ const apiController = {
    
     },
     getProductsId:(req,res) =>{
-            
-        fetch(`http://localhost:3080/api/products/${req.params.id}/images`)
+
+        fetch(`${req.protocol}://${req.get('host')}/api/products/${req.params.id}/images`)
         .then(respuesta => respuesta.json())
         .then(imagenes =>{
             db.Products.findByPk(req.params.id)
@@ -149,7 +149,7 @@ const apiController = {
             .then(resultado => {
 
               res.json(resultado.map(imagen => {
-                   return  req.protocol + "://" + req.hostname + ":3080/img/imgProduct/" + imagen.nombre
+                   return  req.protocol + "://" + req.get('host') + "/img/imgProduct/" + imagen.nombre
                }))
             })
             .catch(e=>console.log(e))
