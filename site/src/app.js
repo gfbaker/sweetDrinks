@@ -7,6 +7,7 @@ const session = require('express-session') //Requiriendo Session
 const mainRoutes = require('./routes/mainRouter');
 const productRoutes = require('./routes/productRouter');
 const usersRoutes = require('./routes/usersRouter');
+const apiRoutes = require('./routes/apiRouter');
 const db = require('./database/models');
 // const { cookie } = require('express/lib/response');
 const cookieParser = require('cookie-parser');
@@ -49,6 +50,8 @@ app.set('views', './src/views');
 app.use("/", mainRoutes);
 app.use("/products", productRoutes);
 app.use("/", usersRoutes);
+app.use("/api", apiRoutes);
+
 
 app.use((req,res, next) => {
     res.status(404).render('not-found')
