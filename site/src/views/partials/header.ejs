@@ -39,7 +39,12 @@
             <form class="usuario-logged" action="" method="get">
                 <p>Bienvenido/a, <%= user.nombre + ' ' + user.apellido  %> </p>
                 <a href="/endSession" onclick="alert('Su sesión a terminado')" class="usuario-logged">Cerrar Sesión</a>
+                <br>
+                <% if (user.usersAuthData.admin == true) {%>
+                <a href="http://localhost:3000/" target="_blank" class="usuario-logged">DASHBOARD</a>
+                <% } %>
             </form>
+
         <% } %>
     </div>
 

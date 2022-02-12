@@ -153,10 +153,58 @@ const apiController = {
                }))
             })
             .catch(e=>console.log(e))
-         
+        },
+        topRowData: async (req,res) => {  
+  
+            let productosEnOferta = await db.Products
+            .findAll({
+                where: {
+                    oferta: true
+                }
+            })
 
-
-}
+            let productosImportados = await db.Products
+            .findAll({
+                where: {
+                    importado: true
+                }
+            })
+            // res.send (productosImportados)
+            let productosEnPack = await db.Products
+            .findAll({
+                where: {
+                    esPack: true
+                }
+            })
+                
+            let topRowData ={
+                meta: {
+                    status: 200,
+                    url: 'api/topRowData'
+                },
+                data: [
+                    {
+                        title: "PRODUCTOS EN OFERTA",
+                        count: productosEnOferta.length,
+                        icon: "fa-percent"
+                    },
+                    {
+                        title: "PRODUCTOS IMPORTADOS",
+                        count: productosImportados.length,
+                        icon: "fa-globe-americas"
+                    },
+                    {
+                        title: "PRODUCTOS EN PACK",
+                        count: productosEnPack.length,
+                        icon: "fa-cubes"
+                    }
+                ]
+            
+            }
+            
+            res.json(topRowData)
+        }
+    
 }
 // Acá exportamos el resultado
 module.exports = apiController;

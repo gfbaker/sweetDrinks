@@ -11,7 +11,7 @@ function ContentRowProducts(){
 
 
     useEffect(()=> {
-        fetch('/api/products')
+        fetch('/api/topRowData')
         .then(response => {
             return response.json()
         })
