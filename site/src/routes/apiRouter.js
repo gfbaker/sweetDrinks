@@ -10,6 +10,7 @@ const apiController = require('../controllers/apiController');
 router.get('/users', apiController.getUsers);
 router.get('/users/:id', apiController.getUsersId);
 
+
 router.get('/products', apiController.getProducts);
 router.get('/products/:id', apiController.getProductsId);
 router.get('/products/:id/images', apiController.getProductsIdImages);

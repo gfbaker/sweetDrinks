@@ -8,7 +8,9 @@ const db = require('../database/models');
 const apiController = {
     getUsers: (req,res) => {
         db.Users.findAll({
-            include:[{association: "usersAuthData"}]
+            include:["usersAuthData"],
+            order:[['usersAuthData','admin', 'desc']]
+            
             
         })
         .then(users =>{
@@ -23,7 +25,8 @@ const apiController = {
                         id : element.id,
                         name : element.nombre,
                         email: element.usersAuthData.email,
-                        detail: "/api/users/" + element.id
+                        detail: "/api/users/" + element.id,
+                        admin : element.usersAuthData.admin
                     }
                 })
             

@@ -1,9 +1,9 @@
 import React, {useState , useEffect} from 'react';
-import User  from './User';
+import UserListDetail from './UserListDetail';
 
-function UsersInDb(){
+function UsersList(){
   
-   const [UsersInDb , setListUsers] = useState([]) //Estado Inicial
+   const [UsersList , setUsersList] = useState([]) //Estado Inicial
 
 
     useEffect(()=> {
@@ -12,7 +12,7 @@ function UsersInDb(){
             return response.json()
         })
         .then(users =>{            
-            setListUsers(users.data)
+            setUsersList(users.data)
         })
         .catch(error => console.log(error))
     },[])
@@ -20,22 +20,22 @@ function UsersInDb(){
         return (
             <React.Fragment>
                 {/*<!-- Categories in DB -->*/}
-                <div className="col-lg-6 mb-4">						
+               					
                     <div className="card shadow mb-4">
-                        <div className="card-header py-3">                                 
-                            <h6 className="m-0 font-weight-bold text-gray-800">Users in Data Base</h6>
+                        <div className="card-header py-3">
+                            <h6 className="m-0 font-weight-bold text-gray-800">Lista de Usuarios</h6>
                         </div>
                         <div className="card-body">
-                            <div className="row">
+                            <div className="rowUsers">
                                 {
-                                    UsersInDb.map((user,index)=>{
-                                        return  <User  {...user}  key={user + index} />
+                                    UsersList.map((user,index)=>{
+                                        return  <UserListDetail  {...user}  key={user + index} />
                                     })
                                 }
                             </div>
                         </div>
                     </div>
-                </div>
+                
            
         </React.Fragment>
         )
@@ -43,4 +43,4 @@ function UsersInDb(){
         
 
 
-export default UsersInDb;
+export default UsersList;

@@ -1,7 +1,8 @@
 import React from 'react';
 import image from '../assets/images/logo-SD.png';
 import ContentWrapper from "./ContentWrapper"
-import GenresInDb from "./UsersInDb";
+// import UsersInDb from "./UsersInDb";
+import UsersList from "./UsersList";
 import LastMovieInDb from "./LastMovieInDb";
 import ContentRowMovies from "./ContentRowProducts";
 import Error404 from "./Error404";
@@ -12,12 +13,12 @@ function SideBar(){
     return(
         <React.Fragment>        
             {/*<!-- Sidebar -->*/}
-            <ul className="navbar-nav bg-gradient-secondary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <ul className="navbar-nav bg-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
                 {/*<!-- Sidebar - Brand -->*/}
                 <a className="sidebar-brand d-flex align-items-center justify-content-center" href="/">
                     <div className="sidebar-brand-icon">
-                        <img className="w-100" src={image} alt="Digital House"/>
+                        <img className="w-100" src={image} alt="Sweet Drinks"/>
                     </div>
                 </a>
 
@@ -28,7 +29,7 @@ function SideBar(){
                 <li className="nav-item active">
                     <Link className="nav-link" to="/">
                         <i className="fas fa-fw fa-tachometer-alt"></i>
-                        <span>Dashboard - DH movies</span></Link>
+                        <span>Inicio Sweet Drinks</span></Link>
                 </li>
 
                 {/*<!-- Divider -->*/}
@@ -39,9 +40,9 @@ function SideBar(){
 
                 {/*<!-- Nav Item - Pages -->*/}
                 <li className="nav-item">
-                    <Link className="nav-link collapsed" to="/GenresInDb">
+                    <Link className="nav-link collapsed" to="/UsersList">
                         <i className="fas fa-fw fa-folder"></i>
-                        <span>Géneros</span>
+                        <span>Lista de Usuarios</span>
                     </Link>
                 </li>
 
@@ -65,7 +66,7 @@ function SideBar(){
             {/*<!-- End of Sidebar -->*/}
             <Routes>          
                 <Route path ="/" element={<ContentWrapper/>}></Route>
-                <Route path ="/GenresInDb" element={<GenresInDb/>}></Route>
+                <Route path ="/UsersList" element={<UsersList/>}></Route>
                 <Route path ="/LastMovieInDb" element={<LastMovieInDb/>}></Route>
                 <Route path ="/ContentRowMovies"  element={<ContentRowMovies/>}></Route> 
                 <Route element={Error404} />
