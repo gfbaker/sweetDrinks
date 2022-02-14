@@ -538,14 +538,7 @@ body main form section div .label-formulario{
   }
 /* <-----------------DETALLE DEL PRODUCTO Mobile-----------------> */
 
-.mainProductDetail{
-    
-    margin: 0% 15% 0% 15%;
-    padding-bottom: 40px;
-    color: #1e202f;
-    position: relative;
-   
-}
+
 
 .prodDetBotonEditar input{
     margin:8px;
@@ -559,57 +552,93 @@ body main form section div .label-formulario{
     background-color: #EB9C4B ;
 }
 
-.imgDtProd{
+body > main > section:nth-child(1) > article > div.imgDtProd{
+    display: flex;
+    flex-direction: column;
+    margin: 5%;
+
+}
+
+.imgDtProdMiniLaptop img{
+    display: none;
+}
+.imgDtProdMiniMobile img{
+    padding-top: 1%;
+    width: 15%;
+}
+.imgPrincipal{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding-top: 4%;
+}
+/* .imgDtProd{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     padding-top: 4%;
     
-}
+} */
 
-.imgDtProd img{
+/* .imgDtProd img{
     margin: 5%;
     width: 90%;
     align-self: center;
     border: solid 1px  #79787e;;
     
-}
-.imgDtProdMini{
+} */
+/* .imgDtProdMini{
     display: flex;
     width: 15%;
     margin-left: 10%;
 }
 .imgDtProdMini img{
     margin:5px;
+} */
+.tituloPrecioDtProd{
+    text-align: center;
+    /* padding: 1%; */
 }
-
+.tituloPrecioDtProd h3{
+    padding: 2%;
+}
 .dtProdInfo{
-    display: flex;
+    min-width: 35%;
+    /* display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center; */
 }
 .dtProdInfo h1{
     text-align: center;
+    margin: 0;
 }
-.dtProdInfo h3{
-    font-size: 25px;
+.dtProdInfo .parrafoMobile{
+    font-size: 16px;
     text-align: center;
+    padding: 5%;
 }
-.dtProdInfo p{
+.parrafoLaptop{
+    font-size: 16px;
+    text-align: center;
+    display: none;
+}
+/* .dtProdInfo p{
     text-align: center;
     padding: 3%;
     line-height: 20px;
-}
+} */
 .dtProdInfo ul{
-    list-style-type: disclosure-closed;
+    list-style-type: none;
     line-height: 30px;
     text-align: center;
+    padding: 2%;
 }
 
 .dtProductosFormulario{
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 2%;
 }
 .dtProductosFormulario div{
     margin: 10px;
@@ -642,6 +671,10 @@ div.dtProductosFormulario > div > div:nth-child(2) > a{
 main section article h2{
     text-align: center;
     padding: 2%;
+}
+
+.dtProdRelArticle{
+padding-top: 15% ;
 }
 
 .dtProdRel{
@@ -856,12 +889,7 @@ div.cantidadArticulo{
     display: flex;
     justify-content: space-between;
 }
-/* p.cantidadArticulo{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color:#35453C
-} */
+
 p.cantidadArticulo{
     font-size: 16px;
     border: 1.5px solid #79787e;
@@ -1208,25 +1236,6 @@ a.botonComprar{
      
     /* DETALLE DE PRODUCTO */
 
-    .imgDtProd {
-        flex-direction: row;
-
-    }
-    .imgDtProd img { 
-      margin:0%;
-      width: 75%;
-      align-self: flex-end;
-        
-    }
-    .imgDtProdMini{
-     flex-direction: column;
-     width: 20%;
-     margin-right: 1%;
-     margin-left: 0%;
-     order: -1;
-    }
-
-
     .dtProdRel{
         flex-direction: row;
         justify-content: center;
@@ -1342,47 +1351,66 @@ a.botonComprar{
     /* FIN REGISTRO */
 
     /* DETALLE DE PRODUCTO */
-
-    .imgDtProd img{
-        width: 30%;
-    }
-    .imgDtProdMini{
-        width: 20%;
-        margin-left: -5%;
-    }
-    article > div.dtProdInfo > div.tituloPrecioDtProd{
-        width: 45%;
-        position: absolute;
-        top: 1%;
-        left: 52%;
-        font-size: 15px;
-    }
-    .dtProdInfo ul {
-        position: absolute;
-        top: 17%;
-        left: 63%;  
-        font-size: 12px;
-    }
-    .productBotonesElimEdit{
+    .dtProdRelArticle{
+        padding-top: 0;
+        }
+    body > main > section:nth-child(1) > article{
         display: flex;
-        position: absolute;
+        flex-direction: row;
+        justify-content: center;
+        padding: 1%;
+    }
+    
+    body > main > section:nth-child(1) > .parrafoLaptop {
+        display: initial;
+    
+    }
+    body > main > section:nth-child(1) > .parrafoLaptop p{
+        
+        border-top: 1px solid #EB9C4B;
+        margin: 1% 8%;
+        padding-top: 1%;
+    }
+    .dtProdInfo div h1{        
+        display: flex;
+        flex-direction: column;
         align-items: center;
-        bottom: -115px;
-        left: -20px;
     }
-    .dtProductosFormulario{
-        width: 20%;
-        position: absolute;
-        top: 25%;
-        left: 65%;
+    body > main > section:nth-child(1) > article > div.dtProdInfo > div.dtProductosFormulario > div{
+        margin: -20px;
     }
-   
-   
-    .dtProdInfo p{
-        order: 1;
-        border-top: solid 2px #EB9C4B;
-        margin-bottom: 5%;
-        margin-top: 30%;
+    body > main > section:nth-child(1) > article > div.dtProdInfo > div.dtProductosFormulario > div > form{
+        margin: 1px;
+    }
+    .dtProdInfo .parrafoMobile{
+        display: none;
+    }
+
+    body > main > section:nth-child(1) > article > div.imgDtProd{
+        flex-direction: row;
+        max-width: 30%;
+        padding-right: 1%;
+        margin: 0;
+        max-height: 20rem;
+    }
+    .imgPrincipal{
+        padding: 0;
+        flex-grow: 2;
+        max-width: 80%;
+    }
+    .imgDtProdMiniLaptop img{
+        display: initial;
+        flex-grow: 1;
+        margin-right: 1%;
+        max-width: 90%;
+    }
+    .imgDtProdMiniMobile img{
+        display: none;
+    }
+   section div .parrafoLaptop{
+        display: initial;
+        font-size: 25px;
+     text-align: center;
     }
 
     .prodRelArt1{
@@ -1456,41 +1484,6 @@ a.botonComprar{
 
     /* DETALLE DE PRODUCTO */
     
-
-    
-    .dtProdInfo div h1{
-        font-size: 50px;
-    }
-    .dtProdInfo div h3{
-        font-size: 45px;
-    }
-     .dtProdInfo ul {
-        top: 20%;
-        left: 63%;
-        font-size: 23px;  
-    }
-    
-    .dtProductosFormulario{
-        top: 25%;
-        left: 65%;
-        margin: 0%;
-    }
-   
-    .dtProductosFormulario form input{
-        font-size: 30px;
-        padding: 4px;
-        margin: 5px;
-    }
-    
-    .dtProdInfo p{
-        font-size: 25px;
-        line-height: 30px;
-    }
-    main section article h2 {
-        font-size: 45px;
-    
-    }
-
     .pieRelArti h3{
         font-size: 23px;
     }
@@ -1541,9 +1534,6 @@ div .formulario-titulo{
     margin-left: 20px;
 }
 
-/* h2 .formulario-titulo{
-
-} */
 .form-div-checkbox{
     display: flex;
     margin:5px 20px;
