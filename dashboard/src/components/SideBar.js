@@ -3,9 +3,10 @@ import image from '../assets/images/logo-SD.png';
 import ContentWrapper from "./ContentWrapper"
 // import UsersInDb from "./UsersInDb";
 import UsersList from "./UsersList";
-import LastMovieInDb from "./LastMovieInDb";
+import Chart from "./Chart";
 import ContentRowMovies from "./ContentRowProducts";
 import Error404 from "./Error404";
+import ProductDetail from './ProductDetail';
 import { Link, Route, Routes } from 'react-router-dom';
 
 
@@ -28,7 +29,6 @@ function SideBar(){
                 {/*<!-- Nav Item - Dashboard -->*/}
                 <li className="nav-item active">
                     <Link className="nav-link" to="/">
-                        <i className="fas fa-fw fa-tachometer-alt"></i>
                         <span>Inicio Sweet Drinks</span></Link>
                 </li>
 
@@ -36,38 +36,33 @@ function SideBar(){
                 <hr className="sidebar-divider"/>
 
                 {/*<!-- Heading -->*/}
-                <div className="sidebar-heading">Actions</div>
+                <div className="sidebar-heading">OPCIONES</div>
 
                 {/*<!-- Nav Item - Pages -->*/}
                 <li className="nav-item">
                     <Link className="nav-link collapsed" to="/UsersList">
-                        <i className="fas fa-fw fa-folder"></i>
+                        <i className="fas fa-user"></i>
                         <span>Lista de Usuarios</span>
                     </Link>
                 </li>
 
                 {/*<!-- Nav Item - Charts -->*/}
                 <li className="nav-item">
-                    <Link className="nav-link" to="/LastMovieInDb">
-                        <i className="fas fa-fw fa-chart-area"></i>
-                        <span>Ultima Peli en DB</span></Link>
+                    <Link className="nav-link collapsed" to="/productList">
+                        <i className="fas fa-fw fa-wine-bottle"></i>
+                        <span>Listado de Productos</span></Link>
                 </li>
 
-                {/*<!-- Nav Item - Tables -->*/}
-                <li className="nav-item">
-                    <Link className="nav-link" to="/ContentRowMovies">
-                        <i className="fas fa-fw fa-table"></i>
-                        <span>Tabla</span></Link>
-                </li>
 
                 {/*<!-- Divider -->*/}
                 <hr className="sidebar-divider d-none d-md-block"/>
             </ul>
             {/*<!-- End of Sidebar -->*/}
             <Routes>          
-                <Route path ="/" element={<ContentWrapper/>}></Route>
+                <Route exact path ="/" element={<ContentWrapper/>}></Route>
+                <Route path ='/products/:id' element={<ProductDetail />}></Route>
                 <Route path ="/UsersList" element={<UsersList/>}></Route>
-                <Route path ="/LastMovieInDb" element={<LastMovieInDb/>}></Route>
+                <Route path ="/productList" element={<Chart/>}></Route>
                 <Route path ="/ContentRowMovies"  element={<ContentRowMovies/>}></Route> 
                 <Route element={Error404} />
             </Routes>  

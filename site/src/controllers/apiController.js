@@ -115,7 +115,9 @@ const apiController = {
         fetch(`${req.protocol}://${req.get('host')}/api/products/${req.params.id}/images`)
         .then(respuesta => respuesta.json())
         .then(imagenes =>{
-            db.Products.findByPk(req.params.id)
+            db.Products.findByPk(req.params.id,{
+                include:[{association: "images"},{association: "categories"}]
+            } )
             .then(product =>{
                 let productInDb ={
                     meta: {
@@ -127,6 +129,9 @@ const apiController = {
                         nombre: product.nombre,
                         precio: product.precio,
                         porcentajeAlcohol: product.porcentajeAlcohol,
+                        descripcion: product.descripcion,
+                        stock: product.stock,
+                        imagenPrincipal: req.protocol + "://" + req.get('host') + "/img/imgProduct/" + product.images[0]['nombre'],
                         imagenes:imagenes
                         
                     }           
@@ -206,6 +211,29 @@ const apiController = {
             }
             
             res.json(topRowData)
+        },
+        mayorStock: async (req,res) => {  
+  
+            let maxStock = await db.Products.max('stock')
+            let productoMaxStock = await db.Products
+            .findOne({
+                include:[{association: "images"},{association: "categories"}],
+                where: {
+                    stock: maxStock
+                }
+            })
+
+            
+            res.json({
+                nombre: productoMaxStock.nombre,
+                stock: productoMaxStock.stock,
+                precio: productoMaxStock.precio,
+                descripcion: productoMaxStock.descripcion,
+                imagen:  req.protocol + "://" + req.get('host') + "/img/imgProduct/" + productoMaxStock.images[0]['nombre'],
+                url:`/api/products/${productoMaxStock.id}`
+                
+            })
+
         }
     
 }

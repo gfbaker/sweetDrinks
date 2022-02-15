@@ -11,7 +11,7 @@ function CategoriesInDb(){
             return response.json()
         })
         .then(productos =>{          
-            console.log (productos.meta.countByCategory)
+            // console.log (productos.meta.countByCategory)
             setCategoryList(productos.meta.countByCategory)
 
         })
@@ -21,11 +21,10 @@ function CategoriesInDb(){
    
         return (
             <React.Fragment>
-                {/*<!-- Categories in DB -->*/}
-					
+                <div className="col-lg-6 mb-4">						
                     <div className="card shadow mb-4">
-                        <div className="card-header py-3">
-                            <h6 className="m-0 font-weight-bold text-gray-800">Categories in Data Base</h6>
+                        <div className="card-header py-3">                                 
+                            <h6 className="m-0 font-weight-bold text-gray-800">Categorías en DB</h6>
                         </div>
                         <div className="card-body">
                             <div className="row">
@@ -37,6 +36,9 @@ function CategoriesInDb(){
                             </div>
                         </div>
                     </div>
+                </div>
+
+
 
            
         </React.Fragment>

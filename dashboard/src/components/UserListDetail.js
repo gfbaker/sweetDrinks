@@ -2,9 +2,15 @@ import React from 'react';
 
 function UserListDetail(props){
     let color = "dark"
+    let buttonText = "HACER ADMIN"
+    let styles = {
+        button: "btn btn-secondary"
+    }
 
     if(props.admin){
         color = "light"
+        buttonText = ""
+        styles.button = ""
     }
     return(
         <React.Fragment>
@@ -16,7 +22,9 @@ function UserListDetail(props){
                         <div>
                         {props.email}
                         </div>
+                        <a href="/" class={styles.button}>{buttonText}</a>
                     </div>
+
                 </div>
             </div>
         </React.Fragment>
