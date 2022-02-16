@@ -9,6 +9,27 @@
     font-family: 'Poppins', sans-serif;
 }
 
+a {
+    text-decoration: none !important;
+}
+
+header a {
+    color: white
+}
+
+.carousel-control-next,
+.carousel-control-prev /*, .carousel-indicators */ {
+    filter: invert(100%);
+}
+
+.carousel-control-next{
+    right: -100px !important;
+}
+
+.carousel-control-prev{
+    left: -100px !important;
+}
+
 body{
     background-color: whitesmoke;
     margin-top: -8px;
@@ -465,8 +486,7 @@ height: 2vh;
 }
 .pie-del-articulo{
     background-color: transparent;
-   
-   
+    min-height: 120px;  
 }
 .pie-del-articulo-nombre{
     font-weight: bold;

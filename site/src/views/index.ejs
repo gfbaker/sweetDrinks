@@ -51,7 +51,94 @@
         <h3>Productos en oferta</h3>
 
         <section class="articulos">
-            <% for (let i = 0; i < ofertas.length; i++){ %>
+
+            <div class="container my-4">
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                  <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                  </div>
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <div class="row">
+                        <% for (let j = 0; j < 4; j++){ %>
+                            <% if (j == 0){ %>
+                      <div class="col-md-3">
+                        <a class="text-decoration-none" href="/products/detail/<%=ofertas[j].id%>">
+                        <div class="card mb-2 article-main">
+                          <img class="img-article-home" src="./img/imgProduct/<%=ofertas[j].images[0].nombre%>" alt="Card image cap">
+                          <div class="card-body pie-del-articulo">
+                            <h4 class="card-title pie-del-articulo-nombre"><%=ofertas[j].nombre%> <%=ofertas[j].volumen%></h4>
+                            <p class="card-text pie-del-articulo-precio"><strike>$<%=ofertas[j].precio%></strike> $<%=ofertas[j].precio * (1- (ofertas[j].descuento / 100) )%></p>
+                          </div>
+                        </div>
+                        </a>
+                      </div>
+                      <% } else { %>
+                      <div class="col-md-3 clearfix d-none d-md-block">
+                        <a class="text-decoration-none" href="/products/detail/<%=ofertas[j].id%>">
+                        <div class="card mb-2 article-main">
+                          <img class="img-article-home" src="./img/imgProduct/<%=ofertas[j].images[0].nombre%>" alt="Card image cap">
+                          <div class="card-body pie-del-articulo">
+                            <h4 class="card-title pie-del-articulo-nombre"><%=ofertas[j].nombre%> <%=ofertas[j].volumen%></h4>
+                            <p class="card-text pie-del-articulo-precio"><strike>$<%=ofertas[j].precio%></strike> $<%=ofertas[j].precio * (1- (ofertas[j].descuento / 100) )%></p>
+                          </div>
+                        </div>
+                        </a>
+                      </div>
+                      <% } %>
+                    <% } %>
+                    </div>
+                    </div>
+  
+                    <div class="carousel-item">
+                      <div class="row">
+                        <% for (let j = 4; j < ofertas.length; j++){ %>
+                            <% if (j == 0){ %>
+                      <div class="col-md-3">
+                        <a class="text-decoration-none" href="/products/detail/<%=ofertas[j].id%>">
+                        <div class="card mb-2 article-main">
+                          <img class="img-article-home" src="./img/imgProduct/<%=ofertas[j].images[0].nombre%>"
+                               alt="Card image cap">
+                          <div class="card-body pie-del-articulo">
+                            <h4 class="card-title pie-del-articulo-nombre"><%=ofertas[j].nombre%> <%=ofertas[j].volumen%></h4>
+                            <p class="card-text pie-del-articulo-precio"><strike>$<%=ofertas[j].precio%></strike> $<%=ofertas[j].precio * (1- (ofertas[j].descuento / 100) )%></p>
+                          </div>
+                        </div>
+                        </a>
+                      </div>
+            
+                      <% } else { %>
+                      <div class="col-md-3 clearfix d-none d-md-block">
+                        <a class="text-decoration-none" href="/products/detail/<%=ofertas[j].id%>">
+                          <div class="card mb-2 article-main">
+                            <img class="img-article-home" src="./img/imgProduct/<%=ofertas[j].images[0].nombre%>"
+                                 alt="Card image cap">
+                            <div class="card-body pie-del-articulo">
+                              <h4 class="card-title pie-del-articulo-nombre"><%=ofertas[j].nombre%> <%=ofertas[j].volumen%></h4>
+                              <p class="card-text pie-del-articulo-precio"><strike>$<%=ofertas[j].precio%></strike> $<%=ofertas[j].precio * (1- (ofertas[j].descuento / 100) )%></p>
+                            </div>
+                          </div>
+                          </a>
+                      </div>
+                      <% } %>
+                    <% } %>
+                    </div>
+                    </div>
+  
+                  </div>
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>
+                </div>
+            <!-- <% for (let i = 0; i < ofertas.length; i++){ %>
                 <article class="article-main">
                     <a href="/products/detail/<%=ofertas[i].id%>">
                         <img class="img-article" src="./img/imgProduct/<%=ofertas[i].images[0].nombre%>" alt="imagen">
@@ -64,13 +151,100 @@
                     </div>
                 </article>
                 
-            <% } %>         
+            <% } %>          -->
         </section>    
 
         <h3>Productos Importados</h3>
 
         <section class="articulos">
-            <% for (let i = 0; i < importados.length; i++){ %>
+
+            <div class="container my-4">
+                <div id="carouselImportados" class="carousel slide" data-bs-ride="carousel">
+                  <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselImportados" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselImportados" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselImportados" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                  </div>
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <div class="row">
+                        <% for (let j = 0; j < 4; j++){ %>
+                            <% if (j == 0){ %>
+                      <div class="col-md-3">
+                        <a class="text-decoration-none" href="/products/detail/<%=importados[j].id%>">
+                        <div class="card mb-2 article-main">
+                          <img class="img-article-home" src="./img/imgProduct/<%=importados[j].images[0].nombre%>" alt="Card image cap">
+                          <div class="card-body pie-del-articulo">
+                            <h4 class="card-title pie-del-articulo-nombre"><%=importados[j].nombre%> <%=importados[j].volumen%></h4>
+                            <p class="card-text pie-del-articulo-precio"><strike>$<%=importados[j].precio%></strike> $<%=importados[j].precio * (1- (importados[j].descuento / 100) )%></p>
+                          </div>
+                        </div>
+                        </a>
+                      </div>
+                      <% } else { %>
+                      <div class="col-md-3 clearfix d-none d-md-block">
+                        <a class="text-decoration-none" href="/products/detail/<%=importados[j].id%>">
+                        <div class="card mb-2 article-main">
+                          <img class="img-article-home" src="./img/imgProduct/<%=importados[j].images[0].nombre%>" alt="Card image cap">
+                          <div class="card-body pie-del-articulo">
+                            <h4 class="card-title pie-del-articulo-nombre"><%=importados[j].nombre%> <%=importados[j].volumen%></h4>
+                            <p class="card-text pie-del-articulo-precio"><strike>$<%=importados[j].precio%></strike> $<%=importados[j].precio * (1- (importados[j].descuento / 100) )%></p>
+                          </div>
+                        </div>
+                        </a>
+                      </div>
+                      <% } %>
+                    <% } %>
+                    </div>
+                    </div>
+  
+                    <div class="carousel-item">
+                      <div class="row">
+                        <% for (let j = 4; j < importados.length; j++){ %>
+                            <% if (j == 0){ %>
+                      <div class="col-md-3">
+                        <a class="text-decoration-none" href="/products/detail/<%=importados[j].id%>">
+                        <div class="card mb-2 article-main">
+                          <img class="img-article-home" src="./img/imgProduct/<%=importados[j].images[0].nombre%>"
+                               alt="Card image cap">
+                          <div class="card-body pie-del-articulo">
+                            <h4 class="card-title pie-del-articulo-nombre"><%=importados[j].nombre%> <%=importados[j].volumen%></h4>
+                            <p class="card-text pie-del-articulo-precio"><strike>$<%=importados[j].precio%></strike> $<%=importados[j].precio * (1- (importados[j].descuento / 100) )%></p>
+                          </div>
+                        </div>
+                        </a>
+                      </div>
+            
+                      <% } else { %>
+                      <div class="col-md-3 clearfix d-none d-md-block">
+                        <a class="text-decoration-none" href="/products/detail/<%=importados[j].id%>">
+                          <div class="card mb-2 article-main">
+                            <img class="img-article-home" src="./img/imgProduct/<%=importados[j].images[0].nombre%>"
+                                 alt="Card image cap">
+                            <div class="card-body pie-del-articulo">
+                              <h4 class="card-title pie-del-articulo-nombre"><%=importados[j].nombre%> <%=importados[j].volumen%></h4>
+                              <p class="card-text pie-del-articulo-precio"><strike>$<%=importados[j].precio%></strike> $<%=importados[j].precio * (1- (importados[j].descuento / 100) )%></p>
+                            </div>
+                          </div>
+                          </a>
+                      </div>
+                      <% } %>
+                    <% } %>
+                    </div>
+                    </div>
+  
+                  </div>
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselImportados" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselImportados" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>
+                </div>
+            <!-- <% for (let i = 0; i < importados.length; i++){ %>
                 <article class="article-main">
                     <a href="/products/detail/<%=importados[i].id%>">
                         <img class="img-article" src="./img/imgProduct/<%=importados[i].images[0].nombre%>" alt="imagen">
@@ -82,7 +256,7 @@
                         </ul>
                     </div>
                 </article>
-            <% } %>   
+            <% } %>    -->
         </section>
 
         <h3>Packs para tu bar</h3>
