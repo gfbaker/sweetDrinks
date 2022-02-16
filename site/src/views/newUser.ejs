@@ -19,9 +19,9 @@
                 <div class="estilo-formulario"> 
                     <label for="nombre"></label>
                     <input type="text" id="nombre" <% if (locals.datosUsuario != undefined) { %>
-                        value=<%=locals.datosUsuario.nombre%>
+                        value="<%=locals.datosUsuario.nombre%>"
                     <% } %>
-                     name="nombre" id="nombre"  placeholder="Nombre" class="estilo-input">
+                    name="nombre" id="nombre"  placeholder="Nombre" class="estilo-input">
                     <% if (typeof errors != 'undefined') { %>
                         <% for (let i = 0; i < errors.length; i++) { %>
                             <% if (errors[i].param == 'nombre') { %>
@@ -41,7 +41,7 @@
                 <div class="estilo-formulario"> 
                     <label for="apellido"></label>
                     <input type="text" id="apellido" <% if (locals.datosUsuario != undefined) { %>
-                        value=<%=locals.datosUsuario.apellido%>
+                        value="<%=locals.datosUsuario.apellido%>"
                     <% } %>
                     name="apellido" id="apellido" placeholder="Apellido" class="estilo-input">
                     <% if (typeof errors != 'undefined') { %>
@@ -63,7 +63,7 @@
                 <div class="estilo-formulario">
                     <label for="email"></label>
                     <input type="email" id="email" <% if (locals.datosUsuario != undefined) { %>
-                        value=<%=locals.datosUsuario.email%>
+                        value="<%=locals.datosUsuario.email%>"
                     <% } %>
                     name="email" id="email" placeholder="E-mail" class="estilo-input">
                     <% if (typeof errors != 'undefined') { %>
@@ -85,7 +85,7 @@
                 <div class="estilo-formulario">
                     <label for="contrasenia"></label>
                     <input type="password" id="password" <% if (locals.datosUsuario != undefined) { %>
-                        value=<%=locals.datosUsuario.contraseña%>
+                        value="<%=locals.datosUsuario.contraseña%>"
                     <% } %>
                     name="contrasenia" id="contrasenia" placeholder="Contraseña" class="estilo-input">
                     <% if (typeof errors != 'undefined') { %>
@@ -126,7 +126,7 @@
                 <div class="estilo-formulario">
                     <label for="telefono"></label>
                     <input type="text" id="telefono" <% if (locals.datosUsuario != undefined) { %>
-                        value=<%=locals.datosUsuario.telefono%>
+                        value="<%=locals.datosUsuario.telefono%>"
                     <% } %>
                      name="telefono"  id="telefono" placeholder="Teléfono" class="estilo-input">
                     <% if (typeof errors != 'undefined') { %>

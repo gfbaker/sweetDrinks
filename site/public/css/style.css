@@ -186,6 +186,7 @@ a {
     display: flex;
     justify-content: center;
     margin: 3px 0px 0px 0px;
+    
 }
 .nav-central a {
     font-size: 12px;
@@ -403,7 +404,7 @@ height: 2vh;
 }
 
 .ofertas-main {
-    background-color: rgba(0, 0, 0, 0.1);
+    margin: 20px 10px;
 }
 
 .ofertas-section{
@@ -437,6 +438,11 @@ height: 2vh;
     flex-wrap:wrap ;
 }
 
+#registrate{
+    color: #1e202f;
+    font-weight:900;
+}
+
 .article-main {
     margin: 5px;
     box-sizing: border-box;
@@ -449,9 +455,13 @@ height: 2vh;
 
 .home-main h3 {
     text-align: center;
-    margin: 6px;
+    margin: 25px;
     font-size: 22px;
     font-family: 'Poppins', sans-serif;
+    background-image: linear-gradient(to right, black, whitesmoke 35%, whitesmoke 65%, black);
+    background-repeat: no-repeat;
+    background-size: 100% 1px;
+    background-position: 0 center;
 }
 .pie-del-articulo{
     background-color: transparent;
@@ -864,7 +874,7 @@ section article .dtProdRel{
 
 section.articulos{
     box-sizing: border-box;
-    padding-bottom: 130px;
+    margin-bottom: 65px;
 
 }
 .carrito-articulo{
@@ -1255,6 +1265,30 @@ a.botonComprar{
    }
 
 /* Final Perfil de usuarui */
+@media (max-width:480px) {
+
+    .sign-bar {
+        display: inherit;
+    }
+
+    .main-header-top{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin: 0% 0% 0% 5%;
+    }
+
+    .logo-sweetdrinks {
+        width: 104px;
+        height: 60px;
+        margin: 15px;
+    }
+
+    .top-bar{
+        display: none;
+    }
+
+}
 
 /* TABLETS */
 @media (min-width:481px){
@@ -1312,9 +1346,19 @@ a.botonComprar{
 
 }
 
+@media (min-width: 481px) and (max-width: 701px) {
+
+    .nav-bar{
+        display: none;
+    }
+}
+ 
 /* LAPTOP */
 @media (min-width:769px){
      /* HEADER */
+
+
+
      .logo-sweetdrinks {
 
         width: 120px;

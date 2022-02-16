@@ -57,7 +57,6 @@ window.addEventListener('load', () => {
                 document.querySelector(".errorEmail p").innerHTML = ""; 
                     };
             } else if (emailIsValid(email) == false) {
-                console.log('hola soy false');
                 document.querySelector(".errorEmail p").innerHTML = "El e-mail debe tener un formato válido";
                 document.querySelector(".errorEmail p").style.color="red";
                 errors.push(1);
@@ -111,7 +110,7 @@ window.addEventListener('load', () => {
             document.querySelector(".errorTelefono p").innerHTML = "Debes ingresar un teléfono válido";
             document.querySelector(".errorTelefono p").style.color="red";
             errors.push(1);
-            usuario.onmousedown = function(e){
+            telefono.onmousedown = function(e){
                 document.querySelector(".errorTelefono p").innerHTML = ""; 
                     };
             } else if (telefono.value.length < 6) {
