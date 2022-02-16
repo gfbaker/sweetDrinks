@@ -22,14 +22,6 @@ header a {
     filter: invert(100%);
 }
 
-.carousel-control-next{
-    right: -100px !important;
-}
-
-.carousel-control-prev{
-    left: -100px !important;
-}
-
 body{
     background-color: whitesmoke;
     margin-top: -8px;
@@ -168,7 +160,6 @@ body > header > div.main-header-top > div.sign-bar > div:nth-child(1) > i{
     font-size: 10px;
     text-align: center;
     border-bottom: solid 1px #576959;
-    margin-top: 8px;
 }
 
 
@@ -252,7 +243,6 @@ a {
 
 .search-button-header {
     position: absolute;
-    bottom: 5px;
     right: 8px;
     background-color: transparent;
     border: none;
@@ -300,7 +290,7 @@ p {
     position:fixed;
     width:60px;
     height:60px;
-    bottom:90px;
+    bottom:30px;
     right:30px;
     background-color:#25d366;
     color:#FFF;
@@ -1575,6 +1565,15 @@ a.botonComprar{
 /* ESCRITORIO */
 @media (min-width:1280px){
 
+
+    .carousel-control-next{
+        right: -100px !important;
+    }
+    
+    .carousel-control-prev{
+        left: -100px !important;
+    }
+    
     /* PRODUCTOS */
 
     .main-productos{
