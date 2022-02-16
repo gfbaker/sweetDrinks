@@ -1354,13 +1354,13 @@ a.botonComprar{
     .dtProdRelArticle{
         padding-top: 0;
         }
-    body > main > section:nth-child(1) > article{
+    
+    body > main > section:nth-child(1) .productDetailBigBox{
         display: flex;
         flex-direction: row;
         justify-content: center;
         padding: 1%;
     }
-    
     body > main > section:nth-child(1) > .parrafoLaptop {
         display: initial;
     

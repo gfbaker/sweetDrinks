@@ -1077,6 +1077,12 @@ pre code {
     flex: 0 0 50%;
     max-width: 50%;
   }
+  .col-lg-6ProductDetail {
+    flex: 0 0 75%;
+    max-width: 75%;
+    margin-right: 9rem;
+    margin-left: 9rem;
+  }
   .col-lg-7 {
     flex: 0 0 58.33333%;
     max-width: 58.33333%;
