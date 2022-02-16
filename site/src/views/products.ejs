@@ -14,9 +14,17 @@
     <!-- MAIN -->
     <main class="carrito-main">
         <sidebar class="sidebar-filtros">
-            <div>
-                <p>ESTA ES UNA SECCION PARA FILTROS</p>
-            </div>
+            
+            <ul class="sidebar-filtrosUl">                    
+                <a class="sidebar-filtrosA" href="#">Ofertas</a>
+                <a class="sidebar-filtrosA" href="#">Combos</a>
+                <a class="sidebar-filtrosA" href="#">Importados</a>
+                <a class="sidebar-filtrosA" href="#">Packs</a>
+                <a class="sidebar-filtrosA" href="#">Más vendidos</a>
+                <a class="sidebar-filtrosA" href="#">Menos precio</a>
+                <a class="sidebar-filtrosA" href="#">Mayor precio</a>
+            </ul>
+        
         </sidebar>
         <div class="main-productos">
             <% for (let i = 0 ; i < productsToShow.length ; i ++){ %>

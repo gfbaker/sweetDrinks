@@ -1284,10 +1284,22 @@ a.botonComprar{
 
     /* PRODUCTS */
     .sidebar-filtros{
-        max-width: 30%;
-        background-color: #576959;
-        display:block
-    }    
+        max-width: 20%;
+        min-width: 20%;
+        display: block;
+    }   
+    .sidebar-filtrosUl{
+        display: flex;
+        flex-direction: column;
+        padding: 8%;
+
+    } 
+    .sidebar-filtrosA{
+        padding: 1%;
+        border-bottom: 1px solid rgb(87 105 89 / 12%);
+        margin-top: 7%;
+        color: #35453C;
+    }
     /* FIN PRODUCTS */
 
     /* CARRITO */
@@ -1439,6 +1451,14 @@ a.botonComprar{
 
 /* ESCRITORIO */
 @media (min-width:1280px){
+
+    /* PRODUCTOS */
+
+    .main-productos{
+        justify-content: normal;
+        align-self: normal;
+        margin-left: -20%;
+    }
 
     /* HEADER */
     
