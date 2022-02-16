@@ -48,14 +48,14 @@ router.post('/', productController.postProductDetail);
 
 router.get('/:id/edit',  productController.edit); 
 // router.get('/:id/edit', isUserLoggedIn, isAdminMiddleware, productController.edit); 
-router.put('/:id',upload.array('imagenes', 4), validateForm, productController.update); 
+router.put('/:id',upload.array('imagenes', 3), validateForm, productController.update); 
 
 // Eliminar Producto
 router.delete('/detail/:id', isUserLoggedIn, isAdminMiddleware, productController.destroy);
 
 // Producto Nuevo
 router.get('/newProduct', isUserLoggedIn, isAdminMiddleware, productController.getNewProduct);
-router.post('/newProduct', upload.array('imagenes', 4), validateForm, productController.postNewProduct);
+router.post('/newProduct', upload.array('imagenes', 3), validateForm, productController.postNewProduct);
 
 router.get('/:categoria?', productController.getProducts);
 

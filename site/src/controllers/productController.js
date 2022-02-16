@@ -164,82 +164,23 @@ const productController = {
                 console.log(error);
             }
 
-			// categoria = await db.Categories
-			// .findOne({
-			// 	where: {tipo: req.body.categoria}
-			// })
-
-
-			// let nuevosDatos = {
-			// 	nombre: req.body.nombre.toUpperCase(),
-			// 	precio:  Number(req.body.precio),
-			// 	porcentajeAlcohol: Number(req.body.porcentajeAlcohol),
-			// 	volumen: req.body.volumen,
-			// 	descripcion: req.body.descripcion,
-			// 	stock: Number(req.body.stock),
-			// 	descuento: Number(req.body.descuento),
-			// 	oferta: (req.body.oferta === "true"),
-			// 	importado: (req.body.importado === "true"),
-			// 	esPack: (req.body.esPack === "true"),
-			// 	categoria_id: categoria.id
-			// }
-
-
-			// db.Products
-			// .update(
-			// 	nuevosDatos,
-			// 	{
-			// 	where: 
-			// 		{
-			// 		id: req.params.id	
-			// 		}
-			// 	}
-			// )
-			// .then( () =>{
-			// 	if(req.files.length == 0){
-			// 		//Si no se cambiaron las imagenes, ya no hay nada más para hacer
-			// 		res.redirect('/products/detail/'+req.params.id);
-
-			// 	}else{
-			// 		//si se cambiaron las imagenes
-			// 		//Borrar imagenes anteriores
-			// 		db.Images.destroy({
-			// 			where: {product_id: req.params.id}
-			// 		 });
-			// 		//agregar nuevas imagenes
-					
-			// 		req.files.forEach(async file =>{
-			// 			// console.log(file['filename'])
-			// 			await db.Images.create({
-			// 				nombre: file['filename'],
-			// 				product_id: req.params.id
-			// 			})
-			// 		})
-			// 		//redireccionar
-			// 		res.redirect('/products/detail/'+req.params.id);
-			// 	}
-				
-
-
-			// })
-			// .catch( e=>{
-			// 	console.log(e)
-			// })
-
-
-			
-
-			// // 	.then(function(resultado){
-			// // 		// res.send (resultado)
-					
-			// // 	})
-			// // 	.catch(function(error){
-			// // 		console.log(error)
-			// // 	});	
-			// // // res.render (path.join(__dirname,"../views/productEditForm"),{ productToEdit: resultado});
-			// // // res.redirect('/');
 		}else{
-			res.render('productEditForm',{errors:errors.array()});
+			console.log(req.body.oldImagen)
+			let productToEdit = {
+				id: req.params.id,
+				nombre:  req.body.nombre.toUpperCase(),
+				precio:   Number(req.body.precio),
+				porcentajeAlcohol:  Number(req.body.porcentajeAlcohol),
+				volumen: req.body.volumen,
+				descripcion: req.body.descripcion,
+				stock: Number(req.body.stock),
+				descuento: Number(req.body.descuento),
+				oferta: (req.body.oferta === "true"),
+				importado: (req.body.importado === "true"),
+				esPack: (req.body.esPack === "true"),
+				images: [req.file.oldImagen]
+			}
+			res.render('productEditForm',{errors:errors.array(), productToEdit });
 		}
 
 	},

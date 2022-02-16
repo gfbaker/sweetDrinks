@@ -137,7 +137,7 @@
 
                         <!--De esta forma logro conservar y que viaje la imagen anterior de esta forma evito que el usuario seleccione una imagen nuevamente, ( si no lo desea) -->
                     
-                        <input type="hidden"  name="oldImagen"  value=<%= productToEdit.images[0]%>>
+                        <input type="hidden"  name="oldImagen"  value="<%= productToEdit.images[0]%>">
 
                         <label for="imagenes" class="label-formulario">Imágenes: </label>
                         <input type="file" id="imagenes"  name="imagenes" class="estilo-input" value="/img/imgProduct/<%= productToEdit.images[0].nombre %>" multiple>
